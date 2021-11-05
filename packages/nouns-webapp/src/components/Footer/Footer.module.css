@@ -1,11 +1,5 @@
-.wrapper {
-  display: flex;
-  flex: 1;
-
-  background: #91f8b6;
-}
-
 .footerSignature {
+  position: relative;
   font-size: 1rem;
   padding: 3rem 1.5rem 1rem;
 
@@ -100,6 +94,31 @@
   margin-bottom: .5rem;
 }
 
+.critter1 {
+  position: absolute;
+
+  width: 50px;
+
+  bottom: 15%;
+  left: 15%;
+}
+
+.critter2 {
+  position: absolute;
+  width: 80px;
+
+  top: 25%;
+  right: 3%;
+}
+
+.critter3 {
+  position: absolute;
+  width: 50px;
+
+  bottom: 20%;
+  right: 20%;
+}
+
 @media (min-width: 990px) {
   .footerSignature {
     margin: 0 auto;
@@ -117,5 +136,28 @@
 
   .copyright h5 {
     margin-bottom: 1rem;
+  }
+
+  .critter1 {
+    width: 80px;
+  
+    bottom: 20%;
+    left: 0%;
+  }
+  
+  .critter2 {
+    position: absolute;
+    width: 80px;
+  
+    top: 20%;
+    right: 10%;
+  }
+  
+  .critter3 {
+    position: absolute;
+    width: 50px;
+  
+    bottom: 25%;
+    right: 0%;
   }
 }

@@ -45,7 +45,7 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
   }, [lastAuctionNounId, dispatch, initialAuctionId, onDisplayAuction]);
 
   return (
-    <div style={{ backgroundColor: "#91f8b6" }}>
+    <div>
       <Auction auction={onDisplayAuction} />
       <DiatomInfo />
       {/* <Banner /> */}

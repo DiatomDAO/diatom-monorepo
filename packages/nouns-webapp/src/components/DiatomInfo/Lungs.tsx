@@ -1,11 +1,12 @@
+import diatom from './assets/diatom.png';
 import classes from './Lungs.module.css';
 import rightArrow from './assets/rightArrow.svg';
 
 const Lungs = () => (
-  <div>
-    <div style={{ backgroundColor: '#000' }}>
+  <>
+    <div className={classes.LungsContainer}>
       <div className={classes.LungsContentWrapper}>
-        <div className={classes.diatomImg}></div>
+        <img className={classes.diatomImg} src={diatom} alt="Diatom" />
         <div className={classes.LungsContent}>
           <h2>Meet the real lungs of the planet</h2>
           <p>
@@ -45,7 +46,7 @@ const Lungs = () => (
         </p>
       </div>
     </div>
-  </div>
+  </>
 );
 
 export default Lungs;

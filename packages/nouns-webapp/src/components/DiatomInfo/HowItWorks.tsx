@@ -1,10 +1,12 @@
+import contentSea from './assets/contentSea.jpg';
+
 import classes from './HowItWorks.module.css';
 
 const HowItWorks = () => (
   <div id="works" className={classes.container}>
     <h2>How it works</h2>
     <div className={classes.contentWrapper}>
-      <div className={classes.contentImg} />
+      <img className={classes.contentImg} src={contentSea} alt="Diatom sea" />
       <div className={classes.content}>
         <h3>This is another sub-header</h3>
         <p>

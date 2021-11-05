@@ -7,10 +7,10 @@ import { LoadingNoun } from '../Noun';
 import { Auction as IAuction } from '../../wrappers/nounsAuction';
 import classes from './Auction.module.css';
 import { INounSeed } from '../../wrappers/nounToken';
-import NounderNounContent from '../NounderNounContent';
+// import NounderNounContent from '../NounderNounContent';
 import { useHistory } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { isNounderNoun } from '../../utils/nounderNoun';
+// import { isNounderNoun } from '../../utils/nounderNoun';
 import {
   setNextOnDisplayAuctionNounId,
   setPrevOnDisplayAuctionNounId,
@@ -68,16 +68,16 @@ const Auction: React.FC<AuctionProps> = props => {
       displayGraphDepComps={true}
     />
   );
-  const nounderNounContent = currentAuction && lastNounId && (
-    <NounderNounContent
-      mintTimestamp={currentAuction.startTime}
-      nounId={currentAuction.nounId}
-      isFirstAuction={currentAuction.nounId.eq(0)}
-      isLastAuction={currentAuction.nounId.eq(lastNounId)}
-      onPrevAuctionClick={prevAuctionHandler}
-      onNextAuctionClick={nextAuctionHandler}
-    />
-  );
+  // const nounderNounContent = currentAuction && lastNounId && (
+  //   <NounderNounContent
+  //     mintTimestamp={currentAuction.startTime}
+  //     nounId={currentAuction.nounId}
+  //     isFirstAuction={currentAuction.nounId.eq(0)}
+  //     isLastAuction={currentAuction.nounId.eq(lastNounId)}
+  //     onPrevAuctionClick={prevAuctionHandler}
+  //     onNextAuctionClick={nextAuctionHandler}
+  //   />
+  // );
 
   return (
     <div style={{ backgroundColor: stateBgColor }}>

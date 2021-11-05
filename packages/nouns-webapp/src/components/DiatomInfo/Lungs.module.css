@@ -1,21 +1,23 @@
+.LungsContainer {
+  background: url('./assets/lungsBackground.jpg') no-repeat;
+  background-size: cover;
+}
+
 .LungsContentWrapper {
   display: flex;
+  flex-direction: column;
   gap: 5rem;
   max-width: 1000px;
 
   margin: 7rem auto 0;
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   color: white;
-
 }
 
 .diatomImg {
-  min-width: 100px;
-  height: 100px;
-
-  background: white;
-
-  border-radius: 50%;
+  min-width: 150px;
+  width: 150px;
+  height: 150px;
 }
 
 .LungsContent h2 {
@@ -43,7 +45,7 @@
   font-size: 1.25rem;
   font-weight: 300;
   color: #fff;
-  opacity: 0.25;
+  opacity: 0.5;
 
   transition: opacity 300ms ease-out;
 }
@@ -66,7 +68,7 @@
 }
 
 .LungsContent a:hover {
-  opacity: 0.5;
+  opacity:1;
 }
 
 .LungsContent a:hover::after {
@@ -76,7 +78,7 @@
 .topics {
   display: flex;
   flex-direction: column;
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   gap: 4rem;
 
   max-width: 900px;
@@ -113,6 +115,11 @@
 }
 
 @media (min-width: 990px) {
+  .LungsContentWrapper {
+    flex-direction: row;
+    padding: 6rem 0;
+  }
+
   .topics {
     flex-direction: row;
   }

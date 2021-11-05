@@ -1,3 +1,5 @@
+import contentSea from './assets/contentSea.jpg';
+
 import classes from './WhatIsDiatom.module.css';
 
 const WhatIsDiatom = () => (
@@ -12,7 +14,7 @@ const WhatIsDiatom = () => (
           expand our buying power to do so.
         </p>
       </div>
-      <div className={classes.contentImg} />
+      <img className={classes.contentImg} src={contentSea} alt="Diatom sea" />
     </div>
   </div>
 );
