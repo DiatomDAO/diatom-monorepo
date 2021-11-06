@@ -63,7 +63,7 @@
   }
   .contentWrapper {
     flex-direction: row;
-    gap: 5rem;
+    gap: 3rem;
   }
 
   .content {
@@ -73,7 +73,7 @@
   }
 
   .contentImg {
-    max-width: 420px;
+    max-width: 400px;
     height: 350px;
     margin: 0;
   }

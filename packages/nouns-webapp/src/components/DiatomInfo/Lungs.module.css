@@ -6,7 +6,7 @@
 .LungsContentWrapper {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 2rem;
   max-width: 1000px;
 
   margin: 7rem auto 0;
@@ -22,12 +22,12 @@
 
 .LungsContent h2 {
   color: #fff;
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
 .LungsContent p {
-  opacity: 0.75;
+  opacity: 0.5;
 
   font-size: 1.25rem;
   line-height: 1.5rem;
@@ -35,7 +35,7 @@
 
   padding: .5rem 0 0;
 
-  max-width: 600px;
+  max-width: 670px;
 }
 
 .LungsContent a {
@@ -45,7 +45,7 @@
   font-size: 1.25rem;
   font-weight: 300;
   color: #fff;
-  opacity: 0.5;
+  opacity: 0.3;
 
   transition: opacity 300ms ease-out;
 }
@@ -68,20 +68,20 @@
 }
 
 .LungsContent a:hover {
-  opacity:1;
+  opacity:0.8;
 }
 
 .LungsContent a:hover::after {
-  width: 110px;
+  width: 130px;
 }
 
 .topics {
   display: flex;
   flex-direction: column;
   padding: 6rem 2rem;
-  gap: 4rem;
+  gap: 5rem;
 
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -100,7 +100,7 @@
 
 .topic h5 {
   color: #4c4c4c;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-top: 3rem;
 }
 
@@ -111,16 +111,24 @@
   line-height: 1.5rem;
   font-weight: 300;
 
-  padding: .5rem 0 0;
+  padding: 1rem 0 0;
 }
 
 @media (min-width: 990px) {
   .LungsContentWrapper {
     flex-direction: row;
+    gap: 5rem;
     padding: 6rem 0;
   }
 
   .topics {
     flex-direction: row;
+  }
+
+  .diatomImg {
+    margin-top: 10px;
+    min-width: 125px;
+    width: 125px;
+    height: 125px;
   }
 }

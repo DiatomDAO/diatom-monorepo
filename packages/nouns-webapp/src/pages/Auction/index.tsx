@@ -1,5 +1,5 @@
 // import { BigNumber } from 'ethers';
-import Auction from '../../components/Auction';
+// import Auction from '../../components/Auction';
 // import Banner from '../../components/Banner';
 // import Documentation from '../../components/Documentation';
 // import HistoryCollection from '../../components/HistoryCollection';
@@ -46,7 +46,7 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
 
   return (
     <div>
-      <Auction auction={onDisplayAuction} />
+      {/* <Auction auction={onDisplayAuction} /> */}
       <DiatomInfo />
       {/* <Banner /> */}
       {/* {lastAuctionNounId && (

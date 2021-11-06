@@ -68,7 +68,7 @@
   }
   .contentWrapper {
     flex-direction: row;
-    gap: 5rem;
+    gap: 3rem;
 }
 
   .content {
@@ -77,8 +77,12 @@
     justify-content: center;
   }
 
+  .content h3 {
+    margin-bottom: 4rem;
+  }
+
   .contentImg {
-    max-width: 420px;
+    max-width: 400px;
     height: 350px;
     margin: 0;
   }
