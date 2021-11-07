@@ -8,7 +8,7 @@ const HowItWorks = () => (
     <div className={classes.contentWrapper}>
       <img className={classes.contentImg} src={contentSea} alt="Diatom sea" />
       <div className={classes.content}>
-        <h3>This is another sub-header</h3>
+        <h3>Diatom leverages the power of DeFi to establish a community-governed DAO</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
           tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.

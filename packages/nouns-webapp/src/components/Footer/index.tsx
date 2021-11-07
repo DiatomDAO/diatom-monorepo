@@ -10,11 +10,10 @@ const Footer = () => {
   const twitterURL = externalURL(ExternalURL.twitter);
   const discordURL = externalURL(ExternalURL.discord);
   // const etherscanURL = buildEtherscanAddressLink(config.addresses.nounsToken);
-  const githubURL = externalURL(ExternalURL.github);
+  // const githubURL = externalURL(ExternalURL.github);
 
   return (
-    <footer className={classes.footerSignature}>
-      
+    <footer id="community" className={classes.footerSignature}>
       <div className={classes.footerTitle}>
         <h2>Meet the DAO</h2>
         <p>Join the collective proving that you can do well by doing good.</p>
@@ -58,7 +57,7 @@ const Footer = () => {
             <p>Ask general question and chat with the worldwide community on Discord.</p>
           </div>
         </a>
-        <a className={classes.link} href={githubURL} target="_blank" rel="noreferrer">
+        {/* <a className={classes.link} href={githubURL} target="_blank" rel="noreferrer">
           <svg
             className={classes.linkIcon}
             viewBox="0 0 16 16"
@@ -72,7 +71,7 @@ const Footer = () => {
             <h4>Repository</h4>
             <p>Visit our Github repo for the latest codes.</p>
           </div>
-        </a>
+        </a> */}
       </div>
       <div className={classes.copyright}>
         <h5>

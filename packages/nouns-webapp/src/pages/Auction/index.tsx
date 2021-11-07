@@ -10,6 +10,7 @@ import { nounPath } from '../../utils/history';
 import useOnDisplayAuction from '../../wrappers/onDisplayAuction';
 import { useEffect } from 'react';
 import DiatomInfo from '../../components/DiatomInfo';
+import LandingHero from '../../components/LandingHero';
 
 interface AuctionPageProps {
   initialAuctionId?: number;
@@ -47,6 +48,7 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
   return (
     <div>
       {/* <Auction auction={onDisplayAuction} /> */}
+      <LandingHero />
       <DiatomInfo />
       {/* <Banner /> */}
       {/* {lastAuctionNounId && (

@@ -3,6 +3,8 @@
   font-size: 1rem;
   padding: 3rem 1.5rem 1rem;
 
+  margin-top: 5rem;
+
   width: 100%;
   max-width: 1080px;
 }
@@ -19,7 +21,6 @@
   margin-top: .5rem;
   padding: 0;
 
-  opacity: 0.7;
 
   font-weight: 300;
 }
@@ -35,7 +36,7 @@
 .linksContainer {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 3rem;
 
   margin-top: 3rem;
 }
@@ -56,8 +57,6 @@
   font-size: 1.25rem;
   margin: 0;
   padding: 0;
-
-  opacity: 0.7;
 
   font-weight: 300;
 }
@@ -80,17 +79,15 @@
 }
 
 .copyright p {
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin: 0;
   padding: 0;
-
-  opacity: 0.7;
 
   font-weight: 300;
 }
 
 .copyright h5 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   margin-bottom: .5rem;
 }
 
@@ -105,7 +102,7 @@
 
 .critter2 {
   position: absolute;
-  width: 80px;
+  width: 60px;
 
   top: 25%;
   right: 3%;
@@ -113,7 +110,7 @@
 
 .critter3 {
   position: absolute;
-  width: 50px;
+  width: 35px;
 
   bottom: 20%;
   right: 20%;
@@ -121,7 +118,7 @@
 
 @media (min-width: 990px) {
   .footerSignature {
-    margin: 0 auto;
+    margin: 8rem auto;
     padding: 3rem 1.5rem;
   }
 
@@ -139,7 +136,7 @@
   }
 
   .critter1 {
-    width: 80px;
+    width: 50px;
   
     bottom: 20%;
     left: 0%;
@@ -147,7 +144,7 @@
   
   .critter2 {
     position: absolute;
-    width: 80px;
+    width: 50px;
   
     top: 20%;
     right: 10%;
@@ -155,7 +152,7 @@
   
   .critter3 {
     position: absolute;
-    width: 50px;
+    width: 40px;
   
     bottom: 25%;
     right: 0%;

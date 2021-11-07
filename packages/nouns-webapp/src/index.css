@@ -10,3 +10,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+::selection {
+  background: #FFE4ED; /* WebKit/Blink Browsers */
+  color: #EA87F4;
+}
+::-moz-selection {
+  background: #FFE4ED; /* Gecko Browsers */
+  color: #EA87F4;
+}
