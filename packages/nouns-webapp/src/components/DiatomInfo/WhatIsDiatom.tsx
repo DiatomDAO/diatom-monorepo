@@ -7,6 +7,7 @@ const WhatIsDiatom = () => (
     <h2>What is Diatom</h2>
     <div className={classes.contentWrapper}>
       <div className={classes.content}>
+        <h2>What is Diatom</h2>
         <h3>A DAO backed by Earth's most valuable asset</h3>
         <p>
           Diatom is a decentralized currency that grows more valuable as our ocean is measurably

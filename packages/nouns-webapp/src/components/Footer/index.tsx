@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <footer id="community" className={classes.footerSignature}>
       <div className={classes.footerTitle}>
-        <h2>Meet the DAO</h2>
+        <h2>Dive into the DAO</h2>
         <p>Join the collective proving that you can do well by doing good.</p>
       </div>
       <div className={classes.linksContainer}>

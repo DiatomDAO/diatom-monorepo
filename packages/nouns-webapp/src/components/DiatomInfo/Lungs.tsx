@@ -1,6 +1,10 @@
 import diatom from './assets/diatom.png';
 import classes from './Lungs.module.css';
-import rightArrow from './assets/rightArrow.svg';
+import backedImg from './assets/backed.svg';
+import communityImg from './assets/community.svg';
+import protocolImg from './assets/protocol.svg';
+
+// import rightArrow from './assets/rightArrow.svg';
 
 const Lungs = () => (
   <>
@@ -15,34 +19,37 @@ const Lungs = () => (
           </p>
           <a href="#diatom" target="_blank">
             Learn more
-            <img src={rightArrow} alt="Arrow" />
+            {/* <img src={rightArrow} alt="Arrow" /> */}
           </a>
         </div>
       </div>
     </div>
     <div className={classes.topics}>
       <div className={classes.topic}>
-        <div className={classes.dot}></div>
+        <img src={backedImg} alt="Asset-backed icon" />
         <h5>Asset-backed</h5>
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-          tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.
+          Each DIAT is backed by a minimum of 1 DAI. This means no matter what happens, you will
+          always be able to sell your DIAT for at least 1 DAI. As our treasury grows, this number
+          will also increase.
         </p>
       </div>
       <div className={classes.topic}>
-        <div className={classes.dot}></div>
+        <img src={protocolImg} alt="Protocol Controlled icon" />
         <h5>Protocol Controlled</h5>
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-          tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.
+          Unlike most other protocols, Diatom will own the majority of its LP’s by selling bonds of
+          discounted DIAT in exchange for LP tokens. This prevents reliance on mercenary liquidity
+          providers, and allows the treasury to be continually bolstered by LP fees.
         </p>
       </div>
       <div className={classes.topic}>
-        <div className={classes.dot}></div>
+        <img src={communityImg} alt="Community Governed icon" />
         <h5>Community Governed</h5>
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-          tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.
+          As a DAO, Diatom is owned and directed pro-rata by DIAT holders. Any action or change to
+          the DAO is discussed and voted upon by token holders. This ensures the DAO’s actions
+          benefit all, and not just one small party.
         </p>
       </div>
     </div>

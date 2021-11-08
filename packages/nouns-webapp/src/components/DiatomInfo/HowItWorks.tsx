@@ -8,14 +8,12 @@ const HowItWorks = () => (
     <div className={classes.contentWrapper}>
       <img className={classes.contentImg} src={contentSea} alt="Diatom sea" />
       <div className={classes.content}>
-        <h3>Diatom leverages the power of DeFi to establish a community-governed DAO</h3>
+        <h2>How it works</h2>
+        <h3>The power of DeFi in a community-governed DAO</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-          tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-          tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.
+          As a DAO, Diatom is owned and directed pro-rata by DIAT holders. Any action or change to
+          the DAO is discussed and voted upon by token holders. This ensures the DAO’s actions
+          benefit all, and not just one small party.
         </p>
       </div>
     </div>

@@ -11,6 +11,7 @@ import useOnDisplayAuction from '../../wrappers/onDisplayAuction';
 import { useEffect } from 'react';
 import DiatomInfo from '../../components/DiatomInfo';
 import LandingHero from '../../components/LandingHero';
+import InfoSections from '../../components/InfoSections';
 
 interface AuctionPageProps {
   initialAuctionId?: number;
@@ -50,6 +51,7 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
       {/* <Auction auction={onDisplayAuction} /> */}
       <LandingHero />
       <DiatomInfo />
+      <InfoSections />
       {/* <Banner /> */}
       {/* {lastAuctionNounId && (
         <HistoryCollection latestNounId={BigNumber.from(lastAuctionNounId)} historyCount={10} />
