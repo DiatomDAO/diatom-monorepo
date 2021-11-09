@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 5rem;
   padding: 0 3rem;
-
+  overflow: hidden;
   max-width: 1300px;
 
   margin: 2rem auto 0;
@@ -13,7 +13,16 @@
   margin-left: 20%;
 }
 
-.sectionTitle p,h2 {
+.sectionTitle p {
+  color: #4c4c4c;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 2rem;
+
+  margin: 0;
+}
+
+.sectionTitle h2 {
   color: #4c4c4c;
   font-size: 1.9rem;
   font-weight: 700;

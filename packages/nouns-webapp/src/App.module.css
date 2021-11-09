@@ -5,10 +5,10 @@
   flex-direction: column;
   min-height: 100vh;
 
-  background-image: url('./assets/topGradient.jpg'), url('./assets/bottomGradient.jpg');
-  background-position: center top, center bottom;
-  background-repeat: no-repeat, no-repeat;
-  background-size: 100% 51%, 100% 50%;
+  background-image: url('./assets/gradient.jpg');
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 100% 4000px;
 }
 
 html {

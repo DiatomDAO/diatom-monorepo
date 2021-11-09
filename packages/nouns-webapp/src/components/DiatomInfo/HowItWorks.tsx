@@ -1,4 +1,4 @@
-import contentSea from './assets/contentSea.jpg';
+import network from './assets/network.jpg';
 
 import classes from './HowItWorks.module.css';
 
@@ -6,7 +6,7 @@ const HowItWorks = () => (
   <div id="works" className={classes.container}>
     <h2>How it works</h2>
     <div className={classes.contentWrapper}>
-      <img className={classes.contentImg} src={contentSea} alt="Diatom sea" />
+      <img className={classes.contentImg} src={network} alt="Diatom sea" />
       <div className={classes.content}>
         <h2>How it works</h2>
         <h3>The power of DeFi in a community-governed DAO</h3>
