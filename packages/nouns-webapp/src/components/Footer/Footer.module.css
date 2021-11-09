@@ -29,6 +29,8 @@
   color: black;
   margin: 0 5px;
 
+  max-height: 62px;
+
   width: fit-content;
 }
 

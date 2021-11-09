@@ -32,6 +32,8 @@
 .content h2 {
   font-size: 1rem;
   font-weight: 500;
+
+  margin: 1.5rem 0 0.5rem;
 }
 
 .content h3 {
@@ -57,7 +59,7 @@
 
   margin: 0 auto;
 
-  background: #0A0B3C;
+  background: #0a0b3c;
 
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 
@@ -97,7 +99,7 @@
   .content h3 {
     font-size: 2.5rem;
   }
-  
+
   .content p {
     margin: 0.5rem 0;
     line-height: 1.25rem;

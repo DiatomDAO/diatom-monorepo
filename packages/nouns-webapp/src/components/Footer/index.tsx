@@ -1,5 +1,5 @@
-import critter1 from './assets/critter1.png';
-import critter2 from './assets/critter2.png';
+// import critter1 from './assets/critter1.png';
+// import critter2 from './assets/critter2.png';
 import critter3 from './assets/critter3.png';
 import classes from './Footer.module.css';
 // import { buildEtherscanAddressLink } from '../../utils/etherscan';
@@ -19,8 +19,8 @@ const Footer = () => {
         <p>Join the collective proving that you can do well by doing good.</p>
       </div>
       <div className={classes.linksContainer}>
-        <img className={classes.critter1} src={critter1} alt="Critter" />
-        <img className={classes.critter2} src={critter2} alt="Critter" />
+        {/* <img className={classes.critter1} src={critter1} alt="Critter" />
+        <img className={classes.critter2} src={critter2} alt="Critter" /> */}
         <img className={classes.critter3} src={critter3} alt="Critter" />
         <a className={classes.link} href={twitterURL} target="_blank" rel="noreferrer">
           <svg
