@@ -9,6 +9,8 @@
   text-align: right;
   color: #8e8e8e;
   margin: 0;
+  
+  opacity: 0;
 }
 
 .container > h2 {
@@ -45,6 +47,8 @@
   text-align: right;
   color: #4c4c4c;
   margin: 1rem 0 0;
+
+  opacity: 0;
 }
 
 .content p {
@@ -55,6 +59,8 @@
   padding: 0;
 
   font-weight: 300;
+
+  opacity: 0;
 }
 
 .contentImg {
@@ -74,6 +80,44 @@
 .contentImg:hover {
   box-shadow: 10px 10px 15px 0px rgba(0, 0, 0, 0.5);
   transform: scale(1.005);
+}
+
+.contentSlideIn h2 {
+  animation: slideIn 300ms ease-in-out forwards;
+}
+
+.contentSlideIn h3 {
+  animation: slideIn 300ms 300ms ease-in-out forwards;
+}
+
+.contentSlideIn p {
+  animation: slideIn 300ms 600ms ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 300ms ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 990px) {
@@ -114,5 +158,13 @@
     max-width: 400px;
     height: 350px;
     margin: 0;
+  }
+
+  .contentSlideIn h3 {
+    animation-delay: 400ms;
+  }
+  
+  .contentSlideIn p {
+    animation-delay: 700ms;
   }
 }

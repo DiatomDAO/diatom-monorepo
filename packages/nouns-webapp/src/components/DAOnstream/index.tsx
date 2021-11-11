@@ -1,18 +1,19 @@
 import { useEffect, useState, useRef } from 'react';
 import onScreen from '../../hooks/onScreen';
+
 import classes from './DAOnstream.module.css';
 
 const DAOnstream = () => {
   const [showAnimation, setShowAnimation] = useState(false);
 
+  const isMobile = window.innerWidth < 900;
+
   const ref = useRef(null);
-  const isVisible = onScreen(ref, { threshold: 0.3 });
+  const isVisible = onScreen(ref, { threshold: isMobile ? 0.3 : 1 });
 
   useEffect(() => {
-    if (isVisible) 
-      setShowAnimation(true)
-
-  }, [isVisible])
+    if (isVisible) setShowAnimation(true);
+  }, [isVisible]);
 
   return (
     <div className={classes.DAOnstream}>

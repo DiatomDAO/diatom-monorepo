@@ -35,11 +35,12 @@
   color: #c4c4c4;
 }
 
-
 /* Section LEFT */
 .sectionLeft {
   display: flex;
   flex-direction: column-reverse;
+
+  opacity: 0;
 }
 
 .sectionLeft > div {
@@ -54,7 +55,6 @@
   line-height: 22px;
 }
 
-
 .sectionLeft img {
   width: 100%;
 }
@@ -64,6 +64,8 @@
 .sectionRight {
   display: flex;
   flex-direction: column;
+
+  opacity: 0;
 }
 
 .sectionRight > div {
@@ -89,15 +91,50 @@
   text-align: right;
 }
 
+.slideInLeft {
+  animation: slideInLeft 300ms ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slideInRight {
+  animation: slideInRight 300ms ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media (min-width: 990px) {
   .infoSections {
     gap: 5rem;
     padding: 0 5rem;
     margin: 5rem auto 0;
   }
-  
+
   .sectionLeft {
     flex-direction: row;
+    opacity: 1;
+  }
+
+  .sectionLeft > * {
+    opacity: 0;
   }
 
   .sectionLeft > div {
@@ -119,6 +156,11 @@
 
   .sectionRight {
     flex-direction: row;
+    opacity: 1;
+  }
+
+  .sectionRight > * {
+    opacity: 0;
   }
 
   .sectionRight > div {
@@ -136,5 +178,52 @@
 
   .sectionRight > div > p {
     margin: 1rem 0 0;
+  }
+
+  .slideInLeft {
+    animation: unset;
+  }
+
+  .slideInLeft > div {
+    animation: slideInLeft 500ms ease-out forwards;
+  }
+
+  .slideInLeft > img{
+    animation: slideInRight 500ms ease-out forwards;
+  }
+
+  .slideInRight {
+    animation: unset;
+  }
+
+  .slideInRight > div {
+    animation: slideInRight 500ms ease-out forwards;
+  }
+
+  .slideInRight > img{
+    animation: slideInLeft 500ms ease-out forwards;
+  }
+
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-150px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(150px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }

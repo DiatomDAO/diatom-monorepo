@@ -94,6 +94,8 @@
 .topic {
   display: flex;
   flex-direction: column;
+
+  opacity: 0;
 }
 
 .topic h5 {
@@ -117,6 +119,21 @@
   width: fit-content;
   max-height: 150px;
   margin: 0 auto;
+}
+
+.slideIn {
+  animation: slideIn 300ms ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (min-width: 990px) {
@@ -150,6 +167,14 @@
     min-width: 125px;
     width: 125px;
     height: 125px;
+
+    animation: rotate 70s linear infinite;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .topic h5 {
@@ -157,17 +182,40 @@
     font-size: 1.25rem;
     margin-top: 3rem;
   }
-  
+
   .topic p {
     font-size: 15px;
     line-height: 1.25rem;
     font-weight: 300;
     color: #4c4c4c;
-  
+
     padding: 1rem 0 0;
   }
-  
+
   .topic img {
     height: 100px;
+  }
+
+  .slideIn:nth-of-type(2) {
+    animation-delay: 300ms;
+  }
+
+  .slideIn:nth-of-type(3) {
+    animation-delay: 700ms;
+  }
+
+  .slideIn {
+    animation-duration: 400ms;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-80px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
