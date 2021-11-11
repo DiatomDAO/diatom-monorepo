@@ -2,7 +2,7 @@ import diatom from './assets/diatom.png';
 import classes from './Lungs.module.css';
 import backedImg from './assets/backed.svg';
 import communityImg from './assets/community.svg';
-import protocolImg from './assets/protocol.svg';
+import protocolImg from './assets/protocol.png';
 
 // import rightArrow from './assets/rightArrow.svg';
 
