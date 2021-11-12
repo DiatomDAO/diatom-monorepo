@@ -28,7 +28,7 @@ const WhatIsDiatom = () => {
       <div className={classes.contentWrapper}>
         <div ref={contentRef} className={classes.content}>
           <h2>What is Diatom</h2>
-          <h3>A DAO backed by Earth's most valuable asset</h3>
+          <h3>A DAO investing in Earth's most valuable asset</h3>
           <p>
             Diatom is a decentralized currency that grows more valuable as our ocean is measurably
             restored and protected. Members of the DAO vote on projects that restore ocean health

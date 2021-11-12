@@ -18,10 +18,10 @@ const Footer = () => {
         <h2>Dive into the DAO</h2>
         <p>Join the collective proving that you can do well by doing good.</p>
       </div>
+        <img className={classes.critter3} src={critter3} alt="Critter" />
       <div className={classes.linksContainer}>
         {/* <img className={classes.critter1} src={critter1} alt="Critter" />
         <img className={classes.critter2} src={critter2} alt="Critter" /> */}
-        <img className={classes.critter3} src={critter3} alt="Critter" />
         <a className={classes.link} href={twitterURL} target="_blank" rel="noreferrer">
           <svg
             fill="currentColor"

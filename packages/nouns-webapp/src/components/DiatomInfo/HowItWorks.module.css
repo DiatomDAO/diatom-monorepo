@@ -52,6 +52,7 @@
 }
 
 .content p {
+  font-size: 18px;
   line-height: 1.25rem;
   color: #4c4c4c;
   text-align: right;
@@ -83,15 +84,15 @@
 }
 
 .contentSlideIn h2 {
-  animation: slideIn 300ms ease-in-out forwards;
+  animation: slideIn 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .contentSlideIn h3 {
-  animation: slideIn 300ms 300ms ease-in-out forwards;
+  animation: slideIn 300ms 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .contentSlideIn p {
-  animation: slideIn 300ms 600ms ease-in-out forwards;
+  animation: slideIn 300ms 600ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 @keyframes slideIn {

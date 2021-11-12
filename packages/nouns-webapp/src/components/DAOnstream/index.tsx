@@ -30,7 +30,7 @@ const DAOnstream = () => {
           </div>
           <div>
             <h3>Q4</h3>
-            <h2>2022</h2>
+            <h2>2021</h2>
           </div>
         </div>
         <div className={classes.quarter}>

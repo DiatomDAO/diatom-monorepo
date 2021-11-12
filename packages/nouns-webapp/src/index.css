@@ -14,8 +14,10 @@ code {
 ::selection {
   background: #FFE4ED; /* WebKit/Blink Browsers */
   color: #EA87F4;
+  text-shadow: none;
 }
 ::-moz-selection {
   background: #FFE4ED; /* Gecko Browsers */
   color: #EA87F4;
+  text-shadow: none;
 }

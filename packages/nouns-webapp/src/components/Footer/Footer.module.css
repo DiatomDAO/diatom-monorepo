@@ -38,12 +38,12 @@
   gap: 3rem;
 
   margin-top: 3rem;
-  z-index: 10;
 }
 
 .link {
   display: flex;
   gap: 1.2rem;
+  z-index: 100;
 }
 
 .link h4 {
@@ -115,11 +115,53 @@
 
   bottom: 15%;
   right: 20%;
+
+  animation: float 45s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0,0) rotate(0);
+  }
+
+  20% {
+    transform: translate(50px,-120px) rotate(20deg);
+  }
+  25% {
+    transform: translate(50px,-150px) rotate(15deg);
+  }
+  30% {
+    transform: translate(50px,-180px) rotate(10deg);
+  }
+
+  45% {
+    transform: translate(0,-270px) rotate(-15deg);
+  }
+  50% {
+    transform: translate(-2px,-300px) rotate(-25deg);
+  }
+  55% {
+    transform: translate(0,-270px) rotate(-15deg);
+  }
+
+  70% {
+    transform: translate(50px,-180px) rotate(20deg);
+  }
+  75% {
+    transform: translate(50px,-150px) rotate(15deg);
+  }
+  80% {
+    transform: translate(50px,-120px) rotate(10deg);
+  }
+
+  100%{
+    transform: translate(0,0) rotate(0);
+  }
 }
 
 @media (min-width: 990px) {
   .footerSignature {
-    margin: 8rem auto;
+    margin: 8rem auto 0;
     padding: 3rem 1.5rem;
   }
 

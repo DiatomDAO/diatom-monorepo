@@ -6,6 +6,7 @@ import classes from './Lungs.module.css';
 import backedImg from './assets/backed.svg';
 import communityImg from './assets/community.svg';
 import protocolImg from './assets/protocol.png';
+import rightArrow from './assets/rightArrow.svg';
 
 const Lungs = () => {
   const [showTopicOne, setShowTopicOne] = useState(false);
@@ -49,8 +50,9 @@ const Lungs = () => {
               Diatoms are algae in oceans, lakes and waterways that are responsible for sequestering
               carbon and provide 50% of all the air that we breathe on earth.
             </p>
-            <a href="#diatom" target="_blank">
+            <a href="https://medium.com/@diatomdao/introducing-diatom-dao-c9f7dd17b34c" target="_blank" rel="noreferrer">
               Learn more
+              <img src={rightArrow} alt="Right arrow" />
             </a>
           </div>
         </div>

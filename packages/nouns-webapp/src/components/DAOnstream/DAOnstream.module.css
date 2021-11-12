@@ -173,7 +173,7 @@
 }
 
 .timelineAnimation > .quarter > div * {
-  animation: fadeInFromAbove 400ms linear forwards;
+  animation: fadeInFromAbove 400ms ease-out forwards;
 }
 
 .timelineAnimation > .quarter:nth-child(2) > div * {
