@@ -3,6 +3,8 @@
   background-size: cover;
 
   background-position: 30% center;
+
+  overflow: hidden;
 }
 
 .LungsContentWrapper {
