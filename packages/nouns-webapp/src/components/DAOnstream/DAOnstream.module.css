@@ -173,23 +173,23 @@
 }
 
 .timelineAnimation > .quarter > div * {
-  animation: fadeInFromAbove 400ms ease-out forwards;
+  animation: fadeInFromAbove 400ms cubic-bezier(.37,.65,.36,1.12) forwards;
 }
 
 .timelineAnimation > .quarter:nth-child(2) > div * {
   animation-delay: .5s;
 }
 .timelineAnimation > .quarter:nth-child(3) > div * {
-  animation-delay: 1.1s;
+  animation-delay: 1.15s;
 }
 .timelineAnimation > .quarter:nth-child(4) > div * {
-  animation-delay: 1.6s;
+  animation-delay: 1.65s;
 }
 .timelineAnimation > .quarter:nth-child(5) > div * {
-  animation-delay: 2.1s;
+  animation-delay: 2.15s;
 }
 .timelineAnimation > .quarter:nth-child(6) > div * {
-  animation-delay: 2.6s;
+  animation-delay: 2.65s;
 }
 
 @keyframes fadeInFromAbove {

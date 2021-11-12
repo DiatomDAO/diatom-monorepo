@@ -92,7 +92,7 @@
 }
 
 .slideInLeft {
-  animation: slideInLeft 300ms ease-out forwards;
+  animation: slideInLeft 300ms cubic-bezier(0,.02,.16,1.08) forwards;
 }
 
 @keyframes slideInLeft {
@@ -107,7 +107,7 @@
 }
 
 .slideInRight {
-  animation: slideInRight 300ms ease-out forwards;
+  animation: slideInRight 300ms cubic-bezier(0,.02,.16,1.08) forwards;
 }
 
 @keyframes slideInRight {
@@ -185,11 +185,11 @@
   }
 
   .slideInLeft > div {
-    animation: slideInLeft 500ms ease-out forwards;
+    animation: slideInLeft 500ms cubic-bezier(0,.02,.16,1.08) forwards;
   }
 
   .slideInLeft > img{
-    animation: slideInRight 500ms ease-out forwards;
+    animation: slideInRight 500ms cubic-bezier(0,.02,.16,1.08) forwards;
   }
 
   .slideInRight {
@@ -197,11 +197,11 @@
   }
 
   .slideInRight > div {
-    animation: slideInRight 500ms ease-out forwards;
+    animation: slideInRight 500ms cubic-bezier(0,.02,.16,1.08) forwards;
   }
 
   .slideInRight > img{
-    animation: slideInLeft 500ms ease-out forwards;
+    animation: slideInLeft 500ms cubic-bezier(0,.02,.16,1.08) forwards;
   }
 
 
