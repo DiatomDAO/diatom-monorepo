@@ -19,25 +19,25 @@ const InfoSections = () => {
   const sectionOneRef = useRef(null);
   const isSectionOneVisible = onScreen(sectionOneRef, {
     threshold: 0.5,
-    rootMargin: isMobile ? '0px' : '-130px',
+    rootMargin: isMobile ? '0px' : '-350px',
   });
 
   const sectionTwoRef = useRef(null);
   const isSectionTwoVisible = onScreen(sectionTwoRef, {
     threshold: 0.5,
-    rootMargin: isMobile ? '0px' : '-130px',
+    rootMargin: isMobile ? '0px' : '-350px',
   });
 
   const sectionThreeRef = useRef(null);
   const isSectionThreeVisible = onScreen(sectionThreeRef, {
     threshold: 0.5,
-    rootMargin: isMobile ? '0px' : '-130px',
+    rootMargin: isMobile ? '0px' : '-350px',
   });
 
   const sectionFourRef = useRef(null);
   const isSectionFourVisible = onScreen(sectionFourRef, {
     threshold: 0.5,
-    rootMargin: isMobile ? '0px' : '-130px',
+    rootMargin: isMobile ? '0px' : '-350px',
   });
 
   useEffect(() => {
