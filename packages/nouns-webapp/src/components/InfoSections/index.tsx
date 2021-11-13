@@ -51,7 +51,7 @@ const InfoSections = () => {
     <div className={classes.infoSections}>
       <div
         ref={sectionOneRef}
-        className={`${classes.sectionLeft} ${showSectionOne ? classes.slideInLeft : ''}`}
+        className={`${classes.sectionLeft} ${showSectionOne ? classes.fadeIn : ''}`}
       >
         <div>
           <div className={classes.sectionTitle}>
@@ -68,7 +68,7 @@ const InfoSections = () => {
       </div>
       <div
         ref={sectionTwoRef}
-        className={`${classes.sectionRight} ${showSectionTwo ? classes.slideInRight : ''}`}
+        className={`${classes.sectionRight} ${showSectionTwo ? classes.fadeIn : ''}`}
       >
         <img src={backed} alt="DIAT backed" />
         <div>
@@ -85,7 +85,7 @@ const InfoSections = () => {
       </div>
       <div
         ref={sectionThreeRef}
-        className={`${classes.sectionLeft} ${showSectionThree ? classes.slideInLeft : ''}`}
+        className={`${classes.sectionLeft} ${showSectionThree ? classes.fadeIn : ''}`}
       >
         <div>
           <div className={classes.sectionTitle}>
@@ -102,7 +102,7 @@ const InfoSections = () => {
       </div>
       <div
         ref={sectionFourRef}
-        className={`${classes.sectionRight} ${showSectionFour ? classes.slideInRight : ''}`}
+        className={`${classes.sectionRight} ${showSectionFour ? classes.fadeIn : ''}`}
       >
         <img src={whales} alt="Whales protection" />
         <div>

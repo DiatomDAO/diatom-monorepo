@@ -83,16 +83,25 @@
   transform: scale(1.005);
 }
 
-.contentSlideIn h2 {
-  animation: slideIn 300ms ease-in-out forwards;
+.contentFadeIn h2 {
+  animation: fadeIn 500ms ease-in-out forwards;
 }
 
-.contentSlideIn h3 {
-  animation: slideIn 300ms 300ms ease-in-out forwards;
+.contentFadeIn h3 {
+  animation: fadeIn 500ms 500ms ease-in-out forwards;
 }
 
-.contentSlideIn p {
-  animation: slideIn 300ms 600ms ease-in-out forwards;
+.contentFadeIn p {
+  animation: fadeIn 500ms 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
@@ -103,21 +112,6 @@
   to {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-.fadeIn {
-  animation: fadeIn 300ms ease-in-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -161,11 +155,11 @@
     margin: 0;
   }
 
-  .contentSlideIn h3 {
+  .contentFadeIn h3 {
     animation-delay: 400ms;
   }
   
-  .contentSlideIn p {
+  .contentFadeIn p {
     animation-delay: 700ms;
   }
 }

@@ -91,6 +91,19 @@
   text-align: right;
 }
 
+.fadeIn {
+  animation: fadeIn 400ms ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .slideInLeft {
   animation: slideInLeft 300ms cubic-bezier(0,.02,.16,1.08) forwards;
 }
@@ -130,11 +143,6 @@
 
   .sectionLeft {
     flex-direction: row;
-    opacity: 1;
-  }
-
-  .sectionLeft > * {
-    opacity: 0;
   }
 
   .sectionLeft > div {
@@ -156,11 +164,6 @@
 
   .sectionRight {
     flex-direction: row;
-    opacity: 1;
-  }
-
-  .sectionRight > * {
-    opacity: 0;
   }
 
   .sectionRight > div {
@@ -182,6 +185,10 @@
 
   .slideInLeft {
     animation: unset;
+  }
+
+  .fadeIn {
+    animation-duration: 500ms;
   }
 
   .slideInLeft > div {

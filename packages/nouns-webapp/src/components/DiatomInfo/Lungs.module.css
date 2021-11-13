@@ -161,6 +161,19 @@
   margin: 0 auto;
 }
 
+.fadeIn {
+  animation: fadeIn 400ms ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .slideIn {
   animation: slideIn 400ms ease-in-out forwards;
 }
@@ -237,6 +250,18 @@
 
   .topic img {
     height: 100px;
+  }
+
+  .fadeIn:nth-of-type(2) {
+    animation-delay: 300ms;
+  }
+
+  .fadeIn:nth-of-type(3) {
+    animation-delay: 700ms;
+  }
+
+  .fadeIn {
+    animation-duration: 500ms;
   }
 
   .slideIn:nth-of-type(2) {

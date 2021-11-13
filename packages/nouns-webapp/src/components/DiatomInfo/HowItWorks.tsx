@@ -11,7 +11,7 @@ const HowItWorks = () => {
   const isMobile = window.innerWidth < 900;
 
   const contentRef = useRef(null);
-  const isContentVisible = onScreen(contentRef, { threshold: isMobile ? 0.3 : 0.8 });
+  const isContentVisible = onScreen(contentRef, { threshold: isMobile ? 1 : 0.8 });
 
   const imgRef = useRef(null);
   const isImgVisible = onScreen(imgRef, { threshold: 0.7 });
@@ -23,7 +23,7 @@ const HowItWorks = () => {
   }, [isImgVisible, isContentVisible]);;
 
   return (
-    <div id="works" className={`${classes.container} ${showContent ? classes.contentSlideIn : ''}`}>
+    <div id="works" className={`${classes.container} ${showContent ? classes.contentFadeIn : ''}`}>
       <h2>How it works</h2>
       <div className={classes.contentWrapper}>
         <img ref={imgRef} className={`${classes.contentImg} ${showImg ? classes.slideIn : ''}`} src={network} alt="Diatom sea" />

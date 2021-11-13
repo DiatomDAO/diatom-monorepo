@@ -50,7 +50,11 @@ const Lungs = () => {
               Diatoms are algae in oceans, lakes and waterways that are responsible for sequestering
               carbon and provide 50% of all the air that we breathe on earth.
             </p>
-            <a href="https://medium.com/@diatomdao/introducing-diatom-dao-c9f7dd17b34c" target="_blank" rel="noreferrer">
+            <a
+              href="https://medium.com/@diatomdao/introducing-diatom-dao-c9f7dd17b34c"
+              target="_blank"
+              rel="noreferrer"
+            >
               Learn more
               <img src={rightArrow} alt="Right arrow" />
             </a>
@@ -60,7 +64,7 @@ const Lungs = () => {
       <div className={classes.topics}>
         <div
           ref={topicOneRef}
-          className={`${classes.topic} ${showTopicOne ? classes.slideIn : ''}`}
+          className={`${classes.topic} ${showTopicOne ? classes.fadeIn : ''}`}
         >
           <img src={backedImg} alt="Asset-backed icon" />
           <h5>Asset-backed</h5>
@@ -72,7 +76,7 @@ const Lungs = () => {
         </div>
         <div
           ref={topicTwoRef}
-          className={`${classes.topic} ${showTopicTwo ? classes.slideIn : ''}`}
+          className={`${classes.topic} ${showTopicTwo ? classes.fadeIn : ''}`}
         >
           <img style={{ maxWidth: '114px' }} src={protocolImg} alt="Protocol Controlled icon" />
           <h5>Protocol Controlled</h5>
@@ -84,7 +88,7 @@ const Lungs = () => {
         </div>
         <div
           ref={topicThreeRef}
-          className={`${classes.topic} ${showTopicThree ? classes.slideIn : ''}`}
+          className={`${classes.topic} ${showTopicThree ? classes.fadeIn : ''}`}
         >
           <img src={communityImg} alt="Community Governed icon" />
           <h5>Community Governed</h5>
