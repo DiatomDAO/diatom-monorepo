@@ -5,6 +5,7 @@ import bonding from './assets/bonding.svg';
 import removal from './assets/removal.svg';
 import verified from './assets/verified.svg';
 import plastic from './assets/plastic.png';
+import ocean from './assets/ocean.png';
 
 import classes from './Tokenomics.module.css';
 
@@ -54,85 +55,89 @@ const Tokenomics = () => {
   ]);
 
   return (
-    <div
-      id="Tokenomics"
-      className={`${classes.section} ${currentSectionVisible >= 1 ? classes.contentFadeIn : ''}`}
-    >
-      <h1>Tokenomics</h1>
-      <img className={classes.centralImg} src={logo} alt="" />
+    <>
       <div
-        ref={sectionOneRef}
-        className={`${classes.sectionOne} ${
-          currentSectionVisible >= 1 && isMobile ? classes.contentFadeIn : ''
-        }`}
+        id="Tokenomics"
+        className={`${classes.section} ${currentSectionVisible >= 1 ? classes.contentFadeIn : ''}`}
       >
-        <div className={classes.exchangeImages}>
-          <img src={bonding} alt="Bonding" />
-          <div className={classes.exchangeCoins}>
-            <div>
-              <div className={classes.wind} />
-              <div className={classes.yellowBall} />
-              {/* <img src={logo} alt="Bonding" /> */}
+        <h1>Tokenomics</h1>
+        <img className={classes.centralImg} src={logo} alt="" />
+        <div
+          ref={sectionOneRef}
+          className={`${classes.sectionOne} ${
+            currentSectionVisible >= 1 && isMobile ? classes.contentFadeIn : ''
+          }`}
+        >
+          <div className={classes.exchangeImages}>
+            <img src={bonding} alt="Bonding" />
+            <div className={classes.exchangeCoins}>
+              <div>
+                <div className={classes.wind} />
+                <div className={classes.yellowBall} />
+                {/* <img src={logo} alt="Bonding" /> */}
+              </div>
+              <div>
+                <img src={logo} alt="Bonding" />
+                <div className={classes.wind} />
+              </div>
             </div>
-            <div>
-              <img src={logo} alt="Bonding" />
-              <div className={classes.wind} />
-            </div>
+            <img src={logo} alt="Bonding" />
           </div>
-          <img src={logo} alt="Bonding" />
+          <h2>01 Bonding</h2>
+          <p>
+            Members of the DAO buy DIAT at a discount in exchange for tokens that build the
+            treasury.
+          </p>
         </div>
-        <h2>01 Bonding</h2>
-        <p>
-          Members of the DAO buy DIAT at a discount in exchange for tokens that build the treasury.
-        </p>
+        <div
+          ref={sectionTwoRef}
+          className={`${classes.sectionTwo} ${
+            currentSectionVisible >= 2 && isMobile ? classes.contentFadeIn : ''
+          }`}
+        >
+          <img src={removal} alt="" />
+          <h2>02 Removal Projects Funded</h2>
+          <p>We distribute funds to PRC-compliant projects.</p>
+        </div>
+        <div
+          ref={sectionThreeRef}
+          className={`${classes.sectionThree} ${
+            currentSectionVisible >= 3 && isMobile ? classes.contentFadeIn : ''
+          }`}
+        >
+          <img src={verified} alt="" />
+          <h2>03 Plastic Removal Verified</h2>
+          <p>The plastic is removed, weighed, and transparently processed.</p>
+        </div>
+        <div
+          ref={sectionFourRef}
+          className={`${classes.sectionFour} ${
+            currentSectionVisible >= 4 && isMobile ? classes.contentFadeIn : ''
+          }`}
+        >
+          <img src={plastic} alt="" />
+          <h2>04 PRC Minted</h2>
+          <p>
+            Depending on the value of the plastic removed, a number of PRC's are minted and put into
+            our treasury as assets.
+          </p>
+        </div>
+        <div
+          ref={sectionFiveRef}
+          className={`${classes.sectionFive} ${
+            currentSectionVisible >= 5 && isMobile ? classes.contentFadeIn : ''
+          }`}
+        >
+          <img src={logo} alt="" />
+          <h2>05 PRC Purchases</h2>
+          <p>
+            Corporations and individuals buy PRC's and "retire" them to provably remove past plastic
+            pollution.
+          </p>
+        </div>
       </div>
-      <div
-        ref={sectionTwoRef}
-        className={`${classes.sectionTwo} ${
-          currentSectionVisible >= 2 && isMobile ? classes.contentFadeIn : ''
-        }`}
-      >
-        <img src={removal} alt="" />
-        <h2>02 Removal Projects Funded</h2>
-        <p>We distribute funds to PRC-compliant projects.</p>
-      </div>
-      <div
-        ref={sectionThreeRef}
-        className={`${classes.sectionThree} ${
-          currentSectionVisible >= 3 && isMobile ? classes.contentFadeIn : ''
-        }`}
-      >
-        <img src={verified} alt="" />
-        <h2>03 Plastic Removal Verified</h2>
-        <p>The plastic is removed, weighed, and transparently processed.</p>
-      </div>
-      <div
-        ref={sectionFourRef}
-        className={`${classes.sectionFour} ${
-          currentSectionVisible >= 4 && isMobile ? classes.contentFadeIn : ''
-        }`}
-      >
-        <img src={plastic} alt="" />
-        <h2>04 PRC Minted</h2>
-        <p>
-          Depending on the value of the plastic removed, a number of PRC's are minted and put into
-          our treasury as assets.
-        </p>
-      </div>
-      <div
-        ref={sectionFiveRef}
-        className={`${classes.sectionFive} ${
-          currentSectionVisible >= 5 && isMobile ? classes.contentFadeIn : ''
-        }`}
-      >
-        <img src={logo} alt="" />
-        <h2>05 PRC Purchases</h2>
-        <p>
-          Corporations and individuals buy PRC's and "retire" them to provably remove past plastic
-          pollution.
-        </p>
-      </div>
-    </div>
+      {/* <img src={ocean} alt={'Ocean'} /> */}
+    </>
   );
 };
 

@@ -38,7 +38,7 @@ const Footer = () => {
           <div>
             <h4>Twitter</h4>
             <p>
-              Follow <strong>@</strong>diatomdao to get the latest news and updates.
+              Follow @diatomdao to get the latest news and updates.
             </p>
           </div>
         </a>
