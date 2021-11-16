@@ -1,0 +1,285 @@
+.section {
+  display: none;
+  flex-direction: column;
+
+  position: relative;
+
+  padding: 0 2rem;
+  margin: 5rem 0;
+}
+
+.section h1 {
+  position: relative;
+  font-size: 2.25rem;
+  color: #053039;
+  font-weight: 700;
+
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.section h1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  height: 3px;
+  width: calc(50% - 125px);
+  background: #5B6459;
+}
+
+.section h1::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  height: 3px;
+  width: calc(50% - 130px);
+  background: #5B6459;
+}
+
+.section > div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+
+  width: 100%;
+}
+
+.section > div > img {
+  height: 100%;
+  max-height: 150px;
+
+  margin: 0 auto;
+
+  opacity: 0;
+}
+
+.section > div > h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #053039;
+  margin: 1rem 0 0;
+
+  margin-top: 2rem;
+
+  opacity: 0;
+}
+
+.section p {
+  font-size: 18px;
+  line-height: 1.25rem;
+  color: #000;
+  margin: 1rem 0 0;
+  padding: 0;
+
+  opacity: 0;
+}
+
+.centralImg {
+  display: none;
+}
+
+.exchangeImages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.exchangeImages > img {
+  width: 70%;
+}
+
+.exchangeCoins {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.exchangeCoins > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.exchangeCoins img {
+  width: 50px;
+}
+
+.yellowBall {
+  width: 50px;
+  height: 50px;
+
+  background: rgb(245, 245, 0);
+  border-radius: 50%;
+}
+
+.exchangeCoins .wind {
+  position: relative;
+
+  width: 30px;
+  height: 35px;
+  border: 2px solid #5B6459;
+  border-top: none;
+  border-bottom: none;
+}
+
+.exchangeCoins .wind::after {
+  content: "";
+  width: 2px;
+  height: 35px;
+  background: #5B6459;
+
+  position: absolute;
+  bottom: 50%;
+
+  left: 50%;
+  
+  transform: translateX(-50%);
+}
+
+.exchangeCoins > div:last-of-type .wind::after {
+  bottom: none;
+  top: 50%;
+}
+
+.contentFadeIn > img {
+  animation: fadeIn 500ms ease-in-out forwards;
+}
+
+.contentFadeIn > h2 {
+  animation: fadeIn 500ms 500ms ease-in-out forwards;
+}
+
+.contentFadeIn > p {
+  animation: fadeIn 500ms 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 900px) {
+  .section {
+    height: 100vh;
+  }
+
+  .section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .section h1::after {
+    width: calc(50% - 145px);
+  }
+  
+  .section h1::before {
+    width: calc(50% - 145px);
+  }
+
+  .section > div {
+    margin: 0;
+  }
+
+  .section > div > img {
+    display: none;
+  }
+  
+  .section h2 {
+    margin-top: 0;
+    opacity: 1;
+  }
+  
+  .section p {
+    margin-top: .5rem;
+    opacity: 1;
+  }
+
+  .centralImg {
+    opacity: 1;
+    display: block;
+
+    width: 100%;
+    max-width: 150px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+
+  .sectionOne {
+    width: 100%;
+    max-width: 430px;
+
+    position: absolute;
+    top: 15%;
+    left: 12%;
+  }
+
+  .sectionTwo {
+    width: 100%;
+    max-width: 430px;
+
+    position: absolute;
+    bottom: 25%;
+    left: 10%;
+  }
+
+  .sectionTwo {
+    width: 100%;
+    max-width: 430px;
+
+    position: absolute;
+    bottom: 20%;
+    left: 8%;
+  }
+
+  .sectionThree {
+    width: 100%;
+    max-width: 400px;
+
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .sectionFour {
+    width: 100%;
+    max-width: 400px;
+
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+  }
+
+  .sectionFive {
+    width: 100%;
+    max-width: 350px;
+
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+
+    transform: translateY(-50%);
+  }
+
+  .contentFadeIn > .sectionOne > h2 {
+    animation: fadeIn 500ms 500ms ease-in-out forwards;
+  }
+  
+  .sectionOne.contentFadeIn > p {
+    animation: fadeIn 500ms 1s ease-in-out forwards;
+  }
+}

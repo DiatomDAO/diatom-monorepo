@@ -8,6 +8,7 @@ import DiatomInfo from '../../components/DiatomInfo';
 import LandingHero from '../../components/LandingHero';
 import InfoSections from '../../components/InfoSections';
 import DAOnstream from '../../components/DAOnstream';
+import Tokenomics from '../../components/Tokenomics';
 
 interface AuctionPageProps {
   initialAuctionId?: number;
@@ -47,6 +48,7 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
       {/* <Auction auction={onDisplayAuction} /> */}
       <LandingHero />
       <DiatomInfo />
+      <Tokenomics />
       <InfoSections />
       <DAOnstream />
     </div>

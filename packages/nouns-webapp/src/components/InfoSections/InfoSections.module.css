@@ -2,11 +2,44 @@
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  padding: 0 3rem;
+  padding: 0 2rem;
   overflow: hidden;
   max-width: 1300px;
 
   margin: 2rem auto 0;
+}
+
+.infoSections h1 {
+  position: relative;
+  font-size: 2.25rem;
+  color: #053039;
+  font-weight: 700;
+
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.infoSections h1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  height: 3px;
+  width: calc(50% - 140px);
+  background: #5B6459;
+}
+
+.infoSections h1::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  height: 3px;
+  width: calc(50% - 140px);
+  background: #5B6459;
 }
 
 .tresuasuryMobileMargin {
@@ -61,12 +94,20 @@
   width: 100%;
 }
 
+
 /* Section RIGHT */
 
 .sectionRight {
   display: flex;
   flex-direction: column;
 }
+
+.sectionRight .coinsStack {
+  width: 80%;
+  max-height: none;
+  margin: 0 auto;
+}
+
 
 .sectionRight > * {
   opacity: 0;
@@ -119,6 +160,19 @@
     margin: 5rem auto 0;
   }
 
+  .infoSections h1 {
+    font-size: 2.5rem;
+  }
+  
+  .infoSections h1::after {
+    width: calc(50% - 165px);
+  }
+  
+  .infoSections h1::before {
+    width: calc(50% - 165px);
+  }
+  
+
   .sectionLeft {
     flex-direction: row;
     opacity: 1;
@@ -161,6 +215,10 @@
 
   .sectionRight img {
     width: 46%;
+  }
+  .sectionRight .coinsStack {
+    width: auto;
+    max-height: 250px;
   }
 
   .sectionRight img {

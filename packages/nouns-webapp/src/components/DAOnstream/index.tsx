@@ -17,7 +17,9 @@ const DAOnstream = () => {
 
   return (
     <div className={classes.DAOnstream}>
-      <h2>What's DAOnstream</h2>
+      <div className={classes.titleWrapper}>
+        <h1>What's DAOnstream</h1>
+      </div>
       <div
         ref={ref}
         className={`${classes.timelineContainer} ${showAnimation ? classes.timelineAnimation : ''}`}
@@ -40,13 +42,13 @@ const DAOnstream = () => {
           </div>
           <div>
             <p>PRC Token Launch</p>
+            <p>Suply Chain Investments</p>
+            <p>First PRC's Minted</p>
           </div>
         </div>
         <div className={classes.quarter}>
           <div>
-            <p>NFT Sale</p>
-            <p>Token Sale</p>
-            <p>Bonding &amp; Staking Launch</p>
+            <p>PRC Partner Expansion</p>
           </div>
           <div>
             <h3>Q2</h3>
@@ -59,25 +61,24 @@ const DAOnstream = () => {
             <h2>2022</h2>
           </div>
           <div>
-            <p>NFT Sale</p>
-            <p>Token Sale</p>
-            <p>Bonding &amp; Staking Launch</p>
+            <p>Corporate Partnerships</p>
+            <p>New Asset Class Dev</p>
           </div>
         </div>
         <div className={classes.quarter}>
           <div>
-            <p>NFT Sale</p>
-            <p>Token Sale</p>
-            <p>Bonding &amp; Staking Launch</p>
+            <p>New Asset Launch</p>
           </div>
           <div>
-            <h3>Q4</h3>
-            <h2>2022</h2>
+            {/* <h3>Q4</h3>
+            <h2>2022</h2> */}
           </div>
         </div>
         <div className={classes.quarter}>
           <div></div>
-          <div></div>
+          <div>
+            <h3>Beyond</h3>
+          </div>
         </div>
       </div>
     </div>

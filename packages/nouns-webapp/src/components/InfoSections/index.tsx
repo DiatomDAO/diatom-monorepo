@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import onScreen from '../../hooks/onScreen';
 
 import treasure from './assets/treasure.svg';
-import backed from './assets/backed.svg';
+import coinsStack from './assets/coinsStack.png';
 import staking from './assets/staking.svg';
 import whales from './assets/whales.svg';
 
@@ -19,25 +19,25 @@ const InfoSections = () => {
   const sectionOneRef = useRef(null);
   const isSectionOneVisible = onScreen(sectionOneRef, {
     threshold: 0.5,
-    rootMargin: isMobile ? '0px' : '-350px',
+    rootMargin: isMobile ? '0px' : '-200px',
   });
 
   const sectionTwoRef = useRef(null);
   const isSectionTwoVisible = onScreen(sectionTwoRef, {
     threshold: 0.5,
-    rootMargin: isMobile ? '0px' : '-350px',
+    rootMargin: isMobile ? '0px' : '-200px',
   });
 
   const sectionThreeRef = useRef(null);
   const isSectionThreeVisible = onScreen(sectionThreeRef, {
     threshold: 0.5,
-    rootMargin: isMobile ? '0px' : '-350px',
+    rootMargin: isMobile ? '0px' : '-200px',
   });
 
   const sectionFourRef = useRef(null);
   const isSectionFourVisible = onScreen(sectionFourRef, {
     threshold: 0.5,
-    rootMargin: isMobile ? '0px' : '-350px',
+    rootMargin: isMobile ? '0px' : '-200px',
   });
 
   useEffect(() => {
@@ -48,7 +48,8 @@ const InfoSections = () => {
   }, [isSectionOneVisible, isSectionTwoVisible, isSectionThreeVisible, isSectionFourVisible]);
 
   return (
-    <div className={classes.infoSections}>
+    <div id="works" className={classes.infoSections}>
+      <h1>How it works</h1>
       <div
         ref={sectionOneRef}
         className={`${classes.sectionLeft} ${showSectionOne ? classes.fadeIn : ''}`}
@@ -70,7 +71,7 @@ const InfoSections = () => {
         ref={sectionTwoRef}
         className={`${classes.sectionRight} ${showSectionTwo ? classes.fadeIn : ''}`}
       >
-        <img src={backed} alt="DIAT backed" />
+        <img className={classes.coinsStack} src={coinsStack} alt="DIAT backed" />
         <div>
           <div className={classes.sectionTitle}>
             <p>02</p>
