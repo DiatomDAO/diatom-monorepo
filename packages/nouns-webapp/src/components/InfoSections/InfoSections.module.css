@@ -42,9 +42,7 @@
   background: #5B6459;
 }
 
-.tresuasuryMobileMargin {
-  margin-left: 20%;
-}
+
 
 .sectionTitle p {
   color: #4c4c4c;
@@ -92,6 +90,12 @@
 .sectionLeft img {
   width: 100%;
 }
+
+.sectionLeft .tresuasuryMobileMargin {
+  margin-left: 16%;
+  width: auto;
+  max-height: 250px;
+} 
 
 
 /* Section RIGHT */

@@ -1,6 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import onScreen from '../../hooks/onScreen';
 import logo from './assets/diatomLogo.svg';
+import coin from './assets/coin.png';
+import usdToken from './assets/usdToken.png';
+import polygonToken from './assets/polygonToken.png';
 import bonding from './assets/bonding.svg';
 import removal from './assets/removal.svg';
 import verified from './assets/verified.svg';
@@ -64,7 +67,8 @@ const Tokenomics = () => {
     <>
       <div
         id="Tokenomics"
-        className={`${classes.section} ${currentSectionVisible >= 1 ? classes.contentFadeIn : ''}`}
+        // className={`${classes.section} ${currentSectionVisible >= 1 ? classes.contentFadeIn : ''}`}
+        className={classes.section}
       >
         <h1>Tokenomics</h1>
         <img className={classes.centralImg} src={logo} alt="Logo" />
@@ -158,18 +162,16 @@ const Tokenomics = () => {
         <div className={classes.coinsContainer}>
           <div className={classes.coinsSectionOne}>
             <div>
-              <img src={logo} alt="Coin" />
+              <img src={coin} alt="Coin" />
               <div className={classes.wind} />
             </div>
             <div>
-              <img src={logo} alt="Coin" />
-              <div className={classes.wind} />
+              <img src={polygonToken} alt="Coin" />
             </div>
           </div>
           <div className={classes.coinsSectionTwo}>
             <div>
-              <img src={logo} alt="Coin" />
-              <div className={classes.wind} />
+              <img src={usdToken} alt="Coin" />
             </div>
           </div>
           <div className={classes.coinsSectionThree}>
@@ -180,8 +182,7 @@ const Tokenomics = () => {
           </div>
           <div className={classes.coinsSectionFour}>
             <div>
-              <img src={prc} alt="Coin" />
-              <div className={classes.wind} />
+              <img src={usdToken} alt="Coin" />
             </div>
             <div>
               <img src={prc} alt="Coin" />

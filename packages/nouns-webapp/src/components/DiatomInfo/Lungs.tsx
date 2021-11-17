@@ -3,7 +3,7 @@ import onScreen from '../../hooks/onScreen';
 
 import diatom from './assets/diatom.png';
 import classes from './Lungs.module.css';
-import backedImg from './assets/backed.svg';
+import coin from './assets/coin.png';
 import communityImg from './assets/community.svg';
 import protocolImg from './assets/protocol.png';
 import rightArrow from './assets/rightArrow.svg';
@@ -66,7 +66,7 @@ const Lungs = () => {
           ref={topicOneRef}
           className={`${classes.topic} ${showTopicOne ? classes.fadeIn : ''}`}
         >
-          <img src={backedImg} alt="Asset-backed icon" />
+          <img src={coin} alt="Asset-backed icon" />
           <h5>Asset-backed</h5>
           <p>
             Each DIAT is backed by a minimum of 1 DAI. This means no matter what happens, you will

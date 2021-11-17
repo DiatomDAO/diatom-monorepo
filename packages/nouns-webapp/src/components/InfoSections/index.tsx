@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import onScreen from '../../hooks/onScreen';
 
-import treasure from './assets/treasure.svg';
+import treasure from './assets/treasure.png';
 import coinsStack from './assets/coinsStack.png';
 import staking from './assets/staking.svg';
 import whales from './assets/whales.svg';

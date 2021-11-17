@@ -36,17 +36,17 @@
   top: 50%;
   left: 50%;
 
-  width: 150%;
-  height: 120%;
+  width: 200%;
+  height: 200%;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-60%, -50%);
 
   z-index: -1;
 
   background: hsla(0, 0%, 0%, 1);
-  background: radial-gradient(ellipse, hsla(0, 0%, 0%, 0.8) 0%, hsla(0, 0%, 0%, 0.8) 0%, hsla(343, 88%, 63%, 0) 75%);
-  background: -moz-radial-gradient(ellipse, hsla(0, 0%, 0%, 0.8) 0%, hsla(0, 0%, 0%, 0.8) 0%, hsla(343, 88%, 63%, 0) 75%);
-  background: -webkit-radial-gradient(ellipse, hsla(0, 0%, 0%, 0.8) 0%, hsla(0, 0%, 0%, 0.8) 0%, hsla(343, 88%, 63%, 0) 75%)
+  background: radial-gradient(ellipse, hsla(0, 0%, 0%,0.5) 0%, hsla(0, 0%, 0%,0.5) 0%, hsla(343, 88%, 63%, 0) 75%);
+  background: -moz-radial-gradient(ellipse, hsla(0, 0%, 0%,0.5) 0%, hsla(0, 0%, 0%,0.5) 0%, hsla(343, 88%, 63%, 0) 75%);
+  background: -webkit-radial-gradient(ellipse, hsla(0, 0%, 0%,0.5) 0%, hsla(0, 0%, 0%,0.5) 0%, hsla(343, 88%, 63%, 0) 75%)
 }
 
 .LungsContent p {
