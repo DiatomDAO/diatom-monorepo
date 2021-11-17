@@ -65,13 +65,17 @@ const InfoSections = () => {
             to back the Dollar).
           </p>
         </div>
-        <img className={classes.tresuasuryMobileMargin} src={treasure} alt="treasure DIAT" />
+        <div>
+          <img className={classes.tresuasuryMobileMargin} src={treasure} alt="treasure DIAT" />
+        </div>
       </div>
       <div
         ref={sectionTwoRef}
         className={`${classes.sectionRight} ${showSectionTwo ? classes.fadeIn : ''}`}
       >
-        <img className={classes.coinsStack} src={coinsStack} alt="DIAT backed" />
+        <div>
+          <img className={classes.coinsStack} src={coinsStack} alt="DIAT backed" />
+        </div>
         <div>
           <div className={classes.sectionTitle}>
             <p>02</p>
@@ -99,13 +103,17 @@ const InfoSections = () => {
             the DAO, since fewer people selling equates to increased DIAT value.
           </p>
         </div>
-        <img src={staking} alt="Staking DIAT" />
+        <div>
+          <img src={staking} alt="Staking DIAT" />
+        </div>
       </div>
       <div
         ref={sectionFourRef}
         className={`${classes.sectionRight} ${showSectionFour ? classes.fadeIn : ''}`}
       >
-        <img src={whales} alt="Whales protection" />
+        <div>
+          <img src={whales} alt="Whales protection" />
+        </div>
         <div>
           <div className={classes.sectionTitle}>
             <p>04</p>

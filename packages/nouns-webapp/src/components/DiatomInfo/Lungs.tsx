@@ -66,7 +66,7 @@ const Lungs = () => {
           ref={topicOneRef}
           className={`${classes.topic} ${showTopicOne ? classes.fadeIn : ''}`}
         >
-          <img src={coin} alt="Asset-backed icon" />
+          <img style={{ maxWidth: '130px' }} src={coin} alt="Asset-backed icon" />
           <h5>Asset-backed</h5>
           <p>
             Each DIAT is backed by a minimum of 1 DAI. This means no matter what happens, you will
@@ -78,7 +78,7 @@ const Lungs = () => {
           ref={topicTwoRef}
           className={`${classes.topic} ${showTopicTwo ? classes.fadeIn : ''}`}
         >
-          <img style={{ maxWidth: '114px' }} src={protocolImg} alt="Protocol Controlled icon" />
+          <img style={{ maxWidth: '156px' }} src={protocolImg} alt="Protocol Controlled icon" />
           <h5>Protocol Controlled</h5>
           <p>
             Unlike most other protocols, Diatom will own the majority of its LP’s by selling bonds

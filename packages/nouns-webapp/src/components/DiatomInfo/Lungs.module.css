@@ -20,6 +20,11 @@
 
 .diatomImg {
   display: none;
+  z-index: 10;
+}
+
+.LungsContent {
+  z-index: 0;
 }
 
 .LungsContent h2 {
@@ -28,6 +33,7 @@
   font-weight: bold;
 
   padding-right: 2rem;
+  z-index: 10;
 }
 
 .LungsContent p::after {
@@ -71,7 +77,7 @@
   font-weight: 300;
   color: #ffff;
 
-  z-index: 1;
+  z-index: 10;
   transition: opacity 300ms ease-out;
 }
 
@@ -242,7 +248,7 @@
   }
 
   .topic img {
-    height: 100px;
+    height: 130px;
   }
 
   .fadeIn:nth-of-type(2) {

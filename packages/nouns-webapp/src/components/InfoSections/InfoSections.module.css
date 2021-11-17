@@ -26,6 +26,7 @@
   top: 50%;
   left: 0;
 
+  border-radius: 10%;
   height: 3px;
   width: calc(50% - 140px);
   background: #5B6459;
@@ -37,6 +38,7 @@
   top: 50%;
   right: 0;
 
+  border-radius: 10%;
   height: 3px;
   width: calc(50% - 140px);
   background: #5B6459;
@@ -92,7 +94,7 @@
 }
 
 .sectionLeft .tresuasuryMobileMargin {
-  margin-left: 16%;
+  margin-left: 20%;
   width: auto;
   max-height: 250px;
 } 
@@ -184,17 +186,23 @@
     opacity: 0;
   }
 
-  .sectionLeft > div {
+  .sectionLeft > div:first-of-type {
     width: 54%;
     padding-left: 2.5rem;
   }
 
-  .sectionLeft img {
+  .sectionLeft > div:last-of-type {
     width: 46%;
+    display: flex;
+    justify-content: center;
   }
 
   .sectionLeft img {
+    width: auto;
     max-height: 230px;
+    max-width: 460px;
+    margin-left: 22%;
+    padding-right: 2.5rem;
   }
 
   .sectionLeft > div > p {
@@ -210,21 +218,26 @@
     opacity: 0;
   }
 
-  .sectionRight > div {
+  .sectionRight > div:last-of-type {
     width: 54%;
     padding-right: 2.5rem;
   }
 
-  .sectionRight img {
+  .sectionRight > div:first-of-type {
     width: 46%;
-  }
-  .sectionRight .coinsStack {
-    width: auto;
-    max-height: 250px;
   }
 
   .sectionRight img {
+    width: auto;
     max-height: 230px;
+    max-width: 470px;
+    margin-left: 2rem;
+  }
+
+  .sectionRight .coinsStack {
+    width: auto;
+    max-height: 250px;
+    margin-left: 2rem;
   }
 
   .sectionRight > div > p {

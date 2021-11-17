@@ -28,6 +28,7 @@
   top: 50%;
   left: 0;
 
+  border-radius: 10%;
   height: 3px;
   width: calc(50% - 125px);
   background: #5B6459;
@@ -39,6 +40,7 @@
   top: 50%;
   right: 0;
 
+  border-radius: 10%;
   height: 3px;
   width: calc(50% - 130px);
   background: #5B6459;
@@ -484,10 +486,10 @@
   }
 
   .coinsContainer img {
-    width: 25px;
-    max-width: 25px;
-    height: 25px;
-    max-height: 25px;
+    width: 30px;
+    max-width: 30px;
+    height: 30px;
+    max-height: 30px;
   }
 
   .coinsSectionOne > div:first-of-type {
