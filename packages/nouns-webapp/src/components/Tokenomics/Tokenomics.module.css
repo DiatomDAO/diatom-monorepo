@@ -251,13 +251,11 @@
   }
 
   .section > div > img {
-    opacity: 1;
     height: 50px;
     margin: 0 auto 0 0;
   }
 
   .section > div > h2 {
-    opacity: 1;
     font-size: 20px;
     margin-top: .5rem;
   }
@@ -265,6 +263,7 @@
   .section > div > p {
     font-size: 15px;
     line-height: 17px;
+    margin-top: .5rem;
   }
 
   .mobileImg {
@@ -280,13 +279,8 @@
     opacity: 1;
   }
 
-  .section p {
-    margin-top: .5rem;
-    opacity: 1;
-  }
-
   .centralImg {
-    opacity: 1;
+    opacity: 0;
     display: flex;
     align-items: center;
 
@@ -301,7 +295,7 @@
   }
 
   .diatomHeadline {
-    opacity: 1;
+    opacity: 0;
     display: flex;
     align-items: center;
 
@@ -370,18 +364,6 @@
     left: 70%;
   }
 
-  .contentFadeIn > div > img {
-    animation: fadeIn 500ms 500ms ease-in-out forwards;
-  }
-
-  .contentFadeIn > div > h2 {
-    animation: fadeIn 500ms 500ms ease-in-out forwards;
-  }
-  
-  .sectionOne.contentFadeIn > p {
-    animation: fadeIn 500ms 1s ease-in-out forwards;
-  }
-
   .lineSectionOne {
     position: absolute;
     display: block;
@@ -390,6 +372,7 @@
     right: 50%;
     width: 13%;
 
+    opacity: 0;
     transform: translate(-75px, -35px)  scaleX(-1);
   }
 
@@ -401,6 +384,7 @@
     left: 50%;
     width: 13%;
 
+    opacity: 0;
     transform: translate(75px, -35px);
   }
 
@@ -412,6 +396,7 @@
     right: 50%;
     width: 13%;
 
+    opacity: 0;
     transform: translate(-75px, 35px) scaleY(-1);
   }
 
@@ -423,6 +408,7 @@
     left: 50%;
     width: 13%;
 
+    opacity: 0;
     transform: translate(75px, 35px);
   }
 
@@ -434,6 +420,7 @@
     left: 10%;
     width: 6%;
 
+    opacity: 0;
     transform: translate(250px, 35px);
   }
 
@@ -445,6 +432,7 @@
     right: 10%;
     width: 6%;
 
+    opacity: 0;
     transform: translate(-275px, 30px) scaleY(-1);
   }
 
@@ -492,6 +480,10 @@
     max-height: 30px;
   }
 
+  .coinsSectionOne {
+    opacity: 0;
+  }
+
   .coinsSectionOne > div:first-of-type {
     top: 31%;
     left: 36%;
@@ -516,6 +508,10 @@
     max-height: unset;
   }
 
+  .coinsSectionTwo {
+    opacity: 0;
+  }
+
   .coinsSectionTwo > div {
     bottom: 36%;
     left: 34%;
@@ -529,6 +525,10 @@
     max-height: unset;
   }
 
+  .coinsSectionThree {
+    opacity: 0;
+  }
+
   .coinsSectionThree > div {
     bottom: 39%;
     right: 37%;
@@ -538,6 +538,10 @@
 
   .coinsSectionThree > div img {
     transform: rotate(85deg);
+  }
+
+  .coinsSectionFour {
+    opacity: 0;
   }
 
   .coinsSectionFour > div:first-of-type {
@@ -567,4 +571,127 @@
   .ocean {
     width: 100%;
   }
+
+  /* Animation timing */
+
+  .contentFadeIn > div > img {
+    animation: fadeIn 300ms ease-in-out forwards;
+  }
+
+  .contentFadeIn > div > h2 {
+    animation: fadeIn 300ms ease-in-out forwards;
+  }
+  
+  .contentFadeIn > div > p {
+    animation: fadeIn 300ms ease-in-out forwards;
+  }
+
+  /* one */
+
+  .contentFadeIn .sectionOne > img {
+    animation-delay: 300ms;
+  }
+
+  .contentFadeIn .sectionOne > h2 {
+    animation-delay: 400ms;
+  }
+  
+  .contentFadeIn .sectionOne > p {
+    animation-delay: 700ms;
+  }
+
+  .contentFadeIn .lineSectionOne,.contentFadeIn .coinsSectionOne {
+    animation: fadeIn 400ms ease-in-out forwards;
+    animation-delay: 1s;
+  }
+
+  .contentFadeIn .centralImg {
+    animation: fadeIn 400ms 1400ms ease-in-out forwards;
+  }
+
+  .contentFadeIn .diatomHeadline {
+    animation: fadeIn 400ms 1400ms ease-in-out forwards;
+  }
+
+
+  .contentFadeIn .arrowSectionTwo, .contentFadeIn .coinsSectionTwo  {
+    animation: fadeIn 400ms 1800ms ease-in-out forwards;
+  }
+
+  /* two */
+
+  .contentFadeIn .sectionTwo > img {
+    animation-delay: 2.4s;
+  }
+
+  .contentFadeIn .sectionTwo > h2 {
+    animation-delay: 2.5s;
+  }
+  
+  .contentFadeIn .sectionTwo > p {
+    animation-delay: 2.8s;
+  }
+
+  .contentFadeIn .shortArrowOne {
+    animation: fadeIn 300ms ease-in-out forwards;
+    animation-delay: 3.1s;
+  }
+
+  /* three */
+
+  .contentFadeIn .sectionThree > img {
+    animation-delay: 3.3s;
+  }
+
+  .contentFadeIn .sectionThree > h2 {
+    animation-delay: 3.4s;
+  }
+  
+  .contentFadeIn .sectionThree > p {
+    animation-delay: 3.7s;
+  }
+
+  .contentFadeIn .shortArrowTwo {
+    animation: fadeIn 300ms 4s ease-in-out forwards;
+  }
+
+  /* four */
+
+  .contentFadeIn .sectionFour > img {
+    animation-delay: 4.3s;
+  }
+
+  .contentFadeIn .sectionFour > h2 {
+    animation-delay: 4.4s;
+  }
+  
+  .contentFadeIn .sectionFour > p {
+    animation-delay: 4.7s;
+  }
+
+
+  .contentFadeIn .arrowSectionFour, .contentFadeIn .coinsSectionThree {
+    animation: fadeIn 400ms ease-in-out forwards;
+    animation-delay: 5.1s;
+  }
+
+
+  .contentFadeIn .lineSectionFive, .contentFadeIn .coinsSectionFour  {
+    animation: fadeIn 400ms 5.5s ease-in-out forwards;
+  }
+
+  /* five */
+
+  .contentFadeIn .sectionFive > img {
+    animation-delay: 5.9s;
+  }
+
+  .contentFadeIn .sectionFive > h2 {
+    animation-delay: 6s;
+  }
+  
+  .contentFadeIn .sectionFive > p {
+    animation-delay: 6.3s;
+  }
+
 }

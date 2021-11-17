@@ -42,7 +42,7 @@ const DAOnstream = () => {
           </div>
           <div>
             <p>PRC Token Launch</p>
-            <p>Suply Chain Investments</p>
+            <p>Supply Chain Investments</p>
             <p>First PRC's Minted</p>
           </div>
         </div>

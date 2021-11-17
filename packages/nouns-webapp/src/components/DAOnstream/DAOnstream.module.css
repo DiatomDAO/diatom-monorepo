@@ -326,7 +326,7 @@
     width: 100%;
 
     top: unset;
-    bottom: 100%;
+    bottom: calc(100% - 1px);
     left: 0;
 
     border-right: 2px solid #34885a;

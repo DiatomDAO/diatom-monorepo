@@ -48,18 +48,27 @@ const Tokenomics = () => {
     threshold: isMobile ? 1 : 0.5,
   });
 
+  const desktopCentralImg = useRef(null);
+  const isDesktopVisible = onScreen(desktopCentralImg, {
+    threshold: 1,
+    rootMargin: '-100px'
+  });
+
   useEffect(() => {
     if (isSectionOneVisible && currentSectionVisible < 1) setCurrentSectionVisible(1);
     if (isSectionTwoVisible && currentSectionVisible < 2) setCurrentSectionVisible(2);
     if (isSectionThreeVisible && currentSectionVisible < 3) setCurrentSectionVisible(3);
     if (isSectionFourVisible && currentSectionVisible < 4) setCurrentSectionVisible(4);
     if (isSectionFiveVisible && currentSectionVisible < 5) setCurrentSectionVisible(5);
+
+    if (isDesktopVisible) setCurrentSectionVisible(6);
   }, [
     isSectionOneVisible,
     isSectionTwoVisible,
     isSectionThreeVisible,
     isSectionFourVisible,
     isSectionFiveVisible,
+    isDesktopVisible,
     currentSectionVisible,
   ]);
 
@@ -67,11 +76,11 @@ const Tokenomics = () => {
     <>
       <div
         id="Tokenomics"
-        // className={`${classes.section} ${currentSectionVisible >= 1 ? classes.contentFadeIn : ''}`}
-        className={classes.section}
+        className={`${classes.section} ${currentSectionVisible >= 6 ? classes.contentFadeIn : ''}`}
+        // className={classes.section}
       >
         <h1>Tokenomics</h1>
-        <img className={classes.centralImg} src={logo} alt="Logo" />
+        <img ref={desktopCentralImg} className={classes.centralImg} src={logo} alt="Logo" />
         <h4 className={classes.diatomHeadline}>DiatomDAO</h4>
         <div
           ref={sectionOneRef}
@@ -141,7 +150,7 @@ const Tokenomics = () => {
             currentSectionVisible >= 5 && isMobile ? classes.contentFadeIn : ''
           }`}
         >
-          <img className={classes.mobileImg} src={logo} alt="Logo" />
+          <img className={classes.mobileImg} src={prc} alt="Logo" />
           <img className={classes.desktopImg} src={purchase} alt="Institution" />
           <h2>05 PRC Purchases</h2>
           <p>

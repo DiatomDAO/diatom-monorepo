@@ -3,7 +3,7 @@ import onScreen from '../../hooks/onScreen';
 
 import treasure from './assets/treasure.png';
 import coinsStack from './assets/coinsStack.png';
-import staking from './assets/staking.svg';
+import staking from './assets/staking.png';
 import whales from './assets/whales.svg';
 
 import classes from './InfoSections.module.css';
