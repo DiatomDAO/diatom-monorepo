@@ -120,9 +120,9 @@ const NavBar = () => {
             <Nav.Link href="#diatom" className={classes.nounsNavLink}>
               What is Diatom
             </Nav.Link>
-            {/* <Nav.Link href="#Tokenomics" className={classes.nounsNavLink}>
+            <Nav.Link href="#Tokenomics" className={classes.nounsNavLink}>
               Tokenomics
-            </Nav.Link> */}
+            </Nav.Link>
             <Nav.Link href="#works" className={classes.nounsNavLink}>
               How it Works
             </Nav.Link>

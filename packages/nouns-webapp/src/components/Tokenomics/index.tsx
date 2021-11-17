@@ -5,6 +5,12 @@ import bonding from './assets/bonding.svg';
 import removal from './assets/removal.svg';
 import verified from './assets/verified.svg';
 import plastic from './assets/plastic.png';
+import prc from './assets/prc.png';
+import prcLogo from './assets/prcLogo.svg';
+import purchase from './assets/purchase.svg';
+import arrowLong from './assets/arrowLong.svg';
+import arrowShort from './assets/arrowShort.svg';
+import line from './assets/line.svg';
 import ocean from './assets/ocean.png';
 
 import classes from './Tokenomics.module.css';
@@ -61,13 +67,15 @@ const Tokenomics = () => {
         className={`${classes.section} ${currentSectionVisible >= 1 ? classes.contentFadeIn : ''}`}
       >
         <h1>Tokenomics</h1>
-        <img className={classes.centralImg} src={logo} alt="" />
+        <img className={classes.centralImg} src={logo} alt="Logo" />
+        <h4 className={classes.diatomHeadline}>DiatomDAO</h4>
         <div
           ref={sectionOneRef}
           className={`${classes.sectionOne} ${
             currentSectionVisible >= 1 && isMobile ? classes.contentFadeIn : ''
           }`}
         >
+          <img className={classes.desktopImg} src={bonding} alt="Bonding" />
           <div className={classes.exchangeImages}>
             <img src={bonding} alt="Bonding" />
             <div className={classes.exchangeCoins}>
@@ -95,7 +103,7 @@ const Tokenomics = () => {
             currentSectionVisible >= 2 && isMobile ? classes.contentFadeIn : ''
           }`}
         >
-          <img src={removal} alt="" />
+          <img src={removal} alt="Removal Boat" />
           <h2>02 Removal Projects Funded</h2>
           <p>We distribute funds to PRC-compliant projects.</p>
         </div>
@@ -105,7 +113,7 @@ const Tokenomics = () => {
             currentSectionVisible >= 3 && isMobile ? classes.contentFadeIn : ''
           }`}
         >
-          <img src={verified} alt="" />
+          <img src={verified} alt="Verify Icon" />
           <h2>03 Plastic Removal Verified</h2>
           <p>The plastic is removed, weighed, and transparently processed.</p>
         </div>
@@ -115,7 +123,8 @@ const Tokenomics = () => {
             currentSectionVisible >= 4 && isMobile ? classes.contentFadeIn : ''
           }`}
         >
-          <img src={plastic} alt="" />
+          <img className={classes.mobileImg} src={plastic} alt="Plastic" />
+          <img className={classes.desktopImg} src={prcLogo} alt="PRC" />
           <h2>04 PRC Minted</h2>
           <p>
             Depending on the value of the plastic removed, a number of PRC's are minted and put into
@@ -128,15 +137,62 @@ const Tokenomics = () => {
             currentSectionVisible >= 5 && isMobile ? classes.contentFadeIn : ''
           }`}
         >
-          <img src={logo} alt="" />
+          <img className={classes.mobileImg} src={logo} alt="Logo" />
+          <img className={classes.desktopImg} src={purchase} alt="Institution" />
           <h2>05 PRC Purchases</h2>
           <p>
             Corporations and individuals buy PRC's and "retire" them to provably remove past plastic
             pollution.
           </p>
         </div>
+
+        <img className={classes.lineSectionOne} src={line} alt="Line" />
+        <img className={classes.lineSectionFive} src={line} alt="Line" />
+
+        <img className={classes.arrowSectionTwo} src={arrowLong} alt="Long arrow" />
+        <img className={classes.arrowSectionFour} src={arrowLong} alt="Long arrow" />
+
+        <img className={classes.shortArrowOne} src={arrowShort} alt="Short arrow" />
+        <img className={classes.shortArrowTwo} src={arrowShort} alt="Short arrow" />
+
+        <div className={classes.coinsContainer}>
+          <div className={classes.coinsSectionOne}>
+            <div>
+              <img src={logo} alt="Coin" />
+              <div className={classes.wind} />
+            </div>
+            <div>
+              <img src={logo} alt="Coin" />
+              <div className={classes.wind} />
+            </div>
+          </div>
+          <div className={classes.coinsSectionTwo}>
+            <div>
+              <img src={logo} alt="Coin" />
+              <div className={classes.wind} />
+            </div>
+          </div>
+          <div className={classes.coinsSectionThree}>
+            <div>
+              <img src={prc} alt="Coin" />
+              <div className={classes.wind} />
+            </div>
+          </div>
+          <div className={classes.coinsSectionFour}>
+            <div>
+              <img src={prc} alt="Coin" />
+              <div className={classes.wind} />
+            </div>
+            <div>
+              <img src={prc} alt="Coin" />
+              <div className={classes.wind} />
+            </div>
+          </div>
+        </div>
       </div>
-      {/* <img src={ocean} alt={'Ocean'} /> */}
+      <div className={classes.oceanWrapper}>
+        <img className={classes.ocean} src={ocean} alt={'Ocean'} />
+      </div>
     </>
   );
 };

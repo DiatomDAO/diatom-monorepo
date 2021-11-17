@@ -1,11 +1,14 @@
 .section {
-  display: none;
+  display: flex;
   flex-direction: column;
 
   position: relative;
 
   padding: 0 2rem;
-  margin: 5rem 0 0;
+  margin: 5rem auto 0;
+  max-width: 450px;
+
+  overflow: hidden;
 }
 
 .section h1 {
@@ -60,7 +63,7 @@
 
 .section > div > h2 {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
   color: #053039;
   margin: 1rem 0 0;
 
@@ -91,7 +94,7 @@
 }
 
 .exchangeImages > img {
-  width: 70%;
+  width: 50%;
 }
 
 .exchangeCoins {
@@ -169,9 +172,64 @@
   }
 }
 
-@media (min-width: 900px) {
+.diatomHeadline {
+  display: none;
+}
+
+.desktopImg {
+  display: none;
+}
+
+.coinsContainer * {
+  display: none;
+}
+
+.arrowsContainer img {
+  display: none;
+}
+
+.lineSectionOne {
+  display: none;
+}
+
+.lineSectionFive {
+  display: none;
+}
+
+.arrowSectionTwo {
+  display: none;
+}
+
+.arrowSectionFour {
+  display: none;
+}
+
+.shortArrowOne {
+  display: none;
+}
+
+.shortArrowTwo {
+  display: none;
+}
+
+.oceanWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ocean {
+  width: 1000px;
+  height: auto;
+}
+
+@media (min-width: 1150px) {
   .section {
-    height: 100vh;
+    height: 720px;
+    margin: 5rem auto 0;
+    padding: 0 5rem;
+    max-width: 1300px;
   }
 
   .section h1 {
@@ -191,14 +249,33 @@
   }
 
   .section > div > img {
+    height: 50px;
+    margin: 0 auto 0 0;
+  }
+
+  .section > div > h2 {
+    font-size: 20px;
+    margin-top: .5rem;
+  }
+
+  .section > div > p {
+    font-size: 15px;
+    line-height: 17px;
+  }
+
+  .mobileImg {
     display: none;
+  }
+
+  .desktopImg {
+    display: block;
   }
   
   .section h2 {
     margin-top: 0;
     opacity: 1;
   }
-  
+
   .section p {
     margin-top: .5rem;
     opacity: 1;
@@ -206,7 +283,8 @@
 
   .centralImg {
     opacity: 1;
-    display: block;
+    display: flex;
+    align-items: center;
 
     width: 100%;
     max-width: 150px;
@@ -218,40 +296,47 @@
     transform: translate(-50%, -50%);
   }
 
+  .diatomHeadline {
+    opacity: 1;
+    display: flex;
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: 600;
+    color: #576764;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, calc(-50% + 90px));
+  }
+
   .exchangeImages {
     display: none;
   }
 
   .sectionOne {
     width: 100%;
-    max-width: 430px;
+    max-width: 260px;
 
     position: absolute;
     top: 15%;
-    left: 12%;
-  }
-
-  .sectionTwo {
-    width: 100%;
-    max-width: 430px;
-
-    position: absolute;
-    bottom: 25%;
     left: 10%;
   }
 
   .sectionTwo {
     width: 100%;
-    max-width: 430px;
+    max-width: 320px;
 
     position: absolute;
     bottom: 20%;
-    left: 8%;
+    left: 10%;
   }
 
   .sectionThree {
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
 
     position: absolute;
     bottom: 10%;
@@ -259,9 +344,13 @@
     transform: translateX(-50%);
   }
 
+  .sectionThree > img {
+    margin-left: 1rem !important;
+  }
+
   .sectionFour {
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
 
     position: absolute;
     bottom: 20%;
@@ -270,20 +359,179 @@
 
   .sectionFive {
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
 
     position: absolute;
-    top: 50%;
-    right: 1rem;
-
-    transform: translateY(-50%);
+    top: 15%;
+    left: 70%;
   }
 
-  .contentFadeIn > .sectionOne > h2 {
+  .contentFadeIn > div > img {
+    animation: fadeIn 500ms 500ms ease-in-out forwards;
+  }
+
+  .contentFadeIn > div > h2 {
     animation: fadeIn 500ms 500ms ease-in-out forwards;
   }
   
   .sectionOne.contentFadeIn > p {
     animation: fadeIn 500ms 1s ease-in-out forwards;
   }
+
+  .lineSectionOne {
+    position: absolute;
+    display: block;
+
+    bottom: 50%;
+    right: 50%;
+    width: 13%;
+
+    transform: translate(-75px, -35px) rotate(-5deg) scaleX(-1);
+  }
+
+  .lineSectionFive {
+    position: absolute;
+    display: block;
+
+    bottom: 50%;
+    left: 50%;
+    width: 13%;
+
+    transform: translate(75px, -35px) rotate(5deg);
+  }
+
+  .arrowSectionTwo {
+    position: absolute;
+    display: block;
+
+    top: 50%;
+    right: 50%;
+    width: 13%;
+
+    transform: translate(-75px, 35px) scaleY(-1);
+  }
+
+  .arrowSectionFour {
+    position: absolute;
+    display: block;
+
+    top: 50%;
+    left: 50%;
+    width: 13%;
+
+    transform: translate(75px, 35px);
+  }
+
+  .shortArrowOne {
+    position: absolute;
+    display: block;
+
+    bottom: 20%;
+    left: 10%;
+    width: 6%;
+
+    transform: translate(250px, 35px);
+  }
+
+  .shortArrowTwo {
+    position: absolute;
+    display: block;
+
+    bottom: 20%;
+    right: 10%;
+    width: 6%;
+
+    transform: translate(-275px, 30px) scaleY(-1);
+  }
+
+  /* coins */
+  .wind {
+    position: relative;
+
+    width: 15px;
+    height: 15px;
+    border: 2px solid #5B6459;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .wind::after {
+    content: "";
+    width: 2px;
+    height: 15px;
+    background: #5B6459;
+  
+    position: absolute;
+    top: 40%;
+  
+    left: 50%;
+    
+    transform: translateX(-50%);
+  }
+
+  .coinsContainer * {
+    display: block;
+  }
+
+  .coinsContainer > div > div {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .coinsContainer img {
+    width: 25px;
+    max-width: 25px;
+    height: 25px;
+    max-height: 25px;
+  }
+
+  .coinsSectionOne > div:first-of-type {
+    top: 32%;
+    left: 36%;
+    width: 25px;
+    transform: rotate(-62deg);
+  }
+
+  .coinsSectionOne > div:last-of-type {
+    top: 41%;
+    left: 39%;
+    width: 25px;
+    transform: rotate(-243deg);
+  }
+
+  .coinsSectionTwo > div {
+    bottom: 36%;
+    left: 34%;
+    width: 25px;
+    transform: rotate(-120deg);
+  }
+
+  .coinsSectionThree > div {
+    bottom: 39%;
+    right: 37%;
+    width: 25px;
+    transform: rotate(-58deg);
+  }
+
+  .coinsSectionFour > div:first-of-type {
+    top: 36%;
+    right: 41%;
+    width: 25px;
+    transform: rotate(-116deg);
+  }
+
+  .coinsSectionFour > div:last-of-type {
+    top: 36%;
+    right: 34%;
+    width: 25px;
+    transform: rotate(63deg);
+  }
+
+  .ocean {
+    width: 100%;
+  }
+
 }
