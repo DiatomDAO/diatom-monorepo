@@ -217,7 +217,6 @@
 .oceanWrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
 
@@ -264,6 +263,10 @@
     font-size: 15px;
     line-height: 17px;
     margin-top: .5rem;
+  }
+
+  .oceanWrapper {
+    justify-content: center;
   }
 
   .mobileImg {
