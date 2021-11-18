@@ -212,7 +212,7 @@
     height: 200%; 
   }
 
-  .LungsContent a::after {
+  .LungsContent a::before{
     height: 120%; 
   }
 

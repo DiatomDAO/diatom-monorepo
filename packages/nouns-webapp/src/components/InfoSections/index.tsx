@@ -83,7 +83,7 @@ const InfoSections = () => {
           </div>
           <p>
             Having a large treasury allows us to provide and own 99%+ of our liquidity pools (LP's)
-            on exchanges like Uniswap. That means every single trade of DIAT pays liquidity fees
+            on exchanges. That means every single trade of DIAT pays liquidity fees
             back to our treasury.
           </p>
         </div>

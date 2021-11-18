@@ -51,7 +51,7 @@ const Tokenomics = () => {
   const desktopCentralImg = useRef(null);
   const isDesktopVisible = onScreen(desktopCentralImg, {
     threshold: 1,
-    rootMargin: '-100px'
+    rootMargin: '-100px',
   });
 
   useEffect(() => {
@@ -154,7 +154,7 @@ const Tokenomics = () => {
           <img className={classes.desktopImg} src={purchase} alt="Institution" />
           <h2>05 PRC Purchases</h2>
           <p>
-            Corporations and individuals buy PRC's and "retire" them to provably remove past plastic
+            Corporations and individuals buy PRC's and "retire" them to provably remove plastic
             pollution.
           </p>
         </div>

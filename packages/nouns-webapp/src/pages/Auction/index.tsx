@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import DiatomInfo from '../../components/DiatomInfo';
 import LandingHero from '../../components/LandingHero';
 import InfoSections from '../../components/InfoSections';
-import DAOnstream from '../../components/DAOnstream';
+// import DAOnstream from '../../components/DAOnstream';
 import Tokenomics from '../../components/Tokenomics';
 
 interface AuctionPageProps {
@@ -50,7 +50,7 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
       <DiatomInfo />
       <Tokenomics />
       <InfoSections />
-      <DAOnstream />
+      {/* <DAOnstream /> */}
     </div>
   );
 };
