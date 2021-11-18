@@ -66,8 +66,8 @@ const Lungs = () => {
           ref={topicOneRef}
           className={`${classes.topic} ${showTopicOne ? classes.fadeIn : ''}`}
         >
-          <img style={{ maxWidth: '130px' }} src={coin} alt="Asset-backed icon" />
-          <h5>Asset-backed</h5>
+          <img style={{ maxWidth: '156px', height: '156px' }} src={coin} alt="Asset-backed icon" />
+          <h5 style={{ marginTop: '.7rem' }}>Asset-backed</h5>
           <p>
             Each DIAT is backed by a minimum of 1 DAI. This means no matter what happens, you will
             always be able to sell your DIAT for at least 1 DAI. As our treasury grows, this number

@@ -159,7 +159,7 @@
 }
 
 .topic img {
-  width: fit-content;
+  width: auto;
   max-height: 150px;
   margin: 0 auto;
 }
