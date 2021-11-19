@@ -9,6 +9,7 @@ import LandingHero from '../../components/LandingHero';
 import InfoSections from '../../components/InfoSections';
 // import DAOnstream from '../../components/DAOnstream';
 import Tokenomics from '../../components/Tokenomics';
+import Auction from '../../components/Auction';
 
 interface AuctionPageProps {
   initialAuctionId?: number;
@@ -45,7 +46,7 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
 
   return (
     <div>
-      {/* <Auction auction={onDisplayAuction} /> */}
+      <Auction auction={onDisplayAuction} />
       <LandingHero />
       <DiatomInfo />
       <Tokenomics />

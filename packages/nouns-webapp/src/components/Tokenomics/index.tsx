@@ -136,7 +136,7 @@ const Tokenomics = () => {
             currentSectionVisible >= 4 && isMobile ? classes.contentFadeIn : ''
           }`}
         >
-          <img className={classes.mobileImg} src={plastic} alt="Plastic" />
+          <img className={classes.mobileImg} src={prc} alt="Plastic" />
           <img className={classes.desktopImg} src={prcLogo} alt="PRC" />
           <h2>04 PRC Minted</h2>
           <p>
