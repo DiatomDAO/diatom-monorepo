@@ -111,10 +111,16 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  transform: translateX(-20px);
 }
 
 .exchangeCoins img {
   width: 50px;
+}
+
+.exchangeCoins > img:first-of-type {
+  width: 90px;
+  transform: rotate(62deg);
 }
 
 .yellowBall {
@@ -128,9 +134,9 @@
 .exchangeCoins .wind {
   position: relative;
 
-  width: 30px;
-  height: 35px;
-  border: 2px solid #5B6459;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #7F7F7F;
   border-top: none;
   border-bottom: none;
 }
@@ -138,8 +144,8 @@
 .exchangeCoins .wind::after {
   content: "";
   width: 2px;
-  height: 35px;
-  background: #5B6459;
+  height: 25px;
+  background: #7F7F7F;
 
   position: absolute;
   bottom: 50%;

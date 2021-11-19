@@ -7,7 +7,7 @@ import polygonToken from './assets/polygonToken.png';
 import bonding from './assets/bonding.svg';
 import removal from './assets/removal.svg';
 import verified from './assets/verified.svg';
-import plastic from './assets/plastic.png';
+import city from './assets/city.svg';
 import prc from './assets/prc.png';
 import prcLogo from './assets/prcLogo.svg';
 import purchase from './assets/purchase.svg';
@@ -92,13 +92,9 @@ const Tokenomics = () => {
           <div className={classes.exchangeImages}>
             <img src={bonding} alt="Bonding" />
             <div className={classes.exchangeCoins}>
+                <img src={polygonToken} alt="Coin" />
               <div>
-                <div className={classes.wind} />
-                <div className={classes.yellowBall} />
-                {/* <img src={logo} alt="Bonding" /> */}
-              </div>
-              <div>
-                <img src={logo} alt="Bonding" />
+                <img src={coin} alt="Coin" />
                 <div className={classes.wind} />
               </div>
             </div>
@@ -150,7 +146,7 @@ const Tokenomics = () => {
             currentSectionVisible >= 5 && isMobile ? classes.contentFadeIn : ''
           }`}
         >
-          <img className={classes.mobileImg} src={prc} alt="Logo" />
+          <img style={{ maxWidth: '100%' }} className={classes.mobileImg} src={city} alt="City" />
           <img className={classes.desktopImg} src={purchase} alt="Institution" />
           <h2>05 PRC Purchases</h2>
           <p>
