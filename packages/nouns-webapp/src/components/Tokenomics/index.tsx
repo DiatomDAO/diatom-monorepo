@@ -7,7 +7,6 @@ import polygonToken from './assets/polygonToken.png';
 import bonding from './assets/bonding.svg';
 import removal from './assets/removal.svg';
 import verified from './assets/verified.svg';
-import city from './assets/city.svg';
 import prc from './assets/prc.png';
 import prcLogo from './assets/prcLogo.svg';
 import purchase from './assets/purchase.svg';
@@ -146,7 +145,7 @@ const Tokenomics = () => {
             currentSectionVisible >= 5 && isMobile ? classes.contentFadeIn : ''
           }`}
         >
-          <img style={{ maxWidth: '100%' }} className={classes.mobileImg} src={city} alt="City" />
+          <img className={classes.mobileImg} src={purchase} alt="Institution" />
           <img className={classes.desktopImg} src={purchase} alt="Institution" />
           <h2>05 PRC Purchases</h2>
           <p>

@@ -278,6 +278,7 @@
 
   .mobileImg {
     display: none;
+    max-width: 100%;
   }
 
   .desktopImg {
