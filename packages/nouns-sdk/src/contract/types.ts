@@ -1,8 +1,6 @@
 import {
-  NounsTokenFactory,
-  NounsAuctionHouseFactory,
-  NounsDescriptorFactory,
-  NounsSeederFactory,
+  WhalezTokenFactory,
+  WhalezAuctionHouseFactory,
   NounsDaoLogicV1Factory,
 } from '@nouns/contracts';
 
@@ -20,10 +18,8 @@ export interface ContractAddresses {
 }
 
 export interface Contracts {
-  nounsTokenContract: ReturnType<typeof NounsTokenFactory.connect>;
-  nounsAuctionHouseContract: ReturnType<typeof NounsAuctionHouseFactory.connect>;
-  nounsDescriptorContract: ReturnType<typeof NounsDescriptorFactory.connect>;
-  nounsSeederContract: ReturnType<typeof NounsSeederFactory.connect>;
+  nounsTokenContract: ReturnType<typeof WhalezTokenFactory.connect>;
+  nounsAuctionHouseContract: ReturnType<typeof WhalezAuctionHouseFactory.connect>;
   nounsDaoContract: ReturnType<typeof NounsDaoLogicV1Factory.connect>;
 }
 
