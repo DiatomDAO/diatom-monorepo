@@ -1,4 +1,4 @@
-import { ContractAddresses, getContractAddressesForChainOrThrow } from '@nouns/sdk';
+import { ContractAddresses, getContractAddressesForChainOrThrow } from './utils/contract';
 import { ChainId } from '@usedapp/core';
 
 interface AppConfig {

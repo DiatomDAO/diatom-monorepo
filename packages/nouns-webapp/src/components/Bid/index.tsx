@@ -9,7 +9,7 @@ import { Spinner, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { useAuctionMinBidIncPercentage } from '../../wrappers/nounsAuction';
 import { useAppDispatch } from '../../hooks';
 import { AlertModal, setAlertModal } from '../../state/slices/application';
-import { NounsAuctionHouseFactory } from '@nouns/sdk';
+import { NounsAuctionHouseFactory } from '../../utils/contract';
 import config from '../../config';
 
 const computeMinimumNextBid = (

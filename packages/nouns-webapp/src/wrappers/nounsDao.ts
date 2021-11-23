@@ -1,4 +1,4 @@
-import { NounsDAOABI, NounsDaoLogicV1Factory } from '@nouns/sdk';
+import { NounsDAOABI, NounsDaoLogicV1Factory } from '../utils/contract';
 import { useContractCall, useContractCalls, useContractFunction } from '@usedapp/core';
 import { utils, BigNumber as EthersBN } from 'ethers';
 import { defaultAbiCoder } from 'ethers/lib/utils';
