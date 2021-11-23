@@ -1,4 +1,4 @@
-import { default as NounsAuctionHouseABI } from '../abi/contracts/NounsAuctionHouse.sol/NounsAuctionHouse.json';
+import { default as WhalezAuctionHouseABI } from '../abi/contracts/WhalezAuctionHouse.sol/WhalezAuctionHouse.json';
 import { task, types } from 'hardhat/config';
 import { Interface } from 'ethers/lib/utils';
 import { Contract as EthersContract } from 'ethers';
@@ -9,9 +9,9 @@ type ContractName =
   | 'NounsDescriptor'
   | 'NounsSeeder'
   | 'NounsToken'
-  | 'NounsAuctionHouse'
-  | 'NounsAuctionHouseProxyAdmin'
-  | 'NounsAuctionHouseProxy'
+  | 'WhalezAuctionHouse'
+  | 'WhalezAuctionHouseProxyAdmin'
+  | 'WhalezAuctionHouseProxy'
   | 'NounsDAOExecutor'
   | 'NounsDAOLogicV1'
   | 'NounsDAOProxy';
@@ -79,16 +79,16 @@ task('deploy-local', 'Deploy contracts to hardhat')
           proxyRegistryAddress,
         ],
       },
-      NounsAuctionHouse: {
+      WhalezAuctionHouse: {
         waitForConfirmation: true,
       },
-      NounsAuctionHouseProxyAdmin: {},
-      NounsAuctionHouseProxy: {
+      WhalezAuctionHouseProxyAdmin: {},
+      WhalezAuctionHouseProxy: {
         args: [
-          () => contracts['NounsAuctionHouse'].instance?.address,
-          () => contracts['NounsAuctionHouseProxyAdmin'].instance?.address,
+          () => contracts['WhalezAuctionHouse'].instance?.address,
+          () => contracts['WhalezAuctionHouseProxyAdmin'].instance?.address,
           () =>
-            new Interface(NounsAuctionHouseABI).encodeFunctionData('initialize', [
+            new Interface(WhalezAuctionHouseABI).encodeFunctionData('initialize', [
               contracts['NounsToken'].instance?.address,
               contracts['WETH'].instance?.address,
               args.auctionTimeBuffer,

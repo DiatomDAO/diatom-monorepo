@@ -1,8 +1,6 @@
 import {
-  NounsTokenFactory,
-  NounsAuctionHouseFactory,
-  NounsDescriptorFactory,
-  NounsSeederFactory,
+  WhalezTokenFactory,
+  WhalezAuctionHouseFactory,
   NounsDaoLogicV1Factory,
 } from '@nouns/contracts';
 import type { Signer } from 'ethers';
@@ -24,20 +22,12 @@ export const getContractsForChainOrThrow = (
   const addresses = getContractAddressesForChainOrThrow(chainId);
 
   return {
-    nounsTokenContract: NounsTokenFactory.connect(
+    nounsTokenContract: WhalezTokenFactory.connect(
       addresses.nounsToken,
       signerOrProvider as Signer | Provider,
     ),
-    nounsAuctionHouseContract: NounsAuctionHouseFactory.connect(
+    nounsAuctionHouseContract: WhalezAuctionHouseFactory.connect(
       addresses.nounsAuctionHouseProxy,
-      signerOrProvider as Signer | Provider,
-    ),
-    nounsDescriptorContract: NounsDescriptorFactory.connect(
-      addresses.nounsDescriptor,
-      signerOrProvider as Signer | Provider,
-    ),
-    nounsSeederContract: NounsSeederFactory.connect(
-      addresses.nounsSeeder,
       signerOrProvider as Signer | Provider,
     ),
     nounsDaoContract: NounsDaoLogicV1Factory.connect(
