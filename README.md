@@ -8,10 +8,6 @@ If you're interested in contributing to Nouns DAO repos we're excited to have yo
 
 ## Packages
 
-### nouns-api
-
-The [nouns api](packages/nouns-api) is an HTTP webserver that hosts token metadata. This is currently unused because on-chain, data URIs are enabled.
-
 ### nouns-assets
 
 The [nouns assets](packages/nouns-assets) package holds the Noun PNG and run-length encoded image data.
