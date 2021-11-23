@@ -1,26 +1,13 @@
 // SPDX-License-Identifier: GPL-3.0
 
-/// @title The Nouns DAO auction house
-
-/*********************************
- * ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ *
- * ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ *
- * ░░░░░░█████████░░█████████░░░ *
- * ░░░░░░██░░░████░░██░░░████░░░ *
- * ░░██████░░░████████░░░████░░░ *
- * ░░██░░██░░░████░░██░░░████░░░ *
- * ░░██░░██░░░████░░██░░░████░░░ *
- * ░░░░░░█████████░░█████████░░░ *
- * ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ *
- * ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ *
- *********************************/
+/// @title The Whalez DAO auction house
 
 // LICENSE
-// NounsAuctionHouse.sol is a modified version of Zora's AuctionHouse.sol:
-// https://github.com/ourzora/auction-house/blob/54a12ec1a6cf562e49f0a4917990474b11350a2d/contracts/AuctionHouse.sol
+// WhalezAuctionHouse.sol is a modified version of NounsDAO's NounsAuctionHouse.sol:
+// https://github.com/whalezDAO/whalez-monorepo/blob/d571efb730ff51daca648068a26efee4fe9eebab/packages/whalez-contracts/contracts/NounsAuctionHouse.sol
 //
-// AuctionHouse.sol source code Copyright Zora licensed under the GPL-3.0 license.
-// With modifications by Nounders DAO.
+// NounsAuctionHouse.sol source code Copyright NounsDAO licensed under the GPL-3.0 license.
+// With modifications by Diatom DAO.
 
 pragma solidity ^0.8.6;
 
@@ -28,13 +15,18 @@ import { PausableUpgradeable } from '@openzeppelin/contracts-upgradeable/securit
 import { ReentrancyGuardUpgradeable } from '@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol';
 import { OwnableUpgradeable } from '@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol';
 import { IERC20 } from '@openzeppelin/contracts/token/ERC20/IERC20.sol';
-import { INounsAuctionHouse } from './interfaces/INounsAuctionHouse.sol';
+import { IWhalezAuctionHouse } from './interfaces/IWhalezAuctionHouse.sol';
 import { IWhalezToken } from './interfaces/IWhalezToken.sol';
 import { IWETH } from './interfaces/IWETH.sol';
 
-contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, ReentrancyGuardUpgradeable, OwnableUpgradeable {
-    // The Nouns ERC721 token contract
-    IWhalezToken public nouns;
+contract WhalezAuctionHouse is
+    IWhalezAuctionHouse,
+    PausableUpgradeable,
+    ReentrancyGuardUpgradeable,
+    OwnableUpgradeable
+{
+    // The Whalez ERC721 token contract
+    IWhalezToken public whalez;
 
     // The address of the WETH contract
     address public weth;
@@ -51,8 +43,11 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
     // The duration of a single auction
     uint256 public duration;
 
+    // The total duration of
+    uint256 public remainingDuration;
+
     // The active auction
-    INounsAuctionHouse.Auction public auction;
+    IWhalezAuctionHouse.Auction public auction;
 
     /**
      * @notice Initialize the auction house and base contracts,
@@ -60,12 +55,11 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
      * @dev This function can only be called once.
      */
     function initialize(
-        IWhalezToken _nouns,
+        IWhalezToken _whalez,
         address _weth,
         uint256 _timeBuffer,
         uint256 _reservePrice,
-        uint8 _minBidIncrementPercentage,
-        uint256 _duration
+        uint8 _minBidIncrementPercentage
     ) external initializer {
         __Pausable_init();
         __ReentrancyGuard_init();
@@ -73,16 +67,16 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
 
         _pause();
 
-        nouns = _nouns;
+        whalez = _whalez;
         weth = _weth;
         timeBuffer = _timeBuffer;
         reservePrice = _reservePrice;
         minBidIncrementPercentage = _minBidIncrementPercentage;
-        duration = _duration;
+        remainingDuration = 1209600;
     }
 
     /**
-     * @notice Settle the current auction, mint a new Noun, and put it up for auction.
+     * @notice Settle the current auction, mint a new Whale, and put it up for auction.
      */
     function settleCurrentAndCreateNewAuction() external override nonReentrant whenNotPaused {
         _settleAuction();
@@ -98,13 +92,13 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
     }
 
     /**
-     * @notice Create a bid for a Noun, with a given amount.
+     * @notice Create a bid for a Whale, with a given amount.
      * @dev This contract only accepts payment in ETH.
      */
-    function createBid(uint256 nounId) external payable override nonReentrant {
-        INounsAuctionHouse.Auction memory _auction = auction;
+    function createBid(uint256 whaleId) external payable override nonReentrant {
+        IWhalezAuctionHouse.Auction memory _auction = auction;
 
-        require(_auction.nounId == nounId, 'Noun not up for auction');
+        require(_auction.whaleId == whaleId, 'Whale not up for auction');
         require(block.timestamp < _auction.endTime, 'Auction expired');
         require(msg.value >= reservePrice, 'Must send at least reservePrice');
         require(
@@ -128,15 +122,15 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
             auction.endTime = _auction.endTime = block.timestamp + timeBuffer;
         }
 
-        emit AuctionBid(_auction.nounId, msg.sender, msg.value, extended);
+        emit AuctionBid(_auction.whaleId, msg.sender, msg.value, extended);
 
         if (extended) {
-            emit AuctionExtended(_auction.nounId, _auction.endTime);
+            emit AuctionExtended(_auction.whaleId, _auction.endTime);
         }
     }
 
     /**
-     * @notice Pause the Nouns auction house.
+     * @notice Pause the Whalez auction house.
      * @dev This function can only be called by the owner when the
      * contract is unpaused. While no new auctions can be started when paused,
      * anyone can settle an ongoing auction.
@@ -146,7 +140,7 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
     }
 
     /**
-     * @notice Unpause the Nouns auction house.
+     * @notice Unpause the Whalez auction house.
      * @dev This function can only be called by the owner when the
      * contract is paused. If required, this function will start a new auction.
      */
@@ -195,12 +189,15 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
      * catch the revert and pause this contract.
      */
     function _createAuction() internal {
-        try nouns.mint() returns (uint256 nounId) {
+        try whalez.mint() returns (uint256 whaleId) {
+            // linear decay with remaining seconds distributed equally
+            duration = (((remainingDuration * 3571) / 100000) + 4020);
+            remainingDuration -= (duration - 4020);
             uint256 startTime = block.timestamp;
             uint256 endTime = startTime + duration;
 
             auction = Auction({
-                nounId: nounId,
+                whaleId: whaleId,
                 amount: 0,
                 startTime: startTime,
                 endTime: endTime,
@@ -208,7 +205,7 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
                 settled: false
             });
 
-            emit AuctionCreated(nounId, startTime, endTime);
+            emit AuctionCreated(whaleId, startTime, endTime);
         } catch Error(string memory) {
             _pause();
         }
@@ -216,10 +213,10 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
 
     /**
      * @notice Settle an auction, finalizing the bid and paying out to the owner.
-     * @dev If there are no bids, the Noun is burned.
+     * @dev If there are no bids, the Whale is sent the owner of the contract.
      */
     function _settleAuction() internal {
-        INounsAuctionHouse.Auction memory _auction = auction;
+        IWhalezAuctionHouse.Auction memory _auction = auction;
 
         require(_auction.startTime != 0, "Auction hasn't begun");
         require(!_auction.settled, 'Auction has already been settled');
@@ -227,17 +224,16 @@ contract NounsAuctionHouse is INounsAuctionHouse, PausableUpgradeable, Reentranc
 
         auction.settled = true;
 
-        if (_auction.bidder == address(0)) {
-            nouns.burn(_auction.nounId);
-        } else {
-            nouns.transferFrom(address(this), _auction.bidder, _auction.nounId);
+        if (_auction.bidder != address(0)) {
+            whalez.transferFrom(address(this), _auction.bidder, _auction.whaleId);
         }
 
         if (_auction.amount > 0) {
             _safeTransferETHWithFallback(owner(), _auction.amount);
         }
 
-        emit AuctionSettled(_auction.nounId, _auction.bidder, _auction.amount);
+        address winner = _auction.bidder == address(0) ? owner() : _auction.bidder;
+        emit AuctionSettled(_auction.whaleId, winner, _auction.amount);
     }
 
     /**

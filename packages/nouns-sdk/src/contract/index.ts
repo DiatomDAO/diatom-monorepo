@@ -2,14 +2,10 @@ export { getContractAddressesForChainOrThrow } from './addresses';
 export { getContractsForChainOrThrow } from './contracts';
 export { ChainId, ContractAddresses } from './types';
 export {
-  NounsTokenABI,
-  NounsAuctionHouseABI,
-  NounsDescriptorABI,
-  NounsSeederABI,
+  WhalezTokenABI,
+  WhalezAuctionHouseABI,
   NounsDAOABI,
-  NounsTokenFactory,
-  NounsAuctionHouseFactory,
-  NounsDescriptorFactory,
-  NounsSeederFactory,
+  WhalezTokenFactory,
+  WhalezAuctionHouseFactory,
   NounsDaoLogicV1Factory,
 } from '@nouns/contracts';

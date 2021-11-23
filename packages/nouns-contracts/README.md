@@ -1,4 +1,4 @@
-# @nouns/contracts
+# @diatom/contracts
 
 ## Background
 
