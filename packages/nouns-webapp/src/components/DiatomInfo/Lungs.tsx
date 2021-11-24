@@ -4,7 +4,7 @@ import onScreen from '../../hooks/onScreen';
 import diatom from './assets/diatom.png';
 import classes from './Lungs.module.css';
 import coin from './assets/coin.png';
-import communityImg from './assets/community.svg';
+import communityImg from './assets/community.png';
 import protocolImg from './assets/protocol.png';
 import rightArrow from './assets/rightArrow.svg';
 
