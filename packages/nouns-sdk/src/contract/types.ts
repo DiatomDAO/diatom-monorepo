@@ -1,26 +1,15 @@
-import {
-  WhalezTokenFactory,
-  WhalezAuctionHouseFactory,
-  NounsDaoLogicV1Factory,
-} from '@nouns/contracts';
+import { WhalezTokenFactory, WhalezAuctionHouseFactory } from '@nouns/contracts';
 
 export interface ContractAddresses {
-  nounsToken: string;
-  nounsSeeder: string;
-  nounsDescriptor: string;
-  nftDescriptor: string;
-  nounsAuctionHouse: string;
-  nounsAuctionHouseProxy: string;
-  nounsAuctionHouseProxyAdmin: string;
-  nounsDaoExecutor: string;
-  nounsDAOProxy: string;
-  nounsDAOLogicV1: string;
+  whalezToken: string;
+  whalezAuctionHouse: string;
+  whalezAuctionHouseProxy: string;
+  whalezAuctionHouseProxyAdmin: string;
 }
 
 export interface Contracts {
-  nounsTokenContract: ReturnType<typeof WhalezTokenFactory.connect>;
-  nounsAuctionHouseContract: ReturnType<typeof WhalezAuctionHouseFactory.connect>;
-  nounsDaoContract: ReturnType<typeof NounsDaoLogicV1Factory.connect>;
+  whalezTokenContract: ReturnType<typeof WhalezTokenFactory.connect>;
+  whalezAuctionHouseContract: ReturnType<typeof WhalezAuctionHouseFactory.connect>;
 }
 
 export enum ChainId {
