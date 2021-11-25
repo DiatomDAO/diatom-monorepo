@@ -19,6 +19,12 @@ interface Contract {
 
 task('deploy-local', 'Deploy contracts to hardhat')
   .addOptionalParam('diatomdao', 'The diatom DAO contract address')
+  .addOptionalParam(
+    'contractipfsuri',
+    'nfts ipfs uri',
+    'bafybeiczss6g3bto5xv4ebabmo2wnwdrdnmtow4qjhrwzhog2lcguc72ka',
+    types.string,
+  )
   .addOptionalParam('auctionTimeBuffer', 'The auction time buffer (seconds)', 30, types.int) // Default: 30 seconds
   .addOptionalParam('auctionReservePrice', 'The auction reserve price (wei)', 1, types.int) // Default: 1 wei
   .addOptionalParam(
@@ -52,6 +58,7 @@ task('deploy-local', 'Deploy contracts to hardhat')
           args.diatomdao || deployer.address,
           expectedAuctionHouseProxyAddress,
           proxyRegistryAddress,
+          args.contractipfsuri,
         ],
       },
       WhalezAuctionHouse: {

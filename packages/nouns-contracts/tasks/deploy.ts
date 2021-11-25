@@ -23,6 +23,7 @@ interface Contract {
 task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
   .addParam('diatomdao', 'The diatom DAO contract address', undefined, types.string)
   .addParam('weth', 'The WETH contract address', undefined, types.string)
+  .addParam('contractipfsuri', 'nfts ipfs uri', undefined, types.string)
   .addOptionalParam('auctionTimeBuffer', 'The auction time buffer (seconds)', 5 * 60, types.int)
   .addOptionalParam('auctionReservePrice', 'The auction reserve price (wei)', 1, types.int)
   .addOptionalParam(
@@ -50,11 +51,7 @@ task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
 
     const contracts: Record<ContractName, Contract> = {
       WhalezToken: {
-        args: [
-          args.diatomdao,
-          expectedAuctionHouseProxyAddress,
-          proxyRegistryAddress,
-        ],
+        args: [args.diatomdao, expectedAuctionHouseProxyAddress, proxyRegistryAddress],
       },
       WhalezAuctionHouse: {
         waitForConfirmation: true,

@@ -2,26 +2,30 @@ import { NFTStorage, File } from 'nft.storage';
 import { readdirSync, readFileSync, mkdirSync, writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
+const ignoredFiles = ['.DS_Store'];
+
 type MetadataParams = {
   name: string;
   CID: string;
 };
 
 const generateMetadata = ({ name, CID }: MetadataParams) => ({
-  name,
-  description: `lol #${name}`,
+  name: `This is name ${name}`,
+  description: `This is decriptione #${name}`,
   image: ['ipfs:/', CID, name].join('/'),
 });
 
 export const uploadNFTS = async (path: string): Promise<void> => {
   const client = new NFTStorage({ token: process.env.APIKEY! });
 
-  const files = readdirSync(path);
+  const files = readdirSync(path).filter(fileName => !ignoredFiles.includes(fileName));
   const fileObjs = files.map(fileName => {
     const name = fileName.split('.')[0];
     const filePath = join(path, fileName);
     return new File([readFileSync(filePath)], name);
   });
+
+  console.log(files);
 
   const assetsCID = await client.storeDirectory(fileObjs);
 
