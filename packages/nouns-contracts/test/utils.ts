@@ -24,6 +24,7 @@ export const deployWhalezToken = async (
   noundersDAO?: string,
   minter?: string,
   proxyRegistryAddress?: string,
+  metadataIpfsURI?: string
 ): Promise<WhalezToken> => {
   const signer = deployer || (await getSigners()).deployer;
   const factory = new WhalezTokenFactory(signer);
@@ -32,6 +33,7 @@ export const deployWhalezToken = async (
     noundersDAO || signer.address,
     minter || signer.address,
     proxyRegistryAddress || address(0),
+    metadataIpfsURI || 'bafybeiczss6g3bto5xv4ebabmo2wnwdrdnmtow4qjhrwzhog2lcguc72ka'
   );
 };
 
