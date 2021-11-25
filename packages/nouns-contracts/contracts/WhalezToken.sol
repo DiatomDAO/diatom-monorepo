@@ -33,10 +33,10 @@ contract WhalezToken is IWhalezToken, Ownable, ERC721Enumerable {
     IProxyRegistry public immutable proxyRegistry;
 
     // IPFS content hash of contract-level metadata
-    string private _contractURIHash = 'changeThis';
+    string private _contractURIHash;
 
     // max supply
-    uint256 private maxSupply;
+    uint256 private maxSupply = 50;
 
     /**
      * @notice Require that the minter has not been locked.
@@ -65,12 +65,13 @@ contract WhalezToken is IWhalezToken, Ownable, ERC721Enumerable {
     constructor(
         address _diatomDAO,
         address _minter,
-        IProxyRegistry _proxyRegistry
+        IProxyRegistry _proxyRegistry,
+        string memory contractURIHash
     ) ERC721('whalez', 'WHALEZ') {
         diatomDAO = _diatomDAO;
         minter = _minter;
         proxyRegistry = _proxyRegistry;
-        maxSupply = 50;
+        _contractURIHash = contractURIHash;
     }
 
     function getMaxSupply() external view override returns (uint256) {

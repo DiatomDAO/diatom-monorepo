@@ -8,7 +8,7 @@ import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 
 chai.use(solidity);
 const { expect } = chai;
-const IPFS_URL = 'changeThis';
+const IPFS_URL = 'bafybeiczss6g3bto5xv4ebabmo2wnwdrdnmtow4qjhrwzhog2lcguc72ka';
 
 describe('WhalezToken', () => {
   let whalezToken: WhalezToken;

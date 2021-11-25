@@ -15,6 +15,7 @@ typechain/*.ts
 
 # Script output
 logs
+scripts/whales_json
 
 # Coverage result files
 coverage/

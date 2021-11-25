@@ -15,6 +15,11 @@
         "internalType": "contract IProxyRegistry",
         "name": "_proxyRegistry",
         "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "contractURIHash",
+        "type": "string"
       }
     ],
     "stateMutability": "nonpayable",
