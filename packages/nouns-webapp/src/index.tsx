@@ -30,7 +30,6 @@ import LogsUpdater from './state/updaters/logs';
 import config, { CHAIN_ID, createNetworkHttpUrl } from './config';
 import { WebSocketProvider } from '@ethersproject/providers';
 import { BigNumber, BigNumberish } from 'ethers';
-import { NounsAuctionHouseFactory } from '@nouns/sdk';
 import dotenv from 'dotenv';
 import { useAppDispatch, useAppSelector } from './hooks';
 import { appendBid } from './state/slices/auction';
@@ -86,6 +85,9 @@ const useDappConfig = {
     [ChainId.Mainnet]: createNetworkHttpUrl('mainnet'),
     [ChainId.Hardhat]: 'http://localhost:8545',
   },
+  multicallAddresses: {
+    [ChainId.Hardhat]: config.addresses.Multicall!,
+  }
 };
 
 const client = clientFactory(config.app.subgraphApiUri);
