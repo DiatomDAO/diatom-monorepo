@@ -5,6 +5,7 @@ export interface ContractAddresses {
   whalezAuctionHouse: string;
   whalezAuctionHouseProxy: string;
   whalezAuctionHouseProxyAdmin: string;
+  Multicall?: string;
 }
 
 export interface Contracts {

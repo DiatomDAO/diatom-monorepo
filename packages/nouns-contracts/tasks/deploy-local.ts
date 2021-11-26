@@ -8,7 +8,8 @@ type ContractName =
   | 'WhalezToken'
   | 'WhalezAuctionHouse'
   | 'WhalezAuctionHouseProxyAdmin'
-  | 'WhalezAuctionHouseProxy';
+  | 'WhalezAuctionHouseProxy'
+  | 'Multicall';
 
 interface Contract {
   args?: (string | number | (() => string | undefined))[];
@@ -79,6 +80,7 @@ task('deploy-local', 'Deploy contracts to hardhat')
             ]),
         ],
       },
+      Multicall: {},
     };
 
     for (const [name, contract] of Object.entries(contracts)) {
