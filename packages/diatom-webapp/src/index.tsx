@@ -19,8 +19,8 @@ import auction, {
   setFullAuction,
 } from './state/slices/auction';
 import onDisplayAuction, {
-  setLastAuctionNounId,
-  setOnDisplayAuctionNounId,
+  setLastAuctionWhalezId,
+  setOnDisplayAuctionWhalezId,
 } from './state/slices/onDisplayAuction';
 import { ApolloProvider, useQuery } from '@apollo/client';
 import { clientFactory, latestAuctionsQuery } from './wrappers/subgraph';
@@ -140,8 +140,8 @@ const ChainSubscriber: React.FC = () => {
       );
       const whaleIdNumber = BigNumber.from(whaleId).toNumber();
       dispatch(push(nounPath(whaleIdNumber)));
-      dispatch(setOnDisplayAuctionNounId(whaleIdNumber));
-      dispatch(setLastAuctionNounId(whaleIdNumber));
+      dispatch(setOnDisplayAuctionWhalezId(whaleIdNumber));
+      dispatch(setLastAuctionWhalezId(whaleIdNumber));
     };
     const processAuctionExtended = (whaleId: BigNumberish, endTime: BigNumberish) => {
       dispatch(setAuctionExtended({ whaleId, endTime }));
@@ -153,7 +153,7 @@ const ChainSubscriber: React.FC = () => {
     // Fetch the current auction
     const currentAuction = await nounsAuctionHouseContract.auction();
     dispatch(setFullAuction(reduxSafeAuction(currentAuction)));
-    dispatch(setLastAuctionNounId(currentAuction.whaleId.toNumber()));
+    dispatch(setLastAuctionWhalezId(currentAuction.whaleId.toNumber()));
 
     // Fetch the previous 24hours of  bids
     const previousBids = await nounsAuctionHouseContract.queryFilter(bidFilter, 0 - BLOCKS_PER_DAY);
@@ -181,7 +181,7 @@ const ChainSubscriber: React.FC = () => {
 };
 
 const PastAuctions: React.FC = () => {
-  const latestAuctionId = useAppSelector(state => state.onDisplayAuction.lastAuctionNounId);
+  const latestAuctionId = useAppSelector(state => state.onDisplayAuction.lastAuctionWhalezId);
   const { data } = useQuery(latestAuctionsQuery());
   const dispatch = useAppDispatch();
 

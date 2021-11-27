@@ -12,7 +12,7 @@ import BidHistory from '../BidHistory';
 import { Modal } from 'react-bootstrap';
 import AuctionNavigation from '../AuctionNavigation';
 import AuctionActivityWrapper from '../AuctionActivityWrapper';
-import AuctionActivityNounTitle from '../AuctionActivityNounTitle';
+import AuctionActivityWhalezTitle from '../AuctionActivityWhalezTitle';
 import AuctionActivityDateHeadline from '../AuctionActivityDateHeadline';
 import BidHistoryBtn from '../BidHistoryBtn';
 import StandaloneWhalez from '../StandaloneWhalez';
@@ -105,7 +105,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
           dialogClassName="modal-90w"
         >
           <Modal.Header closeButton className={classes.modalHeader}>
-            <div className={classes.modalHeaderNounImgWrapper}>
+            <div className={classes.modalHeaderWhalezImgWrapper}>
               <StandaloneWhalez whaleId={auction && auction.whaleId} noDescription />
             </div>
             <Modal.Title className={classes.modalTitleWrapper}>{bidHistoryTitle}</Modal.Title>
@@ -123,7 +123,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
               <AuctionActivityDateHeadline startTime={auction.startTime} />
             </Col>
             <Col lg={12} className={classes.colAlignCenter}>
-              <AuctionActivityNounTitle whaleId={auction.whaleId} />
+              <AuctionActivityWhalezTitle whaleId={auction.whaleId} />
               {displayGraphDepComps && (
                 <div style={{ display: 'inline-block' }}>
                   <AuctionNavigation

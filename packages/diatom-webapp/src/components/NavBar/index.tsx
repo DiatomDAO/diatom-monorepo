@@ -9,7 +9,7 @@ import WalletConnectModal from '../WalletConnectModal';
 // import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container } from 'react-bootstrap';
-import testnetNoun from '../../assets/testnet-whalez.png';
+import testnetWhalez from '../../assets/testnet-whalez.png';
 import clsx from 'clsx';
 // import config, { CHAIN_ID } from '../../config';
 import { CHAIN_ID } from '../../config';
@@ -86,7 +86,7 @@ const NavBar = () => {
           </Navbar.Brand>
           {Number(CHAIN_ID) !== 1 && (
             <Nav.Item>
-              <img className={classes.testnetImg} src={testnetNoun} alt="testnet whalez" />
+              <img className={classes.testnetImg} src={testnetWhalez} alt="testnet whalez" />
               TESTNET
             </Nav.Item>
           )}

@@ -2,29 +2,29 @@ import { BigNumber, BigNumberish } from 'ethers';
 import Section from '../../layout/Section';
 import classes from './HistoryCollection.module.css';
 import clsx from 'clsx';
-import StandaloneNoun from '../StandaloneWhalez';
+import StandaloneWhalez from '../StandaloneWhalez';
 import { LoadingWhalez } from '../Whalez';
 import config from '../../config';
 import { Container, Row } from 'react-bootstrap';
 
 interface HistoryCollectionProps {
   historyCount: number;
-  latestNounId: BigNumberish;
+  latestWhalezId: BigNumberish;
 }
 
 const HistoryCollection: React.FC<HistoryCollectionProps> = (props: HistoryCollectionProps) => {
-  const { historyCount, latestNounId } = props;
+  const { historyCount, latestWhalezId } = props;
 
-  if (!latestNounId) return null;
+  if (!latestWhalezId) return null;
 
-  const startAtZero = BigNumber.from(latestNounId).sub(historyCount).lt(0);
+  const startAtZero = BigNumber.from(latestWhalezId).sub(historyCount).lt(0);
 
   let whaleIds: Array<BigNumber | null> = new Array(historyCount);
   whaleIds = whaleIds.fill(null).map((_, i) => {
-    if (BigNumber.from(i).lt(latestNounId)) {
+    if (BigNumber.from(i).lt(latestWhalezId)) {
       const index = startAtZero
         ? BigNumber.from(0)
-        : BigNumber.from(Number(latestNounId) - historyCount);
+        : BigNumber.from(Number(latestWhalezId) - historyCount);
       return index.add(i);
     } else {
       return null;
@@ -32,7 +32,7 @@ const HistoryCollection: React.FC<HistoryCollectionProps> = (props: HistoryColle
   });
 
   const whalezsContent = whaleIds.map((whaleId, i) => {
-    return !whaleId ? <LoadingWhalez key={i} /> : <StandaloneNoun key={i} whaleId={whaleId} />;
+    return !whaleId ? <LoadingWhalez key={i} /> : <StandaloneWhalez key={i} whaleId={whaleId} />;
   });
 
   return (

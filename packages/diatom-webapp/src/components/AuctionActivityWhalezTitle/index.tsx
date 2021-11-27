@@ -1,7 +1,7 @@
 import { BigNumber } from 'ethers';
-import classes from './AuctionActivityNounTitle.module.css';
+import classes from './AuctionActivityWhalezTitle.module.css';
 
-const AuctionActivityNounTitle: React.FC<{ whaleId: BigNumber }> = props => {
+const AuctionActivityWhalezTitle: React.FC<{ whaleId: BigNumber }> = props => {
   const { whaleId } = props;
   const whaleIdContent = `Whale ${whaleId.toString()}`;
   return (
@@ -10,4 +10,4 @@ const AuctionActivityNounTitle: React.FC<{ whaleId: BigNumber }> = props => {
     </div>
   );
 };
-export default AuctionActivityNounTitle;
+export default AuctionActivityWhalezTitle;

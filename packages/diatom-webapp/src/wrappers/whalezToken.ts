@@ -9,7 +9,7 @@ export interface IWhaleToken {
   image: string;
 }
 
-export interface INounSeed {
+export interface IWhalezSeed {
   accessory: number;
   background: number;
   body: number;
