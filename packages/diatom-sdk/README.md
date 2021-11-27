@@ -1,4 +1,4 @@
-# @whalez/sdk
+# @diatom/sdk
 
 ## Development
 
@@ -23,7 +23,7 @@ The Nouns SDK contains useful tooling for interacting with the Nouns protocol.
 **Get Contract Addresses**
 
 ```ts
-import { ChainId, getContractAddressesForChainOrThrow } from '@whalez/sdk';
+import { ChainId, getContractAddressesForChainOrThrow } from '@diatom/sdk';
 
 const { nounsToken } = getContractAddressesForChainOrThrow(ChainId.Mainnet);
 ```
@@ -31,7 +31,7 @@ const { nounsToken } = getContractAddressesForChainOrThrow(ChainId.Mainnet);
 **Get Contract Instances**
 
 ```ts
-import { ChainId, getContractsForChainOrThrow } from '@whalez/sdk';
+import { ChainId, getContractsForChainOrThrow } from '@diatom/sdk';
 
 const provider = new providers.JsonRpcProvider(RPC_URL);
 
@@ -41,7 +41,7 @@ const { nounsTokenContract } = getContractsForChainOrThrow(ChainId.Mainnet, prov
 **Get Contract ABIs**
 
 ```ts
-import { NounsTokenABI } from '@whalez/sdk';
+import { NounsTokenABI } from '@diatom/sdk';
 ```
 
 ### Images
@@ -49,7 +49,7 @@ import { NounsTokenABI } from '@whalez/sdk';
 **Run-length Encode Images**
 
 ```ts
-import { PNGCollectionEncoder } from '@whalez/sdk';
+import { PNGCollectionEncoder } from '@diatom/sdk';
 import { readPngFile } from 'node-libpng';
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -77,7 +77,7 @@ encode();
 **Create SVGs from Run-length Encoded Data**
 
 ```ts
-import { buildSVG } from '@whalez/sdk';
+import { buildSVG } from '@diatom/sdk';
 
 const svg = buildSVG(RLE_PARTS, PALETTE_COLORS, BACKGROUND_COLOR);
 ```

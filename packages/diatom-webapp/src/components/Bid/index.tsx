@@ -9,7 +9,7 @@ import { Spinner, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { useAuctionMinBidIncPercentage } from '../../wrappers/whalezAuction';
 import { useAppDispatch } from '../../hooks';
 import { AlertModal, setAlertModal } from '../../state/slices/application';
-import { WhalezAuctionHouseFactory } from '@whalez/sdk';
+import { WhalezAuctionHouseFactory } from '@diatom/sdk';
 import config from '../../config';
 
 const computeMinimumNextBid = (

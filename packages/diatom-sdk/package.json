@@ -1,5 +1,5 @@
 {
-  "name": "@whalez/sdk",
+  "name": "@diatom/sdk",
   "version": "0.1.3",
   "description": "Useful tooling for interacting with the Nouns protocol",
   "author": "Nounders",
@@ -14,7 +14,7 @@
     "test": "mocha -r ts-node/register \"test/**/*.test.ts\""
   },
   "dependencies": {
-    "@whalez/contracts": "^0.1.2",
+    "@diatom/contracts": "^0.1.2",
     "ethers": "^5.4.7"
   },
   "devDependencies": {

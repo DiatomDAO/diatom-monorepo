@@ -1,6 +1,6 @@
 import { useContractCall, useEthers } from '@usedapp/core';
 import { BigNumber as EthersBN, utils } from 'ethers';
-import { WhalezTokenABI } from '@whalez/contracts';
+import { WhalezTokenABI } from '@diatom/contracts';
 import config from '../config';
 
 export interface IWhaleToken {

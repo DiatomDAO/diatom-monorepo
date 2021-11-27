@@ -1,8 +1,8 @@
 {
     "references": [
-        { "path": "packages/whalez-contracts" },
-        { "path": "packages/whalez-sdk" },
-        { "path": "packages/whalez-subgraph" },
-        { "path": "packages/whalez-webapp" },
+        { "path": "packages/diatom-contracts" },
+        { "path": "packages/diatom-sdk" },
+        { "path": "packages/diatom-subgraph" },
+        { "path": "packages/diatom-webapp" },
     ]
 }
