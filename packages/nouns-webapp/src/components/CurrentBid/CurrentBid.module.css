@@ -3,3 +3,9 @@
   font-weight: bold;
   font-family: 'Londrina Solid';
 }
+
+@media (min-width: 900px) {
+  .section h2 {
+    font-size: 30px;
+  }
+}

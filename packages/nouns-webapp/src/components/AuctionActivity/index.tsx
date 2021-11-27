@@ -18,9 +18,11 @@ import BidHistoryBtn from '../BidHistoryBtn';
 import StandaloneNoun from '../StandaloneNoun';
 import config from '../../config';
 import { buildEtherscanAddressLink } from '../../utils/etherscan';
+import { utils } from 'ethers';
+import prcIcon from '../../assets/prc.png';
 
 const openEtherscanBidHistory = () => {
-  const url = buildEtherscanAddressLink(config.addresses.nounsAuctionHouseProxy);
+  const url = buildEtherscanAddressLink(config.addresses.whalezAuctionHouseProxy);
   window.open(url);
 };
 
@@ -56,7 +58,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
 
   const bidHistoryTitle = (
     <h1>
-      Noun {auction && auction.nounId.toString()}
+      Whale {auction && auction.whaleId.toString()}
       <br /> Bid History
     </h1>
   );
@@ -86,6 +88,14 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
 
   if (!auction) return null;
 
+  const formatter = (amount: number | bigint) =>
+    new Intl.NumberFormat('en-US', {
+      maximumFractionDigits: 0,
+    }).format(amount);
+
+  const eth = new BigNumber(utils.formatEther(auction.amount.toString())).toFixed(2);
+  const totalEstPlasticRemoved = formatter(Number(eth) * 4230 * 0.65);
+
   return (
     <>
       {showBidHistoryModal && (
@@ -96,12 +106,12 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
         >
           <Modal.Header closeButton className={classes.modalHeader}>
             <div className={classes.modalHeaderNounImgWrapper}>
-              <StandaloneNoun nounId={auction && auction.nounId} />
+              <StandaloneNoun whaleId={auction && auction.whaleId} noDescription />
             </div>
             <Modal.Title className={classes.modalTitleWrapper}>{bidHistoryTitle}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <BidHistory auctionId={auction.nounId.toString()} max={9999} />
+            <BidHistory auctionId={auction.whaleId.toString()} max={9999} />
           </Modal.Body>
         </Modal>
       )}
@@ -113,14 +123,16 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
               <AuctionActivityDateHeadline startTime={auction.startTime} />
             </Col>
             <Col lg={12} className={classes.colAlignCenter}>
-              <AuctionActivityNounTitle nounId={auction.nounId} />
+              <AuctionActivityNounTitle whaleId={auction.whaleId} />
               {displayGraphDepComps && (
-                <AuctionNavigation
-                  isFirstAuction={isFirstAuction}
-                  isLastAuction={isLastAuction}
-                  onNextAuctionClick={onNextAuctionClick}
-                  onPrevAuctionClick={onPrevAuctionClick}
-                />
+                <div style={{ display: 'inline-block' }}>
+                  <AuctionNavigation
+                    isFirstAuction={isFirstAuction}
+                    isLastAuction={isLastAuction}
+                    onNextAuctionClick={onNextAuctionClick}
+                    onPrevAuctionClick={onPrevAuctionClick}
+                  />
+                </div>
               )}
             </Col>
           </Row>
@@ -139,6 +151,18 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
               )}
             </Col>
           </Row>
+          <Row>
+            <Col lg={12}>
+              <h4>
+                Est. Plastic Removed <span className={classes.infoToolTip}>&#9432;</span>
+              </h4>
+              <h2 style={{ marginBottom: '0' }}>
+                <img className={classes.prcIcon} src={prcIcon} alt="PRC icon" />
+                {totalEstPlasticRemoved}
+                <span style={{ fontSize: '1rem' }}> Kg</span>
+              </h2>
+            </Col>
+          </Row>
         </div>
         {isLastAuction && (
           <Row className={classes.activityRow}>
@@ -151,7 +175,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
           <Col lg={12}>
             {displayGraphDepComps && (
               <BidHistory
-                auctionId={auction.nounId.toString()}
+                auctionId={auction.whaleId.toString()}
                 max={3}
                 classes={bidHistoryClasses}
               />

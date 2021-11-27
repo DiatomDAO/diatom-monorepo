@@ -17,7 +17,7 @@
 .bidBtn:active,
 .bidBtn:focus,
 .bidBtn:disabled {
-  background-color: gray !important;
+  background-color: #74AEC7 !important;
   outline: none !important;
   box-shadow: none !important;
 }
@@ -31,7 +31,7 @@
   width: 60%;
   height: 3rem;
   color: black;
-  border: 1px solid #aaa !important;
+  border: 1px solid #74AEC7 !important;
   border-radius: 0.25rem !important;
   background-color: white;
   font-weight: bold;
@@ -40,14 +40,14 @@
 }
 .bidInput:focus {
   border: none !important;
-  border: 1px solid #aaa !important;
+  border: 1px solid #74AEC7 !important;
 }
 .customPlaceholder {
   position: absolute;
   top: 25%;
   left: 46%;
   font-weight: bold;
-  color: #aaa;
+  color: #74AEC7;
   z-index: 3;
 }
 .bidBtnAuctionEnded {
@@ -63,8 +63,8 @@
 .bidBtnAuctionEnded:active,
 .bidBtnAuctionEnded:focus,
 .bidBtnAuctionEnded:disabled {
-  background-color: gray !important;
-  color: rgb(209, 207, 207);
+  background-color: #74AEC7 !important;
+  color: #fff;
   outline: none !important;
   box-shadow: none;
 }
@@ -91,7 +91,7 @@
 
 @media (max-width: 992px) {
   .bidInput {
-    border-color: #c3c3c3;
+    border-color: #74AEC7;
   }
   .customPlaceholder {
     left: 44%;

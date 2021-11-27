@@ -1,14 +1,17 @@
-import { BigNumber } from 'ethers';
-import Banner from '../../components/Banner';
-import Auction from '../../components/Auction';
-import Documentation from '../../components/Documentation';
-import HistoryCollection from '../../components/HistoryCollection';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setOnDisplayAuctionNounId } from '../../state/slices/onDisplayAuction';
 import { push } from 'connected-react-router';
 import { nounPath } from '../../utils/history';
 import useOnDisplayAuction from '../../wrappers/onDisplayAuction';
 import { useEffect } from 'react';
+import DiatomInfo from '../../components/DiatomInfo';
+// import LandingHero from '../../components/LandingHero';
+import InfoSections from '../../components/InfoSections';
+import Auction from '../../components/Auction';
+// import DAOnstream from '../../components/DAOnstream';
+import Tokenomics from '../../components/Tokenomics';
+import Leaderboard from '../../components/Leaderboard';
+// import Auction from '../../components/Auction';
 
 interface AuctionPageProps {
   initialAuctionId?: number;
@@ -44,14 +47,15 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
   }, [lastAuctionNounId, dispatch, initialAuctionId, onDisplayAuction]);
 
   return (
-    <>
+    <div>
       <Auction auction={onDisplayAuction} />
-      <Banner />
-      {lastAuctionNounId && (
-        <HistoryCollection latestNounId={BigNumber.from(lastAuctionNounId)} historyCount={10} />
-      )}
-      <Documentation />
-    </>
+      <Leaderboard />
+      {/* <LandingHero /> */}
+      <DiatomInfo />
+      <Tokenomics />
+      <InfoSections />
+      {/* <DAOnstream /> */}
+    </div>
   );
 };
 export default AuctionPage;

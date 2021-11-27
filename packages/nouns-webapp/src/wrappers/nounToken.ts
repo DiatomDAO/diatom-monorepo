@@ -1,9 +1,9 @@
 import { useContractCall, useEthers } from '@usedapp/core';
 import { BigNumber as EthersBN, utils } from 'ethers';
-import { NounsTokenABI } from '@nouns/contracts';
+import { WhalezTokenABI } from '@nouns/contracts';
 import config from '../config';
 
-interface NounToken {
+export interface IWhaleToken {
   name: string;
   description: string;
   image: string;
@@ -17,35 +17,22 @@ export interface INounSeed {
   head: number;
 }
 
-const abi = new utils.Interface(NounsTokenABI);
+const abi = new utils.Interface(WhalezTokenABI);
 
-export const useNounToken = (nounId: EthersBN) => {
-  const [noun] =
+export const useWhaleToken = (whaleId: EthersBN) => {
+  const [whaleURI] =
     useContractCall<[string]>({
       abi,
-      address: config.addresses.nounsToken,
-      method: 'dataURI',
-      args: [nounId],
+      address: config.addresses.whalezToken,
+      method: 'tokenURI',
+      args: [whaleId],
     }) || [];
 
-  if (!noun) {
+  if (!whaleURI) {
     return;
   }
 
-  const nounImgData = noun.split(';base64,').pop() as string;
-  const json: NounToken = JSON.parse(atob(nounImgData));
-
-  return json;
-};
-
-export const useNounSeed = (nounId: EthersBN) => {
-  const seed = useContractCall<INounSeed>({
-    abi,
-    address: config.addresses.nounsToken,
-    method: 'seeds',
-    args: [nounId],
-  });
-  return seed;
+  return whaleURI;
 };
 
 export const useUserVotes = (): number | undefined => {
@@ -53,7 +40,7 @@ export const useUserVotes = (): number | undefined => {
   const [votes] =
     useContractCall<[EthersBN]>({
       abi,
-      address: config.addresses.nounsToken,
+      address: config.addresses.whalezToken,
       method: 'getCurrentVotes',
       args: [account],
     }) || [];
@@ -65,7 +52,7 @@ export const useUserDelegatee = (): string | undefined => {
   const [delegate] =
     useContractCall<[string]>({
       abi,
-      address: config.addresses.nounsToken,
+      address: config.addresses.whalezToken,
       method: 'delegates',
       args: [account],
     }) || [];
@@ -79,7 +66,7 @@ export const useUserVotesAsOfBlock = (block: number | undefined): number | undef
   const [votes] =
     useContractCall<[EthersBN]>({
       abi,
-      address: config.addresses.nounsToken,
+      address: config.addresses.whalezToken,
       method: 'getPriorVotes',
       args: [account, block],
     }) || [];

@@ -11,13 +11,13 @@ import { buildEtherscanAddressLink } from '../../utils/etherscan';
 import ShortAddress from '../ShortAddress';
 
 interface NounInfoRowHolderProps {
-  nounId: number;
+  whaleId: number;
 }
 
 const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
-  const { nounId } = props;
+  const { whaleId } = props;
 
-  const { loading, error, data } = useQuery(nounQuery(nounId.toString()));
+  const { loading, error, data } = useQuery(nounQuery(whaleId.toString()));
 
   const etherscanURL = buildEtherscanAddressLink(data && data.noun.owner.id);
 
@@ -43,7 +43,7 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
           rel="noreferrer"
         >
           {data.noun.owner.id.toLowerCase() ===
-          config.addresses.nounsAuctionHouseProxy.toLowerCase()
+          config.addresses.whalezAuctionHouseProxy.toLowerCase()
             ? 'Nouns Auction House'
             : shortAddressComponent}
         </a>
