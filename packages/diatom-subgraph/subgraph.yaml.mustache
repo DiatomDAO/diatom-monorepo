@@ -5,12 +5,12 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: NounsAuctionHouse
+    name: WhalezAuctionHouse
     network: {{network}}
     source:
-      address: '{{nounsAuctionHouse.address}}'
-      abi: NounsAuctionHouse
-      startBlock: {{nounsAuctionHouse.startBlock}}
+      address: '{{whalezAuctionHouse.address}}'
+      abi: WhalezAuctionHouse
+      startBlock: {{whalezAuctionHouse.startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -20,10 +20,10 @@ dataSources:
         - Account
         - Auction
         - Bid
-        - Noun
+        - Whale
       abis:
-        - name: NounsAuctionHouse
-          file: ../nouns-contracts/abi/contracts/NounsAuctionHouse.sol/NounsAuctionHouse.json
+        - name: WhalezAuctionHouse
+          file: ../nouns-contracts/abi/contracts/WhalezAuctionHouse.sol/WhalezAuctionHouse.json
       eventHandlers:
         - event: AuctionCreated(indexed uint256,uint256,uint256)
           handler: handleAuctionCreated
@@ -34,66 +34,25 @@ dataSources:
         - event: AuctionSettled(indexed uint256,address,uint256)
           handler: handleAuctionSettled
   - kind: ethereum/contract
-    name: NounsToken
+    name: WhalezToken
     network: {{network}}
     source:
-      address: '{{nounsToken.address}}'
-      abi: NounsToken
-      startBlock: {{nounsToken.startBlock}}
+      address: '{{whalezToken.address}}'
+      abi: WhalezToken
+      startBlock: {{whalezToken.startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       file: ./src/nouns-erc-721.ts
       entities:
-        - Noun
-        - Seed
+        - Whale
         - Account
-        - Delegate
-        - Governance
       abis:
-        - name: NounsToken
-          file: ../nouns-contracts/abi/contracts/NounsToken.sol/NounsToken.json
+        - name: WhalezToken
+          file: ../nouns-contracts/abi/contracts/WhalezToken.sol/WhalezToken.json
       eventHandlers:
-        - event: NounCreated(indexed uint256,(uint48,uint48,uint48,uint48,uint48))
-          handler: handleNounCreated
-        - event: DelegateChanged(indexed address,indexed address,indexed address)
-          handler: handleDelegateChanged
-        - event: DelegateVotesChanged(indexed address,uint256,uint256)
-          handler: handleDelegateVotesChanged
+        - event: WhaleCreated(indexed uint256)
+          handler: handleWhaleCreated
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-  - kind: ethereum/contract
-    name: NounsDAO
-    network: {{network}}
-    source:
-      address: '{{nounsDAO.address}}'
-      abi: NounsDAO
-      startBlock: {{nounsDAO.startBlock}}
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      file: ./src/nouns-dao.ts
-      entities:
-        - Account
-        - Delegate
-        - Proposal
-        - Vote
-        - Governance
-      abis:
-        - name: NounsDAO
-          file: ../nouns-contracts/abi/contracts/governance/NounsDAOLogicV1.sol/NounsDAOLogicV1.json
-      eventHandlers:
-        - event: ProposalCreatedWithRequirements(uint256,address,address[],uint256[],string[],bytes[],uint256,uint256,uint256,uint256,string)
-          handler: handleProposalCreatedWithRequirements
-        - event: ProposalCanceled(uint256)
-          handler: handleProposalCanceled
-        - event: ProposalVetoed(uint256)
-          handler: handleProposalVetoed
-        - event: ProposalQueued(uint256,uint256)
-          handler: handleProposalQueued
-        - event: ProposalExecuted(uint256)
-          handler: handleProposalExecuted
-        - event: VoteCast(indexed address,uint256,uint8,uint256,string)
-          handler: handleVoteCast
