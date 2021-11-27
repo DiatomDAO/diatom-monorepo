@@ -15,7 +15,7 @@ typechain/*.ts
 
 # Script output
 logs
-scripts/nouns_json
+scripts/diatom_json
 
 # Coverage result files
 coverage/
