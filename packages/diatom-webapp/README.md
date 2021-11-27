@@ -1,18 +1,18 @@
 # @diatom/webapp
 
-This package contains the source for the Nouns webapp at [nouns.wtf](https://nouns.wtf).
+This package contains the source for the Diatom webapp at [diatom.fund](https://diatom.fund).
 
 ## Quickstart
 
-_From the base of the `nouns-monorepo`_
+_From the base of the `diatom-monorepo`_
 
 In the first shell:
 
 ```sh
 # Install all dependencies and build contract artifacts
 yarn
-# Switch to nouns-contracts
-cd packages/nouns-contracts
+# Switch to diatom-contracts
+cd packages/diatom-contracts
 # Start local simnet
 yarn task:run-local
 ```
@@ -20,8 +20,8 @@ yarn task:run-local
 In the second shell:
 
 ```sh
-# Switch to nouns-webapp
-cd packages/nouns-webapp
+# Switch to diatom-webapp
+cd packages/diatom-webapp
 # Copy local example environment file
 cp .env.example.local .env
 # Start local development
@@ -48,4 +48,4 @@ Then add an RPC provider to MetaMask to point to your local simnet.
          New RPC URL: http://localhost:8545
          Chain ID: 31337
 
-Select the network and connect to your local Nouns webapp to interact with simnet
+Select the network and connect to your local diatom webapp to interact with simnet

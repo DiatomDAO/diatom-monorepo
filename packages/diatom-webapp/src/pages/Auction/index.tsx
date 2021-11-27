@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setOnDisplayAuctionWhalezId } from '../../state/slices/onDisplayAuction';
 import { push } from 'connected-react-router';
-import { nounPath } from '../../utils/history';
+import { whalezPath } from '../../utils/history';
 import useOnDisplayAuction from '../../wrappers/onDisplayAuction';
 import { useEffect } from 'react';
 import DiatomInfo from '../../components/DiatomInfo';
@@ -28,18 +28,18 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
     if (!lastAuctionWhalezId) return;
 
     if (initialAuctionId !== undefined) {
-      // handle out of bounds noun path ids
+      // handle out of bounds whalez path ids
       if (initialAuctionId > lastAuctionWhalezId || initialAuctionId < 0) {
         dispatch(setOnDisplayAuctionWhalezId(lastAuctionWhalezId));
-        dispatch(push(nounPath(lastAuctionWhalezId)));
+        dispatch(push(whalezPath(lastAuctionWhalezId)));
       } else {
         if (onDisplayAuction === undefined) {
-          // handle regular noun path ids on first load
+          // handle regular whalez path ids on first load
           dispatch(setOnDisplayAuctionWhalezId(initialAuctionId));
         }
       }
     } else {
-      // no noun path id set
+      // no whalez path id set
       if (lastAuctionWhalezId) {
         dispatch(setOnDisplayAuctionWhalezId(lastAuctionWhalezId));
       }
