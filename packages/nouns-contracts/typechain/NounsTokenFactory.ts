@@ -6,9 +6,9 @@ import { Signer } from "ethers";
 import { Provider, TransactionRequest } from "@ethersproject/providers";
 import { Contract, ContractFactory, Overrides } from "@ethersproject/contracts";
 
-import type { NounsToken } from "./NounsToken";
+import type { WhalezToken } from "./WhalezToken";
 
-export class NounsTokenFactory extends ContractFactory {
+export class WhalezTokenFactory extends ContractFactory {
   constructor(signer?: Signer) {
     super(_abi, _bytecode, signer);
   }
@@ -18,13 +18,13 @@ export class NounsTokenFactory extends ContractFactory {
     _minter: string,
     _proxyRegistry: string,
     overrides?: Overrides
-  ): Promise<NounsToken> {
+  ): Promise<WhalezToken> {
     return super.deploy(
       _noundersDAO,
       _minter,
       _proxyRegistry,
       overrides || {}
-    ) as Promise<NounsToken>;
+    ) as Promise<WhalezToken>;
   }
   getDeployTransaction(
     _noundersDAO: string,
@@ -39,17 +39,17 @@ export class NounsTokenFactory extends ContractFactory {
       overrides || {}
     );
   }
-  attach(address: string): NounsToken {
-    return super.attach(address) as NounsToken;
+  attach(address: string): WhalezToken {
+    return super.attach(address) as WhalezToken;
   }
-  connect(signer: Signer): NounsTokenFactory {
-    return super.connect(signer) as NounsTokenFactory;
+  connect(signer: Signer): WhalezTokenFactory {
+    return super.connect(signer) as WhalezTokenFactory;
   }
   static connect(
     address: string,
     signerOrProvider: Signer | Provider
-  ): NounsToken {
-    return new Contract(address, _abi, signerOrProvider) as NounsToken;
+  ): WhalezToken {
+    return new Contract(address, _abi, signerOrProvider) as WhalezToken;
   }
 }
 

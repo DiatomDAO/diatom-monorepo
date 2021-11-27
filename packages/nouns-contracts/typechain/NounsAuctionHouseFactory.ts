@@ -6,30 +6,30 @@ import { Signer } from "ethers";
 import { Provider, TransactionRequest } from "@ethersproject/providers";
 import { Contract, ContractFactory, Overrides } from "@ethersproject/contracts";
 
-import type { NounsAuctionHouse } from "./NounsAuctionHouse";
+import type { WhalezAuctionHouse } from "./WhalezAuctionHouse";
 
-export class NounsAuctionHouseFactory extends ContractFactory {
+export class WhalezAuctionHouseFactory extends ContractFactory {
   constructor(signer?: Signer) {
     super(_abi, _bytecode, signer);
   }
 
-  deploy(overrides?: Overrides): Promise<NounsAuctionHouse> {
-    return super.deploy(overrides || {}) as Promise<NounsAuctionHouse>;
+  deploy(overrides?: Overrides): Promise<WhalezAuctionHouse> {
+    return super.deploy(overrides || {}) as Promise<WhalezAuctionHouse>;
   }
   getDeployTransaction(overrides?: Overrides): TransactionRequest {
     return super.getDeployTransaction(overrides || {});
   }
-  attach(address: string): NounsAuctionHouse {
-    return super.attach(address) as NounsAuctionHouse;
+  attach(address: string): WhalezAuctionHouse {
+    return super.attach(address) as WhalezAuctionHouse;
   }
-  connect(signer: Signer): NounsAuctionHouseFactory {
-    return super.connect(signer) as NounsAuctionHouseFactory;
+  connect(signer: Signer): WhalezAuctionHouseFactory {
+    return super.connect(signer) as WhalezAuctionHouseFactory;
   }
   static connect(
     address: string,
     signerOrProvider: Signer | Provider
-  ): NounsAuctionHouse {
-    return new Contract(address, _abi, signerOrProvider) as NounsAuctionHouse;
+  ): WhalezAuctionHouse {
+    return new Contract(address, _abi, signerOrProvider) as WhalezAuctionHouse;
   }
 }
 
