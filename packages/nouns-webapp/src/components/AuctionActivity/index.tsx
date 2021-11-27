@@ -15,7 +15,7 @@ import AuctionActivityWrapper from '../AuctionActivityWrapper';
 import AuctionActivityNounTitle from '../AuctionActivityNounTitle';
 import AuctionActivityDateHeadline from '../AuctionActivityDateHeadline';
 import BidHistoryBtn from '../BidHistoryBtn';
-import StandaloneNoun from '../StandaloneNoun';
+import StandaloneWhalez from '../StandaloneWhalez';
 import config from '../../config';
 import { buildEtherscanAddressLink } from '../../utils/etherscan';
 import { utils } from 'ethers';
@@ -106,7 +106,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
         >
           <Modal.Header closeButton className={classes.modalHeader}>
             <div className={classes.modalHeaderNounImgWrapper}>
-              <StandaloneNoun whaleId={auction && auction.whaleId} noDescription />
+              <StandaloneWhalez whaleId={auction && auction.whaleId} noDescription />
             </div>
             <Modal.Title className={classes.modalTitleWrapper}>{bidHistoryTitle}</Modal.Title>
           </Modal.Header>

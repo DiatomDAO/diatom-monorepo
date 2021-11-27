@@ -1,10 +1,10 @@
 import { BigNumber as EthersBN } from 'ethers';
 import { useWhaleToken, IWhaleToken } from '../../wrappers/nounToken';
-import Noun from '../Noun';
+import Noun from '../Whalez';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-interface StandaloneNounProps {
+interface StandaloneWhalezProps {
   whaleId: EthersBN;
   noDescription?: Boolean;
 }
@@ -14,7 +14,7 @@ const generateIpfsRestUrl = (ipfsUrl: string) => {
   return `https://ipfs.io/ipfs/${urlPart}`
 }
 
-const StandaloneNoun: React.FC<StandaloneNounProps> = (props: StandaloneNounProps) => {
+const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhalezProps) => {
   const { whaleId, noDescription } = props;
   const id = whaleId;
   const whaleURI = useWhaleToken(id);
@@ -44,4 +44,4 @@ const StandaloneNoun: React.FC<StandaloneNounProps> = (props: StandaloneNounProp
   );
 };
 
-export default StandaloneNoun;
+export default StandaloneWhalez;

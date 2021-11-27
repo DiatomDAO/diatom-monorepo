@@ -1,8 +1,8 @@
 import { Col } from 'react-bootstrap';
-import StandaloneNoun from '../StandaloneNoun';
+import StandaloneNoun from '../StandaloneWhalez';
 import AuctionActivity from '../AuctionActivity';
 import { Row, Container } from 'react-bootstrap';
-import { LoadingNoun } from '../Noun';
+import { LoadingWhalez } from '../Whalez';
 import { Auction as IAuction } from '../../wrappers/nounsAuction';
 import classes from './Auction.module.css';
 import { useHistory } from 'react-router-dom';
@@ -42,7 +42,7 @@ const Auction: React.FC<AuctionProps> = props => {
 
   const loadingNoun = (
     <div className={classes.nounWrapper}>
-      <LoadingNoun />
+      <LoadingWhalez />
     </div>
   );
 

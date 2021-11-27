@@ -1,14 +1,14 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 
-import classes from './NounInfoCard.module.css';
+import classes from './WhalezInfoCard.module.css';
 
 import _AddressIcon from '../../assets/icons/Address.svg';
 import _BidsIcon from '../../assets/icons/Bids.svg';
 
-import NounInfoRowBirthday from '../NounInfoRowBirthday';
-import NounInfoRowHolder from '../NounInfoRowHolder';
-import NounInfoRowButton from '../NounInfoRowButton';
+import NounInfoRowBirthday from '../WhalezInfoRowBirthday';
+import NounInfoRowHolder from '../WhalezInfoRowHolder';
+import NounInfoRowButton from '../WhalezInfoRowButton';
 import { useHistory } from 'react-router';
 import { useAppSelector } from '../../hooks';
 
@@ -17,11 +17,11 @@ import { buildEtherscanAddressLink } from '../../utils/etherscan';
 import { setOnDisplayAuctionNounId } from '../../state/slices/onDisplayAuction';
 import { useDispatch } from 'react-redux';
 
-interface NounInfoCardProps {
+interface WhalezInfoCardProps {
   whaleId: number;
 }
 
-const NounInfoCard: React.FC<NounInfoCardProps> = props => {
+const WhalezInfoCard: React.FC<WhalezInfoCardProps> = props => {
   const { whaleId } = props;
   const history = useHistory();
   const dispatch = useDispatch();
@@ -66,4 +66,4 @@ const NounInfoCard: React.FC<NounInfoCardProps> = props => {
   );
 };
 
-export default NounInfoCard;
+export default WhalezInfoCard;
