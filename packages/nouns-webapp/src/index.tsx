@@ -30,7 +30,7 @@ import LogsUpdater from './state/updaters/logs';
 import config, { CHAIN_ID, createNetworkHttpUrl } from './config';
 import { WebSocketProvider } from '@ethersproject/providers';
 import { BigNumber, BigNumberish } from 'ethers';
-import { NounsAuctionHouseFactory } from '@nouns/sdk';
+import { WhalezAuctionHouseFactory } from '@nouns/sdk';
 import dotenv from 'dotenv';
 import { useAppDispatch, useAppSelector } from './hooks';
 import { appendBid } from './state/slices/auction';
@@ -86,6 +86,9 @@ const useDappConfig = {
     [ChainId.Mainnet]: createNetworkHttpUrl('mainnet'),
     [ChainId.Hardhat]: 'http://localhost:8545',
   },
+  multicallAddresses: {
+    [ChainId.Hardhat]: config.addresses.Multicall!,
+  }
 };
 
 const client = clientFactory(config.app.subgraphApiUri);
@@ -105,8 +108,8 @@ const ChainSubscriber: React.FC = () => {
 
   const loadState = async () => {
     const wsProvider = new WebSocketProvider(config.app.wsRpcUri);
-    const nounsAuctionHouseContract = NounsAuctionHouseFactory.connect(
-      config.addresses.nounsAuctionHouseProxy,
+    const nounsAuctionHouseContract = WhalezAuctionHouseFactory.connect(
+      config.addresses.whalezAuctionHouseProxy,
       wsProvider,
     );
 
@@ -115,7 +118,7 @@ const ChainSubscriber: React.FC = () => {
     const createdFilter = nounsAuctionHouseContract.filters.AuctionCreated(null, null, null);
     const settledFilter = nounsAuctionHouseContract.filters.AuctionSettled(null, null, null);
     const processBidFilter = async (
-      nounId: BigNumberish,
+      whaleId: BigNumberish,
       sender: string,
       value: BigNumberish,
       extended: boolean,
@@ -124,33 +127,33 @@ const ChainSubscriber: React.FC = () => {
       const timestamp = (await event.getBlock()).timestamp;
       const transactionHash = event.transactionHash;
       dispatch(
-        appendBid(reduxSafeBid({ nounId, sender, value, extended, transactionHash, timestamp })),
+        appendBid(reduxSafeBid({ whaleId, sender, value, extended, transactionHash, timestamp })),
       );
     };
     const processAuctionCreated = (
-      nounId: BigNumberish,
+      whaleId: BigNumberish,
       startTime: BigNumberish,
       endTime: BigNumberish,
     ) => {
       dispatch(
-        setActiveAuction(reduxSafeNewAuction({ nounId, startTime, endTime, settled: false })),
+        setActiveAuction(reduxSafeNewAuction({ whaleId, startTime, endTime, settled: false })),
       );
-      const nounIdNumber = BigNumber.from(nounId).toNumber();
-      dispatch(push(nounPath(nounIdNumber)));
-      dispatch(setOnDisplayAuctionNounId(nounIdNumber));
-      dispatch(setLastAuctionNounId(nounIdNumber));
+      const whaleIdNumber = BigNumber.from(whaleId).toNumber();
+      dispatch(push(nounPath(whaleIdNumber)));
+      dispatch(setOnDisplayAuctionNounId(whaleIdNumber));
+      dispatch(setLastAuctionNounId(whaleIdNumber));
     };
-    const processAuctionExtended = (nounId: BigNumberish, endTime: BigNumberish) => {
-      dispatch(setAuctionExtended({ nounId, endTime }));
+    const processAuctionExtended = (whaleId: BigNumberish, endTime: BigNumberish) => {
+      dispatch(setAuctionExtended({ whaleId, endTime }));
     };
-    const processAuctionSettled = (nounId: BigNumberish, winner: string, amount: BigNumberish) => {
-      dispatch(setAuctionSettled({ nounId, amount, winner }));
+    const processAuctionSettled = (whaleId: BigNumberish, winner: string, amount: BigNumberish) => {
+      dispatch(setAuctionSettled({ whaleId, amount, winner }));
     };
 
     // Fetch the current auction
     const currentAuction = await nounsAuctionHouseContract.auction();
     dispatch(setFullAuction(reduxSafeAuction(currentAuction)));
-    dispatch(setLastAuctionNounId(currentAuction.nounId.toNumber()));
+    dispatch(setLastAuctionNounId(currentAuction.whaleId.toNumber()));
 
     // Fetch the previous 24hours of  bids
     const previousBids = await nounsAuctionHouseContract.queryFilter(bidFilter, 0 - BLOCKS_PER_DAY);
@@ -159,17 +162,17 @@ const ChainSubscriber: React.FC = () => {
       processBidFilter(...(event.args as [BigNumber, string, BigNumber, boolean]), event);
     }
 
-    nounsAuctionHouseContract.on(bidFilter, (nounId, sender, value, extended, event) =>
-      processBidFilter(nounId, sender, value, extended, event),
+    nounsAuctionHouseContract.on(bidFilter, (whaleId, sender, value, extended, event) =>
+      processBidFilter(whaleId, sender, value, extended, event),
     );
-    nounsAuctionHouseContract.on(createdFilter, (nounId, startTime, endTime) =>
-      processAuctionCreated(nounId, startTime, endTime),
+    nounsAuctionHouseContract.on(createdFilter, (whaleId, startTime, endTime) =>
+      processAuctionCreated(whaleId, startTime, endTime),
     );
-    nounsAuctionHouseContract.on(extendedFilter, (nounId, endTime) =>
-      processAuctionExtended(nounId, endTime),
+    nounsAuctionHouseContract.on(extendedFilter, (whaleId, endTime) =>
+      processAuctionExtended(whaleId, endTime),
     );
-    nounsAuctionHouseContract.on(settledFilter, (nounId, winner, amount) =>
-      processAuctionSettled(nounId, winner, amount),
+    nounsAuctionHouseContract.on(settledFilter, (whaleId, winner, amount) =>
+      processAuctionSettled(whaleId, winner, amount),
     );
   };
   loadState();

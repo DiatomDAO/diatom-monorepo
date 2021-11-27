@@ -10,7 +10,7 @@ import NounProfileVoteRow from '../NounProfileVoteRow';
 import { LoadingNoun } from '../Noun';
 
 interface ProfileActivityFeedProps {
-  nounId: number;
+  whaleId: number;
 }
 
 interface ProposalInfo {
@@ -23,9 +23,9 @@ interface NounVoteHistory {
 }
 
 const ProfileActivityFeed: React.FC<ProfileActivityFeedProps> = props => {
-  const { nounId } = props;
+  const { whaleId } = props;
 
-  const { loading, error, data } = useQuery(nounVotingHistoryQuery(nounId));
+  const { loading, error, data } = useQuery(nounVotingHistoryQuery(whaleId));
   const { data: proposals } = useAllProposals();
 
   if (loading) {
@@ -65,7 +65,7 @@ const ProfileActivityFeed: React.FC<ProfileActivityFeedProps> = props => {
                       nounVoted={proposalsVotedOn.includes(p.id)}
                       nounSupported={supportedProposals.includes(p.id)}
                       latestProposalId={latestProposalId}
-                      nounId={nounId}
+                      whaleId={whaleId}
                       key={i}
                     />
                   );

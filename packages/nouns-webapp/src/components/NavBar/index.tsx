@@ -1,28 +1,30 @@
 import { useAppSelector } from '../../hooks';
 import ShortAddress from '../ShortAddress';
 import classes from './NavBar.module.css';
-import logo from '../../assets/logo.svg';
+// import logo from '../../assets/logo.svg';
 import { useState } from 'react';
-import { useEtherBalance, useEthers } from '@usedapp/core';
+// import { useEtherBalance, useEthers } from '@usedapp/core';
+import { useEthers } from '@usedapp/core';
 import WalletConnectModal from '../WalletConnectModal';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container } from 'react-bootstrap';
 import testnetNoun from '../../assets/testnet-noun.png';
 import clsx from 'clsx';
-import config, { CHAIN_ID } from '../../config';
-import { utils } from 'ethers';
-import { buildEtherscanAddressLink } from '../../utils/etherscan';
-import { ExternalURL, externalURL } from '../../utils/externalURL';
+// import config, { CHAIN_ID } from '../../config';
+import { CHAIN_ID } from '../../config';
+// import { utils } from 'ethers';
+// import { buildEtherscanAddressLink } from '../../utils/etherscan';
+// import { ExternalURL, externalURL } from '../../utils/externalURL';
 
 const NavBar = () => {
   const activeAccount = useAppSelector(state => state.account.activeAccount);
   const { deactivate } = useEthers();
 
-  const stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
-  const history = useHistory();
-  const treasuryBalance = useEtherBalance(config.addresses.nounsDaoExecutor);
-  const daoEtherscanLink = buildEtherscanAddressLink(config.addresses.nounsDaoExecutor);
+  // const stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
+  // const history = useHistory();
+  // const treasuryBalance = useEtherBalance(config.addresses.nounsDaoExecutor);
+  // const daoEtherscanLink = buildEtherscanAddressLink(config.addresses.nounsDaoExecutor);
 
   const [showConnectModal, setShowConnectModal] = useState(false);
 
@@ -50,7 +52,7 @@ const NavBar = () => {
             setShowConnectModal(false);
           }}
         >
-          DISCONNECT
+          Disconnect
         </Nav.Link>
       </Nav.Item>
     </>
@@ -62,31 +64,25 @@ const NavBar = () => {
         className={clsx(classes.nounsNavLink, classes.connectBtn)}
         onClick={showModalHandler}
       >
-        CONNECT WALLET
+        Connect Wallet
       </Nav.Link>
     </>
   );
 
-  const useStateBg =
-    history.location.pathname === '/' ||
-    history.location.pathname.includes('/noun') ||
-    history.location.pathname.includes('/auction');
+  // const useStateBg =
+  //   history.location.pathname === '/' ||
+  //   history.location.pathname.includes('/noun') ||
+  //   history.location.pathname.includes('/auction');
 
   return (
     <>
       {showConnectModal && activeAccount === undefined && (
         <WalletConnectModal onDismiss={hideModalHandler} />
       )}
-      <Navbar expand="lg" style={{ backgroundColor: `${useStateBg ? stateBgColor : ''}` }}>
+      <Navbar expand="lg">
         <Container>
           <Navbar.Brand as={Link} to="/" className={classes.navBarBrand}>
-            <img
-              src={logo}
-              width="85"
-              height="85"
-              className="d-inline-block align-middle"
-              alt="Nouns DAO logo"
-            />
+            <strong>Diatom</strong> DAO
           </Navbar.Brand>
           {Number(CHAIN_ID) !== 1 && (
             <Nav.Item>
@@ -96,7 +92,7 @@ const NavBar = () => {
           )}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            <Nav.Item>
+            {/* <Nav.Item>
               {treasuryBalance && (
                 <Nav.Link
                   href={daoEtherscanLink}
@@ -121,6 +117,21 @@ const NavBar = () => {
             </Nav.Link>
             <Nav.Link href="/playground" className={classes.nounsNavLink}>
               PLAYGROUND
+            </Nav.Link> */}
+            <Nav.Link href="#diatom" className={classes.nounsNavLink}>
+              What is Diatom
+            </Nav.Link>
+            <Nav.Link href="#Tokenomics" className={classes.nounsNavLink}>
+              Tokenomics
+            </Nav.Link>
+            <Nav.Link href="#works" className={classes.nounsNavLink}>
+              How it Works
+            </Nav.Link>
+            {/* <Nav.Link href="#join" className={classes.nounsNavLink}>
+              How to Join
+            </Nav.Link> */}
+            <Nav.Link href="#community" className={classes.nounsNavLink}>
+              Join the Community
             </Nav.Link>
             {activeAccount ? connectedContent : disconnectedContent}
           </Navbar.Collapse>

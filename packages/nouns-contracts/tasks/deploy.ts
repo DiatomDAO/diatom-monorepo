@@ -1,4 +1,4 @@
-import { default as NounsAuctionHouseABI } from '../abi/contracts/NounsAuctionHouse.sol/NounsAuctionHouse.json';
+import { default as WhalezAuctionHouseABI } from '../abi/contracts/WhalezAuctionHouse.sol/WhalezAuctionHouse.json';
 import { Interface } from 'ethers/lib/utils';
 import { task, types } from 'hardhat/config';
 import promptjs from 'prompt';
@@ -8,16 +8,10 @@ promptjs.message = '> ';
 promptjs.delimiter = '';
 
 type ContractName =
-  | 'NFTDescriptor'
-  | 'NounsDescriptor'
-  | 'NounsSeeder'
-  | 'NounsToken'
-  | 'NounsAuctionHouse'
-  | 'NounsAuctionHouseProxyAdmin'
-  | 'NounsAuctionHouseProxy'
-  | 'NounsDAOExecutor'
-  | 'NounsDAOLogicV1'
-  | 'NounsDAOProxy';
+  | 'WhalezToken'
+  | 'WhalezAuctionHouse'
+  | 'WhalezAuctionHouseProxyAdmin'
+  | 'WhalezAuctionHouseProxy';
 
 interface Contract {
   args?: (string | number | (() => string | undefined))[];
@@ -26,9 +20,10 @@ interface Contract {
   waitForConfirmation?: boolean;
 }
 
-task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsToken')
-  .addParam('noundersdao', 'The nounders DAO contract address', undefined, types.string)
+task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
+  .addParam('diatomdao', 'The diatom DAO contract address', undefined, types.string)
   .addParam('weth', 'The WETH contract address', undefined, types.string)
+  .addParam('contractipfsuri', 'nfts ipfs uri', undefined, types.string)
   .addOptionalParam('auctionTimeBuffer', 'The auction time buffer (seconds)', 5 * 60, types.int)
   .addOptionalParam('auctionReservePrice', 'The auction reserve price (wei)', 1, types.int)
   .addOptionalParam(
@@ -38,11 +33,6 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
     types.int,
   )
   .addOptionalParam('auctionDuration', 'The auction duration (seconds)', 60 * 60 * 24, types.int) // Default: 24 hours
-  .addOptionalParam('timelockDelay', 'The timelock delay (seconds)', 60 * 60 * 24 * 2, types.int) // Default: 2 days
-  .addOptionalParam('votingPeriod', 'The voting period (blocks)', 4 * 60 * 24 * 3, types.int) // Default: 3 days
-  .addOptionalParam('votingDelay', 'The voting delay (blocks)', 1, types.int) // Default: 1 block
-  .addOptionalParam('proposalThresholdBps', 'The proposal threshold (basis points)', 500, types.int) // Default: 5%
-  .addOptionalParam('quorumVotesBps', 'Votes required for quorum (basis points)', 1_000, types.int) // Default: 10%
   .setAction(async (args, { ethers }) => {
     const network = await ethers.provider.getNetwork();
     const proxyRegistryAddress =
@@ -50,8 +40,7 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
         ? '0xa5409ec958c83c3f309868babaca7c86dcb077c1'
         : '0xf57b2c51ded3a29e6891aba85459d600256cf317';
 
-    const AUCTION_HOUSE_PROXY_NONCE_OFFSET = 6;
-    const GOVERNOR_N_DELEGATOR_NONCE_OFFSET = 9;
+    const AUCTION_HOUSE_PROXY_NONCE_OFFSET = 3;
 
     const [deployer] = await ethers.getSigners();
     const nonce = await deployer.getTransactionCount();
@@ -59,63 +48,28 @@ task('deploy', 'Deploys NFTDescriptor, NounsDescriptor, NounsSeeder, and NounsTo
       from: deployer.address,
       nonce: nonce + AUCTION_HOUSE_PROXY_NONCE_OFFSET,
     });
-    const expectedNounsDAOProxyAddress = ethers.utils.getContractAddress({
-      from: deployer.address,
-      nonce: nonce + GOVERNOR_N_DELEGATOR_NONCE_OFFSET,
-    });
+
     const contracts: Record<ContractName, Contract> = {
-      NFTDescriptor: {},
-      NounsDescriptor: {
-        libraries: () => ({
-          NFTDescriptor: contracts['NFTDescriptor'].address as string,
-        }),
+      WhalezToken: {
+        args: [args.diatomdao, expectedAuctionHouseProxyAddress, proxyRegistryAddress],
       },
-      NounsSeeder: {},
-      NounsToken: {
-        args: [
-          args.noundersdao,
-          expectedAuctionHouseProxyAddress,
-          () => contracts['NounsDescriptor'].address,
-          () => contracts['NounsSeeder'].address,
-          proxyRegistryAddress,
-        ],
-      },
-      NounsAuctionHouse: {
+      WhalezAuctionHouse: {
         waitForConfirmation: true,
       },
-      NounsAuctionHouseProxyAdmin: {},
-      NounsAuctionHouseProxy: {
+      WhalezAuctionHouseProxyAdmin: {},
+      WhalezAuctionHouseProxy: {
         args: [
-          () => contracts['NounsAuctionHouse'].address,
-          () => contracts['NounsAuctionHouseProxyAdmin'].address,
+          () => contracts['WhalezAuctionHouse'].address,
+          () => contracts['WhalezAuctionHouseProxyAdmin'].address,
           () =>
-            new Interface(NounsAuctionHouseABI).encodeFunctionData('initialize', [
-              contracts['NounsToken'].address,
+            new Interface(WhalezAuctionHouseABI).encodeFunctionData('initialize', [
+              contracts['WhalezToken'].address,
               args.weth,
               args.auctionTimeBuffer,
               args.auctionReservePrice,
               args.auctionMinIncrementBidPercentage,
               args.auctionDuration,
             ]),
-        ],
-      },
-      NounsDAOExecutor: {
-        args: [expectedNounsDAOProxyAddress, args.timelockDelay],
-      },
-      NounsDAOLogicV1: {
-        waitForConfirmation: true,
-      },
-      NounsDAOProxy: {
-        args: [
-          () => contracts['NounsDAOExecutor'].address,
-          () => contracts['NounsToken'].address,
-          args.noundersdao,
-          () => contracts['NounsDAOExecutor'].address,
-          () => contracts['NounsDAOLogicV1'].address,
-          args.votingPeriod,
-          args.votingDelay,
-          args.proposalThresholdBps,
-          args.quorumVotesBps,
         ],
       },
     };

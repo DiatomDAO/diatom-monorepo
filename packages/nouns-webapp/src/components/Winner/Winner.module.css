@@ -10,7 +10,7 @@
 .verifyButton:active,
 .verifyButton:focus,
 .verifyButton:disabled {
-  background-color: gray !important;
+  background-color: #74AEC7 !important;
   outline: none !important;
   box-shadow: none !important;
 }

@@ -13,7 +13,7 @@ import CurrentBid, { BID_N_A } from '../CurrentBid';
 
 const NounderNounContent: React.FC<{
   mintTimestamp: BigNumber;
-  nounId: BigNumber;
+  whaleId: BigNumber;
   isFirstAuction: boolean;
   isLastAuction: boolean;
   onPrevAuctionClick: () => void;
@@ -21,7 +21,7 @@ const NounderNounContent: React.FC<{
 }> = props => {
   const {
     mintTimestamp,
-    nounId,
+    whaleId,
     isFirstAuction,
     isLastAuction,
     onPrevAuctionClick,
@@ -36,7 +36,7 @@ const NounderNounContent: React.FC<{
             <AuctionActivityDateHeadline startTime={mintTimestamp} />
           </Col>
           <Col lg={12} className={auctionActivityClasses.colAlignCenter}>
-            <AuctionActivityNounTitle nounId={nounId} />
+            <AuctionActivityNounTitle whaleId={whaleId} />
             <AuctionNavigation
               isFirstAuction={isFirstAuction}
               isLastAuction={isLastAuction}

@@ -9,7 +9,7 @@ import { Spinner, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { useAuctionMinBidIncPercentage } from '../../wrappers/nounsAuction';
 import { useAppDispatch } from '../../hooks';
 import { AlertModal, setAlertModal } from '../../state/slices/application';
-import { NounsAuctionHouseFactory } from '@nouns/sdk';
+import { WhalezAuctionHouseFactory } from '@nouns/sdk';
 import config from '../../config';
 
 const computeMinimumNextBid = (
@@ -46,8 +46,8 @@ const Bid: React.FC<{
   const activeAccount = useAppSelector(state => state.account.activeAccount);
   const { library } = useEthers();
   const { auction, auctionEnded } = props;
-  const nounsAuctionHouseContract = new NounsAuctionHouseFactory().attach(
-    config.addresses.nounsAuctionHouseProxy,
+  const nounsAuctionHouseContract = new WhalezAuctionHouseFactory().attach(
+    config.addresses.whalezAuctionHouseProxy,
   );
 
   const account = useAppSelector(state => state.account.activeAccount);
@@ -108,10 +108,10 @@ const Bid: React.FC<{
 
     const value = utils.parseEther(bidInputRef.current.value.toString());
     const contract = connectContractToSigner(nounsAuctionHouseContract, undefined, library);
-    const gasLimit = await contract.estimateGas.createBid(auction.nounId, {
+    const gasLimit = await contract.estimateGas.createBid(auction.whaleId, {
       value,
     });
-    placeBid(auction.nounId, {
+    placeBid(auction.whaleId, {
       value,
       gasLimit: gasLimit.add(10_000), // A 10,000 gas pad is used to avoid 'Out of gas' errors
     });
