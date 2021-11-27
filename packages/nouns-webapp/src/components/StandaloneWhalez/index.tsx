@@ -1,5 +1,5 @@
 import { BigNumber as EthersBN } from 'ethers';
-import { useWhaleToken, IWhaleToken } from '../../wrappers/nounToken';
+import { useWhaleToken, IWhaleToken } from '../../wrappers/whalezToken';
 import Noun from '../Whalez';
 import axios from 'axios';
 import { useEffect, useState } from 'react';

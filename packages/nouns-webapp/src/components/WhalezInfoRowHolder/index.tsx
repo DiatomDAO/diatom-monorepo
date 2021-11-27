@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import React from 'react';
 import { Image } from 'react-bootstrap';
 import _LinkIcon from '../../assets/icons/Link.svg';
-import { nounQuery } from '../../wrappers/subgraph';
+import { whalezQuery } from '../../wrappers/subgraph';
 import _HeartIcon from '../../assets/icons/Heart.svg';
 import classes from './NounInfoRowHolder.module.css';
 
@@ -17,32 +17,32 @@ interface NounInfoRowHolderProps {
 const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
   const { whaleId } = props;
 
-  const { loading, error, data } = useQuery(nounQuery(whaleId.toString()));
+  const { loading, error, data } = useQuery(whalezQuery(whaleId.toString()));
 
-  const etherscanURL = buildEtherscanAddressLink(data && data.noun.owner.id);
+  const etherscanURL = buildEtherscanAddressLink(data && data.whalez.owner.id);
 
   if (loading) {
     return <p>Loading...</p>;
   } else if (error) {
-    return <div>Failed to fetch noun info</div>;
+    return <div>Failed to fetch whalez info</div>;
   }
 
-  const shortAddressComponent = <ShortAddress address={data && data.noun.owner.id} />;
+  const shortAddressComponent = <ShortAddress address={data && data.whalez.owner.id} />;
 
   return (
-    <div className={classes.nounHolderInfoContainer}>
+    <div className={classes.whalezHolderInfoContainer}>
       <span>
         <Image src={_HeartIcon} className={classes.heartIcon} />
       </span>
       <span>Held by</span>
       <span>
         <a
-          className={classes.nounHolderEtherscanLink}
+          className={classes.whalezHolderEtherscanLink}
           href={etherscanURL}
           target={'_blank'}
           rel="noreferrer"
         >
-          {data.noun.owner.id.toLowerCase() ===
+          {data.whalez.owner.id.toLowerCase() ===
           config.addresses.whalezAuctionHouseProxy.toLowerCase()
             ? 'Nouns Auction House'
             : shortAddressComponent}

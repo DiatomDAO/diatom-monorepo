@@ -11,7 +11,7 @@ export interface IBid {
   blockNumber: number;
   blockTimestamp: number;
   txIndex?: number;
-  noun: {
+  whalez: {
     id: number;
     startTime?: BigNumberish;
     endTime?: BigNumberish;
@@ -30,7 +30,7 @@ export const auctionQuery = (auctionId: number) => gql`
 	  }
 	  startTime
 	  endTime
-	  noun {
+	  whalez {
 		id
 		seed {
 		  id
@@ -65,16 +65,16 @@ export const bidsByAuctionQuery = (auctionId: string) => gql`
 	  bidder {
 	  	id
 	  }
-	  noun {
+	  whalez {
 		id
 	  }
 	}
   }
  `;
 
-export const nounQuery = (id: string) => gql`
+export const whalezQuery = (id: string) => gql`
  {
-	noun(id:"${id}") {
+	whalez(id:"${id}") {
 	  id
 	  seed {
 	  background
@@ -90,9 +90,9 @@ export const nounQuery = (id: string) => gql`
   }
  `;
 
-export const nounsIndex = () => gql`
+export const whalezsIndex = () => gql`
   {
-    nouns {
+    whalezs {
       id
       owner {
         id
@@ -112,7 +112,7 @@ export const latestAuctionsQuery = () => gql`
       }
       startTime
       endTime
-      noun {
+      whalez {
         id
         owner {
           id
@@ -157,9 +157,9 @@ export const latestBidsQuery = (first: number = 10) => gql`
   }  
 `;
 
-export const nounVotingHistoryQuery = (whaleId: number) => gql`
+export const whalezVotingHistoryQuery = (whaleId: number) => gql`
 {
-	noun(id: ${whaleId}) {
+	whalez(id: ${whaleId}) {
 		id
 		votes {
 		proposal {

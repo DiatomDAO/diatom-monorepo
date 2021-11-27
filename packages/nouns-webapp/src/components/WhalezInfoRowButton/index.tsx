@@ -11,8 +11,8 @@ interface NounInfoRowButtonProps {
 const NounInfoRowButton: React.FC<NounInfoRowButtonProps> = props => {
   const { iconImgSource, btnText, onClickHandler } = props;
   return (
-    <div className={classes.nounButton} onClick={onClickHandler}>
-      <div className={classes.nounButtonContents}>
+    <div className={classes.whalezButton} onClick={onClickHandler}>
+      <div className={classes.whalezButtonContents}>
         <Image src={iconImgSource} className={classes.buttonIcon} />
         {btnText}
       </div>
