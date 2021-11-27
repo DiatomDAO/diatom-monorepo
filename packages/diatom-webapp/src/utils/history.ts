@@ -1,1 +1,1 @@
-export const nounPath = (whaleId: Number) => `/noun/${whaleId}`;
+export const whalezPath = (whaleId: Number) => `/whalez/${whaleId}`;

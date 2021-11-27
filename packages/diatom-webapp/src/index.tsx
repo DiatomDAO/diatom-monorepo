@@ -40,7 +40,7 @@ import { applyMiddleware, createStore, combineReducers, PreloadedState } from 'r
 import { routerMiddleware } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { nounPath } from './utils/history';
+import { whalezPath } from './utils/history';
 import { push } from 'connected-react-router';
 
 dotenv.config();
@@ -108,15 +108,15 @@ const ChainSubscriber: React.FC = () => {
 
   const loadState = async () => {
     const wsProvider = new WebSocketProvider(config.app.wsRpcUri);
-    const nounsAuctionHouseContract = WhalezAuctionHouseFactory.connect(
+    const whalezsAuctionHouseContract = WhalezAuctionHouseFactory.connect(
       config.addresses.whalezAuctionHouseProxy,
       wsProvider,
     );
 
-    const bidFilter = nounsAuctionHouseContract.filters.AuctionBid(null, null, null, null);
-    const extendedFilter = nounsAuctionHouseContract.filters.AuctionExtended(null, null);
-    const createdFilter = nounsAuctionHouseContract.filters.AuctionCreated(null, null, null);
-    const settledFilter = nounsAuctionHouseContract.filters.AuctionSettled(null, null, null);
+    const bidFilter = whalezsAuctionHouseContract.filters.AuctionBid(null, null, null, null);
+    const extendedFilter = whalezsAuctionHouseContract.filters.AuctionExtended(null, null);
+    const createdFilter = whalezsAuctionHouseContract.filters.AuctionCreated(null, null, null);
+    const settledFilter = whalezsAuctionHouseContract.filters.AuctionSettled(null, null, null);
     const processBidFilter = async (
       whaleId: BigNumberish,
       sender: string,
@@ -139,7 +139,7 @@ const ChainSubscriber: React.FC = () => {
         setActiveAuction(reduxSafeNewAuction({ whaleId, startTime, endTime, settled: false })),
       );
       const whaleIdNumber = BigNumber.from(whaleId).toNumber();
-      dispatch(push(nounPath(whaleIdNumber)));
+      dispatch(push(whalezPath(whaleIdNumber)));
       dispatch(setOnDisplayAuctionWhalezId(whaleIdNumber));
       dispatch(setLastAuctionWhalezId(whaleIdNumber));
     };
@@ -151,27 +151,27 @@ const ChainSubscriber: React.FC = () => {
     };
 
     // Fetch the current auction
-    const currentAuction = await nounsAuctionHouseContract.auction();
+    const currentAuction = await whalezsAuctionHouseContract.auction();
     dispatch(setFullAuction(reduxSafeAuction(currentAuction)));
     dispatch(setLastAuctionWhalezId(currentAuction.whaleId.toNumber()));
 
     // Fetch the previous 24hours of  bids
-    const previousBids = await nounsAuctionHouseContract.queryFilter(bidFilter, 0 - BLOCKS_PER_DAY);
+    const previousBids = await whalezsAuctionHouseContract.queryFilter(bidFilter, 0 - BLOCKS_PER_DAY);
     for (let event of previousBids) {
       if (event.args === undefined) return;
       processBidFilter(...(event.args as [BigNumber, string, BigNumber, boolean]), event);
     }
 
-    nounsAuctionHouseContract.on(bidFilter, (whaleId, sender, value, extended, event) =>
+    whalezsAuctionHouseContract.on(bidFilter, (whaleId, sender, value, extended, event) =>
       processBidFilter(whaleId, sender, value, extended, event),
     );
-    nounsAuctionHouseContract.on(createdFilter, (whaleId, startTime, endTime) =>
+    whalezsAuctionHouseContract.on(createdFilter, (whaleId, startTime, endTime) =>
       processAuctionCreated(whaleId, startTime, endTime),
     );
-    nounsAuctionHouseContract.on(extendedFilter, (whaleId, endTime) =>
+    whalezsAuctionHouseContract.on(extendedFilter, (whaleId, endTime) =>
       processAuctionExtended(whaleId, endTime),
     );
-    nounsAuctionHouseContract.on(settledFilter, (whaleId, winner, amount) =>
+    whalezsAuctionHouseContract.on(settledFilter, (whaleId, winner, amount) =>
       processAuctionSettled(whaleId, winner, amount),
     );
   };
