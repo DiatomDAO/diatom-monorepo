@@ -6,16 +6,16 @@ cache
 artifacts
 typechain/*.js
 typechain/*.ts
-!typechain/NounsTokenFactory.ts
-!typechain/NounsAuctionHouseFactory.ts
-!typechain/NounsDescriptorFactory.ts
-!typechain/NounsSeederFactory.ts
-!typechain/NounsDaoLogicV1Factory.ts
+!typechain/WhalezTokenFactory.ts
+!typechain/WhalezAuctionHouseFactory.ts
+!typechain/WhalezDescriptorFactory.ts
+!typechain/WhalezSeederFactory.ts
+!typechain/WhalezDaoLogicV1Factory.ts
 .openzeppelin
 
 # Script output
 logs
-scripts/whales_json
+scripts/nouns_json
 
 # Coverage result files
 coverage/
