@@ -2,8 +2,8 @@ import { BigNumber, BigNumberish } from 'ethers';
 import Section from '../../layout/Section';
 import classes from './HistoryCollection.module.css';
 import clsx from 'clsx';
-import StandaloneNoun from '../StandaloneNoun';
-import { LoadingNoun } from '../Noun';
+import StandaloneNoun from '../StandaloneWhalez';
+import { LoadingWhalez } from '../Whalez';
 import config from '../../config';
 import { Container, Row } from 'react-bootstrap';
 
@@ -32,7 +32,7 @@ const HistoryCollection: React.FC<HistoryCollectionProps> = (props: HistoryColle
   });
 
   const nounsContent = whaleIds.map((whaleId, i) => {
-    return !whaleId ? <LoadingNoun key={i} /> : <StandaloneNoun key={i} whaleId={whaleId} />;
+    return !whaleId ? <LoadingWhalez key={i} /> : <StandaloneNoun key={i} whaleId={whaleId} />;
   });
 
   return (

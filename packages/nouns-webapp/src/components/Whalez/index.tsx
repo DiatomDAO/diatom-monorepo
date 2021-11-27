@@ -1,17 +1,17 @@
-import classes from './Noun.module.css';
+import classes from './Whalez.module.css';
 import React from 'react';
-import loadingNoun from '../../assets/loading-skull-noun.gif';
+import loadingWhalez from '../../assets/loading-skull-noun.gif';
 import Image from 'react-bootstrap/Image';
 
-export const LoadingNoun = () => {
+export const LoadingWhalez = () => {
   return (
     <div className={classes.imgWrapper}>
-      <Image className={classes.img} src={loadingNoun} alt={'loading Whale'} fluid />
+      <Image className={classes.img} src={loadingWhalez} alt={'loading Whale'} fluid />
     </div>
   );
 };
 
-const Noun: React.FC<{
+const Whalez: React.FC<{
   imgPath: string;
   alt: string;
   whaleId?: string;
@@ -26,7 +26,7 @@ const Noun: React.FC<{
     <div className={`${classes.imgWrapper} ${wrapperClassName}`}>
       <Image
         className={`${classes.img} ${className}`}
-        src={imgPath ? imgPath : loadingNoun}
+        src={imgPath ? imgPath : loadingWhalez}
         alt={alt}
         fluid
       />
@@ -42,4 +42,4 @@ const Noun: React.FC<{
   );
 };
 
-export default Noun;
+export default Whalez;
