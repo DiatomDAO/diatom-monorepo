@@ -1,38 +1,71 @@
+.LungsContainer {
+  background: url('./assets/lungsBackground.jpg') no-repeat;
+  background-size: cover;
+
+  background-position: 30% center;
+
+  overflow: hidden;
+}
+
 .LungsContentWrapper {
   display: flex;
-  gap: 5rem;
+  flex-direction: column;
+  gap: 2rem;
   max-width: 1000px;
 
-  margin: 7rem auto 0;
-  padding: 6rem 0;
+  margin: 0 auto;
+  padding: 2rem 2rem;
   color: white;
-
 }
 
 .diatomImg {
-  min-width: 100px;
-  height: 100px;
+  display: none;
+  z-index: 10;
+}
 
-  background: white;
-
-  border-radius: 50%;
+.LungsContent {
+  z-index: 0;
 }
 
 .LungsContent h2 {
   color: #fff;
-  font-size: 2.75rem;
+  font-size: 1.5rem;
   font-weight: bold;
+
+  padding-right: 2rem;
+  z-index: 50;
+}
+
+.LungsContent p::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 150%;
+  height: 120%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: -1;
+
+  background: hsla(0, 0%, 0%, 1);
+  background: radial-gradient(ellipse, hsla(0, 0%, 0%,0.5) 0%, hsla(0, 0%, 0%,0.5) 0%, hsla(343, 88%, 63%, 0) 75%);
+  background: -moz-radial-gradient(ellipse, hsla(0, 0%, 0%,0.5) 0%, hsla(0, 0%, 0%,0.5) 0%, hsla(343, 88%, 63%, 0) 75%);
+  background: -webkit-radial-gradient(ellipse, hsla(0, 0%, 0%,0.5) 0%, hsla(0, 0%, 0%,0.5) 0%, hsla(343, 88%, 63%, 0) 75%)
 }
 
 .LungsContent p {
-  opacity: 0.75;
+  position: relative;
 
-  font-size: 1.25rem;
+  color: #ffff;
+
+  font-size: 18px;
   line-height: 1.5rem;
-  font-weight: 300;
 
-  padding: .5rem 0 0;
+  padding: 2rem 0 0;
 
+  z-index: 10;
   max-width: 600px;
 }
 
@@ -42,78 +75,222 @@
 
   font-size: 1.25rem;
   font-weight: 300;
-  color: #fff;
-  opacity: 0.25;
+  color: #ffff;
 
+  z-index: 50;
   transition: opacity 300ms ease-out;
+}
+
+.LungsContent a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 150%;
+  height: 150%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: -1;
+
+  background: hsla(0, 0%, 0%, 1);
+  background: radial-gradient(ellipse, hsla(0, 0%, 0%, 0.3) 0%, hsla(0, 0%, 0%, 0.3) 0%, hsla(343, 88%, 63%, 0) 70%);
+  background: -moz-radial-gradient(ellipse, hsla(0, 0%, 0%, 0.3) 0%, hsla(0, 0%, 0%, 0.3) 0%, hsla(343, 88%, 63%, 0) 70%);
+  background: -webkit-radial-gradient(ellipse, hsla(0, 0%, 0%, 0.3) 0%, hsla(0, 0%, 0%, 0.3) 0%, hsla(343, 88%, 63%, 0) 70%)
 }
 
 .LungsContent a img {
   margin-left: 5px;
-  width: 30px;
+  width: 25px;
 }
 
 .LungsContent a::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 100%;
-  left: -5px;
+  left: 0;
 
   height: 2px;
   width: 0;
-  background: #FFF;
+  background: #d7dbdc;
   transition: width 300ms ease-out;
 }
 
 .LungsContent a:hover {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .LungsContent a:hover::after {
-  width: 110px;
+  width: calc(100% - 30px);
 }
 
 .topics {
   display: flex;
   flex-direction: column;
-  padding: 6rem 0;
-  gap: 4rem;
+  padding: 6rem 3rem 2rem;
+  gap: 1.5rem;
 
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.dot {
-  width: 50px;
-  height: 50px;
-
-  background: #000;
-  border-radius: 50%;
-}
-
-.topic {  
+.topic {
   display: flex;
+  flex: 1 1 0px;
   flex-direction: column;
+
+  opacity: 0;
 }
 
 .topic h5 {
-  color: #4c4c4c;
+  color: #053039;
   font-size: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
+
+  font-weight: 600;
 }
 
 .topic p {
-  opacity: 0.75;
+  line-height: 1.25rem;
+  color: #000;
 
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  font-weight: 300;
+  padding: 1rem 0 0;
+}
 
-  padding: .5rem 0 0;
+.topic img {
+  width: auto;
+  max-height: 150px;
+  margin: 0 auto;
+}
+
+.fadeIn {
+  animation: fadeIn 400ms ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slideIn {
+  animation: slideIn 400ms ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (min-width: 990px) {
+  .LungsContainer {
+    margin-top: 5rem;
+  }
+
+  .LungsContentWrapper {
+    flex-direction: row;
+    gap: 5rem;
+    padding: 6rem 0;
+  }
+
+  .LungsContent p {
+    font-size: 18px;
+    padding: 0.5rem 0 0;
+  }
+
+  .LungsContent p::after {
+    height: 200%; 
+  }
+
+  .LungsContent a::before{
+    height: 120%; 
+  }
+
+  .LungsContent h2 {
+    font-size: 40px;
+    padding-right: 0;
+  }
+
   .topics {
     flex-direction: row;
+    gap: 3rem;
+    justify-content: space-between;
+    padding: 6rem 0;
+  }
+
+  .diatomImg {
+    display: block;
+    margin-top: 10px;
+    min-width: 110px;
+    width: 110px;
+    height: 110px;
+
+    animation: rotate 70s linear infinite;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .topic h5 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .topic p {
+    line-height: 1.25rem;
+
+    padding: 1rem 0 0;
+  }
+
+  .topic img {
+    height: 130px;
+  }
+
+  .fadeIn:nth-of-type(2) {
+    animation-delay: 300ms;
+  }
+
+  .fadeIn:nth-of-type(3) {
+    animation-delay: 700ms;
+  }
+
+  .fadeIn {
+    animation-duration: 500ms;
+  }
+
+  .slideIn:nth-of-type(2) {
+    animation-delay: 300ms;
+  }
+
+  .slideIn:nth-of-type(3) {
+    animation-delay: 700ms;
+  }
+
+  .slideIn {
+    animation-duration: 500ms;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-80px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

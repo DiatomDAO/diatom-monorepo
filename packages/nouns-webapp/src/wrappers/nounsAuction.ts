@@ -1,6 +1,6 @@
 import { useContractCall } from '@usedapp/core';
 import { BigNumber as EthersBN, utils } from 'ethers';
-import { NounsAuctionHouseABI } from '@nouns/sdk';
+import { WhalezAuctionHouseABI } from '@nouns/sdk';
 import config from '../config';
 import BigNumber from 'bignumber.js';
 
@@ -18,11 +18,11 @@ export interface Auction {
   bidder: string;
   endTime: EthersBN;
   startTime: EthersBN;
-  nounId: EthersBN;
+  whaleId: EthersBN;
   settled: boolean;
 }
 
-const abi = new utils.Interface(NounsAuctionHouseABI);
+const abi = new utils.Interface(WhalezAuctionHouseABI);
 
 export const useAuction = (auctionHouseProxyAddress: string) => {
   const auction = useContractCall<Auction>({
@@ -37,7 +37,7 @@ export const useAuction = (auctionHouseProxyAddress: string) => {
 export const useAuctionMinBidIncPercentage = () => {
   const minBidIncrement = useContractCall({
     abi,
-    address: config.addresses.nounsAuctionHouseProxy,
+    address: config.addresses.whalezAuctionHouseProxy,
     method: 'minBidIncrementPercentage',
     args: [],
   });

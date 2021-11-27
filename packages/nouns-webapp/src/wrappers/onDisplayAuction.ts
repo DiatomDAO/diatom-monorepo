@@ -10,14 +10,14 @@ const deserializeAuction = (reduxSafeAuction: Auction): Auction => {
     bidder: reduxSafeAuction.bidder,
     startTime: BigNumber.from(reduxSafeAuction.startTime),
     endTime: BigNumber.from(reduxSafeAuction.endTime),
-    nounId: BigNumber.from(reduxSafeAuction.nounId),
+    whaleId: BigNumber.from(reduxSafeAuction.whaleId),
     settled: false,
   };
 };
 
 const deserializeBid = (reduxSafeBid: BidEvent): Bid => {
   return {
-    nounId: BigNumber.from(reduxSafeBid.nounId),
+    whaleId: BigNumber.from(reduxSafeBid.whaleId),
     sender: reduxSafeBid.sender,
     value: BigNumber.from(reduxSafeBid.value),
     extended: reduxSafeBid.extended,
@@ -34,7 +34,7 @@ const deserializeBids = (reduxSafeBids: BidEvent[]): Bid[] => {
 };
 
 const useOnDisplayAuction = (): Auction | undefined => {
-  const lastAuctionNounId = useAppSelector(state => state.auction.activeAuction?.nounId);
+  const lastAuctionNounId = useAppSelector(state => state.auction.activeAuction?.whaleId);
   const onDisplayAuctionNounId = useAppSelector(
     state => state.onDisplayAuction.onDisplayAuctionNounId,
   );
@@ -64,8 +64,8 @@ const useOnDisplayAuction = (): Auction | undefined => {
     } else {
       // past auction
       const reduxSafeAuction: Auction | undefined = pastAuctions.find(auction => {
-        const nounId = auction.activeAuction && BigNumber.from(auction.activeAuction.nounId);
-        return nounId && nounId.toNumber() === onDisplayAuctionNounId;
+        const whaleId = auction.activeAuction && BigNumber.from(auction.activeAuction.whaleId);
+        return whaleId && whaleId.toNumber() === onDisplayAuctionNounId;
       })?.activeAuction;
 
       return reduxSafeAuction ? deserializeAuction(reduxSafeAuction) : undefined;
@@ -84,8 +84,8 @@ export const useAuctionBids = (auctionNounId: BigNumber): Bid[] | undefined => {
   } else {
     // find bids for past auction requested
     const bidEvents: BidEvent[] | undefined = pastAuctions.find(auction => {
-      const nounId = auction.activeAuction && BigNumber.from(auction.activeAuction.nounId);
-      return nounId && nounId.eq(auctionNounId);
+      const whaleId = auction.activeAuction && BigNumber.from(auction.activeAuction.whaleId);
+      return whaleId && whaleId.eq(auctionNounId);
     })?.bids;
 
     return bidEvents && deserializeBids(bidEvents);

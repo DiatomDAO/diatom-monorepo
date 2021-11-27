@@ -1,4 +1,4 @@
-# diatom-monorepo
+# Diatom-monorepo
 
 Nouns DAO is a generative avatar art collective run by a group of crypto misfits.
 
@@ -32,7 +32,7 @@ The [nouns sdk](packages/nouns-sdk) exposes the Nouns contract addresses, ABIs, 
 
 In order to make retrieving more complex data from the auction history, [nouns subgraph](packages/nouns-subgraph) contains subgraph manifests that are deployed onto [The Graph](https://thegraph.com).
 
-### nouns-webapp
+### diatom-webapp
 
 The [nouns webapp](packages/nouns-webapp) is the frontend for interacting with Noun auctions as hosted at [nouns.wtf](https://nouns.wtf).
 

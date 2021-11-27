@@ -10,16 +10,16 @@ import { useAppSelector } from '../../hooks';
 import { AuctionState } from '../../state/slices/auction';
 
 interface NounInfoRowBirthdayProps {
-  nounId: number;
+  whaleId: number;
 }
 
 const NounInfoRowBirthday: React.FC<NounInfoRowBirthdayProps> = props => {
-  const { nounId } = props;
+  const { whaleId } = props;
 
   // If the noun is a nounder noun, use the next noun to get the mint date.
   // We do this because we use the auction start time to get the mint date and
   // nounder nouns do not have an auction start time.
-  const nounIdForQuery = isNounderNoun(BigNumber.from(nounId)) ? nounId + 1 : nounId;
+  const whaleIdForQuery = isNounderNoun(BigNumber.from(whaleId)) ? whaleId + 1 : whaleId;
 
   const pastAuctions = useAppSelector(state => state.pastAuctions.pastAuctions);
   if (!pastAuctions || !pastAuctions.length) {
@@ -28,8 +28,8 @@ const NounInfoRowBirthday: React.FC<NounInfoRowBirthdayProps> = props => {
 
   const startTime = BigNumber.from(
     pastAuctions.find((auction: AuctionState, i: number) => {
-      const maybeNounId = auction.activeAuction?.nounId;
-      return maybeNounId ? BigNumber.from(maybeNounId).eq(BigNumber.from(nounIdForQuery)) : false;
+      const maybeNounId = auction.activeAuction?.whaleId;
+      return maybeNounId ? BigNumber.from(maybeNounId).eq(BigNumber.from(whaleIdForQuery)) : false;
     })?.activeAuction?.startTime,
   );
 

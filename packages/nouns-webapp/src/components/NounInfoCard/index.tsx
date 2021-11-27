@@ -18,21 +18,21 @@ import { setOnDisplayAuctionNounId } from '../../state/slices/onDisplayAuction';
 import { useDispatch } from 'react-redux';
 
 interface NounInfoCardProps {
-  nounId: number;
+  whaleId: number;
 }
 
 const NounInfoCard: React.FC<NounInfoCardProps> = props => {
-  const { nounId } = props;
+  const { whaleId } = props;
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const etherscanBaseURL = buildEtherscanAddressLink(config.addresses.nounsToken);
+  const etherscanBaseURL = buildEtherscanAddressLink(config.addresses.whalezToken);
   const bidHistoryButtonClickHandler = () => {
-    dispatch(setOnDisplayAuctionNounId(nounId));
-    history.push(`/auction/${nounId}`);
+    dispatch(setOnDisplayAuctionNounId(whaleId));
+    history.push(`/auction/${whaleId}`);
   };
   // eslint-disable-next-line no-restricted-globals
-  const etherscanButtonClickHandler = () => (location.href = `${etherscanBaseURL}/${nounId}`);
+  const etherscanButtonClickHandler = () => (location.href = `${etherscanBaseURL}/${whaleId}`);
 
   const lastAuctionNounId = useAppSelector(state => state.onDisplayAuction.lastAuctionNounId);
 
@@ -41,19 +41,19 @@ const NounInfoCard: React.FC<NounInfoCardProps> = props => {
       <Col lg={12}>
         <div className={classes.nounInfoHeader}>
           <h3>Profile</h3>
-          <h2>Noun {nounId}</h2>
+          <h2>Noun {whaleId}</h2>
         </div>
       </Col>
       <Col lg={12} className={classes.nounInfoRow}>
-        <NounInfoRowBirthday nounId={nounId} />
+        <NounInfoRowBirthday whaleId={whaleId} />
       </Col>
       <Col lg={12} className={classes.nounInfoRow}>
-        <NounInfoRowHolder nounId={nounId} />
+        <NounInfoRowHolder whaleId={whaleId} />
       </Col>
       <Col lg={12} className={classes.nounInfoRow}>
         <NounInfoRowButton
           iconImgSource={_BidsIcon}
-          btnText={lastAuctionNounId === nounId ? 'Bids' : 'Bid history'}
+          btnText={lastAuctionNounId === whaleId ? 'Bids' : 'Bid history'}
           onClickHandler={bidHistoryButtonClickHandler}
         />
         <NounInfoRowButton
