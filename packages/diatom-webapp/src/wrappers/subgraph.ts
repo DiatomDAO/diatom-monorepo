@@ -171,7 +171,7 @@ export const whalezVotingHistoryQuery = (whaleId: number) => gql`
 }
 `;
 
-export const highestNounIdMintedAtProposalTime = (proposalStartBlock: number) => gql`
+export const highestWhalezIdMintedAtProposalTime = (proposalStartBlock: number) => gql`
 {
 	auctions(orderBy: endTime orderDirection: desc first: 1 block: { number: ${proposalStartBlock} }) {
 		id

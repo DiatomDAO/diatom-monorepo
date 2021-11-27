@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { setOnDisplayAuctionNounId } from '../../state/slices/onDisplayAuction';
+import { setOnDisplayAuctionWhalezId } from '../../state/slices/onDisplayAuction';
 import { push } from 'connected-react-router';
 import { nounPath } from '../../utils/history';
 import useOnDisplayAuction from '../../wrappers/onDisplayAuction';
@@ -20,31 +20,31 @@ interface AuctionPageProps {
 const AuctionPage: React.FC<AuctionPageProps> = props => {
   const { initialAuctionId } = props;
   const onDisplayAuction = useOnDisplayAuction();
-  const lastAuctionNounId = useAppSelector(state => state.onDisplayAuction.lastAuctionNounId);
+  const lastAuctionWhalezId = useAppSelector(state => state.onDisplayAuction.lastAuctionWhalezId);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (!lastAuctionNounId) return;
+    if (!lastAuctionWhalezId) return;
 
     if (initialAuctionId !== undefined) {
       // handle out of bounds noun path ids
-      if (initialAuctionId > lastAuctionNounId || initialAuctionId < 0) {
-        dispatch(setOnDisplayAuctionNounId(lastAuctionNounId));
-        dispatch(push(nounPath(lastAuctionNounId)));
+      if (initialAuctionId > lastAuctionWhalezId || initialAuctionId < 0) {
+        dispatch(setOnDisplayAuctionWhalezId(lastAuctionWhalezId));
+        dispatch(push(nounPath(lastAuctionWhalezId)));
       } else {
         if (onDisplayAuction === undefined) {
           // handle regular noun path ids on first load
-          dispatch(setOnDisplayAuctionNounId(initialAuctionId));
+          dispatch(setOnDisplayAuctionWhalezId(initialAuctionId));
         }
       }
     } else {
       // no noun path id set
-      if (lastAuctionNounId) {
-        dispatch(setOnDisplayAuctionNounId(lastAuctionNounId));
+      if (lastAuctionWhalezId) {
+        dispatch(setOnDisplayAuctionWhalezId(lastAuctionWhalezId));
       }
     }
-  }, [lastAuctionNounId, dispatch, initialAuctionId, onDisplayAuction]);
+  }, [lastAuctionWhalezId, dispatch, initialAuctionId, onDisplayAuction]);
 
   return (
     <div>

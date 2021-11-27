@@ -2,7 +2,7 @@ import classes from './Banner.module.css';
 import Section from '../../layout/Section';
 import { Col } from 'react-bootstrap';
 import calendar_whalez from '../../assets/calendar_whalez.png';
-import Noun from '../Whalez';
+import Whalez from '../Whalez';
 
 const Banner = () => {
   return (
@@ -20,7 +20,7 @@ const Banner = () => {
       </Col>
       <Col lg={6}>
         <div style={{ padding: '2rem' }}>
-          <Noun imgPath={calendar_whalez} alt="whalez" />
+          <Whalez imgPath={calendar_whalez} alt="whalez" />
         </div>
       </Col>
     </Section>

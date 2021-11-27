@@ -1,5 +1,5 @@
 import { Col } from 'react-bootstrap';
-import StandaloneNoun from '../StandaloneWhalez';
+import StandaloneWhalez from '../StandaloneWhalez';
 import AuctionActivity from '../AuctionActivity';
 import { Row, Container } from 'react-bootstrap';
 import { LoadingWhalez } from '../Whalez';
@@ -8,8 +8,8 @@ import classes from './Auction.module.css';
 import { useHistory } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import {
-  setNextOnDisplayAuctionNounId,
-  setPrevOnDisplayAuctionNounId,
+  setNextOnDisplayAuctionWhalezId,
+  setPrevOnDisplayAuctionWhalezId,
 } from '../../state/slices/onDisplayAuction';
 
 interface AuctionProps {
@@ -21,36 +21,36 @@ const Auction: React.FC<AuctionProps> = props => {
 
   const history = useHistory();
   const dispatch = useAppDispatch();
-  const lastNounId = useAppSelector(state => state.onDisplayAuction.lastAuctionNounId);
+  const lastWhalezId = useAppSelector(state => state.onDisplayAuction.lastAuctionWhalezId);
 
   const prevAuctionHandler = () => {
-    dispatch(setPrevOnDisplayAuctionNounId());
+    dispatch(setPrevOnDisplayAuctionWhalezId());
     currentAuction && history.push(`/auction/${currentAuction.whaleId.toNumber() - 1}`);
   };
   const nextAuctionHandler = () => {
-    dispatch(setNextOnDisplayAuctionNounId());
+    dispatch(setNextOnDisplayAuctionWhalezId());
     currentAuction && history.push(`/auction/${currentAuction.whaleId.toNumber() + 1}`);
   };
 
   const whalezContent = currentAuction && (
     <div className={classes.whalezWrapper}>
-      <StandaloneNoun
+      <StandaloneWhalez
         whaleId={currentAuction.whaleId}
       />
     </div>
   );
 
-  const loadingNoun = (
+  const loadingWhalez = (
     <div className={classes.whalezWrapper}>
       <LoadingWhalez />
     </div>
   );
 
-  const currentAuctionActivityContent = currentAuction && lastNounId && (
+  const currentAuctionActivityContent = currentAuction && lastWhalezId && (
     <AuctionActivity
       auction={currentAuction}
       isFirstAuction={currentAuction.whaleId.eq(1)}
-      isLastAuction={currentAuction.whaleId.eq(lastNounId)}
+      isLastAuction={currentAuction.whaleId.eq(lastWhalezId)}
       onPrevAuctionClick={prevAuctionHandler}
       onNextAuctionClick={nextAuctionHandler}
       displayGraphDepComps={true}
@@ -62,7 +62,7 @@ const Auction: React.FC<AuctionProps> = props => {
       <Container fluid="lg">
         <Row>
           <Col lg={{ span: 6 }} className={classes.auctionActivityCol}>
-            {currentAuction ? whalezContent : loadingNoun}
+            {currentAuction ? whalezContent : loadingWhalez}
           </Col>
           <Col lg={{ span: 6 }} className={classes.auctionActivityCol}>
             {currentAuction && currentAuctionActivityContent}

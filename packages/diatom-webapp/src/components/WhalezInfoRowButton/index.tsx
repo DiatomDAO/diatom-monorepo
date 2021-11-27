@@ -1,14 +1,14 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
-import classes from './NounInfoRowButton.module.css';
+import classes from './WhalezInfoRowButton.module.css';
 
-interface NounInfoRowButtonProps {
+interface WhalezInfoRowButtonProps {
   iconImgSource: string;
   btnText: string;
   onClickHandler: () => void;
 }
 
-const NounInfoRowButton: React.FC<NounInfoRowButtonProps> = props => {
+const WhalezInfoRowButton: React.FC<WhalezInfoRowButtonProps> = props => {
   const { iconImgSource, btnText, onClickHandler } = props;
   return (
     <div className={classes.whalezButton} onClick={onClickHandler}>
@@ -20,4 +20,4 @@ const NounInfoRowButton: React.FC<NounInfoRowButtonProps> = props => {
   );
 };
 
-export default NounInfoRowButton;
+export default WhalezInfoRowButton;

@@ -4,17 +4,17 @@ import { Image } from 'react-bootstrap';
 import _LinkIcon from '../../assets/icons/Link.svg';
 import { whalezQuery } from '../../wrappers/subgraph';
 import _HeartIcon from '../../assets/icons/Heart.svg';
-import classes from './NounInfoRowHolder.module.css';
+import classes from './WhalezInfoRowHolder.module.css';
 
 import config from '../../config';
 import { buildEtherscanAddressLink } from '../../utils/etherscan';
 import ShortAddress from '../ShortAddress';
 
-interface NounInfoRowHolderProps {
+interface WhalezInfoRowHolderProps {
   whaleId: number;
 }
 
-const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
+const WhalezInfoRowHolder: React.FC<WhalezInfoRowHolderProps> = props => {
   const { whaleId } = props;
 
   const { loading, error, data } = useQuery(whalezQuery(whaleId.toString()));
@@ -44,7 +44,7 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
         >
           {data.whalez.owner.id.toLowerCase() ===
           config.addresses.whalezAuctionHouseProxy.toLowerCase()
-            ? 'Nouns Auction House'
+            ? 'Whalezs Auction House'
             : shortAddressComponent}
         </a>
       </span>
@@ -55,4 +55,4 @@ const NounInfoRowHolder: React.FC<NounInfoRowHolderProps> = props => {
   );
 };
 
-export default NounInfoRowHolder;
+export default WhalezInfoRowHolder;

@@ -1,6 +1,6 @@
 import { BigNumber as EthersBN } from 'ethers';
 import { useWhaleToken, IWhaleToken } from '../../wrappers/whalezToken';
-import Noun from '../Whalez';
+import Whalez from '../Whalez';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -40,7 +40,7 @@ const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhal
   }, [whaleURI])
 
   return (
-    <Noun whaleId={whaleId?.toString()} imgPath={currentWhale.image} alt={currentWhale.description} description={currentWhale.description} name={currentWhale.name}  noDescription={noDescription} />
+    <Whalez whaleId={whaleId?.toString()} imgPath={currentWhale.image} alt={currentWhale.description} description={currentWhale.description} name={currentWhale.name}  noDescription={noDescription} />
   );
 };
 
