@@ -157,9 +157,9 @@ export const latestBidsQuery = (first: number = 10) => gql`
   }  
 `;
 
-export const nounVotingHistoryQuery = (nounId: number) => gql`
+export const nounVotingHistoryQuery = (whaleId: number) => gql`
 {
-	noun(id: ${nounId}) {
+	noun(id: ${whaleId}) {
 		id
 		votes {
 		proposal {

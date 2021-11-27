@@ -18,7 +18,7 @@ interface NounProfileVoteRowProps {
   proposal: Proposal;
   nounVoted: boolean;
   nounSupported: boolean;
-  nounId: number;
+  whaleId: number;
   latestProposalId: number;
 }
 
@@ -67,7 +67,7 @@ const selectProposalStatusIcon = (proposal: Proposal) => {
 };
 
 const NounProfileVoteRow: React.FC<NounProfileVoteRowProps> = props => {
-  const { proposal, nounVoted, nounSupported, nounId, latestProposalId } = props;
+  const { proposal, nounVoted, nounSupported, whaleId, latestProposalId } = props;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { loading, error, data } = useQuery(highestNounIdMintedAtProposalTime(proposal.startBlock));
@@ -78,7 +78,7 @@ const NounProfileVoteRow: React.FC<NounProfileVoteRowProps> = props => {
   }
 
   // In this case, noun was not yet minted at time of proposal
-  if (data && data.auctions.length > 0 && nounId > data.auctions[0].id) {
+  if (data && data.auctions.length > 0 && whaleId > data.auctions[0].id) {
     if (proposal.id === latestProposalId.toString()) {
       return (
         <tr className={classes.nullStateCopy}>This Noun has no activity yet. Check back soon!</tr>

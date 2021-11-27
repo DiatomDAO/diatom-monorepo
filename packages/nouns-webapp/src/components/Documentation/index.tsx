@@ -157,7 +157,7 @@ const Documentation = () => {
                 future updates. Currently, Noun traits are determined using pseudo-random number
                 generation:
               </p>
-              <code>keccak256(abi.encodePacked(blockhash(block.number - 1), nounId))</code>
+              <code>keccak256(abi.encodePacked(blockhash(block.number - 1), whaleId))</code>
               <br />
               <br />
               <p>
