@@ -1,4 +1,4 @@
-import { WhalezTokenFactory, WhalezAuctionHouseFactory } from '@whalez/contracts';
+import { WhalezTokenFactory, WhalezAuctionHouseFactory } from '@diatom/contracts';
 import type { Signer } from 'ethers';
 import type { Provider } from '@ethersproject/providers';
 import { getContractAddressesForChainOrThrow } from './addresses';

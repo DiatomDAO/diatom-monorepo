@@ -1,6 +1,6 @@
 import { useContractCall } from '@usedapp/core';
 import { BigNumber as EthersBN, utils } from 'ethers';
-import { WhalezAuctionHouseABI } from '@whalez/sdk';
+import { WhalezAuctionHouseABI } from '@diatom/sdk';
 import config from '../config';
 import BigNumber from 'bignumber.js';
 

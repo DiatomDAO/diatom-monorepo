@@ -1,4 +1,4 @@
-# @whalez/subgraph
+# @diatom/subgraph
 
 A subgraph that indexes nouns events.
 

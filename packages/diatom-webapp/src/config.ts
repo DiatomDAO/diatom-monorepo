@@ -1,4 +1,4 @@
-import { ContractAddresses, getContractAddressesForChainOrThrow } from '@whalez/sdk';
+import { ContractAddresses, getContractAddressesForChainOrThrow } from '@diatom/sdk';
 import { ChainId } from '@usedapp/core';
 
 interface AppConfig {

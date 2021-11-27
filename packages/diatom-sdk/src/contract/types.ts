@@ -1,4 +1,4 @@
-import { WhalezTokenFactory, WhalezAuctionHouseFactory } from '@whalez/contracts';
+import { WhalezTokenFactory, WhalezAuctionHouseFactory } from '@diatom/contracts';
 
 export interface ContractAddresses {
   whalezToken: string;

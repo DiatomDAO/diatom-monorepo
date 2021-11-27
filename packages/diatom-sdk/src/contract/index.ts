@@ -8,4 +8,4 @@ export {
   WhalezTokenFactory,
   WhalezAuctionHouseFactory,
   NounsDaoLogicV1Factory,
-} from '@whalez/contracts';
+} from '@diatom/contracts';
