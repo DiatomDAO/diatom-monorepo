@@ -32,15 +32,15 @@
   margin-right: 5px;
 }
 
-.nounsNavLink,
-.nounsNavLink:active,
-.nounsNavLink:visited {
+.whalezsNavLink,
+.whalezsNavLink:active,
+.whalezsNavLink:visited {
   font-size: 0.9rem;
   font-weight: bold;
   padding: 0.5rem 0.8rem !important;
   color: var(--brand-black) !important;
 }
-.nounsNavLink:hover {
+.whalezsNavLink:hover {
   color: var(--brand-dark-red) !important;
 }
 

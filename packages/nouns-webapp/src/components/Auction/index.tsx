@@ -3,7 +3,7 @@ import StandaloneNoun from '../StandaloneWhalez';
 import AuctionActivity from '../AuctionActivity';
 import { Row, Container } from 'react-bootstrap';
 import { LoadingWhalez } from '../Whalez';
-import { Auction as IAuction } from '../../wrappers/nounsAuction';
+import { Auction as IAuction } from '../../wrappers/whalezAuction';
 import classes from './Auction.module.css';
 import { useHistory } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
@@ -32,8 +32,8 @@ const Auction: React.FC<AuctionProps> = props => {
     currentAuction && history.push(`/auction/${currentAuction.whaleId.toNumber() + 1}`);
   };
 
-  const nounContent = currentAuction && (
-    <div className={classes.nounWrapper}>
+  const whalezContent = currentAuction && (
+    <div className={classes.whalezWrapper}>
       <StandaloneNoun
         whaleId={currentAuction.whaleId}
       />
@@ -41,7 +41,7 @@ const Auction: React.FC<AuctionProps> = props => {
   );
 
   const loadingNoun = (
-    <div className={classes.nounWrapper}>
+    <div className={classes.whalezWrapper}>
       <LoadingWhalez />
     </div>
   );
@@ -62,7 +62,7 @@ const Auction: React.FC<AuctionProps> = props => {
       <Container fluid="lg">
         <Row>
           <Col lg={{ span: 6 }} className={classes.auctionActivityCol}>
-            {currentAuction ? nounContent : loadingNoun}
+            {currentAuction ? whalezContent : loadingNoun}
           </Col>
           <Col lg={{ span: 6 }} className={classes.auctionActivityCol}>
             {currentAuction && currentAuctionActivityContent}

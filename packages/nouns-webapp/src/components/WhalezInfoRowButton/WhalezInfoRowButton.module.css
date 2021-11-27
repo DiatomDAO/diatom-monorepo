@@ -1,4 +1,4 @@
-.nounButton {
+.whalezButton {
   height: 40px;
   background-color: #e9ebf3;
   border-radius: 10px;
@@ -17,16 +17,16 @@
   padding: 0px 10px;
 }
 
-.nounButton:hover {
+.whalezButton:hover {
   text-decoration: none;
   background-color: white;
 }
 
-.nounButton:active {
+.whalezButton:active {
   color: black;
 }
 
-.nounButtonContents {
+.whalezButtonContents {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

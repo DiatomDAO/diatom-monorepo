@@ -1,4 +1,4 @@
-import { Auction } from '../../wrappers/nounsAuction';
+import { Auction } from '../../wrappers/whalezAuction';
 import { useState, useEffect } from 'react';
 import BigNumber from 'bignumber.js';
 import { Row, Col } from 'react-bootstrap';

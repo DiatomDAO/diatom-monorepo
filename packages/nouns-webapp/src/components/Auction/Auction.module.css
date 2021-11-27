@@ -1,8 +1,8 @@
-.nounWrapper {
+.whalezWrapper {
   align-self: flex-end;
   width: 100%;
 }
-.nounContentCol {
+.whalezContentCol {
   display: flex;
 }
 

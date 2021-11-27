@@ -31,7 +31,7 @@ const HistoryCollection: React.FC<HistoryCollectionProps> = (props: HistoryColle
     }
   });
 
-  const nounsContent = whaleIds.map((whaleId, i) => {
+  const whalezsContent = whaleIds.map((whaleId, i) => {
     return !whaleId ? <LoadingWhalez key={i} /> : <StandaloneNoun key={i} whaleId={whaleId} />;
   });
 
@@ -40,7 +40,7 @@ const HistoryCollection: React.FC<HistoryCollectionProps> = (props: HistoryColle
       <Container fluid>
         <Row className="justify-content-md-center">
           <div className={clsx(classes.historyCollection)}>
-            {config.app.enableHistory && nounsContent}
+            {config.app.enableHistory && whalezsContent}
           </div>
         </Row>
       </Container>

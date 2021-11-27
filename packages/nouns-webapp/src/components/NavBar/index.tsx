@@ -9,7 +9,7 @@ import WalletConnectModal from '../WalletConnectModal';
 // import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container } from 'react-bootstrap';
-import testnetNoun from '../../assets/testnet-noun.png';
+import testnetNoun from '../../assets/testnet-whalez.png';
 import clsx from 'clsx';
 // import config, { CHAIN_ID } from '../../config';
 import { CHAIN_ID } from '../../config';
@@ -23,8 +23,8 @@ const NavBar = () => {
 
   // const stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
   // const history = useHistory();
-  // const treasuryBalance = useEtherBalance(config.addresses.nounsDaoExecutor);
-  // const daoEtherscanLink = buildEtherscanAddressLink(config.addresses.nounsDaoExecutor);
+  // const treasuryBalance = useEtherBalance(config.addresses.whalezsDaoExecutor);
+  // const daoEtherscanLink = buildEtherscanAddressLink(config.addresses.whalezsDaoExecutor);
 
   const [showConnectModal, setShowConnectModal] = useState(false);
 
@@ -38,14 +38,14 @@ const NavBar = () => {
   const connectedContent = (
     <>
       <Nav.Item>
-        <Nav.Link className={clsx(classes.nounsNavLink, classes.addressNavLink)} disabled>
+        <Nav.Link className={clsx(classes.whalezsNavLink, classes.addressNavLink)} disabled>
           <span className={classes.greenStatusCircle} />
           <span>{activeAccount && <ShortAddress address={activeAccount} />}</span>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link
-          className={clsx(classes.nounsNavLink, classes.disconnectBtn)}
+          className={clsx(classes.whalezsNavLink, classes.disconnectBtn)}
           onClick={() => {
             setShowConnectModal(false);
             deactivate();
@@ -61,7 +61,7 @@ const NavBar = () => {
   const disconnectedContent = (
     <>
       <Nav.Link
-        className={clsx(classes.nounsNavLink, classes.connectBtn)}
+        className={clsx(classes.whalezsNavLink, classes.connectBtn)}
         onClick={showModalHandler}
       >
         Connect Wallet
@@ -71,7 +71,7 @@ const NavBar = () => {
 
   // const useStateBg =
   //   history.location.pathname === '/' ||
-  //   history.location.pathname.includes('/noun') ||
+  //   history.location.pathname.includes('/whalez') ||
   //   history.location.pathname.includes('/auction');
 
   return (
@@ -86,7 +86,7 @@ const NavBar = () => {
           </Navbar.Brand>
           {Number(CHAIN_ID) !== 1 && (
             <Nav.Item>
-              <img className={classes.testnetImg} src={testnetNoun} alt="testnet noun" />
+              <img className={classes.testnetImg} src={testnetNoun} alt="testnet whalez" />
               TESTNET
             </Nav.Item>
           )}
@@ -96,7 +96,7 @@ const NavBar = () => {
               {treasuryBalance && (
                 <Nav.Link
                   href={daoEtherscanLink}
-                  className={classes.nounsNavLink}
+                  className={classes.whalezsNavLink}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -104,33 +104,33 @@ const NavBar = () => {
                 </Nav.Link>
               )}
             </Nav.Item>
-            <Nav.Link as={Link} to="/vote" className={classes.nounsNavLink}>
+            <Nav.Link as={Link} to="/vote" className={classes.whalezsNavLink}>
               DAO
             </Nav.Link>
             <Nav.Link
               href={externalURL(ExternalURL.notion)}
-              className={classes.nounsNavLink}
+              className={classes.whalezsNavLink}
               target="_blank"
               rel="noreferrer"
             >
               DOCS
             </Nav.Link>
-            <Nav.Link href="/playground" className={classes.nounsNavLink}>
+            <Nav.Link href="/playground" className={classes.whalezsNavLink}>
               PLAYGROUND
             </Nav.Link> */}
-            <Nav.Link href="#diatom" className={classes.nounsNavLink}>
+            <Nav.Link href="#diatom" className={classes.whalezsNavLink}>
               What is Diatom
             </Nav.Link>
-            <Nav.Link href="#Tokenomics" className={classes.nounsNavLink}>
+            <Nav.Link href="#Tokenomics" className={classes.whalezsNavLink}>
               Tokenomics
             </Nav.Link>
-            <Nav.Link href="#works" className={classes.nounsNavLink}>
+            <Nav.Link href="#works" className={classes.whalezsNavLink}>
               How it Works
             </Nav.Link>
-            {/* <Nav.Link href="#join" className={classes.nounsNavLink}>
+            {/* <Nav.Link href="#join" className={classes.whalezsNavLink}>
               How to Join
             </Nav.Link> */}
-            <Nav.Link href="#community" className={classes.nounsNavLink}>
+            <Nav.Link href="#community" className={classes.whalezsNavLink}>
               Join the Community
             </Nav.Link>
             {activeAccount ? connectedContent : disconnectedContent}

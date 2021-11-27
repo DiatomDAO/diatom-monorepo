@@ -1,6 +1,6 @@
 import classes from './Whalez.module.css';
 import React from 'react';
-import loadingWhalez from '../../assets/loading-skull-noun.gif';
+import loadingWhalez from '../../assets/loading-skull-whalez.gif';
 import Image from 'react-bootstrap/Image';
 
 export const LoadingWhalez = () => {

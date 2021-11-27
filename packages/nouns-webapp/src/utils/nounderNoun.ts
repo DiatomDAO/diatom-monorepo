@@ -1,4 +1,4 @@
-import { Auction } from '../wrappers/nounsAuction';
+import { Auction } from '../wrappers/whalezAuction';
 import { AuctionState } from '../state/slices/auction';
 import { BigNumber } from '@ethersproject/bignumber';
 

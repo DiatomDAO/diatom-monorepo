@@ -1,4 +1,4 @@
-import { Auction, AuctionHouseContractFunction } from '../../wrappers/nounsAuction';
+import { Auction, AuctionHouseContractFunction } from '../../wrappers/whalezAuction';
 import { connectContractToSigner, useEthers, useContractFunction } from '@usedapp/core';
 import { useAppSelector } from '../../hooks';
 import React, { useEffect, useState, useRef, ChangeEvent, useCallback } from 'react';
@@ -6,7 +6,7 @@ import { utils, BigNumber as EthersBN } from 'ethers';
 import BigNumber from 'bignumber.js';
 import classes from './Bid.module.css';
 import { Spinner, InputGroup, FormControl, Button } from 'react-bootstrap';
-import { useAuctionMinBidIncPercentage } from '../../wrappers/nounsAuction';
+import { useAuctionMinBidIncPercentage } from '../../wrappers/whalezAuction';
 import { useAppDispatch } from '../../hooks';
 import { AlertModal, setAlertModal } from '../../state/slices/application';
 import { WhalezAuctionHouseFactory } from '@nouns/sdk';
@@ -46,7 +46,7 @@ const Bid: React.FC<{
   const activeAccount = useAppSelector(state => state.account.activeAccount);
   const { library } = useEthers();
   const { auction, auctionEnded } = props;
-  const nounsAuctionHouseContract = new WhalezAuctionHouseFactory().attach(
+  const whalezAuctionHouseContract = new WhalezAuctionHouseFactory().attach(
     config.addresses.whalezAuctionHouseProxy,
   );
 
@@ -70,11 +70,11 @@ const Bid: React.FC<{
   );
 
   const { send: placeBid, state: placeBidState } = useContractFunction(
-    nounsAuctionHouseContract,
+    whalezAuctionHouseContract,
     AuctionHouseContractFunction.createBid,
   );
   const { send: settleAuction, state: settleAuctionState } = useContractFunction(
-    nounsAuctionHouseContract,
+    whalezAuctionHouseContract,
     AuctionHouseContractFunction.settleCurrentAndCreateNewAuction,
   );
 
@@ -107,7 +107,7 @@ const Bid: React.FC<{
     }
 
     const value = utils.parseEther(bidInputRef.current.value.toString());
-    const contract = connectContractToSigner(nounsAuctionHouseContract, undefined, library);
+    const contract = connectContractToSigner(whalezAuctionHouseContract, undefined, library);
     const gasLimit = await contract.estimateGas.createBid(auction.whaleId, {
       value,
     });
