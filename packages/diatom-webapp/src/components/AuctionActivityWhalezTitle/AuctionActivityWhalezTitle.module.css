@@ -1,0 +1,33 @@
+.whalezTitle {
+  color: black;
+}
+
+.whalezTitle a:link {
+  color: black;
+}
+
+.whalezTitle a:visited {
+  color: black;
+}
+
+.whalezTitle a:hover {
+  color: black;
+}
+
+.whalezTitle:active {
+  color: black;
+}
+
+.wrapper {
+  display: inline-block;
+}
+
+.wrapper h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 900px) {
+  .wrapper h1 {
+    font-size: 3rem;
+  }
+}
