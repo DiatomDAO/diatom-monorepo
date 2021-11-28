@@ -2,18 +2,7 @@ import classes from './Leaderboard.module.css';
 
 const Leaderboard = () => {
   const whales = [
-    { name: 'Some Great Name', plasticRemoved: 300000.00123 },
-    { name: 'Cetacious Prime', plasticRemoved: 300001.12 },
-    { name: 'Cetacious Prime', plasticRemoved: 300002 },
-    { name: 'Cetacious Prime', plasticRemoved: 402003 },
-    { name: 'Cetacious Prime', plasticRemoved: 300004 },
-    { name: 'Cetacious Prime', plasticRemoved: 300005.23412 },
-    { name: 'Cetacious Prime', plasticRemoved: 3 },
-    { name: 'Cetacious Prime', plasticRemoved: 2 },
-    { name: 'Cetacious Prime', plasticRemoved: 1 },
-    { name: 'Cetacious Prime', plasticRemoved: 1234 },
-    { name: 'Cetacious Prime', plasticRemoved: 3333 },
-    { name: 'Cetacious Prime', plasticRemoved: 123 },
+    { name: 'Placeholder', plasticRemoved: 300000.00123 },
   ].sort((a, b) => {
     if (a.plasticRemoved < b.plasticRemoved) return 1;
     if (a.plasticRemoved > b.plasticRemoved) return -1;
@@ -34,7 +23,7 @@ const Leaderboard = () => {
           <p>Est. Plastic Removed</p>
         </div>
         <div className={classes.leaderboardList}>
-          {whales.map((whale, index) => {
+          {whales.length > 1 && whales.map((whale, index) => {
             return (
               <div key={index} className={classes.leaderboardItem}>
                 <p className={classes.whalePosition}>#{index + 1}</p>
@@ -44,6 +33,9 @@ const Leaderboard = () => {
               </div>
             );
           })}
+          {whales.length <= 1 && 
+            <p className={classes.noWhales}>{`No Whales on the Leaderboard just yet!`}</p>
+          }
         </div>
       </div>
     </div>
