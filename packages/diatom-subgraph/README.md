@@ -1,6 +1,6 @@
 # @diatom/subgraph
 
-A subgraph that indexes nouns events.
+A subgraph that indexes diatom events.
 
 ## Quickstart
 
