@@ -8,7 +8,7 @@ export enum AuctionHouseContractFunction {
   auction = 'auction',
   duration = 'duration',
   minBidIncrementPercentage = 'minBidIncrementPercentage',
-  whalezs = 'whalezs',
+  whalez = 'whalez',
   createBid = 'createBid',
   settleCurrentAndCreateNewAuction = 'settleCurrentAndCreateNewAuction',
 }
