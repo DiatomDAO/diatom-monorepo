@@ -1,1 +1,1 @@
-export const whalezPath = (whaleId: Number) => `/whalez/${whaleId}`;
+export const whalezPath = (whaleId: Number) => `/auction/${whaleId}`;

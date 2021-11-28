@@ -42,7 +42,7 @@ const app: Record<SupportedChains, AppConfig> = {
   [ChainId.Hardhat]: {
     jsonRpcUri: 'http://localhost:8545',
     wsRpcUri: 'ws://localhost:8545',
-    subgraphApiUri: '',
+    subgraphApiUri: 'http://0.0.0.0:8000/subgraphs/name/diatomdao/diatom-subgraph',
     enableHistory: false,
   },
 };
