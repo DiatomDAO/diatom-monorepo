@@ -1,0 +1,147 @@
+.leaderboardContainer {
+  padding: 0 1rem;
+  margin-top: 2rem;
+}
+
+.leaderboardContainer h2 {
+  font-size: 32px;
+  font-weight: 600;
+
+  color: #48a0a7;
+}
+
+.leaderboard {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(144, 251, 176, 0.25);
+  border-radius: 15px;
+
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.25);
+}
+
+.leaderboardHeader {
+  display: grid;
+  grid-template-columns: 40px 50px 1fr 1fr;
+  padding-right: 25px;
+  align-items: flex-end;
+
+  font-size: 14px;
+  color: #48a0a7;
+  font-weight: 600;
+}
+
+.leaderboard p {
+  margin: 0;
+  padding: 0;
+}
+
+.leaderboardHeader p:first-of-type {
+  margin-left: 6px;
+  grid-column-start: 3;
+}
+
+.leaderboardList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+
+  max-height: 400px;
+
+  overflow: auto;
+  padding-right: 10px;
+
+  width: 100%;
+}
+
+/* width */
+.leaderboardList::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+.leaderboardList::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 15px;
+}
+ 
+/* Handle */
+.leaderboardList::-webkit-scrollbar-thumb {
+  background: #606060; 
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+.leaderboardList::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.leaderboardItem {
+  display: grid;
+  grid-template-columns: 40px 50px 1fr 1fr;
+  align-items: center;
+
+  white-space: pre-line;
+  color: #053039;
+  font-size: 14px;
+
+  padding-bottom: 4px;
+  border-bottom: 1px solid #053039;
+}
+
+.leaderboardItem > div {
+  background: white;
+
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.leaderboardItem:last-of-type {
+  border: none;
+}
+
+.leaderboardItem .whalePosition {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.leaderboardItem .whaleName {
+  margin-left: 6px;
+  font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .leaderboardContainer {
+    padding: 0 5rem;
+
+    max-width: 1300px;
+    margin: 2rem auto 0;
+  }
+  .leaderboardList {
+    margin-top: 1rem;
+  }
+
+  .leaderboardHeader {
+    grid-template-columns: 50px 60px 1fr 1fr;
+    padding-right: 25px;
+    font-size: 20px;
+  }
+
+  .leaderboardHeader p:first-of-type {
+    margin-left: 15px;
+  }
+
+  .leaderboardItem {
+    grid-template-columns: 50px 60px 1fr 1fr;
+  }
+
+  .leaderboardItem > div {
+    height: 60px;
+  }
+
+  .leaderboardItem .whaleName {
+    margin-left: 15px;
+  }
+}
