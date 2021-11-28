@@ -6,9 +6,11 @@ A subgraph that indexes diatom events.
 
 ```sh
 yarn
+docker-compose up # wait for few seconds
+yarn deploy:localhost
 ```
 
-## Nouns subgraph
+## Diatom subgraph
 
 This repo contains the templates for compiling and deploying a graphql schema to thegraph.
 
