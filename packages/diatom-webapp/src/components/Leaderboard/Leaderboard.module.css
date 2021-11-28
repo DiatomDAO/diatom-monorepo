@@ -47,6 +47,7 @@
   margin-top: 0.5rem;
 
   max-height: 400px;
+  min-height: 300px;
 
   overflow: auto;
   padding-right: 10px;
@@ -112,12 +113,19 @@
   font-weight: 700;
 }
 
+.noWhales {
+  margin-top: 1.5rem;
+  font-size: 14px;
+  color: #48a0a7;
+  font-weight: 700;
+}
+
 @media (min-width: 900px) {
   .leaderboardContainer {
     padding: 0 5rem;
 
     max-width: 1300px;
-    margin: 2rem auto 0;
+    margin: 2rem auto 4rem;
   }
   .leaderboardList {
     margin-top: 1rem;
@@ -126,7 +134,10 @@
   .leaderboardHeader {
     grid-template-columns: 50px 60px 1fr 1fr;
     padding-right: 25px;
-    font-size: 20px;
+  }
+
+  .noWhales {
+    font-size: 25px;
   }
 
   .leaderboardHeader p:first-of-type {
