@@ -23,7 +23,7 @@ dataSources:
         - Whale
       abis:
         - name: WhalezAuctionHouse
-          file: ../nouns-contracts/abi/contracts/WhalezAuctionHouse.sol/WhalezAuctionHouse.json
+          file: ../diatom-contracts/abi/contracts/WhalezAuctionHouse.sol/WhalezAuctionHouse.json
       eventHandlers:
         - event: AuctionCreated(indexed uint256,uint256,uint256)
           handler: handleAuctionCreated
@@ -50,7 +50,7 @@ dataSources:
         - Account
       abis:
         - name: WhalezToken
-          file: ../nouns-contracts/abi/contracts/WhalezToken.sol/WhalezToken.json
+          file: ../diatom-contracts/abi/contracts/WhalezToken.sol/WhalezToken.json
       eventHandlers:
         - event: WhaleCreated(indexed uint256)
           handler: handleWhaleCreated

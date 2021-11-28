@@ -2,6 +2,7 @@ import { log } from '@graphprotocol/graph-ts';
 import { WhaleCreated, Transfer } from './types/WhalezToken/WhalezToken';
 import { BIGINT_ONE, BIGINT_ZERO, ZERO_ADDRESS } from './utils/constants';
 import { getOrCreateAccount } from './utils/helpers';
+import { Whale } from './types/schema';
 
 export function handleWhaleCreated(event: WhaleCreated): void {
   let whaleId = event.params.tokenId.toString();

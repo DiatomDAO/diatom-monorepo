@@ -13,12 +13,14 @@
     "clean": "rimraf ./src/types ./build subgraph.yaml",
     "codegen": "graph codegen --output-dir src/types/",
     "deploy": "graph deploy --debug --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/",
+    "create-local": "graph create --debug --node http://0.0.0.0:8020/ --ipfs http://localhost:5001",
+    "deploy-local": "graph deploy --debug --node http://0.0.0.0:8020/ --ipfs http://localhost:5001",
     "prepare:rinkeby": "mustache config/rinkeby.json subgraph.yaml.mustache > subgraph.yaml",
     "prepare:mainnet": "mustache config/mainnet.json subgraph.yaml.mustache > subgraph.yaml",
     "prepare:localhost": "mustache config/localhost.json subgraph.yaml.mustache > subgraph.yaml",
-    "deploy:rinkeby": "yarn clean && yarn prepare:rinkeby && yarn codegen && yarn deploy nounsdao/nouns-subgraph-rinkeby",
-    "deploy:mainnet": "yarn clean && yarn prepare:mainnet && yarn codegen && yarn deploy nounsdao/nouns-subgraph",
-    "deploy:localhost": "yarn clean && yarn prepare:localhost && yarn codegen && yarn deploy nounsdao/nouns-subgraph"
+    "deploy:rinkeby": "yarn clean && yarn prepare:rinkeby && yarn codegen && yarn deploy diatomdao/diatom-subgraph-rinkeby",
+    "deploy:mainnet": "yarn clean && yarn prepare:mainnet && yarn codegen && yarn deploy diatomdao/diatom-subgraph",
+    "deploy:localhost": "yarn clean && yarn prepare:localhost && yarn codegen && yarn create-local diatomdao/diatom-subgraph && yarn deploy-local diatomdao/diatom-subgraph"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.20.1",
