@@ -26,10 +26,12 @@ const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhal
 
   const getWhale = async (whaleURI: string) => {  
     const whaleTokenData = await axios.get<IWhaleToken>(generateIpfsRestUrl(whaleURI))
+    const {name, description, image} = whaleTokenData.data;
   
     setCurrentWhale({
-      ...whaleTokenData.data,
-      image: generateIpfsRestUrl(whaleTokenData.data.image)
+      name,
+      description,
+      image: generateIpfsRestUrl(image)
     })
   };
 
