@@ -1,12 +1,12 @@
 import WhatIsDiatom from "./WhatIsDiatom";
 import Lungs from "./Lungs";
-import HowItWorks from "./HowItWorks";
+import PlasticCredits from "./PlasticCredits";
 
 const DiatomInfo = () => (
   <>
     <WhatIsDiatom />
     <Lungs />
-    <HowItWorks />
+    <PlasticCredits />
   </>
 );
 
