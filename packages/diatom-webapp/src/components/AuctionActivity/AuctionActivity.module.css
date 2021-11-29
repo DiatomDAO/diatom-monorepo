@@ -92,10 +92,44 @@ h4 {
   z-index: -1;
 }
 
-.prcIcon {
+.diatInfoToolTip {
+  position: relative;
+  cursor: pointer;
+}
+
+.diatInfoToolTip:hover::after {
+  transform: translate(30%, 0);
+  opacity: 1;
+  z-index: 1000;
+}
+
+.diatInfoToolTip::after {
+  content: 'The winner of this auction will receive their bid amount worth of DIAT at $2/token, multiplied by the reward multipler. Al rewarded DIAT has a 24 month linear vesting schedule, and will be staked automatically while vesting.';
+  position: absolute;
+  cursor: auto;
+
+  bottom: calc(100% + 4px);
+  right: 0;
+
+  width: 310px;
+  padding: 10px 1rem;
+  border-radius: 5px;
+  font-size: 14px;
+
+  background: #a1f1df;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+
+  transition: all 300ms ease-in-out;
+
+  transform: translate(30%, 20%);
+  opacity: 0;
+  z-index: -1;
+}
+
+.icon {
   display: inline;
   height: 38px;
-  margin:0 4px 8px 0;
+  margin: 0 4px 8px 0;
 }
 
 /* Fix Firefox navigation arrow alignment issues */

@@ -1,20 +1,8 @@
+import ghostWhale from '../../assets/ghostWhale.jpg'
 import classes from './Leaderboard.module.css';
 
 const Leaderboard = () => {
-  const whales = [
-    { name: 'Some Great Name', plasticRemoved: 300000.00123 },
-    { name: 'Cetacious Prime', plasticRemoved: 300001.12 },
-    { name: 'Cetacious Prime', plasticRemoved: 300002 },
-    { name: 'Cetacious Prime', plasticRemoved: 402003 },
-    { name: 'Cetacious Prime', plasticRemoved: 300004 },
-    { name: 'Cetacious Prime', plasticRemoved: 300005.23412 },
-    { name: 'Cetacious Prime', plasticRemoved: 3 },
-    { name: 'Cetacious Prime', plasticRemoved: 2 },
-    { name: 'Cetacious Prime', plasticRemoved: 1 },
-    { name: 'Cetacious Prime', plasticRemoved: 1234 },
-    { name: 'Cetacious Prime', plasticRemoved: 3333 },
-    { name: 'Cetacious Prime', plasticRemoved: 123 },
-  ].sort((a, b) => {
+  const whales = [{ name: 'Placeholder', plasticRemoved: 0 }].sort((a, b) => {
     if (a.plasticRemoved < b.plasticRemoved) return 1;
     if (a.plasticRemoved > b.plasticRemoved) return -1;
     return 0;
@@ -34,16 +22,25 @@ const Leaderboard = () => {
           <p>Est. Plastic Removed</p>
         </div>
         <div className={classes.leaderboardList}>
-          {whales.map((whale, index) => {
-            return (
-              <div key={index} className={classes.leaderboardItem}>
-                <p className={classes.whalePosition}>#{index + 1}</p>
-                <div></div>
-                <p className={classes.whaleName}>{whale.name}</p>
-                <p>{formatter(whale.plasticRemoved)} Kg</p>
-              </div>
-            );
-          })}
+          {whales.length > 1 &&
+            whales.map((whale, index) => {
+              return (
+                <div key={index} className={classes.leaderboardItem}>
+                  <p className={classes.whalePosition}>#{index + 1}</p>
+                  <div></div>
+                  <p className={classes.whaleName}>{whale.name}</p>
+                  <p>{formatter(whale.plasticRemoved)} Kg</p>
+                </div>
+              );
+            })}
+          {whales.length <= 1 && (
+            <div className={classes.leaderboardItem}>
+              <p className={classes.whalePosition}>#{'??'}</p>
+              <img src={ghostWhale} alt="Ghost Whale" />
+              <p className={classes.whaleName}>{'??????'}</p>
+              <p>{'???.???'} Kg</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

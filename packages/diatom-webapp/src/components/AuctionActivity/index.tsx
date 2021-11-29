@@ -20,6 +20,7 @@ import config from '../../config';
 import { buildEtherscanAddressLink } from '../../utils/etherscan';
 import { utils } from 'ethers';
 import prcIcon from '../../assets/prc.png';
+import diatIcon from '../../assets/diatIcon.png';
 
 const openEtherscanBidHistory = () => {
   const url = buildEtherscanAddressLink(config.addresses.whalezAuctionHouseProxy);
@@ -96,6 +97,8 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
   const eth = new BigNumber(utils.formatEther(auction.amount.toString())).toFixed(2);
   const totalEstPlasticRemoved = formatter(Number(eth) * 4230 * 0.65);
 
+  const diatMultiplier = Number(auction.whaleId) > 50 ? 1 : 2 - 0.05 * Number(auction.whaleId);
+  
   return (
     <>
       {showBidHistoryModal && (
@@ -152,14 +155,23 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
             </Col>
           </Row>
           <Row>
-            <Col lg={12}>
+            <Col lg={6}>
               <h4>
                 Est. Plastic Removed <span className={classes.infoToolTip}>&#9432;</span>
               </h4>
               <h2 style={{ marginBottom: '0' }}>
-                <img className={classes.prcIcon} src={prcIcon} alt="PRC icon" />
+                <img className={classes.icon} src={prcIcon} alt="PRC icon" />
                 {totalEstPlasticRemoved}
                 <span style={{ fontSize: '1rem' }}> Kg</span>
+              </h2>
+            </Col>
+            <Col lg={6}>
+              <h4>
+                $DIAT reward multipler <span className={classes.diatInfoToolTip}>&#9432;</span>
+              </h4>
+              <h2 style={{ marginBottom: '0' }}>
+                <img className={classes.icon} src={diatIcon} alt="PRC icon" />
+                {diatMultiplier}X
               </h2>
             </Col>
           </Row>

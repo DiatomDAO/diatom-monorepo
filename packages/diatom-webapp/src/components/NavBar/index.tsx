@@ -118,16 +118,16 @@ const NavBar = () => {
             <Nav.Link href="/playground" className={classes.whalezsNavLink}>
               PLAYGROUND
             </Nav.Link> */}
-            <Nav.Link href="#diatom" className={classes.nounsNavLink}>
+            <Nav.Link href="#diatom" className={classes.whalezsNavLink}>
               What is Diatom
             </Nav.Link>
-            <Nav.Link href="#works" className={classes.nounsNavLink}>
+            <Nav.Link href="#works" className={classes.whalezsNavLink}>
               How it Works
             </Nav.Link>
-            <Nav.Link href="#join" className={classes.nounsNavLink}>
+            <Nav.Link href="#join" className={classes.whalezsNavLink}>
               How to Join
             </Nav.Link>
-            <Nav.Link href="#community" className={classes.nounsNavLink}>
+            <Nav.Link href="#community" className={classes.whalezsNavLink}>
               Join the Community
             </Nav.Link>
             {activeAccount ? connectedContent : disconnectedContent}
