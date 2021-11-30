@@ -30,7 +30,7 @@ const app: Record<SupportedChains, AppConfig> = {
   [ChainId.Rinkeby]: {
     jsonRpcUri: createNetworkHttpUrl('rinkeby'),
     wsRpcUri: createNetworkWsUrl('rinkeby'),
-    subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/diatomdao/diatom-subgraph-rinkeby-v2',
+    subgraphApiUri: 'https://api.thegraph.com/subgraphs/name/diatomdao/diatom-subgraph-rinkeby-v3',
     enableHistory: process.env.REACT_APP_ENABLE_HISTORY === 'true',
   },
   [ChainId.Mainnet]: {
