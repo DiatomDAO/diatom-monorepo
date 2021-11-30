@@ -1,0 +1,11 @@
+{
+  "network": "rinkeby",
+  "whalezToken": {
+    "address": "0x84b2f801fd059377A8667775d8D5C120587bb386",
+    "startBlock": 9731314
+  },
+  "whalezAuctionHouse": {
+    "address": "0x4336CB0A99808334d478162d571208B1C5dEc43b",
+    "startBlock": 9731317
+  }
+}
