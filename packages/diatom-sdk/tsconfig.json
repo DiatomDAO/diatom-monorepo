@@ -6,7 +6,7 @@
   },
   "references": [
     {
-      "path": "../whalez-contracts/tsconfig.build.json"
+      "path": "../diatom-contracts/tsconfig.build.json"
     }
   ]
 }
