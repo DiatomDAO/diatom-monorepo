@@ -26,10 +26,16 @@ const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhal
 
   const getWhale = async (whaleURI: string) => {  
     const whaleTokenData = await axios.get<IWhaleToken>(generateIpfsRestUrl(whaleURI))
+
+    const whaleImageData = await axios.get(generateIpfsRestUrl(whaleTokenData.data.image), {
+      responseType: 'arraybuffer'
+    })
+
+    const whaleImageBase64 = Buffer.from(whaleImageData.data, 'binary').toString('base64')
   
     setCurrentWhale({
       ...whaleTokenData.data,
-      image: generateIpfsRestUrl(whaleTokenData.data.image)
+      image: `data:image/png;base64, ${whaleImageBase64}`
     })
   };
 
