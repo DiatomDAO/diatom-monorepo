@@ -15,8 +15,8 @@
   REACT_APP_ENABLE_HISTORY = "true"
 
 [functions]
-  directory = "packages/whalez-webapp/functions"
+  directory = "packages/diatom-webapp/functions"
 
 [build]
-  command = "yarn workspace @whalez/webapp build"
-  publish = "packages/whalez-webapp/build"
+  command = "yarn workspace @diatom/webapp build"
+  publish = "packages/diatom-webapp/build"
