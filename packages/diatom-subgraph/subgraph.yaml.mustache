@@ -1,0 +1,58 @@
+specVersion: 0.0.3
+description: >-
+  Randomly generated avatar NFTs auctioned daily.
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: WhalezAuctionHouse
+    network: {{network}}
+    source:
+      address: '{{whalezAuctionHouse.address}}'
+      abi: WhalezAuctionHouse
+      startBlock: {{whalezAuctionHouse.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/nouns-auction-house.ts
+      entities:
+        - Account
+        - Auction
+        - Bid
+        - Whale
+      abis:
+        - name: WhalezAuctionHouse
+          file: ../diatom-contracts/abi/contracts/WhalezAuctionHouse.sol/WhalezAuctionHouse.json
+      eventHandlers:
+        - event: AuctionCreated(indexed uint256,uint256,uint256)
+          handler: handleAuctionCreated
+        - event: AuctionBid(indexed uint256,address,uint256,bool)
+          handler: handleAuctionBid
+        - event: AuctionExtended(indexed uint256,uint256)
+          handler: handleAuctionExtended
+        - event: AuctionSettled(indexed uint256,address,uint256)
+          handler: handleAuctionSettled
+  - kind: ethereum/contract
+    name: WhalezToken
+    network: {{network}}
+    source:
+      address: '{{whalezToken.address}}'
+      abi: WhalezToken
+      startBlock: {{whalezToken.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/nouns-erc-721.ts
+      entities:
+        - Whale
+        - Account
+      abis:
+        - name: WhalezToken
+          file: ../diatom-contracts/abi/contracts/WhalezToken.sol/WhalezToken.json
+      eventHandlers:
+        - event: WhaleCreated(indexed uint256)
+          handler: handleWhaleCreated
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer

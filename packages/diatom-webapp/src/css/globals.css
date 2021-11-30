@@ -1,0 +1,12 @@
+body {
+  --bs-body-font-family: "Soehne", sans-serif;
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-xl,
+  .container-xxl {
+    max-width: 1140px !important;
+  }
+}
