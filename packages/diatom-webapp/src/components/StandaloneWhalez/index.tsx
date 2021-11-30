@@ -11,7 +11,7 @@ interface StandaloneWhalezProps {
 
 const generateIpfsRestUrl = (ipfsUrl: string) => {
   const urlPart = ipfsUrl?.split('://')?.pop()
-  return urlPart!.length < 10 ? `https://gateway.pinata.cloud/ipfs/bafybeiczss6g3bto5xv4ebabmo2wnwdrdnmtow4qjhrwzhog2lcguc72ka/${urlPart}`: `https://gateway.pinata.cloud/ipfs/${urlPart}`
+  return `https://gateway.pinata.cloud/ipfs/${urlPart}`
 }
 
 const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhalezProps) => {
