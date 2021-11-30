@@ -24,7 +24,7 @@ task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
   .addParam('diatomdao', 'The diatom DAO contract address', undefined, types.string)
   .addParam('weth', 'The WETH contract address', undefined, types.string)
   .addParam('contractipfsuri', 'nfts ipfs uri', undefined, types.string)
-  .addOptionalParam('auctionTimeBuffer', 'The auction time buffer (seconds)', 5 * 60, types.int)
+  .addOptionalParam('auctionTimeBuffer', 'The auction time buffer (seconds)', 60, types.int)
   .addOptionalParam('auctionReservePrice', 'The auction reserve price (wei)', 1, types.int)
   .addOptionalParam(
     'auctionMinIncrementBidPercentage',
@@ -68,7 +68,6 @@ task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
               args.auctionTimeBuffer,
               args.auctionReservePrice,
               args.auctionMinIncrementBidPercentage,
-              args.auctionDuration,
             ]),
         ],
       },
