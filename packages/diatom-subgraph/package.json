@@ -18,7 +18,7 @@
     "prepare:rinkeby": "mustache config/rinkeby.json subgraph.yaml.mustache > subgraph.yaml",
     "prepare:mainnet": "mustache config/mainnet.json subgraph.yaml.mustache > subgraph.yaml",
     "prepare:localhost": "mustache config/localhost.json subgraph.yaml.mustache > subgraph.yaml",
-    "deploy:rinkeby": "yarn clean && yarn prepare:rinkeby && yarn codegen && yarn deploy diatomdao/diatom-subgraph-rinkeby",
+    "deploy:rinkeby": "yarn clean && yarn prepare:rinkeby && yarn codegen && yarn deploy diatomdao/diatom-subgraph-rinkeby-v2",
     "deploy:mainnet": "yarn clean && yarn prepare:mainnet && yarn codegen && yarn deploy diatomdao/diatom-subgraph",
     "deploy:localhost": "yarn clean && yarn prepare:localhost && yarn codegen && yarn create-local diatomdao/diatom-subgraph && yarn deploy-local diatomdao/diatom-subgraph"
   },
