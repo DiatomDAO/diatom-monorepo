@@ -98,6 +98,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
   const totalEstPlasticRemoved = formatter(Number(eth) * 4230 * 0.65);
 
   const diatMultiplier = Number(auction.whaleId) > 10 ? 1 : 2.1 - 0.1 * Math.round(Number(auction.whaleId));
+
   return (
     <>
       {showBidHistoryModal && (

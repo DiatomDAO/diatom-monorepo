@@ -48,7 +48,7 @@ const Lungs = () => {
             <h2>Meet the real lungs of the planet</h2>
             <p>
               Diatoms are algae in oceans, lakes and waterways that are responsible for sequestering
-              carbon and provide 50% of all the air that we breathe on earth.
+              carbon and provide 50% of all the oxygen that we breathe on earth.
             </p>
             <a
               href="https://medium.com/@diatomdao/introducing-diatom-dao-c9f7dd17b34c"
