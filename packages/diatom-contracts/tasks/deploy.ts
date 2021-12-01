@@ -24,7 +24,7 @@ task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
   .addParam('diatomdao', 'The diatom DAO contract address', undefined, types.string)
   .addParam('weth', 'The WETH contract address', undefined, types.string)
   .addParam('contractipfsuri', 'nfts ipfs uri', undefined, types.string)
-  .addOptionalParam('auctionTimeBuffer', 'The auction time buffer (seconds)', 60, types.int)
+  .addOptionalParam('auctionTimeBuffer', 'The auction time buffer (seconds)', 5 * 60, types.int)
   .addOptionalParam('auctionReservePrice', 'The auction reserve price (wei)', 1, types.int)
   .addOptionalParam(
     'auctionMinIncrementBidPercentage',
@@ -68,7 +68,7 @@ task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
           () => contracts['WhalezAuctionHouseProxyAdmin'].address,
           () =>
             new Interface(WhalezAuctionHouseABI).encodeFunctionData('initialize', [
-              contracts['WhalezToken'].address,
+              '0x635FE0cF6C5BeE0e6a2b90a8c0fa8D633B18E104',
               args.weth,
               args.auctionTimeBuffer,
               args.auctionReservePrice,
@@ -78,27 +78,27 @@ task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
       },
     };
 
-    let gasPrice = await ethers.provider.getGasPrice();
-    const gasInGwei = Math.round(Number(ethers.utils.formatUnits(gasPrice, 'gwei')));
+    for (const [name, contract] of Object.entries(contracts)) {
+      let gasPrice = await ethers.provider.getGasPrice();
+      const gasInGwei = Math.round(Number(ethers.utils.formatUnits(gasPrice, 'gwei')));
 
-    promptjs.start();
+      promptjs.start();
 
-    let result = await promptjs.get([
-      {
-        properties: {
-          gasPrice: {
-            type: 'integer',
-            required: true,
-            description: 'Enter a gas price (gwei)',
-            default: gasInGwei,
+      let result = await promptjs.get([
+        {
+          properties: {
+            gasPrice: {
+              type: 'integer',
+              required: true,
+              description: 'Enter a gas price (gwei)',
+              default: gasInGwei,
+            },
           },
         },
-      },
-    ]);
+      ]);
 
-    gasPrice = ethers.utils.parseUnits(result.gasPrice.toString(), 'gwei');
+      gasPrice = ethers.utils.parseUnits(result.gasPrice.toString(), 'gwei');
 
-    for (const [name, contract] of Object.entries(contracts)) {
       const factory = await ethers.getContractFactory(name, {
         libraries: contract?.libraries?.(),
       });
