@@ -72,7 +72,7 @@ contract WhalezAuctionHouse is
         timeBuffer = _timeBuffer;
         reservePrice = _reservePrice;
         minBidIncrementPercentage = _minBidIncrementPercentage;
-        remainingDuration = 50*5*60;
+        remainingDuration = 1209600;
     }
 
     /**
@@ -191,9 +191,8 @@ contract WhalezAuctionHouse is
     function _createAuction() internal {
         try whalez.mint() returns (uint256 whaleId) {
             // linear decay with remaining seconds distributed equally
-            // duration = (((remainingDuration * 3571) / 100000) + 4020);
-            duration = 5*60;
-            remainingDuration -= (duration);
+            duration = (((remainingDuration * 3571) / 100000) + 4020);
+            remainingDuration -= (duration - 4020);
             uint256 startTime = block.timestamp;
             uint256 endTime = startTime + duration;
 
