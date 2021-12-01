@@ -64,8 +64,8 @@ task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
       WhalezAuctionHouseProxyAdmin: {},
       WhalezAuctionHouseProxy: {
         args: [
-          () => '0x2FB544387EeE5581af3372448b4b6F1148b01525',
-          () => '0xFA6345CC43c842253A7ed082649fE7BC3BF3dEf6',
+          () => contracts['WhalezAuctionHouse'].address,
+          () => contracts['WhalezAuctionHouseProxyAdmin'].address,
           () =>
             new Interface(WhalezAuctionHouseABI).encodeFunctionData('initialize', [
               '0x635FE0cF6C5BeE0e6a2b90a8c0fa8D633B18E104',
