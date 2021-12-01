@@ -30,16 +30,8 @@ export const auctionQuery = (auctionId: number) => gql`
 	  }
 	  startTime
 	  endTime
-	  whalez {
+	  whale {
 		id
-		seed {
-		  id
-		  background
-		  body
-		  accessory
-		  head
-		  glasses
-		}
 		owner {
 		  id
 		}
@@ -65,7 +57,7 @@ export const bidsByAuctionQuery = (auctionId: string) => gql`
 	  bidder {
 	  	id
 	  }
-	  whalez {
+	  whale {
 		id
 	  }
 	}
@@ -76,13 +68,6 @@ export const whalezQuery = (id: string) => gql`
  {
 	whalez(id:"${id}") {
 	  id
-	  seed {
-	  background
-		body
-		accessory
-		head
-		glasses
-	}
 	  owner {
 		id
 	  }
@@ -92,7 +77,7 @@ export const whalezQuery = (id: string) => gql`
 
 export const whalezsIndex = () => gql`
   {
-    whalezs {
+    whales {
       id
       owner {
         id
@@ -112,7 +97,7 @@ export const latestAuctionsQuery = () => gql`
       }
       startTime
       endTime
-      whalez {
+      whale {
         id
         owner {
           id
@@ -157,26 +142,6 @@ export const latestBidsQuery = (first: number = 10) => gql`
   }  
 `;
 
-export const whalezVotingHistoryQuery = (whaleId: number) => gql`
-{
-	whalez(id: ${whaleId}) {
-		id
-		votes {
-		proposal {
-			id
-		}
-		support
-		}
-	}
-}
-`;
-
-export const highestWhalezIdMintedAtProposalTime = (proposalStartBlock: number) => gql`
-{
-	auctions(orderBy: endTime orderDirection: desc first: 1 block: { number: ${proposalStartBlock} }) {
-		id
-	}
-}`;
 
 export const clientFactory = (uri: string) =>
   new ApolloClient({
