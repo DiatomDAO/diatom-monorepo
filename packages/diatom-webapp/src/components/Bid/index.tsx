@@ -11,6 +11,7 @@ import { useAppDispatch } from '../../hooks';
 import { AlertModal, setAlertModal } from '../../state/slices/application';
 import { WhalezAuctionHouseFactory } from '@diatom/sdk';
 import config from '../../config';
+import WalletConnectModal from '../WalletConnectModal';
 
 const computeMinimumNextBid = (
   currentBid: BigNumber,
@@ -59,6 +60,15 @@ const Bid: React.FC<{
     loading: false,
     content: auctionEnded ? 'Settle' : 'Bid',
   });
+
+  const [showConnectModal, setShowConnectModal] = useState(false);
+
+  const showModalHandler = () => {
+    setShowConnectModal(true);
+  };
+  const hideModalHandler = () => {
+    setShowConnectModal(false);
+  };
 
   const dispatch = useAppDispatch();
   const setModal = useCallback((modal: AlertModal) => dispatch(setAlertModal(modal)), [dispatch]);
@@ -221,15 +231,23 @@ const Bid: React.FC<{
     }
   }, [settleAuctionState, auctionEnded, setModal]);
 
+  // Making sure that the modal will not open after disconnecting the account.
+  useEffect(() => {
+    setShowConnectModal(false)
+  }, [activeAccount])
+
   if (!auction) return null;
 
   const isDisabled =
-    placeBidState.status === 'Mining' || settleAuctionState.status === 'Mining' || !activeAccount;
+    placeBidState.status === 'Mining' || settleAuctionState.status === 'Mining';
 
   return (
     <>
       {!auctionEnded && (
         <p className={classes.minBidCopy}>{`Minimum bid: ${minBidEth(minBid)} ETH`}</p>
+      )}
+      {showConnectModal && activeAccount === undefined && (
+        <WalletConnectModal onDismiss={hideModalHandler} />
       )}
       <InputGroup>
         {!auctionEnded && (
@@ -247,15 +265,26 @@ const Bid: React.FC<{
             <span className={classes.customPlaceholder}>ETH</span>
           </>
         )}
-        <Button
-          className={auctionEnded ? classes.bidBtnAuctionEnded : classes.bidBtn}
-          onClick={auctionEnded ? settleAuctionHandler : placeBidHandler}
-          disabled={isDisabled}
-        >
-          {bidButtonContent.loading ? <Spinner animation="border" /> : bidButtonContent.content}
-        </Button>
+        {activeAccount ? (
+          <Button
+            className={auctionEnded ? classes.bidBtnAuctionEnded : classes.bidBtn}
+            onClick={auctionEnded ? settleAuctionHandler : placeBidHandler}
+            disabled={isDisabled}
+          >
+            {bidButtonContent.loading ? <Spinner animation="border" /> : bidButtonContent.content}
+          </Button>
+        ) : (
+          <Button
+            className={auctionEnded ? classes.bidBtnAuctionEnded : classes.bidBtn}
+            onClick={showModalHandler}
+            disabled={isDisabled}
+          >
+            {bidButtonContent.loading ? <Spinner animation="border" /> : bidButtonContent.content}
+          </Button>
+        )}
       </InputGroup>
     </>
   );
 };
+
 export default Bid;
