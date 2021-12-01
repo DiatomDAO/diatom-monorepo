@@ -24,7 +24,7 @@ const PlasticCredits = () => {
 
   return (
     <div className={`${classes.container} ${showContent ? classes.contentFadeIn : ''}`}>
-      <h2>Plastic Reduction Credits</h2>
+      <h2>Plastic Removal Credits</h2>
       <div className={classes.contentWrapper}>
         <img
           ref={imgRef}
@@ -33,7 +33,7 @@ const PlasticCredits = () => {
           alt="Diatom sea"
         />
         <div ref={contentRef} className={classes.content}>
-          <h2>Plastic Reduction Credits</h2>
+          <h2>Plastic Removal Credits</h2>
           <h3>Verified plastic removal</h3>
           <p>
             We're launching the first ever tokenized plastic credit. Plastic Removal Credits (PRC)
