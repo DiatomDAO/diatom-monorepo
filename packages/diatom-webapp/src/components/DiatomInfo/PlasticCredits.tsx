@@ -36,7 +36,7 @@ const PlasticCredits = () => {
           <h2>Plastic Reduction Credits</h2>
           <h3>Verified plastic removal</h3>
           <p>
-            We're launching the first ever tokenized plastic credit. Plastic Removal Credits (PRC)
+            We're launching the first ever tokenized plastic credit. Plastic Reduction Credits (PRC)
             are tokenized representations of plastic removed frrom key ecosystems that threaten
             overall ocean health.
           </p>
