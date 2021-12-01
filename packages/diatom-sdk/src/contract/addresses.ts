@@ -2,10 +2,10 @@ import { ChainId, ContractAddresses } from './types';
 
 const chainIdToAddresses: { [chainId: number]: ContractAddresses } = {
   [ChainId.Mainnet]: {
-    whalezToken: '0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03',
-    whalezAuctionHouse: '0xF15a943787014461d94da08aD4040f79Cd7c124e',
-    whalezAuctionHouseProxy: '0x830BD73E4184ceF73443C15111a1DF14e495C706',
-    whalezAuctionHouseProxyAdmin: '0xC1C119932d78aB9080862C5fcb964029f086401e',
+    whalezToken: '0x635FE0cF6C5BeE0e6a2b90a8c0fa8D633B18E104',
+    whalezAuctionHouse: '0x2FB544387EeE5581af3372448b4b6F1148b01525',
+    whalezAuctionHouseProxy: '0xe8d80BEda114708d854069dbFf513b65BcA883be',
+    whalezAuctionHouseProxyAdmin: '0xFA6345CC43c842253A7ed082649fE7BC3BF3dEf6',
   },
   [ChainId.Rinkeby]: {
     whalezToken: '0xC6950C810B431833D4Ed8C0a16d2402482B168F9',
