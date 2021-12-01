@@ -1,11 +1,11 @@
 {
   "network": "mainnet",
-  "nounsToken": {
-    "address": "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03",
-    "startBlock": 12985438
+  "whalezToken": {
+    "address": "0x635FE0cF6C5BeE0e6a2b90a8c0fa8D633B18E104",
+    "startBlock": 13719282
   },
-  "nounsAuctionHouse": {
-    "address": "0x830BD73E4184ceF73443C15111a1DF14e495C706",
-    "startBlock": 12985451
+  "whalezAuctionHouse": {
+    "address": "0xe8d80BEda114708d854069dbFf513b65BcA883be",
+    "startBlock": 13719366
   }
 }
