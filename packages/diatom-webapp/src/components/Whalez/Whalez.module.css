@@ -48,8 +48,7 @@
 
 @media (min-width: 990px) {
   .imgWrapper {
-    padding-top: 430px;
-    max-width: 425px;
+    padding-top: calc(100% + 10px);
   }
   
   .imgTitle {
