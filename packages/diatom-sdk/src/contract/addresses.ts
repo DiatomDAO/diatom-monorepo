@@ -8,10 +8,10 @@ const chainIdToAddresses: { [chainId: number]: ContractAddresses } = {
     whalezAuctionHouseProxyAdmin: '0xC1C119932d78aB9080862C5fcb964029f086401e',
   },
   [ChainId.Rinkeby]: {
-    whalezToken: '0x84b2f801fd059377A8667775d8D5C120587bb386',
-    whalezAuctionHouse: '0x80fd6D06A9Cbd0aA602dedB89cE011A36fb3a298',
-    whalezAuctionHouseProxy: '0x4336CB0A99808334d478162d571208B1C5dEc43b',
-    whalezAuctionHouseProxyAdmin: '0x2ac3935cEAEDE4be5e814644528ED8DB46287aAb',
+    whalezToken: '0xC6950C810B431833D4Ed8C0a16d2402482B168F9',
+    whalezAuctionHouse: '0xd46c68501E0fDb5aA534A1CcF97Bd9F324db07cD',
+    whalezAuctionHouseProxy: '0xa67e17Eac2e98fE182F35c4eB908f8b740Cd83f5',
+    whalezAuctionHouseProxyAdmin: '0x907Ffb53089e8f3a079A8F6497849e2087f79362',
   },
   [ChainId.Local]: {
     whalezToken: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',

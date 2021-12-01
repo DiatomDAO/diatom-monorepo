@@ -1,43 +1,80 @@
 import { NFTStorage, File } from 'nft.storage';
 import { readdirSync, readFileSync, mkdirSync, writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
+import csv from 'csv-parser';
+import { createReadStream } from 'fs';
 
 const ignoredFiles = ['.DS_Store'];
 
-type MetadataParams = {
+type row = {
+  whale: string;
   name: string;
-  CID: string;
+  description: string;
+  'trait 1 (eyes)': string;
+  'trait 2 (Blowhole)': string;
+  'trait 3 (background)': string;
 };
 
-const generateMetadata = ({ name, CID }: MetadataParams) => ({
-  name: `This is name ${name}`,
-  description: `This is decriptione #${name}`,
-  image: ['ipfs:/', CID, name].join('/'),
-});
+type Attribute = {
+  trait_type: string;
+  value: string;
+};
 
-export const uploadNFTS = async (path: string): Promise<void> => {
-  const client = new NFTStorage({ token: process.env.APIKEY! });
+type erc721Metadata = {
+  name: string;
+  description: string;
+  image?: string;
+  attributes: Attribute[];
+};
 
+const client = new NFTStorage({ token: process.env.APIKEY! });
+
+const uploadNftAssets = async (path: string) => {
   const files = readdirSync(path).filter(fileName => !ignoredFiles.includes(fileName));
   const fileObjs = files.map(fileName => {
     const name = fileName.split('.')[0];
     const filePath = join(path, fileName);
     return new File([readFileSync(filePath)], name);
   });
+  return await client.storeDirectory(fileObjs);
+};
 
-  console.log(files);
+const readCSV = (cid: string, csvPath: string) => {
+  const whalesToMetadata: Record<string, erc721Metadata> = {};
+  const readableStream = createReadStream(csvPath).pipe(csv());
+  readableStream
+    .on('data', (d: row) => {
+      console.log(d);
+      whalesToMetadata[d.whale] = {
+        name: d.name,
+        description: d.description,
+        image: ['ipfs:/', cid, d.whale].join('/'),
+        attributes: [
+          { trait_type: 'eyes', value: d['trait 1 (eyes)'] },
+          { trait_type: 'blowhole', value: d['trait 2 (Blowhole)'] },
+          { trait_type: 'background', value: d['trait 3 (background)'] },
+        ],
+      };
+    })
+    .on('end', () => {
+      readableStream.destroy();
+      uploadNftMetadata(whalesToMetadata, cid);
+    });
+};
 
-  const assetsCID = await client.storeDirectory(fileObjs);
-
+export const uploadNftMetadata = async (
+  whalesToMetadata: Record<string, erc721Metadata>,
+  assetsCID: string,
+): Promise<void> => {
   const jsonPath = join(__dirname, 'whales_json');
 
   if (!existsSync(jsonPath)) {
     mkdirSync(jsonPath);
   }
 
-  files.forEach(fileName => {
-    const name = fileName.split('.')[0];
-    const metadata = generateMetadata({ name, CID: assetsCID });
+  const files = Object.keys(whalesToMetadata);
+  files.forEach(name => {
+    const metadata = whalesToMetadata[name];
     const metadataPath = join(jsonPath, `${name}.json`);
     writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
   });
@@ -55,4 +92,10 @@ export const uploadNFTS = async (path: string): Promise<void> => {
   console.log(`Metadata Directory CID: ${metadataCID}`);
 };
 
-uploadNFTS(process.argv.slice(-1)[0]);
+const executor = async (args: string[]): Promise<void> => {
+  const [assetsPath, csvPath] = args;
+  const assetsCID = await uploadNftAssets(assetsPath);
+  readCSV(assetsCID, csvPath);
+};
+
+executor(process.argv.slice(-2));
