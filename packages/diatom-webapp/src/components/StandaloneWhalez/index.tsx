@@ -9,22 +9,24 @@ interface StandaloneWhalezProps {
   noDescription?: Boolean;
 }
 
+const initialWhaleState = {
+  description: '',
+  image: '',
+  name: ''
+}
+
 const generateIpfsRestUrl = (ipfsUrl: string) => {
   const urlPart = ipfsUrl?.split('://')?.pop()
-  return `https://ipfs.io/ipfs/${urlPart}`
+  return `https://gateway.pinata.cloud/ipfs/${urlPart}`
 }
 
 const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhalezProps) => {
   const { whaleId, noDescription } = props;
   const id = whaleId;
   const whaleURI = useWhaleToken(id);
-  const [currentWhale, setCurrentWhale] = useState<IWhaleToken>({
-    description: '',
-    image: '',
-    name: ''
-  });
+  const [currentWhale, setCurrentWhale] = useState<IWhaleToken>(initialWhaleState);
 
-  const getWhale = async (whaleURI: string) => {  
+  const getWhale = async (whaleURI: string) => {
     const whaleTokenData = await axios.get<IWhaleToken>(generateIpfsRestUrl(whaleURI))
 
     const whaleImageData = await axios.get(generateIpfsRestUrl(whaleTokenData.data.image), {
@@ -40,6 +42,7 @@ const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhal
   };
 
   useEffect(() => {
+    setCurrentWhale(initialWhaleState)
     if(whaleURI){
       getWhale(whaleURI)
     }

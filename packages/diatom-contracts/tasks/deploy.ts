@@ -51,7 +51,12 @@ task('deploy', 'Deploys WhalezAuctionHouse, WhalezToken')
 
     const contracts: Record<ContractName, Contract> = {
       WhalezToken: {
-        args: [args.diatomdao, expectedAuctionHouseProxyAddress, proxyRegistryAddress],
+        args: [
+          args.diatomdao,
+          expectedAuctionHouseProxyAddress,
+          proxyRegistryAddress,
+          args.contractipfsuri,
+        ],
       },
       WhalezAuctionHouse: {
         waitForConfirmation: true,
