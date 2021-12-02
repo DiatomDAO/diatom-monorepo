@@ -7,6 +7,10 @@ import { useEffect, useState } from 'react';
 import { IWhaleToken, useWhaleToken } from '../../wrappers/whalezToken';
 import axios from 'axios';
 import { utils } from 'ethers';
+import ShortAddress from '../ShortAddress';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { buildEtherscanTxLink } from '../../utils/etherscan';
 
 const generateIpfsRestUrl = (ipfsUrl: string): string => {
   const urlPart = ipfsUrl?.split('://')?.pop();
@@ -28,20 +32,11 @@ const Leaderboard = () => {
 
   useEffect(() => {
     const nonDaoAuctions = pastAuctions.filter(({ activeAuction }) => Boolean(activeAuction?.bidder));
-    nonDaoAuctions.sort((a, b) => {
-      const amountA = BigNumber.from(a.activeAuction?.amount);
-      const amountB = BigNumber.from(b.activeAuction?.amount);
-      if (amountA >= amountB) {
-        return -1;
-      } else {
-        return 1;
-      }
-    });
     
     const getMeta = async () => {
       const currentEtherPrice = 4320; // axios.get(coinMarket);
       const newAuctionsMetadata = await Promise.all(
-        nonDaoAuctions.map(async ({ activeAuction }) => {
+        nonDaoAuctions.map(async ({ activeAuction, bids }) => {
           const metadataURI =
             genericMetadataURI!.slice(0, genericMetadataURI!.length - 1) +
             BigNumber.from(activeAuction?.whaleId).toNumber();
@@ -54,9 +49,23 @@ const Leaderboard = () => {
             name,
             imgSrc: generateIpfsRestUrl(image),
             plasticRemoved: totalEstPlasticRemoved,
+            value: BigNumber.from(activeAuction?.amount),
+            winner: bids.filter(bid => Number(utils.formatEther(bid.value!)) === eth).pop()
           };
         }),
       );
+
+      newAuctionsMetadata.sort((a, b) => {
+        const amountA = BigNumber.from(a.winner?.value);
+        const amountB = BigNumber.from(b.winner?.value);
+
+        if (amountA.gte(amountB)) {
+          return -1;
+        } else {
+          return 1;
+        }
+      });
+
       setAuctionsMetadata(newAuctionsMetadata);
     };
 
@@ -71,7 +80,7 @@ const Leaderboard = () => {
       <div className={classes.leaderboard}>
         <div className={classes.leaderboardHeader}>
           <p>Name</p>
-          <p>Est. Plastic Removed</p>
+          <p className={classes.textRight}>Est. Plastic Removed</p>
         </div>
         <div className={classes.leaderboardList}>
           {auctionsMetadata.length > 0 &&
@@ -80,8 +89,20 @@ const Leaderboard = () => {
                 <div key={index} className={classes.leaderboardItem}>
                   <p className={classes.whalePosition}>#{index + 1}</p>
                   <img src={whale.imgSrc || ghostWhale} alt="Ghost Whale" />
-                  <p className={classes.whaleName}>{whale.name || '??????'}</p>
-                  <p>{whale.plasticRemoved || '???.???'} Kg</p>
+                  <div className={classes.whaleNameContainer}>
+                    <span className={classes.whaleName}>
+                      {whale.name || '??????'}
+                    </span>
+                    <div className={classes.whaleBidder}>
+                      <ShortAddress address={whale.winner.sender} avatar={true} small={true} />
+                      <div className={classes.linkSymbol}>
+                        <a href={buildEtherscanTxLink(whale.winner.transactionHash)} target="_blank" rel="noreferrer">
+                          <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <p className={classes.textRight}>{whale.plasticRemoved || '???.???'} Kg</p>
                 </div>
               );
             })}
