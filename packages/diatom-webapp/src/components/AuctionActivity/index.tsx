@@ -171,7 +171,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
               </h4>
               <h2 style={{ marginBottom: '0' }}>
                 <img className={classes.icon} src={diatIcon} alt="PRC icon" />
-                {diatMultiplier}X
+                {diatMultiplier.toFixed(1)}X
               </h2>
             </Col>
           </Row>
