@@ -6,6 +6,8 @@ import useOnDisplayAuction from '../../wrappers/onDisplayAuction';
 import { useEffect } from 'react';
 import Auction from '../../components/Auction';
 import Leaderboard from '../../components/Leaderboard';
+import WhalezSection from '../../components/WhalezSection';
+import LearnMore from '../../components/LearnMore';
 
 interface AuctionPageProps {
   initialAuctionId?: number;
@@ -43,7 +45,9 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
   return (
     <div>
       <Auction auction={onDisplayAuction} />
+      <WhalezSection />
       <Leaderboard />
+      <LearnMore />
       {/* <DiatomInfo />
       <Tokenomics />
       <InfoSections /> */}
