@@ -4,7 +4,7 @@ import classes from './Leaderboard.module.css';
 const Leaderboard = () => {
   const whales = [
     { id: 1, name: 'Rainbow Warrior', plasticRemoved: 291447 },
-    { id: 2, name: 'Hvaldimir', plasticRemoved: 0 },
+    { id: 2, name: 'Hvaldimir', plasticRemoved: 624137 },
   ].sort((a, b) => {
     if (a.plasticRemoved < b.plasticRemoved) return 1;
     if (a.plasticRemoved > b.plasticRemoved) return -1;
