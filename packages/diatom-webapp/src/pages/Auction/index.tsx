@@ -4,14 +4,8 @@ import { push } from 'connected-react-router';
 import { whalezPath } from '../../utils/history';
 import useOnDisplayAuction from '../../wrappers/onDisplayAuction';
 import { useEffect } from 'react';
-import DiatomInfo from '../../components/DiatomInfo';
-// import LandingHero from '../../components/LandingHero';
-import InfoSections from '../../components/InfoSections';
 import Auction from '../../components/Auction';
-// import DAOnstream from '../../components/DAOnstream';
-import Tokenomics from '../../components/Tokenomics';
 import Leaderboard from '../../components/Leaderboard';
-// import Auction from '../../components/Auction';
 
 interface AuctionPageProps {
   initialAuctionId?: number;
@@ -50,11 +44,9 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
     <div>
       <Auction auction={onDisplayAuction} />
       <Leaderboard />
-      {/* <LandingHero /> */}
-      <DiatomInfo />
+      {/* <DiatomInfo />
       <Tokenomics />
-      <InfoSections />
-      {/* <DAOnstream /> */}
+      <InfoSections /> */}
     </div>
   );
 };

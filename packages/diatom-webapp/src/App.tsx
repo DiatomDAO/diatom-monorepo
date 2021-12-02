@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import AuctionPage from './pages/Auction';
 import NotFoundPage from './pages/NotFound';
 import { CHAIN_ID } from './config';
+import DaoPage from './pages/Dao';
 
 function App() {
   const { account, chainId } = useEthers();
@@ -45,6 +46,7 @@ function App() {
             path="/auction/:id"
             render={props => <AuctionPage initialAuctionId={Number(props.match.params.id)} />}
           />
+          <Route exact path="/dao" component={DaoPage} />
           <Route component={NotFoundPage} />
         </Switch>
         <Footer />
