@@ -40,7 +40,7 @@ const NavBar = () => {
       <Nav.Item>
         <Nav.Link className={clsx(classes.whalezsNavLink, classes.addressNavLink)} disabled>
           <span className={classes.greenStatusCircle} />
-          <span>{activeAccount && <ShortAddress address={activeAccount} />}</span>
+          <span>{activeAccount && <ShortAddress address={activeAccount} avatar={true} />}</span>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>

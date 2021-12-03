@@ -97,8 +97,8 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
   const eth = new BigNumber(utils.formatEther(auction.amount.toString())).toFixed(2);
   const totalEstPlasticRemoved = formatter(Number(eth) * 4230 * 0.65);
 
-  const diatMultiplier = Number(auction.whaleId) > 50 ? 1 : 2 - 0.05 * Number(auction.whaleId);
-  
+  const diatMultiplier = Number(auction.whaleId) > 10 ? 1 : 2.1 - 0.1 * Math.round(Number(auction.whaleId));
+
   return (
     <>
       {showBidHistoryModal && (
@@ -171,7 +171,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
               </h4>
               <h2 style={{ marginBottom: '0' }}>
                 <img className={classes.icon} src={diatIcon} alt="PRC icon" />
-                {diatMultiplier}X
+                {diatMultiplier.toFixed(1)}X
               </h2>
             </Col>
           </Row>

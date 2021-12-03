@@ -104,7 +104,7 @@ h4 {
 }
 
 .diatInfoToolTip::after {
-  content: 'The winner of this auction will receive their bid amount worth of DIAT at $25/token, multiplied by the reward multipler. Al rewarded DIAT has a 24 month linear vesting schedule, and will be staked automatically while vesting.';
+  content: 'The winner of this auction will receive their bid amount worth of DIAT at $25/token, multiplied by the reward multipler. All rewarded DIAT has a 24 month linear vesting schedule, and will be staked automatically when vested.';
   position: absolute;
   cursor: auto;
 
