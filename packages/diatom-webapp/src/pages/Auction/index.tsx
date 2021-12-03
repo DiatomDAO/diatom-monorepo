@@ -8,6 +8,7 @@ import Auction from '../../components/Auction';
 import Leaderboard from '../../components/Leaderboard';
 import WhalezSection from '../../components/WhalezSection';
 import LearnMore from '../../components/LearnMore';
+import ColapsingSection from '../../components/ColapsingSection';
 
 interface AuctionPageProps {
   initialAuctionId?: number;
@@ -46,6 +47,7 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
     <div>
       <Auction auction={onDisplayAuction} />
       <WhalezSection />
+      <ColapsingSection />
       <Leaderboard />
       <LearnMore />
       {/* <DiatomInfo />
