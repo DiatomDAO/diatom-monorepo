@@ -11,11 +11,7 @@ import ShortAddress from '../ShortAddress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { buildEtherscanTxLink } from '../../utils/etherscan';
-
-const generateIpfsRestUrl = (ipfsUrl: string): string => {
-  const urlPart = ipfsUrl?.split('://')?.pop();
-  return `https://ipfs.io/ipfs/${urlPart}`;
-};
+import { generateIpfsRestUrl, generatePinataRestUrl } from '../../utils/ipfs';
 
 const formatter = (amount: number | bigint) =>
   new Intl.NumberFormat('en-US', {
@@ -47,7 +43,7 @@ const Leaderboard = () => {
           return {
             whaleId: activeAuction?.whaleId,
             name,
-            imgSrc: generateIpfsRestUrl(image),
+            imgSrc: generatePinataRestUrl(image),
             plasticRemoved: totalEstPlasticRemoved,
             value: BigNumber.from(activeAuction?.amount),
             winner: bids.filter(bid => Number(utils.formatEther(bid.value!)) === eth).pop()

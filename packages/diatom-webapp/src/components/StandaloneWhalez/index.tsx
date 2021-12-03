@@ -3,6 +3,7 @@ import { useWhaleToken, IWhaleToken } from '../../wrappers/whalezToken';
 import Whalez from '../Whalez';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { generatePinataRestUrl } from '../../utils/ipfs';
 
 interface StandaloneWhalezProps {
   whaleId: EthersBN;
@@ -15,11 +16,6 @@ const initialWhaleState = {
   name: ''
 }
 
-const generateIpfsRestUrl = (ipfsUrl: string) => {
-  const urlPart = ipfsUrl?.split('://')?.pop()
-  return `https://gateway.pinata.cloud/ipfs/${urlPart}`
-}
-
 const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhalezProps) => {
   const { whaleId, noDescription } = props;
   const id = whaleId;
@@ -27,9 +23,9 @@ const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhal
   const [currentWhale, setCurrentWhale] = useState<IWhaleToken>(initialWhaleState);
 
   const getWhale = async (whaleURI: string) => {
-    const whaleTokenData = await axios.get<IWhaleToken>(generateIpfsRestUrl(whaleURI))
+    const whaleTokenData = await axios.get<IWhaleToken>(generatePinataRestUrl(whaleURI))
 
-    const whaleImageData = await axios.get(generateIpfsRestUrl(whaleTokenData.data.image), {
+    const whaleImageData = await axios.get(generatePinataRestUrl(whaleTokenData.data.image), {
       responseType: 'arraybuffer'
     })
 
