@@ -3,8 +3,8 @@ import { useEthers } from '@usedapp/core';
 import Davatar from '@davatar/react';
 import classes from './ShortAddress.module.css';
 
-const ShortAddress: React.FC<{ address: string; avatar?: boolean }> = props => {
-  let { address, avatar } = props;
+const ShortAddress: React.FC<{ address: string; avatar?: boolean; small?: boolean }> = props => {
+  let { address, avatar, small } = props;
   const { library: provider } = useEthers();
 
   address = address || '0x0000000000000000000000000000000000000000';
@@ -15,8 +15,8 @@ const ShortAddress: React.FC<{ address: string; avatar?: boolean }> = props => {
 
   if (avatar) {
     return (
-      <div className={classes.shortAddress} title={ens ? ens : shortAddress}>
-        {avatar && <Davatar size={24} address={address} provider={provider} />}
+      <div className={`${small ? classes.shortAddressSmall : ''} ${classes.shortAddress}`} title={ens ? ens : shortAddress}>
+        {avatar && <Davatar size={small ? 12 : 24} address={address} provider={provider} />}
         {ens ? shortEns : shortAddress}
       </div>
     );
