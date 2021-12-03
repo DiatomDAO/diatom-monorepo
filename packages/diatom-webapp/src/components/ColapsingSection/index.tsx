@@ -44,7 +44,7 @@ const ColapsingSection = () => {
         <div className={classes.contentContainer}>
           <p>
             The winners of each auction receive both the NFT, and an amount of our DAO token, $DIAT,
-            commensurate with their bid amount. The is priced at $25, the same price as our
+            commensurate with their bid amount. This priced at $25, the same price as our
             whitelist token sale, and the lowest at which it will ever be sold.
           </p>
           <p>
