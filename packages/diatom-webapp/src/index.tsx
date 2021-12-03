@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChainId, DAppProvider } from '@usedapp/core';
-import { Web3ReactProvider } from '@web3-react/core';
-import { Web3Provider } from '@ethersproject/providers';
 import account from './state/slices/account';
 import application from './state/slices/application';
 import logs from './state/slices/logs';
@@ -197,11 +195,6 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <ChainSubscriber />
       <React.StrictMode>
-        <Web3ReactProvider
-          getLibrary={
-            provider => new Web3Provider(provider) // this will vary according to whether you use e.g. ethers or web3.js
-          }
-        >
           <ApolloProvider client={client}>
             <PastAuctions />
             <DAppProvider config={useDappConfig}>
@@ -209,7 +202,6 @@ ReactDOM.render(
               <Updaters />
             </DAppProvider>
           </ApolloProvider>
-        </Web3ReactProvider>
       </React.StrictMode>
     </ConnectedRouter>
   </Provider>,
