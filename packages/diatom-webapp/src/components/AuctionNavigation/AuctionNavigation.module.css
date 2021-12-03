@@ -34,4 +34,7 @@
   .leftArrow {
     margin-left: 1rem;
   }
+  .rightArrow {
+    margin-left: .5rem;
+  }
 }
