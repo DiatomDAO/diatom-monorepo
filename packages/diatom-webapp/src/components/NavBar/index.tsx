@@ -16,10 +16,14 @@ import { CHAIN_ID } from '../../config';
 // import { utils } from 'ethers';
 // import { buildEtherscanAddressLink } from '../../utils/etherscan';
 // import { ExternalURL, externalURL } from '../../utils/externalURL';
+import { externalURL, ExternalURL } from '../../utils/externalURL';
 
 const NavBar = () => {
   const activeAccount = useAppSelector(state => state.account.activeAccount);
   const { deactivate } = useEthers();
+
+  const twitterURL = externalURL(ExternalURL.twitter);
+  const discordURL = externalURL(ExternalURL.discord);
 
   // const stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
   // const history = useHistory();
@@ -92,43 +96,17 @@ const NavBar = () => {
           )}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            {/* <Nav.Item>
-              {treasuryBalance && (
-                <Nav.Link
-                  href={daoEtherscanLink}
-                  className={classes.whalezsNavLink}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  TREASURY Ξ {Number(utils.formatEther(treasuryBalance)).toFixed(0)}
-                </Nav.Link>
-              )}
-            </Nav.Item>
-            <Nav.Link as={Link} to="/vote" className={classes.whalezsNavLink}>
+            <Nav.Link href="/" className={classes.whalezsNavLink}>
+              Whalez Auction
+            </Nav.Link>
+            <Nav.Link href="/dao" className={classes.whalezsNavLink}>
               DAO
             </Nav.Link>
-            <Nav.Link
-              href={externalURL(ExternalURL.notion)}
-              className={classes.whalezsNavLink}
-              target="_blank"
-              rel="noreferrer"
-            >
-              DOCS
+            <Nav.Link href={discordURL} target="_blank" className={classes.whalezsNavLink}>
+              Discord
             </Nav.Link>
-            <Nav.Link href="/playground" className={classes.whalezsNavLink}>
-              PLAYGROUND
-            </Nav.Link> */}
-            <Nav.Link href="#diatom" className={classes.whalezsNavLink}>
-              What is Diatom
-            </Nav.Link>
-            <Nav.Link href="#works" className={classes.whalezsNavLink}>
-              How it Works
-            </Nav.Link>
-            <Nav.Link href="#join" className={classes.whalezsNavLink}>
-              How to Join
-            </Nav.Link>
-            <Nav.Link href="#community" className={classes.whalezsNavLink}>
-              Join the Community
+            <Nav.Link href={twitterURL} target="_blank" className={classes.whalezsNavLink}>
+              Twitter
             </Nav.Link>
             {activeAccount ? connectedContent : disconnectedContent}
           </Navbar.Collapse>

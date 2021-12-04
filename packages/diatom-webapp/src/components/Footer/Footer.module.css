@@ -3,7 +3,7 @@
   font-size: 1rem;
   padding: 3rem 1.5rem 2rem;
 
-  margin-top: 5rem;
+  margin-top: 4rem;
 
   width: 100%;
   max-width: 1080px;
@@ -159,7 +159,7 @@
 
 @media (min-width: 990px) {
   .footerSignature {
-    margin: 8rem auto 0;
+    margin: 0 auto;
     padding: 3rem 1.5rem;
   }
 

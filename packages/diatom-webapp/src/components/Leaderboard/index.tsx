@@ -73,7 +73,7 @@ const Leaderboard = () => {
 
   return (
     <div className={classes.leaderboardContainer}>
-      <h2>Leaderboard</h2>
+      <h2>Whalez4Whales Leaderboard</h2>
       <div className={classes.leaderboard}>
         <div className={classes.leaderboardHeader}>
           <p>Name</p>
