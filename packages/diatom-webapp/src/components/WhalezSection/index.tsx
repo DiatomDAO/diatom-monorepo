@@ -1,4 +1,4 @@
-import rightArrow from '../../assets/rightArrow.svg';
+// import rightArrow from '../../assets/rightArrow.svg';
 import whaleLeft from './assets/whaleLeft.jpg';
 import whaleCenter from './assets/whaleCenter.jpg';
 import whaleRight from './assets/whaleRight.jpg';
@@ -20,14 +20,14 @@ const WhalezSection = () => (
         at a pre-sale price of $25, with up an additional 2X bonus.
       </p>
       <p>Whalez auctions will run from December 1st to December 14th.</p>
-      <a
+      {/* <a
         href="https://medium.com/@diatomdao/introducing-diatom-dao-c9f7dd17b34c"
         target="_blank"
         rel="noreferrer"
       >
         Read the PRC white paper here
         <img src={rightArrow} alt="Right arrow" />
-      </a>
+      </a> */}
     </div>
     <div className={classes.imgWrapper}>
       <img className={classes.whaleLeft} src={whaleLeft} alt="Right arrow" />
