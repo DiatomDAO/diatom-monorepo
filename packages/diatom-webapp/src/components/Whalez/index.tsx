@@ -6,7 +6,12 @@ import Image from 'react-bootstrap/Image';
 export const LoadingWhalez = () => {
   return (
     <div className={`${classes.loadingWrapper} ${classes.imgWrapper}`}>
-      <Image className={`${classes.loadingWhalez} ${classes.img}`} src={loadingWhalez} alt={'loading Whale'} fluid />
+      <Image
+        className={`${classes.loadingWhalez} ${classes.img}`}
+        src={loadingWhalez}
+        alt={'loading Whale'}
+        fluid
+      />
     </div>
   );
 };
@@ -16,14 +21,19 @@ const Whalez: React.FC<{
   alt: string;
   whaleId?: string;
   name?: string;
-  description?: string,
+  description?: string;
   className?: string;
   wrapperClassName?: string;
   noDescription?: Boolean;
 }> = props => {
-  const { imgPath, alt, className, wrapperClassName, noDescription, name, whaleId, description } = props;
+  const { imgPath, alt, className, wrapperClassName, noDescription, name, whaleId, description } =
+    props;
   return (
-    <div className={`${!imgPath ? classes.loadingWrapper : ''} ${classes.imgWrapper} ${wrapperClassName}`}>
+    <div
+      className={`${!imgPath ? classes.loadingWrapper : ''} ${
+        classes.imgWrapper
+      } ${wrapperClassName}`}
+    >
       <Image
         className={`${classes.img} ${className} ${!imgPath ? classes.loadingWhalez : ''}`}
         src={imgPath ? imgPath : loadingWhalez}
@@ -35,7 +45,9 @@ const Whalez: React.FC<{
           <h3>
             {name} <span style={{ color: '#828282' }}>| Whale {whaleId}</span>
           </h3>
-          <p>"{description}"</p>
+          <p>
+            {description !== undefined && description[0] === '“' ? description : `"${description}"`}
+          </p>
         </div>
       )}
     </div>
