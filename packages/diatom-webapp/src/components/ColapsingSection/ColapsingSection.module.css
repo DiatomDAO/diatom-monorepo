@@ -1,0 +1,120 @@
+.colapsingSectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1300px;
+  margin: 5rem auto;
+  padding: 0 5rem;
+}
+
+.section {
+  width: 100%;
+  cursor: pointer;
+}
+
+.section h2 {
+  position: relative;
+  color: #053039;
+  font-weight: 700;
+  font-size: 2.5rem;
+
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+
+  width: 5px;
+  height: calc(100% - 10px);
+  background-color: #053039;
+  transition: transform 450ms ease-in-out;
+
+  transform: translateY(-50%);
+}
+
+.section h2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+
+  width: 5px;
+  height: calc(100% - 10px);
+  background-color: #053039;
+
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.contentContainer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 400ms ease-in-out;
+}
+
+.contentContainer p {
+  line-height: 20px;
+  color: #000;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.contentContainer a {
+  position: relative;
+  text-decoration: none;
+
+  color: #000;
+
+  z-index: 50;
+  transition: opacity 300ms ease-out;
+}
+
+.contentContainer a img {
+  margin-left: 10px;
+  width: 30px;
+}
+
+.contentContainer a::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  height: 2px;
+  width: 0;
+  background: #000;
+  transition: width 300ms ease-out;
+}
+
+.contentContainer a:hover::after {
+  width: 100%;
+}
+
+.openSection h2::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.openSection .contentContainer {
+  max-height: 360px;
+}
+
+.list p {
+  margin: 6px 0;
+}
+
+@media (max-width: 900px) {
+  .colapsingSectionContainer {
+    padding: 0 1rem;
+
+    margin: 3rem 0;
+  }
+
+  .openSection .contentContainer {
+    max-height: 660px;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+  }
+}

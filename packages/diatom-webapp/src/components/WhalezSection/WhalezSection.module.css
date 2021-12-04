@@ -1,0 +1,136 @@
+.whalezContainer {
+  display: flex;
+
+  max-width: 1300px;
+  margin: 5rem auto;
+  padding: 0 5rem;
+}
+
+.contentWrapper {
+  width: 48%;
+}
+
+.contentWrapper h2 {
+  color: #053039;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.contentWrapper p {
+  line-height: 20px;
+  color: #000;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.contentWrapper a {
+  position: relative;
+  text-decoration: none;
+
+  color: #000;
+
+  z-index: 50;
+  transition: opacity 300ms ease-out;
+}
+
+.contentWrapper a img {
+  margin-left: 10px;
+  width: 30px;
+}
+
+.contentWrapper a::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  height: 2px;
+  width: 0;
+  background: #000;
+  transition: width 300ms ease-out;
+}
+
+.contentWrapper a:hover::after {
+  width: calc(100% - 40px);
+}
+
+.imgWrapper {
+  position: relative;
+  width: 52%;
+}
+
+.imgWrapper img {
+  position: absolute;
+  border-radius: 25px;
+
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.8);
+}
+
+.whaleLeft {
+  width: 35%;
+
+  top: 43%;
+  left: 2rem;
+
+  transform: translateY(-50%);
+}
+
+.whaleCenter {
+  width: 40%;
+
+  top: 43%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+}
+
+.whaleRight {
+  width: 35%;
+
+  top: 43%;
+  right: 2rem;
+
+  transform: translateY(-50%);
+}
+
+@media (max-width: 900px) {
+  .whalezContainer {
+    flex-direction: column;
+    padding: 0 1rem;
+
+    margin: 2rem 0;
+  }
+
+  .contentWrapper h2 {
+    font-size: 2rem;
+  }
+
+  .contentWrapper, .imgWrapper {
+    width: 100%;
+
+    min-height: 50vw;
+  }
+
+  .whaleLeft {
+    width: 40%;
+  
+    top: 50%;
+    left: 0;
+  }
+
+  .whaleCenter {
+    width: 45%;
+  
+    top: 50%;
+  }
+
+  .whaleRight {
+    width: 40%;
+  
+    top: 50%;
+    right: 0;
+  }
+
+}
