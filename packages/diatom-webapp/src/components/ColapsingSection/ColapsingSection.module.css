@@ -60,6 +60,37 @@
   padding: 0;
 }
 
+.contentContainer a {
+  position: relative;
+  text-decoration: none;
+
+  color: #000;
+
+  z-index: 50;
+  transition: opacity 300ms ease-out;
+}
+
+.contentContainer a img {
+  margin-left: 10px;
+  width: 30px;
+}
+
+.contentContainer a::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  height: 2px;
+  width: 0;
+  background: #000;
+  transition: width 300ms ease-out;
+}
+
+.contentContainer a:hover::after {
+  width: 100%;
+}
+
 .openSection h2::after {
   transform: translateY(-50%) rotate(90deg);
 }
