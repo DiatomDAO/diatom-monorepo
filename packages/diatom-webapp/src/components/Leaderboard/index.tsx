@@ -31,7 +31,7 @@ const Leaderboard = () => {
     const nonDaoAuctions = pastAuctionsDeepCopy.filter(({ activeAuction }) => Boolean(activeAuction?.bidder));
     
     const getMeta = async () => {
-      const currentEtherPrice = 4320; // axios.get(coinMarket);
+      const currentEtherPrice = 4230; // axios.get(coinMarket);
       const newAuctionsMetadata = await Promise.all(
         nonDaoAuctions.map(async ({ activeAuction, bids }) => {
           const metadataURI =
