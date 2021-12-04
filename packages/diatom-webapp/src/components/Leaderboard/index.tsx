@@ -27,7 +27,8 @@ const Leaderboard = () => {
   const [auctionsMetadata, setAuctionsMetadata] = useState<any[]>([]);
 
   useEffect(() => {
-    const nonDaoAuctions = pastAuctions.filter(({ activeAuction }) => Boolean(activeAuction?.bidder));
+    const pastAuctionsDeepCopy = JSON.parse(JSON.stringify(pastAuctions)) as typeof pastAuctions;
+    const nonDaoAuctions = pastAuctionsDeepCopy.filter(({ activeAuction }) => Boolean(activeAuction?.bidder));
     
     const getMeta = async () => {
       const currentEtherPrice = 4320; // axios.get(coinMarket);

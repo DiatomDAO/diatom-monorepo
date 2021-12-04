@@ -5,5 +5,5 @@ export const generateIpfsRestUrl = (ipfsUrl: string): string => {
 
 export const generatePinataRestUrl = (ipfsUrl: string): string => {
   const urlPart = ipfsUrl?.split('://')?.pop();
-  return `https://gateway.pinata.cloud/ipfs/${urlPart}`
+  return `https://diatom.mypinata.cloud/ipfs/${urlPart}`
 };
