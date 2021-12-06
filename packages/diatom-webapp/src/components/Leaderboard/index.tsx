@@ -35,7 +35,7 @@ const Leaderboard = () => {
       const newAuctionsMetadata = await Promise.all(
         nonDaoAuctions.map(async ({ activeAuction, bids }) => {
           const metadataURI =
-            genericMetadataURI!.slice(-2)[0] + '/' +
+            genericMetadataURI!.split('/').slice(-2)[0] + '/' +
             BigNumber.from(activeAuction?.whaleId).toNumber();
           const metadata = await axios.get<IWhaleToken>(generateIpfsRestUrl(metadataURI));
           const { name, image } = metadata.data;
