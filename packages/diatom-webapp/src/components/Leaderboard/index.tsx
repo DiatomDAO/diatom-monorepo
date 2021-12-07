@@ -26,16 +26,24 @@ const Leaderboard = () => {
   );
   const [auctionsMetadata, setAuctionsMetadata] = useState<any[]>([]);
 
+  const totalPlasticRemoved = formatter(auctionsMetadata.reduce(
+    (a, b) => a + Number(b.plasticRemoved.replace(',', '')),
+    0,
+  ));
+
   useEffect(() => {
     const pastAuctionsDeepCopy = JSON.parse(JSON.stringify(pastAuctions)) as typeof pastAuctions;
-    const nonDaoAuctions = pastAuctionsDeepCopy.filter(({ activeAuction }) => Boolean(activeAuction?.bidder));
-    
+    const nonDaoAuctions = pastAuctionsDeepCopy.filter(({ activeAuction }) =>
+      Boolean(activeAuction?.bidder),
+    );
+
     const getMeta = async () => {
       const currentEtherPrice = 4230; // axios.get(coinMarket);
       const newAuctionsMetadata = await Promise.all(
         nonDaoAuctions.map(async ({ activeAuction, bids }) => {
           const metadataURI =
-            genericMetadataURI!.split('/').slice(-2)[0] + '/' +
+            genericMetadataURI!.split('/').slice(-2)[0] +
+            '/' +
             BigNumber.from(activeAuction?.whaleId).toNumber();
           const metadata = await axios.get<IWhaleToken>(generateIpfsRestUrl(metadataURI));
           const { name, image } = metadata.data;
@@ -47,7 +55,7 @@ const Leaderboard = () => {
             imgSrc: generatePinataRestUrl(image),
             plasticRemoved: totalEstPlasticRemoved,
             value: BigNumber.from(activeAuction?.amount),
-            winner: bids.filter(bid => Number(utils.formatEther(bid.value!)) === eth).pop()
+            winner: bids.filter(bid => Number(utils.formatEther(bid.value!)) === eth).pop(),
           };
         }),
       );
@@ -77,7 +85,10 @@ const Leaderboard = () => {
       <div className={classes.leaderboard}>
         <div className={classes.leaderboardHeader}>
           <p>Name</p>
-          <p className={classes.textRight}>Est. Plastic Removed</p>
+          <div>
+            <p className={classes.textRight}>Est. Plastic Removed</p>
+            <p className={classes.textRight}>Total: { totalPlasticRemoved } Kg</p>
+          </div>
         </div>
         <div className={classes.leaderboardList}>
           {auctionsMetadata.length > 0 &&
@@ -87,13 +98,15 @@ const Leaderboard = () => {
                   <p className={classes.whalePosition}>#{index + 1}</p>
                   <img src={whale.imgSrc || ghostWhale} alt="Ghost Whale" />
                   <div className={classes.whaleNameContainer}>
-                    <span className={classes.whaleName}>
-                      {whale.name || '??????'}
-                    </span>
+                    <span className={classes.whaleName}>{whale.name || '??????'}</span>
                     <div className={classes.whaleBidder}>
                       <ShortAddress address={whale.winner.sender} avatar={true} small={true} />
                       <div className={classes.linkSymbol}>
-                        <a href={buildEtherscanTxLink(whale.winner.transactionHash)} target="_blank" rel="noreferrer">
+                        <a
+                          href={buildEtherscanTxLink(whale.winner.transactionHash)}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <FontAwesomeIcon size="xs" icon={faExternalLinkAlt} />
                         </a>
                       </div>
