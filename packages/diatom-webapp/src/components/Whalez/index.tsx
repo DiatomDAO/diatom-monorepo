@@ -3,6 +3,8 @@ import React from 'react';
 import loadingWhalez from '../../assets/diatomLoading.svg';
 import Image from 'react-bootstrap/Image';
 
+import whalesInfo from '../../assets/whales.json';
+
 export const LoadingWhalez = () => {
   return (
     <div className={`${classes.loadingWrapper} ${classes.imgWrapper}`}>
@@ -26,8 +28,14 @@ const Whalez: React.FC<{
   wrapperClassName?: string;
   noDescription?: Boolean;
 }> = props => {
-  const { imgPath, alt, className, wrapperClassName, noDescription, name, whaleId, description } =
+  const { imgPath, alt, className, wrapperClassName, noDescription, whaleId  } =
     props;
+
+  const { whales } = whalesInfo;
+
+  const whaleName = whales.find(whale => whale.id === whaleId)?.name;
+  const whaleDescription = whales.find(whale => whale.id === whaleId)?.description;
+
   return (
     <div
       className={`${!imgPath ? classes.loadingWrapper : ''} ${
@@ -43,10 +51,10 @@ const Whalez: React.FC<{
       {!noDescription && imgPath && (
         <div className={classes.imgTitle}>
           <h3>
-            {name} <span style={{ color: '#828282' }}>| Whale {whaleId}</span>
+            {whaleName} <span style={{ color: '#828282' }}>| Whale {whaleId}</span>
           </h3>
           <p>
-            {description !== undefined && description[0] === '“' ? description : `"${description}"`}
+            "{whaleDescription}"
           </p>
         </div>
       )}

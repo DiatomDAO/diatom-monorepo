@@ -1,0 +1,254 @@
+﻿{
+    "whales": [
+        {
+            "id": "1",
+            "name": "Rainbow Warrior",
+            "description": "They will move over the Earth like a great whirling Rainbow."
+        },
+        {
+            "id": "2",
+            "name": "Hvaldimir",
+            "description": "I just wanted to play."
+        },
+        {
+            "id": "3",
+            "name": "Cetus",
+            "description": "A belly full of diatoms"
+        },
+        {
+            "id": "4",
+            "name": "Tohora",
+            "description": "Turn your face toward the sun and the shadows will fall behind you."
+        },
+        {
+            "id": "5",
+            "name": "Starshine",
+            "description": "By the light of the moon!"
+        },
+        {
+            "id": "6",
+            "name": "Phiomicetus",
+            "description": "Whalez these days ain't what they used to be."
+        },
+        {
+            "id": "7",
+            "name": "Cetaceous Prime",
+            "description": "Freedom is the right of all sentient beings."
+        },
+        {
+            "id": "8",
+            "name": "Lola",
+            "description": "Humanity has explored 5% of the ocean. I have explored all of it."
+        },
+        {
+            "id": "9",
+            "name": "GNARwhale",
+            "description": "Behold the GNAR."
+        },
+        {
+            "id": "10",
+            "name": "Kujira",
+            "description": "A frog in a well knows nothing of the sea."
+        },
+        {
+            "id": "11",
+            "name": "Gyian",
+            "description": "Remember your kin."
+        },
+        {
+            "id": "12",
+            "name": "Namu",
+            "description": "Meow."
+        },
+        {
+            "id": "13",
+            "name": "Snoobs",
+            "description": "Moonlit migration, giants swimming to shelter, warmer waters soon."
+        },
+        {
+            "id": "14",
+            "name": "General Ambergris",
+            "description": "The battle of the 4 million whales has begun."
+        },
+        {
+            "id": "15",
+            "name": "The Notorious W.A.L.",
+            "description": "Birthdays was the worst days, now we sip diatoms when we thirsty."
+        },
+        {
+            "id": "16",
+            "name": "Serafina",
+            "description": "Our character isn't defined by the battles we win or lose, but by the battles we dare to fight."
+        },
+        {
+            "id": "17",
+            "name": "Lil Zap!",
+            "description": "What goes around comes around like a hool-a-poop."
+        },
+        {
+            "id": "18",
+            "name": "Stargrazer",
+            "description": "The starry vault of heaven is in truth the open book of cosmic projection."
+        },
+        {
+            "id": "19",
+            "name": "Zebroar",
+            "description": "Everything you see exists together in a delicate balance."
+        },
+        {
+            "id": "20",
+            "name": "Sprinklez",
+            "description": "Donut stop believing."
+        },
+        {
+            "id": "21",
+            "name": "Goldfin",
+            "description": "The golden rule is rule by Goldfin."
+        },
+        {
+            "id": "22",
+            "name": "Sandor of the Abyss",
+            "description": "I need a spare heart to feel all the things I feel."
+        },
+        {
+            "id": "23",
+            "name": "Iron Cloud",
+            "description": "And they will know us by the trail of iron, phosphorous and nitrogen rich s&*t."
+        },
+        {
+            "id": "24",
+            "name": "Keiko",
+            "description": "I've always been a better rule breaker than rule maker."
+        },
+        {
+            "id": "25",
+            "name": "Vinko",
+            "description": "Whale pumpin' 24/7."
+        },
+        {
+            "id": "26",
+            "name": "Tesselator",
+            "description": "You have everything needed for the extravagant journey that is your life."
+        },
+        {
+            "id": "27",
+            "name": "Bernardus",
+            "description": "The happiness of your life depends upon the quality of your thoughts."
+        },
+        {
+            "id": "28",
+            "name": "Dezirindra",
+            "description": "Look deep into nature, and then you will understand everything better."
+        },
+        {
+            "id": "29",
+            "name": "Whalefall",
+            "description": "From my rotting body, flowers shall grow and I am in them and that is eternity."
+        },
+        {
+            "id": "30",
+            "name": "Riptide",
+            "description": "Time is the substance from which I am made."
+        },
+        {
+            "id": "31",
+            "name": "Moby Crypt",
+            "description": "I am past scorching not easily can’st thou scorch a scar."
+        },
+        {
+            "id": "32",
+            "name": "Kaja",
+            "description": "The city is not a concrete jungle, it is a human zoo."
+        },
+        {
+            "id": "33",
+            "name": "Stasiz",
+            "description": "Logic is the beginning of wisdom, not the end."
+        },
+        {
+            "id": "34",
+            "name": "Brijesha",
+            "description": "Happiness is a state of mind, that has nothing to do with the external world."
+        },
+        {
+            "id": "35",
+            "name": "Marley",
+            "description": "If I was educated, I would be a damn fool."
+        },
+        {
+            "id": "36",
+            "name": "Dragan",
+            "description": "Bring it on."
+        },
+        {
+            "id": "37",
+            "name": "Kriller",
+            "description": "Never twist the throttle with your ego."
+        },
+        {
+            "id": "38",
+            "name": "Deadwhale",
+            "description": "Everything goes full circle with whale songs."
+        },
+        {
+            "id": "39",
+            "name": "Jinky",
+            "description": "I'm just here for the cotton candy."
+        },
+        {
+            "id": "40",
+            "name": "Nano",
+            "description": "All animals are equal, but some animals are more equal than others. "
+        },
+        {
+            "id": "41",
+            "name": "Monstro",
+            "description": "Whosoever is delighted in solitude is either a wild beast or a god."
+        },
+        {
+            "id": "42",
+            "name": "Beast of the Brine",
+            "description": "But in the end it's only a passing thing, this shadow; even darkness must pass."
+        },
+        {
+            "id": "43",
+            "name": "Keavy",
+            "description": "Love the art in yourself and not yourself in the art."
+        },
+        {
+            "id": "44",
+            "name": "Typhoon Timmy",
+            "description": "The storm is an artist, the rainbow is its masterpiece."
+        },
+        {
+            "id": "45",
+            "name": "Ralf",
+            "description": "There is no new wave, only the sea."
+        },
+        {
+            "id": "46",
+            "name": "Krillby",
+            "description": "The sea does not like to be restrained."
+        },
+        {
+            "id": "47",
+            "name": "Lammert Kelpworthy",
+            "description": "Live in the sunshine, swim the sea, drink the wild air."
+        },
+        {
+            "id": "48",
+            "name": "Frank",
+            "description": "You can't stop the waves, but you can learn to surf."
+        },
+        {
+            "id": "49",
+            "name": "Aggaraza",
+            "description": "Let the waves carry you where the light can not."
+        },
+        {
+            "id": "50",
+            "name": "Frits Glorygale",
+            "description": "A rising tide lifts all boats."
+        }
+    ]
+}
