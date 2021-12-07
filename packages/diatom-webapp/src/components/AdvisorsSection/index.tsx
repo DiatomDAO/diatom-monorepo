@@ -4,7 +4,7 @@ const AdivisorsSection = () => {
   const advisors = [
     { name: 'Christopher Verlinden, Ph.D.', description: 'U.S. Coast Guard, CTO, Applied Ocean Sciences' },
     { name: 'Michael Fischbach', description: 'Whale Guardians' },
-    { name: 'Scarlett Arana', description: 'UN Ambassador, SDG 14: Life Below Water' },
+    { name: 'Scarlett Arana', description: 'UN Global Ambassador, SDG 14: Life Below Water' },
     { name: 'Nicholas Haan', description: 'Singularity University Chair: Impact, Global Grand Challenges' },
     { name: 'Captain Charles Moore', description: 'Discovered the Great Pacific Garbage Patch' },
     { name: 'Brooke Darshana', description: 'Zoologist & Marine Biologist, 18 years living at sea' },
