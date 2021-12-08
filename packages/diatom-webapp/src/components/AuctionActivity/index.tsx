@@ -128,14 +128,12 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
             <Col lg={12} className={classes.colAlignCenter}>
               <AuctionActivityWhalezTitle whaleId={auction.whaleId} />
               {displayGraphDepComps && (
-                <div style={{ display: 'inline-block' }}>
                   <AuctionNavigation
                     isFirstAuction={isFirstAuction}
                     isLastAuction={isLastAuction}
                     onNextAuctionClick={onNextAuctionClick}
                     onPrevAuctionClick={onPrevAuctionClick}
                   />
-                </div>
               )}
             </Col>
           </Row>
