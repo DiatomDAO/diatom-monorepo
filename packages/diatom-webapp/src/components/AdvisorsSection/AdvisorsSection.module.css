@@ -1,0 +1,84 @@
+.advisorsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 0 2rem;
+  overflow: hidden;
+  max-width: 1300px;
+
+  margin: 2rem auto;
+}
+
+.advisorsSection h1 {
+  position: relative;
+  font-size: 2.25rem;
+  color: #053039;
+  font-weight: 700;
+
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.advisorsSection h1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  border-radius: 10%;
+  height: 3px;
+  width: calc(50% - 175px);
+  background: #5B6459;
+}
+
+.advisorsSection h1::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  border-radius: 10%;
+  height: 3px;
+  width: calc(50% - 175px);
+  background: #5B6459;
+}
+
+.advisorsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  padding: 0 5rem;
+}
+
+.advisorsContainer > div:nth-child(even) {
+  margin-left: 1rem;
+}
+
+.advisorsContainer h4 {
+  font-size: 1.25rem;
+  color: #053039;
+  font-weight: 700;
+
+  width: 100%;
+  overflow: hidden;
+}
+
+
+@media (max-width: 900px) {
+  .advisorsSection {
+    gap: 1.5rem;
+    padding: 0 1rem;
+    margin: 2rem auto 0;
+  }
+
+  .advisorsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .advisorsContainer > div:nth-child(even) {
+    margin-left: 0;
+  }
+}

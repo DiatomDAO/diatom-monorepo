@@ -1,3 +1,4 @@
+import AdivisorsSection from '../../components/AdvisorsSection';
 import DiatomInfo from '../../components/DiatomInfo';
 import InfoSections from '../../components/InfoSections';
 import LandingHero from '../../components/LandingHero';
@@ -9,6 +10,7 @@ const DaoPage = () => (
     <DiatomInfo />
     <Tokenomics />
     <InfoSections />
+    <AdivisorsSection />
   </div>
   );
 
