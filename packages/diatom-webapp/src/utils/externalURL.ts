@@ -1,7 +1,8 @@
 export enum ExternalURL {
   discord,
   twitter,
-  github
+  github,
+  medium
 }
 
 export const externalURL = (externalURL: ExternalURL) => {
@@ -16,5 +17,7 @@ export const externalURL = (externalURL: ExternalURL) => {
     //   return 'https://discourse.whalezs.wtf/';
     case ExternalURL.github:
       return 'https://github.com/Dollar-Donation-Club/diatom-monorepo';
+    case ExternalURL.medium: 
+      return 'https://medium.com/@diatomdao'
   }
 };

@@ -8,7 +8,7 @@ const AdivisorsSection = () => {
     { name: 'Dr. Nicholas Haan', description: 'Singularity University Chair: Impact, Global Grand Challenges' },
     { name: 'Captain Charles Moore', description: 'Discovered the Great Pacific Garbage Patch' },
     { name: 'Brooke Darshana', description: 'Zoologist & Marine Biologist, 18 years living at sea' },
-    { name: 'Jeremy McKane', description: 'OCN.ai, Artist, Aerobotics' },
+    { name: 'Jeremy McKane', description: 'OCN.ai' },
     { name: 'Chad Frischmann', description: 'Project Drawdown' },
     { name: 'Susi Mai', description: 'Red Bull Kiteboarding Champion, Co-founder, ULTRAMARINE' },
   ];

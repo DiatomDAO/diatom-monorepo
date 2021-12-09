@@ -24,6 +24,7 @@ const NavBar = () => {
 
   const twitterURL = externalURL(ExternalURL.twitter);
   const discordURL = externalURL(ExternalURL.discord);
+  const mediumURL = externalURL(ExternalURL.medium);
 
   // const stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
   // const history = useHistory();
@@ -107,6 +108,9 @@ const NavBar = () => {
             </Nav.Link>
             <Nav.Link href={twitterURL} target="_blank" className={classes.whalezsNavLink}>
               Twitter
+            </Nav.Link>
+            <Nav.Link href={mediumURL} target="_blank" className={classes.whalezsNavLink}>
+              Medium
             </Nav.Link>
             {activeAccount ? connectedContent : disconnectedContent}
           </Navbar.Collapse>
