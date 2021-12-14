@@ -99,6 +99,8 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
 
   const diatMultiplier = Number(auction.whaleId) > 10 ? 1 : 2.1 - 0.1 * Math.round(Number(auction.whaleId));
 
+  const shouldStopWhaleBid = Number(auction.whaleId) >= 50;
+
   return (
     <>
       {showBidHistoryModal && (
@@ -174,7 +176,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
             </Col>
           </Row>
         </div>
-        {isLastAuction && (
+        {!shouldStopWhaleBid && isLastAuction && (
           <Row className={classes.activityRow}>
             <Col lg={12}>
               <Bid auction={auction} auctionEnded={auctionEnded} />
