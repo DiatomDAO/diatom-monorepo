@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js';
 import { Row, Col } from 'react-bootstrap';
 import classes from './AuctionActivity.module.css';
 import bidHistoryClasses from './BidHistory.module.css';
-import Bid from '../Bid';
+// import Bid from '../Bid';
 import AuctionTimer from '../AuctionTimer';
 import CurrentBid from '../CurrentBid';
 import Winner from '../Winner';
@@ -99,7 +99,7 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
 
   const diatMultiplier = Number(auction.whaleId) > 10 ? 1 : 2.1 - 0.1 * Math.round(Number(auction.whaleId));
 
-  const shouldStopWhaleBid = Number(auction.whaleId) >= 50;
+  // const shouldStopWhaleBid = Number(auction.whaleId) >= 50;
 
   return (
     <>
@@ -176,13 +176,13 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
             </Col>
           </Row>
         </div>
-        {!shouldStopWhaleBid && isLastAuction && (
+        {/* {!shouldStopWhaleBid && isLastAuction && (
           <Row className={classes.activityRow}>
             <Col lg={12}>
               <Bid auction={auction} auctionEnded={auctionEnded} />
             </Col>
           </Row>
-        )}
+        )} */}
         <Row className={classes.activityRow}>
           <Col lg={12}>
             {displayGraphDepComps && (
