@@ -98,10 +98,10 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
             <Nav.Link href="/" className={classes.whalezsNavLink}>
-              Whalez Auction
-            </Nav.Link>
-            <Nav.Link href="/dao" className={classes.whalezsNavLink}>
               DAO
+            </Nav.Link>
+            <Nav.Link href="/auction" className={classes.whalezsNavLink}>
+              Whalez Auction
             </Nav.Link>
             <Nav.Link href={discordURL} target="_blank" className={classes.whalezsNavLink}>
               Discord

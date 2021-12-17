@@ -40,13 +40,13 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route exact path="/" component={AuctionPage} />
+          <Route exact path="/" component={DaoPage} />
           <Route
             exact
             path="/auction/:id"
             render={props => <AuctionPage initialAuctionId={Number(props.match.params.id)} />}
           />
-          <Route exact path="/dao" component={DaoPage} />
+          <Route exact path="/auction" component={AuctionPage} />
           <Route component={NotFoundPage} />
         </Switch>
         <Footer />
