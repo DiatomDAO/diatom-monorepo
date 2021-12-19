@@ -4,6 +4,7 @@ import Whalez from '../Whalez';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { generatePinataRestUrl } from '../../utils/ipfs';
+import config from '../../config';
 
 interface StandaloneWhalezProps {
   whaleId: EthersBN;
@@ -19,7 +20,7 @@ const initialWhaleState = {
 const StandaloneWhalez: React.FC<StandaloneWhalezProps> = (props: StandaloneWhalezProps) => {
   const { whaleId, noDescription } = props;
   const id = whaleId;
-  const whaleURI = 'bafybeihcokvmsq73ao6daq6z23cd6mugwldr3odsfwy7nzdzubskylluma/' + id;
+  const whaleURI = config.app.ipfsUri + '/' + id;
   const [currentWhale, setCurrentWhale] = useState<IWhaleToken>(initialWhaleState);
 
   const getWhale = async (whaleURI: string) => {

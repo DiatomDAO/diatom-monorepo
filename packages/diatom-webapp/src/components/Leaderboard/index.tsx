@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { buildEtherscanTxLink } from '../../utils/etherscan';
 import { generateIpfsRestUrl, generatePinataRestUrl } from '../../utils/ipfs';
+import config from '../../config';
 
 const formatter = (amount: number | bigint) =>
   new Intl.NumberFormat('en-US', {
@@ -21,7 +22,7 @@ const formatter = (amount: number | bigint) =>
 const Leaderboard = () => {
   const pastAuctions = useAppSelector((state: RootState) => state.pastAuctions.pastAuctions);
 
-  const genericMetadataURI = 'bafybeihcokvmsq73ao6daq6z23cd6mugwldr3odsfwy7nzdzubskylluma';
+  const genericMetadataURI = config.app.ipfsUri;
   const [auctionsMetadata, setAuctionsMetadata] = useState<any[]>([]);
 
   const totalPlasticRemoved = formatter(
