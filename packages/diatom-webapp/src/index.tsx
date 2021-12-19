@@ -3,20 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ChainId, DAppProvider } from '@usedapp/core';
-import { Web3ReactProvider } from '@web3-react/core';
-import { Web3Provider } from '@ethersproject/providers';
+// import { ChainId, DAppProvider } from '@usedapp/core';
+// import { Web3ReactProvider } from '@web3-react/core';
+// import { Web3Provider } from '@ethersproject/providers';
 import account from './state/slices/account';
 import application from './state/slices/application';
 import logs from './state/slices/logs';
 import auction, {
-  reduxSafeAuction,
-  reduxSafeNewAuction,
-  reduxSafeBid,
-  setActiveAuction,
-  setAuctionExtended,
-  setAuctionSettled,
+  // reduxSafeAuction,
+  // reduxSafeNewAuction,
+  // reduxSafeBid,
+  // setActiveAuction,
+  // setAuctionExtended,
+  // setAuctionSettled,
   setFullAuction,
+  reduxSafePastAuction,
 } from './state/slices/auction';
 import onDisplayAuction, {
   setLastAuctionWhalezId,
@@ -26,14 +27,14 @@ import { ApolloProvider, useQuery } from '@apollo/client';
 import { clientFactory, latestAuctionsQuery } from './wrappers/subgraph';
 import { useEffect } from 'react';
 import pastAuctions, { addPastAuctions } from './state/slices/pastAuctions';
-import LogsUpdater from './state/updaters/logs';
-import config, { CHAIN_ID, createNetworkHttpUrl } from './config';
-import { WebSocketProvider } from '@ethersproject/providers';
-import { BigNumber, BigNumberish } from 'ethers';
-import { WhalezAuctionHouseFactory } from '@diatom/sdk';
+// import LogsUpdater from './state/updaters/logs';
+import config from './config';
+// import { WebSocketProvider } from '@ethersproject/providers';
+// import { BigNumber, BigNumberish } from 'ethers';
+// import { WhalezAuctionHouseFactory } from '@diatom/sdk';
 import dotenv from 'dotenv';
 import { useAppDispatch, useAppSelector } from './hooks';
-import { appendBid } from './state/slices/auction';
+// import { appendBid } from './state/slices/auction';
 import { ConnectedRouter, connectRouter } from 'connected-react-router';
 import { createBrowserHistory, History } from 'history';
 import { applyMiddleware, createStore, combineReducers, PreloadedState } from 'redux';
@@ -78,116 +79,110 @@ const store = configureStore({});
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-// prettier-ignore
-const useDappConfig = {
-  readOnlyChainId: CHAIN_ID,
-  readOnlyUrls: {
-    [ChainId.Rinkeby]: createNetworkHttpUrl('rinkeby'),
-    [ChainId.Mainnet]: createNetworkHttpUrl('mainnet'),
-    [ChainId.Hardhat]: 'http://localhost:8545',
-  },
-  multicallAddresses: {
-    [ChainId.Hardhat]: config.addresses.Multicall!,
-  }
-};
+// // prettier-ignore
+// const useDappConfig = {
+//   readOnlyChainId: CHAIN_ID,
+//   readOnlyUrls: {
+//     [ChainId.Rinkeby]: createNetworkHttpUrl('rinkeby'),
+//     [ChainId.Mainnet]: createNetworkHttpUrl('mainnet'),
+//     [ChainId.Hardhat]: 'http://localhost:8545',
+//   },
+//   multicallAddresses: {
+//     [ChainId.Hardhat]: config.addresses.Multicall!,
+//   }
+// };
 
 const client = clientFactory(config.app.subgraphApiUri);
 
-const Updaters = () => {
-  return (
-    <>
-      <LogsUpdater />
-    </>
-  );
-};
+// const Updaters = () => {
+//   return (
+//     <>
+//       <LogsUpdater />
+//     </>
+//   );
+// };
 
-const BLOCKS_PER_DAY = 2000;
+// const BLOCKS_PER_DAY = 2000;
 
-const ChainSubscriber: React.FC = () => {
-  const dispatch = useAppDispatch();
+// const ChainSubscriber: React.FC = () => {
+//   const dispatch = useAppDispatch();
 
-  const loadState = async () => {
-    const wsProvider = new WebSocketProvider(config.app.wsRpcUri);
-    const whalezsAuctionHouseContract = WhalezAuctionHouseFactory.connect(
-      config.addresses.whalezAuctionHouseProxy,
-      wsProvider,
-    );
+//   const loadState = async () => {
+//     const wsProvider = new WebSocketProvider(config.app.wsRpcUri);
+//     const whalezsAuctionHouseContract = WhalezAuctionHouseFactory.connect(
+//       config.addresses.whalezAuctionHouseProxy,
+//       wsProvider,
+//     );
 
-    const bidFilter = whalezsAuctionHouseContract.filters.AuctionBid(null, null, null, null);
-    const extendedFilter = whalezsAuctionHouseContract.filters.AuctionExtended(null, null);
-    const createdFilter = whalezsAuctionHouseContract.filters.AuctionCreated(null, null, null);
-    const settledFilter = whalezsAuctionHouseContract.filters.AuctionSettled(null, null, null);
-    const processBidFilter = async (
-      whaleId: BigNumberish,
-      sender: string,
-      value: BigNumberish,
-      extended: boolean,
-      event: any,
-    ) => {
-      const timestamp = (await event.getBlock()).timestamp;
-      const transactionHash = event.transactionHash;
-      dispatch(
-        appendBid(reduxSafeBid({ whaleId, sender, value, extended, transactionHash, timestamp })),
-      );
-    };
-    const processAuctionCreated = (
-      whaleId: BigNumberish,
-      startTime: BigNumberish,
-      endTime: BigNumberish,
-    ) => {
-      dispatch(
-        setActiveAuction(reduxSafeNewAuction({ whaleId, startTime, endTime, settled: false })),
-      );
-      const whaleIdNumber = BigNumber.from(whaleId).toNumber();
-      dispatch(push(whalezPath(whaleIdNumber)));
-      dispatch(setOnDisplayAuctionWhalezId(whaleIdNumber));
-      dispatch(setLastAuctionWhalezId(whaleIdNumber));
-    };
-    const processAuctionExtended = (whaleId: BigNumberish, endTime: BigNumberish) => {
-      dispatch(setAuctionExtended({ whaleId, endTime }));
-    };
-    const processAuctionSettled = (whaleId: BigNumberish, winner: string, amount: BigNumberish) => {
-      dispatch(setAuctionSettled({ whaleId, amount, winner }));
-    };
+//     const bidFilter = whalezsAuctionHouseContract.filters.AuctionBid(null, null, null, null);
+//     const extendedFilter = whalezsAuctionHouseContract.filters.AuctionExtended(null, null);
+//     const createdFilter = whalezsAuctionHouseContract.filters.AuctionCreated(null, null, null);
+//     const settledFilter = whalezsAuctionHouseContract.filters.AuctionSettled(null, null, null);
+//     const processBidFilter = async (
+//       whaleId: BigNumberish,
+//       sender: string,
+//       value: BigNumberish,
+//       extended: boolean,
+//       event: any,
+//     ) => {
+//       const timestamp = (await event.getBlock()).timestamp;
+//       const transactionHash = event.transactionHash;
+//       dispatch(
+//         appendBid(reduxSafeBid({ whaleId, sender, value, extended, transactionHash, timestamp })),
+//       );
+//     };
+//     const processAuctionCreated = (
+//       whaleId: BigNumberish,
+//       startTime: BigNumberish,
+//       endTime: BigNumberish,
+//     ) => {
+//       dispatch(
+//         setActiveAuction(reduxSafeNewAuction({ whaleId, startTime, endTime, settled: false })),
+//       );
+//       const whaleIdNumber = BigNumber.from(whaleId).toNumber();
+//       dispatch(push(whalezPath(whaleIdNumber)));
+//       dispatch(setOnDisplayAuctionWhalezId(whaleIdNumber));
+//       dispatch(setLastAuctionWhalezId(whaleIdNumber));
+//     };
+//     // Fetch the current auction
+//     const currentAuction = await whalezsAuctionHouseContract.auction();
+//     dispatch(setFullAuction(reduxSafeAuction(currentAuction)));
+//     dispatch(setLastAuctionWhalezId(currentAuction.whaleId.toNumber()));
 
-    // Fetch the current auction
-    const currentAuction = await whalezsAuctionHouseContract.auction();
-    dispatch(setFullAuction(reduxSafeAuction(currentAuction)));
-    dispatch(setLastAuctionWhalezId(currentAuction.whaleId.toNumber()));
+//     // Fetch the previous 24hours of  bids
+//     const previousBids = await whalezsAuctionHouseContract.queryFilter(
+//       bidFilter,
+//       0 - BLOCKS_PER_DAY,
+//     );
+//     for (let event of previousBids) {
+//       if (event.args === undefined) return;
+//       processBidFilter(...(event.args as [BigNumber, string, BigNumber, boolean]), event);
+//     }
+//   };
+//   loadState();
 
-    // Fetch the previous 24hours of  bids
-    const previousBids = await whalezsAuctionHouseContract.queryFilter(bidFilter, 0 - BLOCKS_PER_DAY);
-    for (let event of previousBids) {
-      if (event.args === undefined) return;
-      processBidFilter(...(event.args as [BigNumber, string, BigNumber, boolean]), event);
-    }
-
-    whalezsAuctionHouseContract.on(bidFilter, (whaleId, sender, value, extended, event) =>
-      processBidFilter(whaleId, sender, value, extended, event),
-    );
-    whalezsAuctionHouseContract.on(createdFilter, (whaleId, startTime, endTime) =>
-      processAuctionCreated(whaleId, startTime, endTime),
-    );
-    whalezsAuctionHouseContract.on(extendedFilter, (whaleId, endTime) =>
-      processAuctionExtended(whaleId, endTime),
-    );
-    whalezsAuctionHouseContract.on(settledFilter, (whaleId, winner, amount) =>
-      processAuctionSettled(whaleId, winner, amount),
-    );
-  };
-  loadState();
-
-  return <></>;
-};
+//   return <></>;
+// };
 
 const PastAuctions: React.FC = () => {
-  const latestAuctionId = useAppSelector(state => state.onDisplayAuction.lastAuctionWhalezId);
+  const latestAuctionId = 50;
   const { data } = useQuery(latestAuctionsQuery());
+  const pathWhaleId = useAppSelector(state => state.router.location.pathname)
+    .split('/')
+    .slice(-1)[0];
+  const whaleId = !pathWhaleId || isNaN(Number(pathWhaleId)) ? 1 : Number(pathWhaleId);
   const dispatch = useAppDispatch();
+  const currentAuctionIdx = 50 - whaleId;
 
   useEffect(() => {
-    data && dispatch(addPastAuctions({ data }));
-  }, [data, latestAuctionId, dispatch]);
+    if (data) {
+      dispatch(addPastAuctions({ data }));
+      dispatch(setOnDisplayAuctionWhalezId(whaleId));
+      dispatch(setFullAuction(reduxSafePastAuction(data.auctions[currentAuctionIdx])));
+      dispatch(setLastAuctionWhalezId(50));
+      dispatch(push(whalezPath(whaleId)));
+    }
+  }, [data, latestAuctionId, dispatch, pathWhaleId]);
 
   return <></>;
 };
@@ -195,21 +190,21 @@ const PastAuctions: React.FC = () => {
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <ChainSubscriber />
+      {/* <ChainSubscriber /> */}
       <React.StrictMode>
-        <Web3ReactProvider
+        {/* <Web3ReactProvider
           getLibrary={
             provider => new Web3Provider(provider) // this will vary according to whether you use e.g. ethers or web3.js
           }
-        >
-          <ApolloProvider client={client}>
-            <PastAuctions />
-            <DAppProvider config={useDappConfig}>
-              <App />
-              <Updaters />
-            </DAppProvider>
-          </ApolloProvider>
-        </Web3ReactProvider>
+        > */}
+        <ApolloProvider client={client}>
+          <PastAuctions />
+          {/* <DAppProvider config={useDappConfig}> */}
+          <App />
+          {/* <Updaters /> */}
+          {/* </DAppProvider> */}
+        </ApolloProvider>
+        {/* </Web3ReactProvider> */}
       </React.StrictMode>
     </ConnectedRouter>
   </Provider>,

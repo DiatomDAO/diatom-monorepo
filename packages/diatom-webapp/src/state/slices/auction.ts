@@ -18,6 +18,29 @@ const initialState: AuctionState = {
   bids: [],
 };
 
+export const reduxSafePastAuction = (auction: any): AuctionState => {
+  return {
+    activeAuction: {
+      amount: BigNumber.from(auction.amount).toJSON(),
+      bidder: auction.bidder ? auction.bidder.id : '',
+      startTime: BigNumber.from(auction.startTime).toJSON(),
+      endTime: BigNumber.from(auction.endTime).toJSON(),
+      whaleId: BigNumber.from(auction.id).toJSON(),
+      settled: false,
+    },
+    bids: auction.bids.map((bid: any) => {
+      return {
+        whaleId: BigNumber.from(auction.id).toJSON(),
+        sender: bid.bidder.id,
+        value: BigNumber.from(bid.amount).toJSON(),
+        extended: false,
+        transactionHash: bid.id,
+        timestamp: BigNumber.from(bid.blockTimestamp).toJSON(),
+      };
+    }),
+  };
+};
+
 export const reduxSafeNewAuction = (auction: AuctionCreateEvent): IAuction => ({
   amount: BigNumber.from(0).toJSON(),
   bidder: '',
@@ -71,9 +94,10 @@ export const auctionSlice = createSlice({
       state.bids = [];
       console.log('processed auction create', action.payload);
     },
-    setFullAuction: (state, action: PayloadAction<IAuction>) => {
+    setFullAuction: (state, action: PayloadAction<AuctionState>) => {
       console.log(`from set full auction: `, action.payload);
-      state.activeAuction = reduxSafeAuction(action.payload);
+      state.activeAuction = reduxSafeAuction(action.payload.activeAuction as IAuction);
+      state.bids = action.payload.bids.map(e => reduxSafeBid(e));
     },
     appendBid: (state, action: PayloadAction<BidEvent>) => {
       if (!(state.activeAuction && auctionsEqual(state.activeAuction, action.payload))) return;
