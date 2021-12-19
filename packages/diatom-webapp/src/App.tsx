@@ -1,23 +1,23 @@
 import { useEffect } from 'react';
 import { useEthers } from '@usedapp/core';
-import { useAppDispatch, useAppSelector } from './hooks';
+import { useAppDispatch } from './hooks';
 import { setActiveAccount } from './state/slices/account';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { setAlertModal } from './state/slices/application';
+// import { setAlertModal } from './state/slices/application';
 import classes from './App.module.css';
 import '../src/css/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AlertModal from './components/Modal';
+// import AlertModal from './components/Modal';
 import NavBar from './components/NavBar';
-import NetworkAlert from './components/NetworkAlert';
+// import NetworkAlert from './components/NetworkAlert';
 import Footer from './components/Footer';
 import AuctionPage from './pages/Auction';
 import NotFoundPage from './pages/NotFound';
-import { CHAIN_ID } from './config';
+// import { CHAIN_ID } from './config';
 import DaoPage from './pages/Dao';
 
 function App() {
-  const { account, chainId } = useEthers();
+  const { account } = useEthers();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -25,18 +25,18 @@ function App() {
     dispatch(setActiveAccount(account));
   }, [account, dispatch]);
 
-  const alertModal = useAppSelector(state => state.application.alertModal);
+  // const alertModal = useAppSelector(state => state.application.alertModal);
 
   return (
     <div className={`${classes.wrapper}`}>
-      {Number(CHAIN_ID) !== chainId && <NetworkAlert />}
+      {/* {Number(CHAIN_ID) !== chainId && <NetworkAlert />}
       {alertModal.show && (
         <AlertModal
           title={alertModal.title}
           content={<p>{alertModal.message}</p>}
           onDismiss={() => dispatch(setAlertModal({ ...alertModal, show: false }))}
         />
-      )}
+      )} */}
       <BrowserRouter>
         <NavBar />
         <Switch>
