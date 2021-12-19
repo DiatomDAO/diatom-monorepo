@@ -4,7 +4,7 @@ import { useAppSelector } from '../../hooks';
 import classes from './Leaderboard.module.css';
 import { BigNumber } from '@ethersproject/bignumber';
 import { useEffect, useState } from 'react';
-import { IWhaleToken, useWhaleToken } from '../../wrappers/whalezToken';
+import { IWhaleToken } from '../../wrappers/whalezToken';
 import axios from 'axios';
 import { utils } from 'ethers';
 import ShortAddress from '../ShortAddress';
@@ -21,15 +21,12 @@ const formatter = (amount: number | bigint) =>
 const Leaderboard = () => {
   const pastAuctions = useAppSelector((state: RootState) => state.pastAuctions.pastAuctions);
 
-  const genericMetadataURI = useWhaleToken(
-    pastAuctions.length ? pastAuctions[0].activeAuction!.whaleId : BigNumber.from(1),
-  );
+  const genericMetadataURI = 'bafybeihcokvmsq73ao6daq6z23cd6mugwldr3odsfwy7nzdzubskylluma';
   const [auctionsMetadata, setAuctionsMetadata] = useState<any[]>([]);
 
-  const totalPlasticRemoved = formatter(auctionsMetadata.reduce(
-    (a, b) => a + Number(b.plasticRemoved.replace(',', '')),
-    0,
-  ));
+  const totalPlasticRemoved = formatter(
+    auctionsMetadata.reduce((a, b) => a + Number(b.plasticRemoved.replace(',', '')), 0),
+  );
 
   useEffect(() => {
     const pastAuctionsDeepCopy = JSON.parse(JSON.stringify(pastAuctions)) as typeof pastAuctions;
@@ -42,9 +39,7 @@ const Leaderboard = () => {
       const newAuctionsMetadata = await Promise.all(
         nonDaoAuctions.map(async ({ activeAuction, bids }) => {
           const metadataURI =
-            genericMetadataURI!.split('/').slice(-2)[0] +
-            '/' +
-            BigNumber.from(activeAuction?.whaleId).toNumber();
+            genericMetadataURI + '/' + BigNumber.from(activeAuction?.whaleId).toNumber();
           const metadata = await axios.get<IWhaleToken>(generateIpfsRestUrl(metadataURI));
           const { name, image } = metadata.data;
           const eth = Number(utils.formatEther(activeAuction!.amount!));
@@ -87,7 +82,7 @@ const Leaderboard = () => {
           <p>Name</p>
           <div>
             <p className={classes.textRight}>Est. Plastic Removed</p>
-            <p className={classes.textRight}>Total: { totalPlasticRemoved } Kg</p>
+            <p className={classes.textRight}>Total: {totalPlasticRemoved} Kg</p>
           </div>
         </div>
         <div className={classes.leaderboardList}>

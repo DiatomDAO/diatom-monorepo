@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ChainId, DAppProvider } from '@usedapp/core';
+// import { ChainId, DAppProvider } from '@usedapp/core';
 // import { Web3ReactProvider } from '@web3-react/core';
 // import { Web3Provider } from '@ethersproject/providers';
 import account from './state/slices/account';
@@ -28,7 +28,7 @@ import { clientFactory, latestAuctionsQuery } from './wrappers/subgraph';
 import { useEffect } from 'react';
 import pastAuctions, { addPastAuctions } from './state/slices/pastAuctions';
 // import LogsUpdater from './state/updaters/logs';
-import config, { CHAIN_ID, createNetworkHttpUrl } from './config';
+import config from './config';
 // import { WebSocketProvider } from '@ethersproject/providers';
 // import { BigNumber, BigNumberish } from 'ethers';
 // import { WhalezAuctionHouseFactory } from '@diatom/sdk';
@@ -79,18 +79,18 @@ const store = configureStore({});
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-// prettier-ignore
-const useDappConfig = {
-  readOnlyChainId: CHAIN_ID,
-  readOnlyUrls: {
-    [ChainId.Rinkeby]: createNetworkHttpUrl('rinkeby'),
-    [ChainId.Mainnet]: createNetworkHttpUrl('mainnet'),
-    [ChainId.Hardhat]: 'http://localhost:8545',
-  },
-  multicallAddresses: {
-    [ChainId.Hardhat]: config.addresses.Multicall!,
-  }
-};
+// // prettier-ignore
+// const useDappConfig = {
+//   readOnlyChainId: CHAIN_ID,
+//   readOnlyUrls: {
+//     [ChainId.Rinkeby]: createNetworkHttpUrl('rinkeby'),
+//     [ChainId.Mainnet]: createNetworkHttpUrl('mainnet'),
+//     [ChainId.Hardhat]: 'http://localhost:8545',
+//   },
+//   multicallAddresses: {
+//     [ChainId.Hardhat]: config.addresses.Multicall!,
+//   }
+// };
 
 const client = clientFactory(config.app.subgraphApiUri);
 
@@ -199,10 +199,10 @@ ReactDOM.render(
         > */}
         <ApolloProvider client={client}>
           <PastAuctions />
-          <DAppProvider config={useDappConfig}>
-            <App />
-            {/* <Updaters /> */}
-          </DAppProvider>
+          {/* <DAppProvider config={useDappConfig}> */}
+          <App />
+          {/* <Updaters /> */}
+          {/* </DAppProvider> */}
         </ApolloProvider>
         {/* </Web3ReactProvider> */}
       </React.StrictMode>
