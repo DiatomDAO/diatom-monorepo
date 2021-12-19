@@ -172,17 +172,17 @@ const PastAuctions: React.FC = () => {
     .slice(-1)[0];
   const whaleId = !pathWhaleId || isNaN(Number(pathWhaleId)) ? 1 : Number(pathWhaleId);
   const dispatch = useAppDispatch();
-  const currentAuctionIdx = 50 - whaleId;
 
   useEffect(() => {
     if (data) {
+      const currentAuctionIdx = 50 - whaleId;
       dispatch(addPastAuctions({ data }));
       dispatch(setOnDisplayAuctionWhalezId(whaleId));
       dispatch(setFullAuction(reduxSafePastAuction(data.auctions[currentAuctionIdx])));
       dispatch(setLastAuctionWhalezId(50));
       dispatch(push(whalezPath(whaleId)));
     }
-  }, [data, latestAuctionId, dispatch, pathWhaleId]);
+  }, [data, latestAuctionId, dispatch, pathWhaleId, whaleId]);
 
   return <></>;
 };
