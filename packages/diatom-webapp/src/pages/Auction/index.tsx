@@ -31,16 +31,12 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
         dispatch(setOnDisplayAuctionWhalezId(lastAuctionWhalezId));
         dispatch(push(whalezPath(lastAuctionWhalezId)));
       } else {
-        if (onDisplayAuction === undefined) {
-          // handle regular whalez path ids on first load
-          dispatch(setOnDisplayAuctionWhalezId(initialAuctionId));
-        }
+        // handle regular whalez path ids on first load
+        dispatch(setOnDisplayAuctionWhalezId(initialAuctionId));
       }
     } else {
       // no whalez path id set
-      if (lastAuctionWhalezId) {
-        dispatch(setOnDisplayAuctionWhalezId(lastAuctionWhalezId));
-      }
+      dispatch(setOnDisplayAuctionWhalezId(1));
     }
   }, [lastAuctionWhalezId, dispatch, initialAuctionId, onDisplayAuction]);
 
