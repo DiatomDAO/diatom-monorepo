@@ -42,8 +42,6 @@ import { applyMiddleware, createStore, combineReducers, PreloadedState } from 'r
 import { routerMiddleware } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { whalezPath } from './utils/history';
-import { push } from 'connected-react-router';
 
 dotenv.config();
 
@@ -181,7 +179,6 @@ const PastAuctions: React.FC = () => {
       dispatch(setOnDisplayAuctionWhalezId(whaleId));
       dispatch(setFullAuction(reduxSafePastAuction(data.auctions[currentAuctionIdx])));
       dispatch(setLastAuctionWhalezId(50));
-      dispatch(push(whalezPath(whaleId)));
     }
   }, [data, latestAuctionId, dispatch, pathWhaleId, whaleId]);
 

@@ -28,8 +28,8 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
     if (initialAuctionId !== undefined) {
       // handle out of bounds whalez path ids
       if (initialAuctionId > lastAuctionWhalezId || initialAuctionId < 0) {
-        dispatch(setOnDisplayAuctionWhalezId(lastAuctionWhalezId));
-        dispatch(push(whalezPath(lastAuctionWhalezId)));
+        dispatch(setOnDisplayAuctionWhalezId(1));
+        dispatch(push(whalezPath(1)));
       } else {
         // handle regular whalez path ids on first load
         dispatch(setOnDisplayAuctionWhalezId(initialAuctionId));
@@ -37,6 +37,7 @@ const AuctionPage: React.FC<AuctionPageProps> = props => {
     } else {
       // no whalez path id set
       dispatch(setOnDisplayAuctionWhalezId(1));
+      dispatch(push(whalezPath(1)));
     }
   }, [lastAuctionWhalezId, dispatch, initialAuctionId, onDisplayAuction]);
 
