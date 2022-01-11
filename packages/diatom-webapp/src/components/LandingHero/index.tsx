@@ -1,4 +1,4 @@
-import { externalURL, ExternalURL } from '../../utils/externalURL';
+//import { externalURL, ExternalURL } from '../../utils/externalURL';
 import logo from './assets/logo-icon.svg';
 
 import classes from './LandingHero.module.css';
