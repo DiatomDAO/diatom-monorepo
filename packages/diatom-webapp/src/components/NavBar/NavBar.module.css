@@ -1,3 +1,25 @@
+.mainNav{
+  display: block !important;
+  padding-top: 0 !important;
+}
+
+.navalert{
+  display:  block !important;
+  text-align: center !important;
+  width: 100%;
+  max-width:  100% !important;
+  background: #f14300;
+  color:  white;
+  padding:  10px;
+  margin-bottom: 10px;
+  font-weight: bold !important;
+}
+
+.navalert a{
+  color:  white;
+  text-decoration: underline;
+}
+
 .navBarBrand {
   position: relative;
   z-index: 2;

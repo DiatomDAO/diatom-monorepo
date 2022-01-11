@@ -84,21 +84,23 @@ const NavBar = () => {
       {/* {showConnectModal && activeAccount === undefined && (
         <WalletConnectModal onDismiss={hideModalHandler} />
       )} */}
-      <Navbar expand="lg">
+      <Navbar className={classes.mainNav} expand="lg">
+        <Container className={classes.navalert}>
+          Our <a target="_blank" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3">Copperlaunch public sale</a> is live!
+        </Container>
         <Container>
           <Navbar.Brand as={Link} to="/" className={classes.navBarBrand}>
             <strong>Diatom</strong> DAO
           </Navbar.Brand>
           {Number(CHAIN_ID) !== 1 && (
             <Nav.Item>
-              <img className={classes.testnetImg} src={testnetWhalez} alt="testnet whalez" />
               TESTNET
             </Nav.Item>
           )}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            <Nav.Link href="/" className={classes.whalezsNavLink}>
-              DAO
+            <Nav.Link target="_blank" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3" className={classes.whalezsNavLink}>
+              Copperlaunch
             </Nav.Link>
             <Nav.Link href="/auction" className={classes.whalezsNavLink}>
               Whalez Auction

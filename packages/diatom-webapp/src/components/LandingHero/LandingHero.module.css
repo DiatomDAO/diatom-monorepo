@@ -6,7 +6,7 @@
 
   padding: 0 1rem 2rem;
 
-  height: calc(100vh - 58px);
+  height: calc(100vh - 88px);
 
   opacity: 0;
   animation: fadeIn 300ms ease-in forwards;
@@ -23,7 +23,7 @@
 .hero img {
   width: 100%;
   max-width: 150px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 0rem;
 }
 
 .hero h2 {
@@ -67,7 +67,7 @@
 
   text-decoration: none;
 
-  width: 8rem;
+  width: 12rem;
   max-height: 62px;
 }
 
@@ -76,7 +76,7 @@
   background-color: #11545e;
 }
 
-.buttonsContainer a > span {
+.buttonsContainer a > svg {
   display: none;
 }
 
@@ -87,7 +87,7 @@
 @media (min-width: 650px) {
   .hero {
     padding: 0 1rem 2rem;
-    height: calc(100vh - 74px);
+    height: calc(100vh - 140px);
   }
   .hero img {
     max-width: 150px;
@@ -95,10 +95,10 @@
   }
 
   .buttonsContainer a {
-    width: 12rem;
+    width: 16rem;
   }
 
-  .buttonsContainer a > span {
+  .buttonsContainer a > svg {
     display: block;
   }
 }
