@@ -13,6 +13,10 @@ const LandingHero = () => {
       <h2>Ocean Protection, Decentralized</h2>
       <p>A DAO to power proven, measurable and scalable solutions</p>
       <div className={classes.buttonsContainer}>
+        <a target="_blank" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3">
+          <span>Copperlaunch</span>
+        </a>
+        {/*}
         <a href={discordURL}>
           <svg
             fill="currentColor"
@@ -40,6 +44,7 @@ const LandingHero = () => {
           </svg>
           <span>Twitter</span>
         </a>
+        */}
       </div>
     </div>
   );
