@@ -9,7 +9,7 @@ import { useEthers } from '@usedapp/core';
 // import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container } from 'react-bootstrap';
-import testnetWhalez from '../../assets/testnet-whalez.png';
+//import testnetWhalez from '../../assets/testnet-whalez.png';
 import clsx from 'clsx';
 // import config, { CHAIN_ID } from '../../config';
 import { CHAIN_ID } from '../../config';
@@ -86,7 +86,7 @@ const NavBar = () => {
       )} */}
       <Navbar className={classes.mainNav} expand="lg">
         <Container className={classes.navalert}>
-          Our <a target="_blank" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3">Copperlaunch public sale</a> is live!
+          Our <a target="_blank" rel="noreferrer" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3">Copperlaunch public sale</a> is live!
         </Container>
         <Container>
           <Navbar.Brand as={Link} to="/" className={classes.navBarBrand}>
@@ -99,7 +99,7 @@ const NavBar = () => {
           )}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            <Nav.Link target="_blank" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3" className={classes.whalezsNavLink}>
+            <Nav.Link target="_blank" rel="noreferrer" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3" className={classes.whalezsNavLink}>
               Copperlaunch
             </Nav.Link>
             <Nav.Link href="/auction" className={classes.whalezsNavLink}>

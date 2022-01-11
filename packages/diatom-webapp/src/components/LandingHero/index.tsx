@@ -4,8 +4,8 @@ import logo from './assets/logo-icon.svg';
 import classes from './LandingHero.module.css';
 
 const LandingHero = () => {
-  const twitterURL = externalURL(ExternalURL.twitter);
-  const discordURL = externalURL(ExternalURL.discord);
+  // const twitterURL = externalURL(ExternalURL.twitter);
+  // const discordURL = externalURL(ExternalURL.discord);
 
   return (
     <div className={classes.hero}>
@@ -13,7 +13,7 @@ const LandingHero = () => {
       <h2>Ocean Protection, Decentralized</h2>
       <p>A DAO to power proven, measurable and scalable solutions</p>
       <div className={classes.buttonsContainer}>
-        <a target="_blank" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3">
+        <a target="_blank" rel="noreferrer" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3">
           <span>Copperlaunch</span>
         </a>
         {/*}
