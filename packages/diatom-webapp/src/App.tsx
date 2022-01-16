@@ -16,6 +16,11 @@ import NotFoundPage from './pages/NotFound';
 // import { CHAIN_ID } from './config';
 import DaoPage from './pages/Dao';
 
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-VTWKXDV0Y9");
+ReactGA.send("pageview");
+
 function App() {
   const { account } = useEthers();
   const dispatch = useAppDispatch();
