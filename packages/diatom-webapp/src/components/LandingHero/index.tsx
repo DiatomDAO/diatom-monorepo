@@ -13,8 +13,8 @@ const LandingHero = () => {
       <h2>Ocean Protection, Decentralized</h2>
       <p>A DAO to power proven, measurable and scalable solutions</p>
       <div className={classes.buttonsContainer}>
-        <a target="_blank" href="https://polygon.copperlaunch.com/auctions/0x0297314e193430dEd93B6fC00fCA5991d32D77b3">
-          <span>Copperlaunch</span>
+        <a target="_blank" href="https://presale.diatom.fund">
+          <span>Pre-Sale</span>
         </a>
         {/*}
         <a href={discordURL}>
