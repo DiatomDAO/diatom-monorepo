@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useEthers } from '@usedapp/core';
 import { useAppDispatch } from './hooks';
 import { setActiveAccount } from './state/slices/account';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 // import { setAlertModal } from './state/slices/application';
 import classes from './App.module.css';
 import '../src/css/globals.css';
@@ -16,10 +16,10 @@ import NotFoundPage from './pages/NotFound';
 // import { CHAIN_ID } from './config';
 import DaoPage from './pages/Dao';
 
-import ReactGA from "react-ga4";
+import ReactGA from 'react-ga4';
 
-ReactGA.initialize("G-VTWKXDV0Y9");
-ReactGA.send("pageview");
+ReactGA.initialize('G-VTWKXDV0Y9');
+ReactGA.send('pageview');
 
 function App() {
   const { account } = useEthers();
@@ -52,6 +52,14 @@ function App() {
             render={props => <AuctionPage initialAuctionId={Number(props.match.params.id)} />}
           />
           <Route exact path="/auction" component={AuctionPage} />
+          <Route
+            exact
+            path="/music"
+            component={() => {
+              window.location.replace('https://skiomusic.com/contest/diatom-dao-remix-contest');
+              return null;
+            }}
+          />
           <Route component={NotFoundPage} />
         </Switch>
         <Footer />
