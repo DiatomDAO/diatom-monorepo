@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import onScreen from '../../hooks/onScreen';
 
-import classes from './DAOnstream.module.css';
+import classes from './Roadmap.module.css';
 
-const DAOnstream = () => {
+const Roadmap = () => {
   const [showAnimation, setShowAnimation] = useState(false);
 
   const isMobile = window.innerWidth < 900;
@@ -18,7 +18,7 @@ const DAOnstream = () => {
   return (
     <div className={classes.DAOnstream}>
       <div className={classes.titleWrapper}>
-        <h1>What's DAOnstream</h1>
+        <h1>The Roadmap</h1>
       </div>
       <div
         ref={ref}
@@ -26,9 +26,8 @@ const DAOnstream = () => {
       >
         <div className={classes.quarter}>
           <div>
-            <p>NFT Sale</p>
-            <p>Token Sale</p>
-            <p>Bonding &amp; Staking Launch</p>
+            <p>Whalez NFT Sale</p>
+            <p>Whitelist Sale</p>
           </div>
           <div>
             <h3>Q4</h3>
@@ -41,14 +40,17 @@ const DAOnstream = () => {
             <h2>2022</h2>
           </div>
           <div>
-            <p>PRC Token Launch</p>
-            <p>Supply Chain Investments</p>
-            <p>First PRC's Minted</p>
+            <p>Public Token Sale</p>
+            <p>Bonding &amp; Staking Launch</p>
+            <p>PRC Bridge Launch</p>
+            <p>First PRC Minting</p>
           </div>
         </div>
         <div className={classes.quarter}>
           <div>
+            <p>Codename: Ocean Game</p>
             <p>PRC Partner Expansion</p>
+            <p>SMRF's Rollout</p>
           </div>
           <div>
             <h3>Q2</h3>
@@ -68,14 +70,8 @@ const DAOnstream = () => {
         <div className={classes.quarter}>
           <div>
             <p>New Asset Launch</p>
+            <p>Diatom NFT Series</p>
           </div>
-          <div>
-            {/* <h3>Q4</h3>
-            <h2>2022</h2> */}
-          </div>
-        </div>
-        <div className={classes.quarter}>
-          <div></div>
           <div>
             <h3>Beyond</h3>
           </div>
@@ -85,4 +81,4 @@ const DAOnstream = () => {
   );
 };
 
-export default DAOnstream;
+export default Roadmap;
