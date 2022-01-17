@@ -1,11 +1,11 @@
-import { externalURL, ExternalURL } from '../../utils/externalURL';
+//import { externalURL, ExternalURL } from '../../utils/externalURL';
 import logo from './assets/logo-icon.svg';
 
 import classes from './LandingHero.module.css';
 
 const LandingHero = () => {
-  const twitterURL = externalURL(ExternalURL.twitter);
-  const discordURL = externalURL(ExternalURL.discord);
+  // const twitterURL = externalURL(ExternalURL.twitter);
+  // const discordURL = externalURL(ExternalURL.discord);
 
   return (
     <div className={classes.hero}>
@@ -13,7 +13,7 @@ const LandingHero = () => {
       <h2>Ocean Protection, Decentralized</h2>
       <p>A DAO to power proven, measurable and scalable solutions</p>
       <div className={classes.buttonsContainer}>
-        <a target="_blank" href="https://presale.diatom.fund">
+        <a target="_blank" rel="noreferrer" href="https://presale.diatom.fund">
           <span>Pre-Sale</span>
         </a>
         {/*}
