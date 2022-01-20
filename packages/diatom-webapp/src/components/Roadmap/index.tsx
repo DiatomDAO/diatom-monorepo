@@ -1,5 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
 import onScreen from '../../hooks/onScreen';
+// import verticalRoadmapWaves from '../../assets/verticalRoadmapWaves.svg';
+// import horizontalRoadmapWaves from '../../assets/horizontalRoadmapWaves.svg';
+import horizontalRoadmapLine from '../../assets/horizontalRoadmapLine.svg';
+import verticalRoadmapLine from '../../assets/verticalRoadmapLine.svg';
 
 import classes from './Roadmap.module.css';
 
@@ -16,64 +20,83 @@ const Roadmap = () => {
   }, [isVisible]);
 
   return (
-    <div className={classes.DAOnstream}>
+    <div className={classes.roadmap}>
       <div className={classes.titleWrapper}>
         <h1>The Roadmap</h1>
       </div>
       <div
         ref={ref}
-        className={`${classes.timelineContainer} ${showAnimation ? classes.timelineAnimation : ''}`}
+        className={`${classes.roadmapContainer} ${showAnimation ? classes.roadmapAnimation : ''}`}
       >
-        <div className={classes.quarter}>
-          <div>
-            <p>Whalez NFT Sale</p>
-            <p>Whitelist Sale</p>
+        <div className={classes.roadmapColumn}>
+          <div className={classes.quarter}>
+            <h2>Q1</h2>
+            <h3>2022</h3>
           </div>
-          <div>
-            <h3>Q4</h3>
-            <h2>2021</h2>
+          <div className={classes.quarter}>
+            <h2>Q2</h2>
+            <h3>2022</h3>
+          </div>
+          <div className={classes.quarter}>
+            <h2>Q3</h2>
+            <h3>2022</h3>
+          </div>
+          <div className={classes.quarter}>
+            <h2>Q4</h2>
+            <h3>2022</h3>
           </div>
         </div>
-        <div className={classes.quarter}>
-          <div>
-            <h3>Q1</h3>
-            <h2>2022</h2>
+        <div className={`${classes.roadmapColumn} ${classes.roadmapWavesColumn}`}>
+          <div className={classes.quarter}>
+            <img
+              className={classes.roadmapLine}
+              src={isMobile ? horizontalRoadmapLine : verticalRoadmapLine}
+              alt="Roadmap line"
+            />
           </div>
-          <div>
-            <p>Public Token Sale</p>
+          <div className={classes.quarter}>
+            <img
+              className={classes.roadmapLine}
+              src={isMobile ? horizontalRoadmapLine : verticalRoadmapLine}
+              alt="Roadmap line"
+            />
+          </div>
+          <div className={classes.quarter}>
+            <img
+              className={classes.roadmapLine}
+              src={isMobile ? horizontalRoadmapLine : verticalRoadmapLine}
+              alt="Roadmap line"
+            />
+          </div>
+          <div className={classes.quarter}>
+            <img
+              className={classes.roadmapLine}
+              src={isMobile ? horizontalRoadmapLine : verticalRoadmapLine}
+              alt="Roadmap line"
+            />
+          </div>
+          <div className={classes.roadmapWaves} />
+        </div>
+        <div className={classes.roadmapColumn}>
+          <div className={classes.quarter}>
+            <p>NFT Sale</p>
+            <p>Token Sale</p>
             <p>Bonding &amp; Staking Launch</p>
-            <p>PRC Bridge Launch</p>
-            <p>First PRC Minting</p>
           </div>
-        </div>
-        <div className={classes.quarter}>
-          <div>
-            <p>Codename: Ocean Game</p>
-            <p>PRC Partner Expansion</p>
-            <p>SMRF's Rollout</p>
+          <div className={classes.quarter}>
+            <p>NFT Sale</p>
+            <p>Token Sale</p>
+            <p>Bonding &amp; Staking Launch</p>
           </div>
-          <div>
-            <h3>Q2</h3>
-            <h2>2022</h2>
+          <div className={classes.quarter}>
+            <p>NFT Sale</p>
+            <p>Token Sale</p>
+            <p>Bonding &amp; Staking Launch</p>
           </div>
-        </div>
-        <div className={classes.quarter}>
-          <div>
-            <h3>Q3</h3>
-            <h2>2022</h2>
-          </div>
-          <div>
-            <p>Corporate Partnerships</p>
-            <p>New Asset Class Dev</p>
-          </div>
-        </div>
-        <div className={classes.quarter}>
-          <div>
-            <p>New Asset Launch</p>
-            <p>Diatom NFT Series</p>
-          </div>
-          <div>
-            <h3>Beyond</h3>
+          <div className={classes.quarter}>
+            <p>NFT Sale</p>
+            <p>Token Sale</p>
+            <p>Bonding &amp; Staking Launch</p>
           </div>
         </div>
       </div>
