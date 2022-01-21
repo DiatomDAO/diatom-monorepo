@@ -79,24 +79,23 @@ const Roadmap = () => {
         </div>
         <div className={classes.roadmapColumn}>
           <div className={classes.quarter}>
-            <p>NFT Sale</p>
-            <p>Token Sale</p>
+            <p>Public Token Sale</p>
             <p>Bonding &amp; Staking Launch</p>
+            <p>PRC Bridge Launch</p>
+            <p>First PRC Minting</p>
           </div>
           <div className={classes.quarter}>
-            <p>NFT Sale</p>
-            <p>Token Sale</p>
-            <p>Bonding &amp; Staking Launch</p>
+            <p>Codename: Ocean Game</p>
+            <p>PRC Partner Expansion</p>
+            <p>SMRF's Rollout</p>
           </div>
           <div className={classes.quarter}>
-            <p>NFT Sale</p>
-            <p>Token Sale</p>
-            <p>Bonding &amp; Staking Launch</p>
+            <p>Corporate Partnerships</p>
+            <p>New Asset Class Dev</p>
           </div>
           <div className={classes.quarter}>
-            <p>NFT Sale</p>
-            <p>Token Sale</p>
-            <p>Bonding &amp; Staking Launch</p>
+            <p>New Asset Launch</p>
+            <p>Diatom NFT Series</p>
           </div>
         </div>
       </div>
