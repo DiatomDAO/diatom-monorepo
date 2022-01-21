@@ -9,7 +9,7 @@ const Roadmap = () => {
   const isMobile = window.innerWidth < 900;
 
   const ref = useRef(null);
-  const isVisible = onScreen(ref, { threshold: isMobile ? 0.3 : 1 });
+  const isVisible = onScreen(ref, { threshold: isMobile ? 0.3 : 0.75 });
 
   useEffect(() => {
     if (isVisible) setShowAnimation(true);
@@ -42,16 +42,8 @@ const Roadmap = () => {
             <h3>2022</h3>
           </div>
         </div>
-        <div
-          className={`${classes.roadmapColumn} ${classes.roadmapWavesColumn}`}
-          onClick={() => setShowAnimation(!showAnimation)}
-        >
+        <div className={`${classes.roadmapColumn} ${classes.roadmapWavesColumn}`}>
           <div className={classes.quarter}>
-            {/* <img
-              className={classes.roadmapLine}
-              src={isMobile ? horizontalRoadmapLine : verticalRoadmapLine}
-              alt="Roadmap line"
-            /> */}
             <svg
               className={classes.mobileRoadmapLine}
               width="124"
