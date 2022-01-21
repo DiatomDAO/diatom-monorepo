@@ -62,7 +62,7 @@
   margin-top: 1.5rem;
   gap: 1rem;
 
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
 }
 
 .roadmapContainer h2 {
@@ -105,128 +105,152 @@
   text-align: right;
 }
 
-.roadmapWaves {
+.mobileRoadmapWaves {
   position: absolute;
   top: 0;
   left: 50%;
 
   transform: translate(-50%, 30px);
 
-  width: 100%;
+  width: 50px;
   height: 100%;
-
-  background: url('../../assets/verticalRoadmapWaves.svg') no-repeat;
-  background-size: 50px 100%;
-  background-position: center center;
-
-  grid-row: span 4;
 }
 
- .quarter {
+.desktopRoadmapWaves {
+  display: none;
+}
+
+.mobileRoadmapWaves path, .desktopRoadmapWaves path {
+  stroke-dasharray: 1938;
+  stroke-dashoffset: 1938;
+}
+
+.quarter {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
 }
 
-.roadmapWavesColumn > .quarter > img {
-  width: calc(50% + 12px);
+.mobileRoadmapLine {
+  /* width: calc(50% + 12px); */
+  width: 0%;
   height: 5px;
 }
 
-.roadmapWavesColumn > .quarter:nth-of-type(odd) {
-  align-items: flex-end;
+.desktopRoadmapLine {
+  display: none;
+  height: 0%;
+  width: 5px;
 }
 
-/*
-.quarter > div {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1.5rem 1rem;
-  width: 50%;
-  height: 100%;
-  min-height: 128px;
+.mobileRoadmapLine path {
+  stroke-dasharray: 10;
 }
 
-.quarter:nth-child(odd) > div:first-of-type {
-  justify-content: flex-end;
+.roadmapWavesColumn > .quarter:nth-of-type(odd) > * {
+  margin-left: calc(50% - 12px);
 }
 
-.quarter:nth-child(even) > div:last-of-type {
-  justify-content: flex-end;
-}
+/* animations settings */
 
-.quarter:nth-child(odd) p {
-  text-align: right;
-}
-
-.quarter:nth-child(even) > div:first-of-type {
-  text-align: right;
-}
-
-.quarter:nth-child(even) > div:first-of-type::after {
-  content: '';
-  width: 50px;
-  height: 100%;
-
-  position: absolute;
-  top: 0;
-  right: -1px;
-
-  border-right: 2px solid #34885a;
-  border-bottom: 2px solid #34885a;
-
+.roadmapColumn > .quarter {
   opacity: 0;
 }
 
-.quarter:nth-child(odd) > div:first-of-type::after {
-  content: '';
-  width: 50px;
-  height: 100%;
-
-  position: absolute;
-  top: 0;
-  left: calc(100% - 1px);
-
-  border-left: 2px solid #34885a;
-  border-bottom: 2px solid #34885a;
-
-  opacity: 0;
+.roadmapColumn:nth-of-type(2) > .quarter {
+  opacity: 1;
 }
 
-.quarter:last-of-type {
-  min-height: 100px;
+.roadmapAnimation .mobileRoadmapWaves path, .roadmapAnimation .desktopRoadmapWaves path {
+  animation: forwardRoadmap 6s ease-in-out forwards;
 }
 
-.quarter:last-of-type > div:last-of-type {
-  justify-content: start;
+@keyframes forwardRoadmap {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-.quarter:last-of-type > div:first-of-type::after {
-  border-bottom: none;
+.roadmapAnimation .mobileRoadmapLine {
+  animation: forwardLine 600ms ease-in-out forwards;
 }
 
-.roadmapAnimation > .quarter > div::after {
-  animation: growingroadmap 1s linear forwards;
+@keyframes forwardLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(50% + 12px);
+  }
 }
 
-.roadmapAnimation > .quarter:nth-child(2) > div::after {
-  animation-delay: 0.5s;
+.roadmapAnimation .desktopRoadmapLine {
+  animation: upwardLine 600ms ease-in-out forwards;
 }
-.roadmapAnimation > .quarter:nth-child(3) > div::after {
+
+@keyframes upwardLine {
+  from {
+    height: 0;
+  }
+  to {
+    height: calc(50% + 20px);
+  }
+}
+
+.roadmapAnimation .quarter {
+  animation: fadeIn 800ms ease-in-out forwards;
+}
+
+/* first row */
+.roadmapAnimation > .roadmapColumn:nth-child(1) > .quarter:nth-child(1) {
   animation-delay: 1s;
 }
-.roadmapAnimation > .quarter:nth-child(4) > div::after {
-  animation-delay: 1.5s;
+.roadmapAnimation > .roadmapColumn:nth-child(2) .quarter:nth-child(1) > * {
+  animation-delay: 1.4s;
 }
-.roadmapAnimation > .quarter:nth-child(5) > div::after {
+.roadmapAnimation > .roadmapColumn:nth-child(3) > .quarter:nth-child(1) {
+  animation-delay: 1.8s;
+}
+
+/* second row */
+.roadmapAnimation > .roadmapColumn:nth-child(1) > .quarter:nth-child(2) {
   animation-delay: 2s;
 }
-.roadmapAnimation > .quarter:nth-child(6) > div::after {
-  animation-delay: 2.5s;
-} */
+.roadmapAnimation > .roadmapColumn:nth-child(2) > .quarter:nth-child(2) > * {
+  animation-delay: 2.3s;
+}
+.roadmapAnimation > .roadmapColumn:nth-child(3) > .quarter:nth-child(2) {
+  animation-delay: 2.7s;
+}
+
+/* third row */
+.roadmapAnimation > .roadmapColumn:nth-child(1) > .quarter:nth-child(3) {
+  animation-delay: 3s;
+}
+.roadmapAnimation > .roadmapColumn:nth-child(2) > .quarter:nth-child(3) > * {
+  animation-delay: 3.4s;
+}
+.roadmapAnimation > .roadmapColumn:nth-child(3) > .quarter:nth-child(3) {
+  animation-delay: 3.8s;
+}
+
+/* fourth row */
+.roadmapAnimation > .roadmapColumn:nth-child(1) > .quarter:nth-child(4)  {
+  animation-delay: 4s;
+}
+.roadmapAnimation > .roadmapColumn:nth-child(2) > .quarter:nth-child(4) > * {
+  animation-delay: 4.4s;
+}
+.roadmapAnimation > .roadmapColumn:nth-child(3) > .quarter:nth-child(4) {
+  animation-delay: 4.75s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
 @media (min-width: 900px) {
   .roadmap {
@@ -257,7 +281,7 @@
     grid-template-rows: 1fr 180px 1fr;
     gap: 0;
     margin-top: 3rem;
-  
+
     padding: 0 1rem;
 
     transform: translateX(-4.2%);
@@ -284,7 +308,7 @@
     grid-template-rows: 1fr;
     grid-template-columns: repeat(4, 1fr);
     gap: 0rem;
-  
+
     position: relative;
     min-height: 80px;
   }
@@ -302,22 +326,42 @@
     align-items: flex-end;
   }
 
-  .roadmapWaves {
+  .mobileRoadmapWaves {
+    display: none;
+  }
+
+  .desktopRoadmapWaves {
+    display: block;
+
     position: absolute;
     left: 0;
     top: 50%;
-  
-    transform: translate(4.2%,-50%);
-  
+
+    transform: translate(4.2%, -50%);
+
     width: 100%;
-    height: 100%;
-  
-    background-image: url('../../assets/horizontalRoadmapWaves.svg');
-    background-size: 100% 80px;
+    height: 80px;
   }
 
   .roadmapWavesColumn {
     grid-row: 2;
+  }
+
+  .roadmapWavesColumn > .quarter {
+    max-height: 180px;
+  }
+
+  .roadmapWavesColumn > .quarter:nth-of-type(odd) > * {
+    margin-bottom: 70px;
+    margin-left: 0;
+  }
+
+  .mobileRoadmapLine {
+    display: none;
+  }
+
+  .desktopRoadmapLine {
+    display: block;
   }
 
   .roadmapWavesColumn > .quarter > img {
@@ -329,9 +373,8 @@
     align-items: center;
     justify-content: flex-end;
   }
-  
+
   .roadmapWavesColumn > .quarter:nth-of-type(odd) {
     align-items: center;
-    justify-content: flex-start;
   }
 }
