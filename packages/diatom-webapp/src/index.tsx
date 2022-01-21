@@ -191,11 +191,11 @@ ReactDOM.render(
       {/* <ChainSubscriber /> */}
       <React.StrictMode>
         <ApolloProvider client={client}>
-          {/* <PastAuctions /> */}
+          <PastAuctions />
+          <DAppProvider config={useDappConfig}>
             <App />
-          {/* <DAppProvider config={useDappConfig}>
-            <Updaters />
-          </DAppProvider> */}
+            {/* <Updaters /> */}
+          </DAppProvider>
         </ApolloProvider>
       </React.StrictMode>
     </ConnectedRouter>
