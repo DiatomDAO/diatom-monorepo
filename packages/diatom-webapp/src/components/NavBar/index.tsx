@@ -85,9 +85,6 @@ const NavBar = () => {
         <WalletConnectModal onDismiss={hideModalHandler} />
       )} */}
       <Navbar className={classes.mainNav} expand="lg">
-        <Container className={classes.navalert}>
-          Our <a target="_blank" rel="noreferrer" href="https://presale.diatom.fund">Pre-Sale Batch Auction</a> begins Jan 17th
-        </Container>
         <Container>
           <Navbar.Brand as={Link} to="/" className={classes.navBarBrand}>
             <strong>Diatom</strong> DAO
@@ -99,9 +96,6 @@ const NavBar = () => {
           )}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            <Nav.Link target="_blank" href="https://presale.diatom.fund" className={classes.whalezsNavLink}>
-              Pre-Sale
-            </Nav.Link>
             <Nav.Link href="/auction" className={classes.whalezsNavLink}>
               Whalez NFT
             </Nav.Link>
