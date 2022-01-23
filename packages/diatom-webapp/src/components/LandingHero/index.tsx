@@ -12,11 +12,7 @@ const LandingHero = () => {
       <img src={logo} alt="Diatom DAO logo" />
       <h2>Ocean Protection, Decentralized</h2>
       <p>A DAO to power proven, measurable and scalable solutions</p>
-      <div className={classes.buttonsContainer}>
-        <a target="_blank" rel="noreferrer" href="https://presale.diatom.fund">
-          <span>Pre-Sale</span>
-        </a>
-        {/*}
+      {/*}
         <a href={discordURL}>
           <svg
             fill="currentColor"
@@ -45,7 +41,6 @@ const LandingHero = () => {
           <span>Twitter</span>
         </a>
         */}
-      </div>
     </div>
   );
 };
