@@ -1,0 +1,15 @@
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.articlesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  width: 100%;
+}
+
