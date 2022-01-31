@@ -324,6 +324,7 @@
 
   .roadmapColumn:last-of-type > .quarter {
     align-items: flex-end;
+    justify-content: flex-end;
   }
 
   .mobileRoadmapWaves {

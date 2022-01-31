@@ -223,23 +223,25 @@ const Roadmap = () => {
         </div>
         <div className={classes.roadmapColumn}>
           <div className={classes.quarter}>
-            <p>Public Token Sale</p>
-            <p>Bonding &amp; Staking Launch</p>
-            <p>PRC Bridge Launch</p>
-            <p>First PRC Minting</p>
+            <p>PRC Bridge Complete</p>
+            <p>First PRC’s Minted</p>
+            <p>Public Launch</p>
+            <p>Governance Model Launch</p>
           </div>
           <div className={classes.quarter}>
-            <p>Codename: Ocean Game</p>
-            <p>PRC Partner Expansion</p>
-            <p>SMRF's Rollout</p>
+            <p>Additional PRC investments</p>
+            <p>10,000 NFT Collection Launch</p>
+            <p>SMRF Pilot Launch</p>
+            <p>Diatom Store</p>
           </div>
           <div className={classes.quarter}>
-            <p>Corporate Partnerships</p>
-            <p>New Asset Class Dev</p>
+            <p>PRC Sales Begins</p>
+            <p>Codename: “Ocean Game”</p>
+            <p>Whale Carbon Tokenization</p>
+            <p>Ocean Company Investments</p>
           </div>
           <div className={classes.quarter}>
-            <p>New Asset Launch</p>
-            <p>Diatom NFT Series</p>
+            <p>Additional Ocean Asset Launch</p>
           </div>
         </div>
       </div>
