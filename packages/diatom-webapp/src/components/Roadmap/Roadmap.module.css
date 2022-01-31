@@ -30,7 +30,7 @@
 
   border-radius: 10%;
   height: 3px;
-  width: calc(50% - 140px);
+  width: calc(50% - 190px);
   background: #5b6459;
 }
 
@@ -42,7 +42,7 @@
 
   border-radius: 10%;
   height: 3px;
-  width: calc(50% - 140px);
+  width: calc(50% - 190px);
   background: #5b6459;
 }
 
@@ -268,11 +268,11 @@
   }
 
   .roadmap h1::after {
-    width: calc(50% - 175px);
+    width: calc(50% - 245px);
   }
 
   .roadmap h1::before {
-    width: calc(50% - 175px);
+    width: calc(50% - 245px);
   }
 
   .roadmapContainer {
