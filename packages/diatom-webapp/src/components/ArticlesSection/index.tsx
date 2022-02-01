@@ -21,7 +21,7 @@ const ArticlesSection = () => (
         target="_blank"
         rel="noreferrer"
       >
-        <p>Diatom DAO is Scouting 100 Polluting Rivers in Indonesia with Sungai Watch</p>
+        <p>Introducing: Diatom DAO</p>
         <img src={schoolOfFish} alt="Polluted River" />
       </a>
       <a
@@ -29,7 +29,7 @@ const ArticlesSection = () => (
         target="_blank"
         rel="noreferrer"
       >
-        <p>Diatom DAO is Scouting 100 Polluting Rivers in Indonesia with Sungai Watch</p>
+        <p>Plastic Removal Credits (PRC) — WhitePaper Pt. 1/3</p>
         <img src={removingPlastic} alt="Polluted River" />
       </a>
     </div>
