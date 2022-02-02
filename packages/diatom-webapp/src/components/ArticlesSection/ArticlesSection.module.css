@@ -4,7 +4,7 @@
 
   max-width: 1444px;
   margin: 0 auto;
-  padding: 0 5rem;
+  padding: 0 2rem;
 }
 
 .sectionContainer h2 {
@@ -12,6 +12,7 @@
   font-weight: 600;
   font-size: 2rem;
   margin: 0;
+  padding: 0 3rem;
 }
 
 .articlesContainer {
@@ -19,22 +20,21 @@
   grid-template-columns: repeat(3, 1fr);
 
   width: 100%;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 4rem;
+  margin-top: 2.5rem;
 }
 
 .articlesContainer > a {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
+  height: 290px;
   
   border-radius: 25px;
   overflow: hidden;
-  /* background-color: rgba(72, 159, 166, 0.1); */
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  border: none;
 
   text-decoration: none;
   color: #000;
@@ -48,8 +48,26 @@
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
+.pollutingRiversImg {
+  background-image: url('./assets/pollutingRivers.jpg');
+}
+
+.schoolOfFishImg {
+  background-image: url('./assets/schoolOfFish.jpg');
+}
+
+.removingPlasticImg {
+  background-image: url('./assets/removingPlastic.jpg');
+  background-position: left center !important;
+}
+
 .articlesContainer > a > p {
-  padding: 15px 25px 0;
+  border-radius: 25px 0 0;
+  padding: 20px 25px;
+
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
   color: #043039;
   font-size: 18px;
@@ -59,10 +77,11 @@
 
 .articlesContainer > a  > img {
   width: 100%;
+  height: 100%;
 }
 
 .articlesContainer > a:hover {
-  transform: scale(1.01) translateZ(0);
+  transform: scale(1.005) translateZ(0);
   box-shadow: 12px 12px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -80,6 +99,10 @@
   .articlesContainer {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .sectionContainer h2 {
+    padding: 0;
   }
 
   .articlesContainer > a {
