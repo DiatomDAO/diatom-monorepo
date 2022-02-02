@@ -10,6 +10,8 @@
   background-position: center top;
   background-repeat: repeat-y;
   background-size: 100% 4000px;
+
+  overflow-x: hidden;
 }
 
 html {
