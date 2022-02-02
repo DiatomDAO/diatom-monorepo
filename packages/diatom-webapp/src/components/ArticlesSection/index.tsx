@@ -10,7 +10,7 @@ const ArticlesSection = () => (
         target="_blank"
         rel="noreferrer"
       >
-        <p>Diatom DAO is Scouting 100 Polluting Rivers in Indonesia with Sungai Watch</p>
+        <p>Diatom’s Ocean Investment Strategy</p>
       </a>
       <a
         className={classes.schoolOfFishImg}
