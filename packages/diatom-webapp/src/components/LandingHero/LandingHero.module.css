@@ -87,7 +87,7 @@
 @media (min-width: 650px) {
   .hero {
     padding: 0 1rem 2rem;
-    height: calc(100vh - 140px);
+    height: calc(100vh - 74px);
   }
   .hero img {
     max-width: 150px;
