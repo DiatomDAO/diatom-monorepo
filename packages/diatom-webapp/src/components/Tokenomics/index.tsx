@@ -3,6 +3,7 @@ import onScreen from '../../hooks/onScreen';
 import logo from './assets/diatomLogo.svg';
 import coin from './assets/coin.png';
 import usdToken from './assets/usdToken.png';
+import rightUsdToken from './assets/rightUsdToken.png';
 import polygonToken from './assets/polygonToken.png';
 import bonding from './assets/bonding.svg';
 import removal from './assets/removal.svg';
@@ -76,11 +77,10 @@ const Tokenomics = () => {
       <div
         id="Tokenomics"
         className={`${classes.section} ${currentSectionVisible >= 6 ? classes.contentFadeIn : ''}`}
-        // className={classes.section}
       >
         <h1>Tokenomics</h1>
         <img ref={desktopCentralImg} className={classes.centralImg} src={logo} alt="Logo" />
-        <h4 className={classes.diatomHeadline}>DiatomDAO</h4>
+        <h4 className={classes.diatomHeadline}>How PRC Works</h4>
         <div
           ref={sectionOneRef}
           className={`${classes.sectionOne} ${
@@ -99,7 +99,7 @@ const Tokenomics = () => {
             </div>
             <img src={logo} alt="Bonding" />
           </div>
-          <h2>01 Bonding</h2>
+          <h2>01 Invest</h2>
           <p>
             Members of the DAO buy DIAT at a discount in exchange for tokens that build the
             treasury.
@@ -170,7 +170,8 @@ const Tokenomics = () => {
               <div className={classes.wind} />
             </div>
             <div>
-              <img src={polygonToken} alt="Coin" />
+              <img src={rightUsdToken} alt="Coin" />
+              {/* <img src={polygonToken} alt="Coin" /> */}
             </div>
           </div>
           <div className={classes.coinsSectionTwo}>
