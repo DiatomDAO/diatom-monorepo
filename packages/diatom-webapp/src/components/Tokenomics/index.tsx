@@ -78,7 +78,7 @@ const Tokenomics = () => {
         id="Tokenomics"
         className={`${classes.section} ${currentSectionVisible >= 6 ? classes.contentFadeIn : ''}`}
       >
-        <h1>Tokenomics</h1>
+        <h1>How PRC Works</h1>
         <img ref={desktopCentralImg} className={classes.centralImg} src={logo} alt="Logo" />
         <h4 className={classes.diatomHeadline}>How PRC Works</h4>
         <div

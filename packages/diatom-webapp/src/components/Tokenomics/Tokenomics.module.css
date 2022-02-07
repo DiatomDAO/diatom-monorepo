@@ -30,7 +30,7 @@
 
   border-radius: 10%;
   height: 3px;
-  width: calc(50% - 125px);
+  width: calc(50% - 165px);
   background: #5B6459;
 }
 
@@ -42,7 +42,7 @@
 
   border-radius: 10%;
   height: 3px;
-  width: calc(50% - 130px);
+  width: calc(50% - 165px);
   background: #5B6459;
 }
 
@@ -245,11 +245,11 @@
   }
   
   .section h1::after {
-    width: calc(50% - 145px);
+    width: calc(50% - 190px);
   }
   
   .section h1::before {
-    width: calc(50% - 145px);
+    width: calc(50% - 190px);
   }
 
   .section > div {
