@@ -49,7 +49,7 @@ const InfoSections = () => {
 
   return (
     <div id="works" className={classes.infoSections}>
-      <h1>How it works</h1>
+      <h1>Investments</h1>
       <div
         ref={sectionOneRef}
         className={`${classes.sectionLeft} ${showSectionOne ? classes.fadeIn : ''}`}
@@ -57,12 +57,13 @@ const InfoSections = () => {
         <div>
           <div className={classes.sectionTitle}>
             <p>01</p>
-            <h2>The Treasury</h2>
+            <h2>PRC &amp; Ocean Assets</h2>
           </div>
           <p>
-            We sell bonds of discounted DIAT for ETH, DAI and other tokens in order to build up our
-            DAO treasury. The treasury is used to back DIAT with intrinsic value (like how gold used
-            to back the Dollar).
+            Diatom is both establishing and expanding on existing asset classes that protect the
+            ocean, tapping into a $24 Trillion ocean economy, while generating healthy returns for
+            investors. Our first primary asset is Plastic Removal Credits (PRC), unlocking financial
+            incentives that clean our ocean, rather than extract from it.
           </p>
         </div>
         <div>
@@ -79,12 +80,13 @@ const InfoSections = () => {
         <div>
           <div className={classes.sectionTitle}>
             <p>02</p>
-            <h2>LP Fees</h2>
+            <h2>Ocean Protection Infrastructure</h2>
           </div>
           <p>
-            Having a large treasury allows us to provide and own 99%+ of our liquidity pools (LP's)
-            on exchanges. That means every single trade of DIAT pays liquidity fees
-            back to our treasury.
+            Diatom is investing in plastic removal infrastructure that generate PRC for the
+            treasury in perpetuity, such as River Booms that catch ocean-bound plastic, Plastic
+            Processing Facilities, Ocean Drones and crowdsourced solutions to ocean protection. You
+            can think of these as real-world “miners” of PRC.
           </p>
         </div>
       </div>
@@ -95,12 +97,14 @@ const InfoSections = () => {
         <div>
           <div className={classes.sectionTitle}>
             <p>03</p>
-            <h2>Staking</h2>
+            <h2>Ocean Solutions Company Portfolio</h2>
           </div>
           <p>
-            All DIAT holders can 'stake' their tokens for 3X daily compounding yield. This is good
-            for holders, since they get an incredible interest rate for holding, and it's good for
-            the DAO, since fewer people selling equates to increased DIAT value.
+            Diatom will also invest in off-chain private companies whose mission is aligned with
+            ocean protection, and have a clear and credible plan to generate healthy ROI in a
+            reasonable time frame. These opportunity zones include marine debris/Port reception
+            facilities, new material design, sustainable aquaculture, offshore renewable energy, and
+            technology for ocean data collection.
           </p>
         </div>
         <div>
@@ -117,13 +121,12 @@ const InfoSections = () => {
         <div>
           <div className={classes.sectionTitle}>
             <p>04</p>
-            <h2>Ocean Protection</h2>
+            <h2>DeFi investments</h2>
           </div>
           <p>
-            Unlike many other DAO's, we have a mission: to protect the ocean! We're using treasury
-            funds to invest in highly-vetted ocean protection &amp; cleanup projects. Some will be
-            donations, and others will be high-yield investments that also serve to build up our
-            treasury value.
+            As a DAO running on the blockchain, we will also invest in crypto to consistently expand
+            the DAO’s buying power to invest in ocean protection initiatives, including safe and
+            stable bets along with a smaller allocation of higher-risk / higher-reward projects.
           </p>
         </div>
       </div>
