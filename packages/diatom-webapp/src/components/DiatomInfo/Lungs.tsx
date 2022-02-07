@@ -1,43 +1,44 @@
-import { useEffect, useState, useRef } from 'react';
-import onScreen from '../../hooks/onScreen';
+// import { useEffect, useState, useRef } from 'react';
+// import onScreen from '../../hooks/onScreen';
 
 import diatom from './assets/diatom.png';
 import classes from './Lungs.module.css';
-import coin from './assets/coin.png';
-import communityImg from './assets/community.png';
-import protocolImg from './assets/protocol.png';
 import rightArrow from './assets/rightArrow.svg';
 
+// import coin from './assets/coin.png';
+// import communityImg from './assets/community.png';
+// import protocolImg from './assets/protocol.png';
+
 const Lungs = () => {
-  const [showTopicOne, setShowTopicOne] = useState(false);
-  const [showTopicTwo, setShowTopicTwo] = useState(false);
-  const [showTopicThree, setShowTopicThree] = useState(false);
+  // const [showTopicOne, setShowTopicOne] = useState(false);
+  // const [showTopicTwo, setShowTopicTwo] = useState(false);
+  // const [showTopicThree, setShowTopicThree] = useState(false);
 
-  const isMobile = window.innerWidth < 900;
+  // const isMobile = window.innerWidth < 900;
 
-  const topicOneRef = useRef(null);
-  const isTopicOneVisible = onScreen(topicOneRef, {
-    threshold: isMobile ? 1 : 0.5,
-    rootMargin: isMobile ? '0px' : '-130px',
-  });
+  // const topicOneRef = useRef(null);
+  // const isTopicOneVisible = onScreen(topicOneRef, {
+  //   threshold: isMobile ? 1 : 0.5,
+  //   rootMargin: isMobile ? '0px' : '-130px',
+  // });
 
-  const topicTwoRef = useRef(null);
-  const isTopicTwoVisible = onScreen(topicTwoRef, {
-    threshold: isMobile ? 1 : 0.5,
-    rootMargin: isMobile ? '0px' : '-130px',
-  });
+  // const topicTwoRef = useRef(null);
+  // const isTopicTwoVisible = onScreen(topicTwoRef, {
+  //   threshold: isMobile ? 1 : 0.5,
+  //   rootMargin: isMobile ? '0px' : '-130px',
+  // });
 
-  const topicThreeRef = useRef(null);
-  const isTopicThreeVisible = onScreen(topicThreeRef, {
-    threshold: isMobile ? 1 : 0.5,
-    rootMargin: isMobile ? '0px' : '-130px',
-  });
+  // const topicThreeRef = useRef(null);
+  // const isTopicThreeVisible = onScreen(topicThreeRef, {
+  //   threshold: isMobile ? 1 : 0.5,
+  //   rootMargin: isMobile ? '0px' : '-130px',
+  // });
 
-  useEffect(() => {
-    if (isTopicOneVisible) setShowTopicOne(true);
-    if (isTopicTwoVisible) setShowTopicTwo(true);
-    if (isTopicThreeVisible) setShowTopicThree(true);
-  }, [isTopicOneVisible, isTopicTwoVisible, isTopicThreeVisible]);
+  // useEffect(() => {
+  //   if (isTopicOneVisible) setShowTopicOne(true);
+  //   if (isTopicTwoVisible) setShowTopicTwo(true);
+  //   if (isTopicThreeVisible) setShowTopicThree(true);
+  // }, [isTopicOneVisible, isTopicTwoVisible, isTopicThreeVisible]);
 
   return (
     <>
@@ -61,7 +62,7 @@ const Lungs = () => {
           </div>
         </div>
       </div>
-      <div className={classes.topics}>
+      {/* <div className={classes.topics}>
         <div
           ref={topicOneRef}
           className={`${classes.topic} ${showTopicOne ? classes.fadeIn : ''}`}
@@ -98,7 +99,7 @@ const Lungs = () => {
             benefit all, and not just one small party.
           </p>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
