@@ -10,7 +10,6 @@ const DiatomInfo = () => (
     <ArticlesSection />
     <Lungs />
     <InfoSections />
-    <PlasticCredits />
   </>
 );
 

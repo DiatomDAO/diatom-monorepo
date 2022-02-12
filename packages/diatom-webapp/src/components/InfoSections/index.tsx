@@ -57,17 +57,14 @@ const InfoSections = () => {
         <div>
           <div className={classes.sectionTitle}>
             <p>01</p>
-            <h2>PRC &amp; Ocean Assets</h2>
+            <h2>Plastic Removal Credits (PRC)</h2>
           </div>
           <p>
-            Diatom is both establishing and expanding on existing asset classes that protect the
-            ocean, tapping into a $24 Trillion ocean economy, while generating healthy returns for
-            investors. Our first primary asset is Plastic Removal Credits (PRC), unlocking financial
-            incentives that clean our ocean, rather than extract from it.
+            Diatom is building a bridge to create the first-ever Plastic Removal Credit. PRC is like Carbon Credits, but for plastic removed from the ocean. We're funding plastic cleanup to amass PRC in our treasury, and investing in the future of these credits.
           </p>
         </div>
         <div>
-          <img className={classes.tresuasuryMobileMargin} src={treasure} alt="treasure DIAT" />
+          <img className={classes.tresuasuryMobileMargin} src={coinsStack} alt="treasure DIAT" />
         </div>
       </div>
       <div
@@ -75,7 +72,7 @@ const InfoSections = () => {
         className={`${classes.sectionRight} ${showSectionTwo ? classes.fadeIn : ''}`}
       >
         <div>
-          <img className={classes.coinsStack} src={coinsStack} alt="DIAT backed" />
+          <img className={classes.coinsStack} src={treasure} alt="DIAT backed" />
         </div>
         <div>
           <div className={classes.sectionTitle}>
@@ -97,7 +94,7 @@ const InfoSections = () => {
         <div>
           <div className={classes.sectionTitle}>
             <p>03</p>
-            <h2>Ocean Solutions Company Portfolio</h2>
+            <h2>Off-Chain Investments</h2>
           </div>
           <p>
             Diatom will also invest in off-chain private companies whose mission is aligned with

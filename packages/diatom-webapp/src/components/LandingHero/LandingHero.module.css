@@ -5,6 +5,7 @@
   align-items: center;
 
   padding: 0 1rem 2rem;
+  margin-top:  -20px;
 
   height: calc(100vh - 88px);
 
@@ -20,14 +21,21 @@
     opacity: 1;
   }
 }
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .hero img {
   width: 100%;
-  max-width: 150px;
+  max-width: 120px;
   margin: 0 auto 0rem;
 }
 
 .hero h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: center;
   color: #053039;
   font-weight: 600;
@@ -36,13 +44,13 @@
 
 .hero p {
   font-size: 1rem;
-  line-height: 1.75rem;
   text-align: center;
   color: #4c4c4c;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
   padding: 0;
-
-  font-weight: 300;
+  font-weight: 400;
+  width:  800px;
+  max-width: 100%;
 }
 
 .buttonsContainer {
@@ -64,6 +72,7 @@
   background-color: #024452;
   color: #fff;
   border-radius: 4px;
+  font-weight:  600;
 
   text-decoration: none;
 
@@ -92,6 +101,14 @@
   .hero img {
     max-width: 150px;
     margin-bottom: 0;
+  }
+
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.3rem;
   }
 
   .buttonsContainer a {
