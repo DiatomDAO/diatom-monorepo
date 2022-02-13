@@ -138,12 +138,7 @@ const NavBar = () => {
                 ></path>
               </svg>
             </Nav.Link>
-            {/* )}
-            <Nav.Link href={mediumURL} target="_blank" className={classes.whalezsNavLink}>
-              Medium
-            </Nav.Link>
-            */}
-            {activeAccount && connectedContent}
+            {/* {activeAccount && connectedContent} */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
