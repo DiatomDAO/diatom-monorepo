@@ -26,6 +26,10 @@ const NavBar = () => {
   const discordURL = externalURL(ExternalURL.discord);
   const mediumURL = externalURL(ExternalURL.medium);
 
+  const launchDate = 1644868800
+  let now = Math.floor(Date.now() / 1000)
+  const launched = now >= launchDate
+
   // const stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
   // const history = useHistory();
   // const treasuryBalance = useEtherBalance(config.addresses.whalezsDaoExecutor);
@@ -96,12 +100,20 @@ const NavBar = () => {
           )}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
-            <Nav.Link href="https://app.diatom.fund/#/dashboard" className={classes.whalezsNavLink}>
-              Dashboard
-            </Nav.Link>
-            <Nav.Link href="https://app.diatom.fund/#/bond" className={classes.whalezsNavLink}>
-              Buy $DIAT
-            </Nav.Link>
+            {launched ? (
+              <>
+                <Nav.Link href="https://app.diatom.fund/" className={classes.whalezsNavLink}>
+                  Dashboard
+                </Nav.Link>
+                <Nav.Link href="https://app.diatom.fund/#/bond" className={classes.whalezsNavLink}>
+                  Buy $DIAT
+                </Nav.Link>
+              </>
+            ) : (
+              <Nav.Link href="/#investments" className={classes.whalezsNavLink}>
+                Investment Thesis
+              </Nav.Link>
+            )}
             <Nav.Link href="/auction" className={classes.whalezsNavLink}>
               Whalez NFT
             </Nav.Link>
@@ -109,9 +121,12 @@ const NavBar = () => {
             <Nav.Link href="/auction" className={classes.whalezsNavLink}>
               Docs
             </Nav.Link>
-            */}
             <Nav.Link href="/auction" className={classes.whalezsNavLink}>
               Contact
+            </Nav.Link>
+            */}
+            <Nav.Link href={mediumURL} target="_blank" className={classes.whalezsNavLink}>
+              Medium
             </Nav.Link>
             <Nav.Link href={discordURL} target="_blank" className={classes.whalezsNavLink}>
               <svg

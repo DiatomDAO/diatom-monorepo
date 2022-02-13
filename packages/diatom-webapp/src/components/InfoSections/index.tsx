@@ -48,7 +48,7 @@ const InfoSections = () => {
   }, [isSectionOneVisible, isSectionTwoVisible, isSectionThreeVisible, isSectionFourVisible]);
 
   return (
-    <div id="works" className={classes.infoSections}>
+    <div id="investments" className={classes.infoSections}>
       <h1>Investments</h1>
       <div
         ref={sectionOneRef}
