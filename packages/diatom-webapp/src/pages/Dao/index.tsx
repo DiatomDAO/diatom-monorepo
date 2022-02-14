@@ -3,6 +3,7 @@ import DiatomInfo from '../../components/DiatomInfo';
 import LandingHero from '../../components/LandingHero';
 import Roadmap from '../../components/Roadmap';
 import Tokenomics from '../../components/Tokenomics';
+import UpcomingPopup from '../../components/UpcomingPopup';
 
 const DaoPage = () => (
   <div>
@@ -11,6 +12,7 @@ const DaoPage = () => (
     <Tokenomics />
     <AdivisorsSection />
     <Roadmap />
+    <UpcomingPopup />
   </div>
   );
 
