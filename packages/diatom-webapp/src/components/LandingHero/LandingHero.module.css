@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   height: calc(100vh - 88px);
-  padding: 0 1rem 2rem;
+  padding: 0 0 0 1rem;
 }
 
 .hero {
@@ -106,15 +106,22 @@
   display: none;
 }
 
-.linkIcon {
-  width: 30px;
+.videoContainer {
+  width:70%;
+  height: 100%;
+  background: url("./assets/plasticBarrier.jpg") no-repeat;
+  background-size: cover;
+  background-position: right center;
+
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
 }
 
 @media (min-width: 650px) {
-  .hero {
+  .heroContainer {
     padding-left: 10%;
     height: calc(100vh - 74px);
   }
+
   .hero img {
     max-width: 120px;
     margin-bottom: 0;
