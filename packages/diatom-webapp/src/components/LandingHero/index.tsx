@@ -7,7 +7,7 @@ const LandingHero = () => {
   // const twitterURL = externalURL(ExternalURL.twitter);
   // const discordURL = externalURL(ExternalURL.discord);
 
-  const launchDate = 1644868800
+  const launchDate = 1645041600
   let now = Math.floor(Date.now() / 1000)
   const launched = now >= launchDate
 
