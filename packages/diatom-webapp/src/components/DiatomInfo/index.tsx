@@ -1,6 +1,6 @@
 import WhatIsDiatom from "./WhatIsDiatom";
 import Lungs from "./Lungs";
-import PlasticCredits from "./PlasticCredits";
+// import PlasticCredits from "./PlasticCredits";
 import ArticlesSection from "../ArticlesSection";
 import InfoSections from "../InfoSections";
 
