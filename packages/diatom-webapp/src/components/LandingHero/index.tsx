@@ -7,6 +7,10 @@ const LandingHero = () => {
   // const twitterURL = externalURL(ExternalURL.twitter);
   // const discordURL = externalURL(ExternalURL.discord);
 
+  // const launchDate = 1644868800
+  // let now = Math.floor(Date.now() / 1000)
+  // const launched = now >= launchDate
+
   return (
     <div className={classes.heroContainer}>
       <div className={classes.hero}>
