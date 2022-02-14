@@ -15,10 +15,10 @@ const LandingHero = () => {
     <div className={classes.hero}>
       <img src={logo} alt="Diatom DAO logo" />
       <h2>The DAO for Ocean Protection</h2>
-      <p>We build & invest in data-driven solutions for ocean conservation, starting with the first tokenized Plastic Removal Credit (PRC)</p>
+      <p>We build &amp; invest in data-driven solutions for ocean conservation, starting with the first tokenized Plastic Removal Credit (PRC)</p>
       {launched && (
         <div className={`${classes.buttonsContainer}`}>
-          <a target="_blank" href="https://app.diatom.fund">
+          <a target="_blank" href="https://app.diatom.fund" rel="noreferrer">
             Enter the App
           </a>
         </div>
