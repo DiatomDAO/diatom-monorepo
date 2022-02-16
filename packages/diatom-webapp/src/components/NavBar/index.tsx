@@ -106,9 +106,11 @@ const NavBar = () => {
                 <Nav.Link href="https://app.diatom.fund/" className={classes.whalezsNavLink}>
                   Dashboard
                 </Nav.Link>
+                {/*}
                 <Nav.Link href="https://app.diatom.fund/#/bond" className={classes.whalezsNavLink}>
                   Buy $DIAT
                 </Nav.Link>
+                */}
               </>
             ) : (
               <Nav.Link href="/#investments" className={classes.whalezsNavLink}>
