@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useEthers } from '@usedapp/core';
 import { useAppDispatch } from './hooks';
 import { setActiveAccount } from './state/slices/account';
@@ -25,6 +25,15 @@ function App() {
   const { account } = useEthers();
   const dispatch = useAppDispatch();
 
+  const [shouldLoad, setShouldLoad] = useState(false)
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path.includes('archive') || path.includes('auction')) {
+      setShouldLoad(true);
+    }
+  }, []);
+
   useEffect(() => {
     // Local account array updated
     dispatch(setActiveAccount(account));
@@ -43,7 +52,7 @@ function App() {
         />
       )} */}
       <BrowserRouter>
-        <NavBar />
+        {shouldLoad && <NavBar />}
         <Switch>
           <Route exact path="/archive/" component={DaoPage} />
           <Route
@@ -68,7 +77,7 @@ function App() {
           />
           {/* <Route component={NotFoundPage} /> */}
         </Switch>
-        <Footer />
+        {shouldLoad && <Footer />}
       </BrowserRouter>
     </div>
   );
