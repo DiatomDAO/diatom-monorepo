@@ -11,7 +11,7 @@ import ShortAddress from '../ShortAddress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { buildEtherscanTxLink } from '../../utils/etherscan';
-import { generateIpfsRestUrl, generatePinataRestUrl } from '../../utils/ipfs';
+import { generatePinataRestUrl } from '../../utils/ipfs';
 import config from '../../config';
 
 const formatter = (amount: number | bigint) =>
@@ -41,7 +41,7 @@ const Leaderboard = () => {
         nonDaoAuctions.map(async ({ activeAuction, bids }) => {
           const metadataURI =
             genericMetadataURI + '/' + BigNumber.from(activeAuction?.whaleId).toNumber();
-          const metadata = await axios.get<IWhaleToken>(generateIpfsRestUrl(metadataURI));
+          const metadata = await axios.get<IWhaleToken>(generatePinataRestUrl(metadataURI));
           const { name, image } = metadata.data;
           const eth = Number(utils.formatEther(activeAuction!.amount!));
           const totalEstPlasticRemoved = formatter(eth * currentEtherPrice * 0.65);

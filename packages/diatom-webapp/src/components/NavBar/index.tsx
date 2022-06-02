@@ -27,7 +27,7 @@ const NavBar = () => {
   const discordURL = externalURL(ExternalURL.discord);
   const mediumURL = externalURL(ExternalURL.medium);
 
-  const launchDate = 1644868800
+  const launchDate = 1645041600
   let now = Math.floor(Date.now() / 1000)
   const launched = now >= launchDate
 
@@ -91,7 +91,7 @@ const NavBar = () => {
       )} */}
       <Navbar className={classes.mainNav} expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to="/" className={classes.navBarBrand}>
+          <Navbar.Brand as={Link} to="/archive" className={classes.navBarBrand}>
             <strong>Diatom</strong> DAO
           </Navbar.Brand>
           {Number(CHAIN_ID) !== 1 && (
@@ -106,16 +106,18 @@ const NavBar = () => {
                 <Nav.Link href="https://app.diatom.fund/" className={classes.whalezsNavLink}>
                   Dashboard
                 </Nav.Link>
+                {/*}
                 <Nav.Link href="https://app.diatom.fund/#/bond" className={classes.whalezsNavLink}>
                   Buy $DIAT
                 </Nav.Link>
+                */}
               </>
             ) : (
               <Nav.Link href="/#investments" className={classes.whalezsNavLink}>
                 Investment Thesis
               </Nav.Link>
             )}
-            <Nav.Link href="/auction" className={classes.whalezsNavLink}>
+            <Nav.Link href="/archive/auction" className={classes.whalezsNavLink}>
               Whalez NFT
             </Nav.Link>
             {/*}
