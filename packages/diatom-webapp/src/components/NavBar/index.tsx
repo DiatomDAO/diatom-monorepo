@@ -91,7 +91,7 @@ const NavBar = () => {
       )} */}
       <Navbar className={classes.mainNav} expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to="/" className={classes.navBarBrand}>
+          <Navbar.Brand as={Link} to="/archive" className={classes.navBarBrand}>
             <strong>Diatom</strong> DAO
           </Navbar.Brand>
           {Number(CHAIN_ID) !== 1 && (
@@ -117,7 +117,7 @@ const NavBar = () => {
                 Investment Thesis
               </Nav.Link>
             )}
-            <Nav.Link href="/auction" className={classes.whalezsNavLink}>
+            <Nav.Link href="/archive/auction" className={classes.whalezsNavLink}>
               Whalez NFT
             </Nav.Link>
             {/*}

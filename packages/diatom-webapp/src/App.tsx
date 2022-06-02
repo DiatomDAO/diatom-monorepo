@@ -12,7 +12,7 @@ import NavBar from './components/NavBar';
 // import NetworkAlert from './components/NetworkAlert';
 import Footer from './components/Footer';
 import AuctionPage from './pages/Auction';
-import NotFoundPage from './pages/NotFound';
+// import NotFoundPage from './pages/NotFound';
 // import { CHAIN_ID } from './config';
 import DaoPage from './pages/Dao';
 
@@ -45,22 +45,28 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route exact path="/" component={DaoPage} />
+          <Route exact path="/archive/" component={DaoPage} />
           <Route
             exact
             path="/auction/:id"
             render={props => <AuctionPage initialAuctionId={Number(props.match.params.id)} />}
           />
-          <Route exact path="/auction" component={AuctionPage} />
+          <Route exact path="/archive/auction" component={AuctionPage} />
           <Route
             exact
-            path="/music"
+            path="/archive/music"
             component={() => {
               window.location.replace('https://skiomusic.com/contest/diatom-dao-remix-contest');
               return null;
             }}
           />
-          <Route component={NotFoundPage} />
+          <Route
+            component={() => {
+              window.location.href = 'https://refunds.diatom.fund/';
+              return null;
+            }}
+          />
+          {/* <Route component={NotFoundPage} /> */}
         </Switch>
         <Footer />
       </BrowserRouter>
