@@ -25,7 +25,7 @@ function App() {
   const { account } = useEthers();
   const dispatch = useAppDispatch();
 
-  const [shouldLoad, setShouldLoad] = useState(false)
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
     const path = window.location.pathname;
@@ -69,12 +69,12 @@ function App() {
               return null;
             }}
           />
-          <Route
+          {/* <Route
             component={() => {
               window.location.href = 'https://refunds.diatom.fund/';
               return null;
             }}
-          />
+          /> */}
           {/* <Route component={NotFoundPage} /> */}
         </Switch>
         {shouldLoad && <Footer />}
